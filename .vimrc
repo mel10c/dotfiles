@@ -1,18 +1,18 @@
 
 "                    __  ____   ____     ________  __ ____   ____
 "                   |  \/  \ \ / /| \   / /_ _|  \/  |  _ \ / ___|
-"					| |\/| |\ V /  \ \ / / | || |\/| | |_) | |
-"					| |  | | | |    \ V /  | || |  | |  _ <| |___
-"					|_|  |_| |_|     \_/  |___|_|  |_|_| \_\\____|
-"			
-"							BY MELANEY ZHU
-"						     mel10njyhc@gmail.com
-"			
-"						       TABLE OF CONTENTS
-"					1. Plug-In ---------------------------- (~20)
-"					2. Plug-IN Congfigerations ------------ (~60)
-"					3. Editor Behaviors ------------------- (~560)
-"					4. Basic Mappings --------------------- (~620)
+"                   | |\/| |\ V /  \ \ / / | || |\/| | |_) | |
+"                   | |  | | | |    \ V /  | || |  | |  _ <| |___
+"                   |_|  |_| |_|     \_/  |___|_|  |_|_| \_\\____|
+" 
+"                               BY MELANEY ZHU
+"                            mel10njyhc@gmail.com
+" 
+"                               TABLE OF CONTENTS
+"                   1. Plug-In ---------------------------- (~20)
+"                   2. Plug-IN Congfigerations ------------ (~60)
+"                   3. Editor Behaviors ------------------- (~560)
+"                   4. Basic Mappings --------------------- (~620)
 
 
 
@@ -32,13 +32,20 @@ call plug#begin('$HOME/.config/nvim/plugged')
     Plug 'plasticboy/vim-markdown'  " Appearance - markdown syntax highlight
     Plug 'sheerun/vim-polyglot'	    " Appearance - language pack 
     Plug 'mhinz/vim-startify'	    " Appearance - startpage
-    Plug 'preservim/nerdtree'	    " Appearance - file tree for vim
     Plug 'airblade/vim-gitgutter'   " Appearance - git change in sidebar
+    "Plug 'akinsho/bufferline.nvim'  " Appearance - buffer styples
+    Plug 'kyazdani42/nvim-tree.lua' " Appearance - file tree for nvim
+    Plug 'preservim/nerdtree'	    " Appearance - file tree for vim
+    Plug 'nvim-lua/plenary.nvim'    " Appearance - luna plug
     Plug 'tiagofumo/vim-nerdtree-syntax-highlight'	" Appearance - file color
     Plug 'Xuyuanp/nerdtree-git-plugin'	" Appearance - file git icons
+    Plug 'nvim-telescope/telescope.nvim'        " Appearance - pop up fzf
+    Plug 'kyazdani42/nvim-web-devicons'         " Appearance - nvim icons
+    Plug 'lukas-reineke/indent-blankline.nvim'  " Appearance - indent line for nvm
+    "Plug 'norcalli/nvim-colorizer.lua'          " Appearance - color display
 
     Plug 'jiangmiao/auto-pairs'	    " Edit - auto pair
-    ""Plug 'dense-analysis/ale'	    " Edit - language server protocol
+    "Plug 'dense-analysis/ale'	    " Edit - language server protocol
     "Plug 'vim-syntastic/syntastic'  " Edit - error detector
     Plug 'dkarter/bullets.vim'	    " Edit - makes bullet easier
     Plug 'preservim/nerdcommenter'  " Edit - easier comment
@@ -48,6 +55,8 @@ call plug#begin('$HOME/.config/nvim/plugged')
     Plug 'gcmt/wildfire.vim'	    " Edit - easy seclection tool
     Plug 'tpope/vim-fugitive'	    " Edit - git tool
 	Plug 'vim-pandoc/vim-pandoc'	" Edit - syntax library
+    Plug 'KKPMW/vim-sendtowindow'   " Edit - send code to terminal
+    Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}  " Edit - R-environment
 	Plug 'vim-pandoc/vim-pandoc-syntax'			  " Edit - syntax highlight
 	Plug 'lervag/vimtex', {'tag': 'v1.6'}    	  " Edit - latex syntax support
     Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'} " Edit - clean latex
@@ -66,6 +75,7 @@ call plug#end()
 " ================================================================================
 set laststatus=2
 set noshowmode
+
 " itchyny/lightline.vim {{{
 let g:lightline = {
 \   'colorscheme': 'wombat',
@@ -137,14 +147,16 @@ function! LightlineLineinfo() abort
     if winwidth(0) < 86
         return ''
     endif
+    let l:word_count=wordcount().words
+    if has_key(wordcount(),'visual_words')
+        let l:word_count=wordcount().visual_words."/".wordcount().words " count selected words
+    else
+        let l:word_count=wordcount().cursor_words."/".wordcount().words " or shows words 'so far'
+    endif
 
-    let s:old_status = v:statusmsg
-    exe "silent normal g\<c-g>"
-    let s:word_count = str2nr(split(v:statusmsg)[11])
-    let v:statusmsg = s:old_status
     let l:current_line = printf('%-3s', line('.'))
     let l:max_line = printf('%-3s', line('$'))
-    let l:lineinfo = 'L' . l:current_line . '/' . l:max_line . ' W:'. s:word_count
+    let l:lineinfo = '⚑' . l:current_line . '/' . l:max_line . '   ⍵:' . l:word_count
     return l:lineinfo
 endfunction
 
@@ -206,7 +218,7 @@ endfunction
 
 function! LightlineFiletype() abort
     let l:icon = WebDevIconsGetFileTypeSymbol()
-    "return winwidth(0) > 86 ? (strlen(&filetype) ? &filetype . ' ' . l:icon : l:icon) : ''
+    ""return winwidth(0) > 86 ? (strlen(&filetype) ? &filetype . ' ' . l:icon : l:icon) : ''
     return winwidth(0) > 86 ? (l:icon) : ''
 endfunction
 
@@ -228,9 +240,6 @@ function! LightlineReload() abort
     call lightline#colorscheme()
     call lightline#update()
 endfunction
-function WordCount()
-	return g:word_count
-endfunction
 
 let g:lightline#trailing_whitespace#indicator = ''
 " }}}
@@ -240,7 +249,16 @@ let g:lightline#trailing_whitespace#indicator = ''
 " ================================================================================
 " set encoding=UTF-8
 let NERDTreeIgnore = ['\~$','\.pyc$','\*NTUSER*','\*ntuser*','\NTUSER.DAT','\ntuser.ini']
+let NERDTreeQuitOnOpen=1
 
+" ---------------------- ryanoasis/vim-devicons/nerdtree -------------------------
+" ================================================================================
+nnoremap <C-n> :NvimTreeToggle<CR>
+nnoremap <leader>r :NvimTreeRefresh<CR>
+nnoremap <leader>n :NvimTreeFindFile<CR>
+set termguicolors " this variable must be enabled for colors to be applied properly
+" a list of groups can be found at `:help nvim_tree_highlight`
+highlight NvimTreeFolderIcon guibg=blue
 
 " ---------------------------- RRethy/vim-illuminate -----------------------------
 " ================================================================================
@@ -252,14 +270,13 @@ function! StartifyEntryFormat()
     return 'WebDevIconsGetFileTypeSymbol(absolute_path) ." ". entry_path'
 endfunction
 
-
+ 
 function! s:center(lines) abort
   let longest_line   = max(map(copy(a:lines), 'strwidth(v:val)'))
   let centered_lines = map(copy(a:lines),
         \ 'repeat(" ", (&columns / 2) - (longest_line / 2)) . v:val')
   return centered_lines
 endfunction
-
 
 let s:header = [
       \ '',
@@ -322,18 +339,25 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
                 \ 'Unknown'   :'?',
                 \ }
 
+" ------------ nvim-lua/plenary.nvim & nvim-telescope/telescope.nvim -------------
+" ================================================================================
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
 
 " Edit configs
 " ----------------------------- dense-analysis/ale -------------------------------
 " ================================================================================
-let g:ale_sign_column_always = 1
-let g:ale_sign_error = '★'
-let g:ale_sign_warning = '⚠'
-highlight clear ALEErrorSign
-highlight clear ALEWarningSign
-let g:ale_set_highlights = 1
-let g:ale_disable_lsp = 1
-let b:ale_fixers = {'javascript': ['prettier', 'eslint']}
+"let g:ale_sign_column_always = 1
+"let g:ale_sign_error = '★'
+"let g:ale_sign_warning = '⚠'
+"highlight clear ALEErrorSign
+"highlight clear ALEWarningSign
+"let g:ale_set_highlights = 1
+"let g:ale_disable_lsp = 1
+"let b:ale_fixers = {'javascript': ['prettier', 'eslint']}
 
 " -------------------------- vim-syntastic/syntastic -----------------------------
 " ================================================================================
@@ -530,7 +554,6 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 " Add (Neo)Vim's native statusline support.
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
 " provide custom statusline: lightline.vim, vim-airline.
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Mappings for CoCList
 " Show all diagnostics.
@@ -564,14 +587,12 @@ set number
 set relativenumber
 set cursorcolumn
 set hidden
-set noexpandtab
 set expandtab
 set smarttab
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set autoindent
-set list
 set scrolloff=10
 set wrap
 set noshowmode
@@ -586,15 +607,13 @@ set visualbell
 set updatetime=100
 set nohlsearch
 set incsearch
-nnoremap <esc><esc> :silent! nohls<cr>
 set guioptions=
 set nofoldenable
 setlocal spell
 set spelllang=en_us
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
-" Theme
-"
+"Theme
 set background=dark
 colorscheme nord
 if has("gui_running")
@@ -626,6 +645,12 @@ noremap <silent> k gk
 noremap <silent> j gj
 noremap <silent> H 0
 noremap <silent> L $
+inoremap , ,<C-g>u
+inoremap . .<C-g>u
+inoremap $ $<C-g>u
+inoremap { }<C-g>u
+inoremap } }<C-g>u
+inoremap \ \<C-g>u
 " -------------------------- Insert Mode Emacs-style mapping ---------------------
 inoremap <C-a> <Home>
 inoremap <C-e> <End>
@@ -635,22 +660,14 @@ inoremap <C-b> <Left>
 inoremap <C-f> <Right>
 inoremap <C-d> <ESC>ls
 " ------------------------------------ Nagivation --------------------------------
-noremap <LEADER>k <C-w>k
-noremap <LEADER>j <C-w>j
-noremap <LEADER>h <C-w>h
-noremap <LEADER>l <C-w>l
 noremap W 5w
 noremap B 5b
 nnoremap n nzz
 nnoremap N Nzz
+nnoremap * *zz
 map <C-u> <C-u>zz
 map <C-d> <C-d>zz
-inoremap , ,<C-g>u
-inoremap . .<C-g>u
-inoremap $ $<C-g>u
-inoremap { }<C-g>u
-inoremap } }<C-g>u
-inoremap \ \<C-g>u
+map <C-o> <C-o>zz
 
 " ----------------------------- Screen Motion Remaps -----------------------------
 " split the screens to up (horizontal), down (horizontal), left (vertical), right (vertical)
@@ -658,16 +675,21 @@ noremap Sk :set nosplitbelow<CR>:split<CR>:set splitbelow<CR>
 noremap Sj :set splitbelow<CR>:split<CR>
 noremap Sh :set nosplitright<CR>:vsplit<CR>:set splitright<CR>
 noremap Sl :set splitright<CR>:vsplit<CR>
+map <LEADER>k <C-w>k
+map <LEADER>j <C-w>j
+map <LEADER>h <C-w>h
+map <LEADER>l <C-w>l
+map <LEADER>tk <C-w>t<C-W>K
+map <LEADER>th <C-w>t<C-W>H
 
 " Resize splits with arrow keys
 noremap <up> :res +5<CR>
 noremap <down> :res -5<CR>
 noremap <left> :vertical resize-5<CR>
 noremap <right> :vertical resize+5<CR>
+" Start terminals
+"map <leader>tr :new term://bash<CR>iR<CR><C-\><C-n><C-w>k
+map <leader>tp :term<CR>python3<CR>
 
-" find and replace
-noremap \s :%s//g<left><left>
-
-" Snippets
+" -------------------------------- Personal Snippits -----------------------------
 source /Users/melaneyzhu/dotfiles/_snippts.vim
-" add
