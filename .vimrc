@@ -1,5 +1,6 @@
 
-"					|  \/  \ \ / /| \   / /_ _|  \/  |  _ \ / ___|
+"                    __  ____   ____     ________  __ ____   ____
+"                   |  \/  \ \ / /| \   / /_ _|  \/  |  _ \ / ___|
 "					| |\/| |\ V /  \ \ / / | || |\/| | |_) | |
 "					| |  | | | |    \ V /  | || |  | |  _ <| |___
 "					|_|  |_| |_|     \_/  |___|_|  |_|_| \_\\____|
@@ -69,8 +70,8 @@ set noshowmode
 let g:lightline = {
 \   'colorscheme': 'wombat',
 \   'active': {
-\    'left' :[[ 'mode', 'paste' ],
-\             [ 'readonly', 'filename', 'modified' ]],
+\    'left' :[[ 'mode', 'paste' ], ['gitbranch', 'smarttabs'],
+\     [ 'readonly', 'filename', 'modified' ]],
 \    'right':[[ 'filetype', 'percent', 'lineinfo' ], [ 'cocstatus' ]]
 \   },
 \   'tabline': {
@@ -137,9 +138,13 @@ function! LightlineLineinfo() abort
         return ''
     endif
 
+    let s:old_status = v:statusmsg
+    exe "silent normal g\<c-g>"
+    let s:word_count = str2nr(split(v:statusmsg)[11])
+    let v:statusmsg = s:old_status
     let l:current_line = printf('%-3s', line('.'))
     let l:max_line = printf('%-3s', line('$'))
-    let l:lineinfo = 'L' . l:current_line . ' / ' . l:max_line
+    let l:lineinfo = 'L' . l:current_line . '/' . l:max_line . ' W:'. s:word_count
     return l:lineinfo
 endfunction
 
@@ -201,7 +206,8 @@ endfunction
 
 function! LightlineFiletype() abort
     let l:icon = WebDevIconsGetFileTypeSymbol()
-    return winwidth(0) > 86 ? (strlen(&filetype) ? &filetype . ' ' . l:icon : l:icon) : ''
+    "return winwidth(0) > 86 ? (strlen(&filetype) ? &filetype . ' ' . l:icon : l:icon) : ''
+    return winwidth(0) > 86 ? (l:icon) : ''
 endfunction
 
 function! String2()
@@ -221,6 +227,9 @@ function! LightlineReload() abort
     call lightline#init()
     call lightline#colorscheme()
     call lightline#update()
+endfunction
+function WordCount()
+	return g:word_count
 endfunction
 
 let g:lightline#trailing_whitespace#indicator = ''
@@ -350,7 +359,10 @@ let g:bullets_outline_levels = [ 'ROM', 'rom', 'ABC', 'abc', 'num', 'std-', 'std
 
 " -------------------------- preservim/nerdcommenter -----------------------------
 " ================================================================================
-map <D-/> <plug>NERDCommenterToggle
+map ++ <plug>NERDCommenterToggle
+if has("gui_running")
+    map <D-/> <plug>NERDCommenterToggle
+endif
 
 " ------------------------------ sirver/ultisnips --------------------------------
 " ================================================================================
@@ -582,17 +594,21 @@ set spelllang=en_us
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
 " Theme
+"
 set background=dark
-colorscheme onedark
+colorscheme nord
+if has("gui_running")
+    colorscheme onedark
+    hi CursorLineNr guibg=#434c5e guifg=white
+endif
 set t_Co=256
 set termguicolors " enable true colors support
 set guifont=Hack_Nerd_Font_Mono:h14
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_math = 0
 "hi LineNr guibg=#61afef
-hi CursorLineNr guibg=#434c5e guifg=white
-set cursorlineopt=number
 set cursorline
+hi CursorLineNr ctermbg=blue ctermfg=white
 
 
 
@@ -601,7 +617,7 @@ set cursorline
 " ================================================================================
 let mapleader=" "
 noremap <leader>q :q<CR>
-noremap <leader>s :w<CR>
+noremap <leader>w :w<CR>
 noremap <leader>s :source ~/.vimrc<CR>
 noremap <D-s> :w!<CR>
 nnoremap Y y$
