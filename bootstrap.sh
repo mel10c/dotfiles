@@ -1,5 +1,5 @@
 #!/bin/bash
-
+# By: gibfahn (https://github.com/gibfahn)
 # This script symlinks everything from $FROMPATH (default: ./dotfiles/) into
 # $TOPATH (default: $HOME). Anything that would be overwritten is copied into
 # $BACKUP (default: $TOPATH/backup/).
