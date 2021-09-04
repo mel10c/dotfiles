@@ -44,9 +44,6 @@ call plug#begin('$HOME/.config/nvim/plugged')
     Plug 'preservim/nerdtree'	    " Appearance - file tree for vim
     Plug 'nvim-lua/plenary.nvim'    " Appearance - luna plug
     Plug 'tiagofumo/vim-nerdtree-syntax-highlight'	" Appearance - file color
-    if has("gui)runnjign")
-        Plug 'nvim-telescope/telescope.nvim'    " Appearance - pop up fzf
-    endif
     Plug 'Xuyuanp/nerdtree-git-plugin'	" Appearance - file git icons
     Plug 'kyazdani42/nvim-web-devicons'         " Appearance - nvim icons
     Plug 'lukas-reineke/indent-blankline.nvim'  " Appearance - indent line for nvm
@@ -345,13 +342,6 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
                 \ 'Clean'     :'✔︎',
                 \ 'Unknown'   :'?',
                 \ }
-
-" ------------ nvim-lua/plenary.nvim & nvim-telescope/telescope.nvim -------------
-" ================================================================================
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " --------------------------- kevinhwang91/rnvimr --------------------------------
 " ================================================================================
