@@ -26,11 +26,11 @@ inoremap ,5 #####
 " Latex shortcut
 " === symbol ==
 inoremap inn \in
-inoremap cc \subseteq
-inoremap NN \cap
-inoremap UU \cup
-inoremap rarr \Rightarrow
-inoremap lrarr \Leftrightarrow
+inoremap \cc \subseteq
+inoremap \rarr \Rightarrow
+inoremap \lrarr \Leftrightarrow
+inoremap \N \cap
+inoremap \U \cup
 inoremap \O \emptyset
 inoremap \R \mathbb{R}
 inoremap \Q \mathbb{Q}
@@ -41,21 +41,21 @@ inoremap \es \exists
 inoremap \q \quad
 autocmd Filetype markdown,tex,latex inoremap == &=
 " === letters ==
-inoremap mcal \mathcal{}<Esc>F{a
-inoremap mb \mathbb{}<Esc>F{a
-inoremap xnn x_{n}
-inoremap ynn y_{n}
-inoremap xii x_{i}
-inoremap yii y_{i}
-inoremap xn1 x_{n+1}
-inoremap yn1 y_{n+1}
+inoremap \mcal \mathcal{}<Esc>F{a
+inoremap \mb \mathbb{}<Esc>F{a
+inoremap \xnn x_{n}
+inoremap \ynn y_{n}
+inoremap \xii x_{i}
+inoremap \yii y_{i}
+inoremap \xn1 x_{n+1}
+inoremap \yn1 y_{n+1}
 inoremap \al \alpha
 inoremap \ep \varepsilon
 inoremap \v \vec{}<Esc>F{a
 inoremap \conj \overline{}<Esc>F{a
 " === special forms ==
 inoremap __ _{}<Esc>i
-inoremap ^^ _{}<Esc>i
+inoremap ^^ ^{}<Esc>i
 inoremap \frac \frac{}{<++>}<Esc>F{hi
 inoremap \fun f: \R^{<++>} \to \R^{<++>}<Esc>Ffs
 inoremap \sq \sqrt{}<Esc>F{a

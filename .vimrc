@@ -1,68 +1,77 @@
-
-"                    __  ____   ____     ________  __ ____   ____
-"                   |  \/  \ \ / /| \   / /_ _|  \/  |  _ \ / ___|
-"                   | |\/| |\ V /  \ \ / / | || |\/| | |_) | |
-"                   | |  | | | |    \ V /  | || |  | |  _ <| |___
-"                   |_|  |_| |_|     \_/  |___|_|  |_|_| \_\\____|
-" 
-"                               BY MELANEY ZHU
-"                            mel10njyhc@gmail.com
-" 
+"
+"                    ██╗   ██╗██╗███╗   ███╗██████╗  ██████╗
+"                    ██║   ██║██║████╗ ████║██╔══██╗██╔════╝
+"                    ██║   ██║██║██╔████╔██║██████╔╝██║     
+"                    ╚██╗ ██╔╝██║██║╚██╔╝██║██╔══██╗██║     
+"                     ╚████╔╝ ██║██║ ╚═╝ ██║██║  ██║╚██████╗
+"                      ╚═══╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝ ╚═════╝
+"
+"                                BY MELANEY ZHU
+"                              mel10njyhc@gmail.com
+"                               github.com/mel10c
+"
 "                               TABLE OF CONTENTS
 "                   1. Plug-In ---------------------------- (~20)
-"                   2. Plug-IN Congfigerations ------------ (~60)
-"                   3. Editor Behaviors ------------------- (~560)
-"                   4. Basic Mappings --------------------- (~620)
-
-
-
+"                   2. Plug-In Configurations ------------- (~80)
+"                   3. Editor Behaviors ------------------- (~600)
+"                   4. Mappings --------------------------- (~660)
+"
 
 " ================================================================================
 " =================================== PLUG IN ====================================
 " ================================================================================
-
+" Some settings to make sure plug in work
+set nocompatible
+filetype on
+filetype indent on 
 filetype plugin on
+filetype plugin indent on
+
 call plug#begin('$HOME/.config/nvim/plugged')
 
     Plug 'itchyny/lightline.vim'    " Apperance - vim status line
+    Plug 'mhinz/vim-startify'	    " Appearance - startpage
+    Plug 'ryanoasis/vim-devicons'   " Appearance - icons
     Plug 'arcticicestudio/nord-vim' " Appearance - nord color theme
     Plug 'joshdick/onedark.vim'	    " Appearance - onedark color theme
-    Plug 'ryanoasis/vim-devicons'   " Appearance - icons
+    Plug 'junegunn/goyo.vim'        " Appearance - focus mode
     Plug 'RRethy/vim-illuminate'    " Appearance - highlight term under cursor
     Plug 'plasticboy/vim-markdown'  " Appearance - markdown syntax highlight
     Plug 'sheerun/vim-polyglot'	    " Appearance - language pack 
-    Plug 'mhinz/vim-startify'	    " Appearance - startpage
     Plug 'airblade/vim-gitgutter'   " Appearance - git change in sidebar
     "Plug 'akinsho/bufferline.nvim'  " Appearance - buffer styples
-    Plug 'kyazdani42/nvim-tree.lua' " Appearance - file tree for nvim
+    "Plug 'kyazdani42/nvim-tree.lua' " Appearance - file tree for nvim
     Plug 'preservim/nerdtree'	    " Appearance - file tree for vim
     Plug 'nvim-lua/plenary.nvim'    " Appearance - luna plug
     Plug 'tiagofumo/vim-nerdtree-syntax-highlight'	" Appearance - file color
+    if has("gui)runnjign")
+        Plug 'nvim-telescope/telescope.nvim'    " Appearance - pop up fzf
+    endif
     Plug 'Xuyuanp/nerdtree-git-plugin'	" Appearance - file git icons
-    Plug 'nvim-telescope/telescope.nvim'        " Appearance - pop up fzf
     Plug 'kyazdani42/nvim-web-devicons'         " Appearance - nvim icons
     Plug 'lukas-reineke/indent-blankline.nvim'  " Appearance - indent line for nvm
     "Plug 'norcalli/nvim-colorizer.lua'          " Appearance - color display
 
+    Plug 'preservim/tagbar'         " Edit - variables at side
     Plug 'jiangmiao/auto-pairs'	    " Edit - auto pair
     "Plug 'dense-analysis/ale'	    " Edit - language server protocol
     "Plug 'vim-syntastic/syntastic'  " Edit - error detector
     Plug 'dkarter/bullets.vim'	    " Edit - makes bullet easier
     Plug 'preservim/nerdcommenter'  " Edit - easier comment
-    Plug 'sirver/ultisnips'	    " Edit - text snippit
-    Plug 'easymotion/vim-easymotion'" Edit - motion movements
-    Plug 'tpope/vim-surround'	    " Edit - easy surround syntax change
+    Plug 'sirver/ultisnips'	        " Edit - text snippit
+    Plug 'tpope/vim-surround'	    " Edit - syntax change
     Plug 'gcmt/wildfire.vim'	    " Edit - easy seclection tool
     Plug 'tpope/vim-fugitive'	    " Edit - git tool
 	Plug 'vim-pandoc/vim-pandoc'	" Edit - syntax library
-    Plug 'KKPMW/vim-sendtowindow'   " Edit - send code to terminal
+    "Plug 'KKPMW/vim-sendtowindow'   " Edit - send code to terminal
+    Plug 'easymotion/vim-easymotion'              " Edit - motion movements
     Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}  " Edit - R-environment
 	Plug 'vim-pandoc/vim-pandoc-syntax'			  " Edit - syntax highlight
 	Plug 'lervag/vimtex', {'tag': 'v1.6'}    	  " Edit - latex syntax support
     Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'} " Edit - clean latex
     Plug 'dhruvasagar/vim-table-mode'	" Edit - easier tables
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}	" Edit - auto complition
     "Plug 'iamcco/markdown-preview.nvim'		" Edit - markdown preview
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}	" Edit - auto complition
 
 call plug#end()
 
@@ -76,13 +85,12 @@ call plug#end()
 set laststatus=2
 set noshowmode
 
-" itchyny/lightline.vim {{{
 let g:lightline = {
 \   'colorscheme': 'wombat',
 \   'active': {
-\    'left' :[[ 'mode', 'paste' ], ['gitbranch', 'smarttabs'],
+\    'left' :[[ 'mode', 'paste' ], ['gitbranch', 'smarttabs'], [ 'filetype' ],
 \     [ 'readonly', 'filename', 'modified' ]],
-\    'right':[[ 'filetype', 'percent', 'lineinfo' ], [ 'cocstatus' ]]
+\    'right':[[ 'percent', 'lineinfo' ], [ 'cocstatus' ]]
 \   },
 \   'tabline': {
 \     'left': [['explorer_pad'], ['buffers']],
@@ -113,7 +121,7 @@ let g:lightline = {
 \   'component_expand': {
 \     'buffers': 'lightline#bufferline#buffers',
 \     'smarttabs': 'SmartTabsIndicator',
-\     'trailing': 'lightline#trailing_whitespace#component'
+\     'trailing': ''
 \   },
 \   'component_type': {
 \     'buffers': 'tabsel',
@@ -156,7 +164,7 @@ function! LightlineLineinfo() abort
 
     let l:current_line = printf('%-3s', line('.'))
     let l:max_line = printf('%-3s', line('$'))
-    let l:lineinfo = '⚑' . l:current_line . '/' . l:max_line . '   ⍵:' . l:word_count
+    let l:lineinfo = '⍳:' . l:current_line . '/' . l:max_line . '   ⍵:' . l:word_count
     return l:lineinfo
 endfunction
 
@@ -185,7 +193,7 @@ function! LightlineFullname() abort
 endfunction
 
 function! LightlineModified() abort
-    return &modified ? '●' : ''
+    return &modified ? '⚑' : ''
 endfunction
 
 function! LightlineMode() abort
@@ -240,10 +248,7 @@ function! LightlineReload() abort
     call lightline#colorscheme()
     call lightline#update()
 endfunction
-
-let g:lightline#trailing_whitespace#indicator = ''
 " }}}
-
 
 " ---------------------- ryanoasis/vim-devicons/nerdtree -------------------------
 " ================================================================================
@@ -253,7 +258,7 @@ let NERDTreeQuitOnOpen=1
 
 " ---------------------- ryanoasis/vim-devicons/nerdtree -------------------------
 " ================================================================================
-nnoremap <C-n> :NvimTreeToggle<CR>
+nnoremap TT :NvimTreeToggle<CR>
 nnoremap <leader>r :NvimTreeRefresh<CR>
 nnoremap <leader>n :NvimTreeFindFile<CR>
 set termguicolors " this variable must be enabled for colors to be applied properly
@@ -271,21 +276,21 @@ function! StartifyEntryFormat()
 endfunction
 
  
-function! s:center(lines) abort
-  let longest_line   = max(map(copy(a:lines), 'strwidth(v:val)'))
-  let centered_lines = map(copy(a:lines),
-        \ 'repeat(" ", (&columns / 2) - (longest_line / 2)) . v:val')
-  return centered_lines
-endfunction
+"function! s:center(lines) abort
+  "let longest_line   = max(map(copy(a:lines), 'strwidth(v:val)'))
+  "let centered_lines = map(copy(a:lines),
+        "\ 'repeat(" ", (&columns / 2) - (longest_line / 2)) . v:val')
+  "return centered_lines
+"endfunction
 
 let s:header = [
       \ '',
 	  \ "  ",
-  	  \ '╻ ╻   ╻   ┏┳┓',
-  	  \ '┃┏┛   ┃   ┃┃┃',
-  	  \ '┗┛    ╹   ╹ ╹',
-  	  \ '',
-      \ ' [ MELANEY ]',
+  	  \ '                       ╻ ╻   ╻   ┏┳┓',
+  	  \ '                       ┃┏┛   ┃   ┃┃┃',
+  	  \ '                       ┗┛    ╹   ╹ ╹',
+  	  \ '                       ',
+      \ '                        [ MELANEY ]',
       \ '',
       \ ]
 
@@ -293,8 +298,10 @@ let s:footer = [
       \ '',
       \ ]
 
-let g:startify_custom_header = s:center(s:header)
-let g:startify_custom_footer = s:center(s:footer)
+"let g:startify_custom_header = s:center(s:header)
+"let g:startify_custom_footer = s:center(s:footer)
+let g:startify_custom_header = s:header
+let g:startify_custom_footer = s:footer
 
 let g:startify_lists = [
           \ { 'type': 'files',     'header': ['   Recent Files']            },
@@ -346,8 +353,18 @@ nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
+" --------------------------- kevinhwang91/rnvimr --------------------------------
+" ================================================================================
+let g:rnvimr_ex_enable = 1
+
+nmap <leader>f :RnvimrToggle<CR>
+
 
 " Edit configs
+" ----------------------------- 'preservim/tagbar' -------------------------------
+" ================================================================================
+nmap tb :TagbarToggle<CR>
+
 " ----------------------------- dense-analysis/ale -------------------------------
 " ================================================================================
 "let g:ale_sign_column_always = 1
@@ -380,6 +397,8 @@ let g:bullets_enabled_file_types = [
     \]
 "let g:bullets_set_mappings = 0 " default = 1
 let g:bullets_outline_levels = [ 'ROM', 'rom', 'ABC', 'abc', 'num', 'std-', 'std*', 'std+' ]
+inoremap <C-r> <C-o>:BulletPromote<cr>
+"inoremap <C-t> <C-o>:BulletPromote<cr> default
 
 " -------------------------- preservim/nerdcommenter -----------------------------
 " ================================================================================
@@ -397,6 +416,7 @@ let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 " ----------------- lervag/vimtex & KeitaNakamura/tex-conceal.vim ----------------
 " ================================================================================
 let g:tex_flavor='latex'
+let g:vimtex_view_method='general'
 let g:vimtex_quickfix_mode=0
 
 set conceallevel=2
@@ -445,19 +465,19 @@ set signcolumn=yes
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+"inoremap <silent><expr> <TAB>
+      "\ pumvisible() ? "\<C-n>" :
+      "\ <SID>check_back_space() ? "\<TAB>" :
+      "\ coc#refresh()
+"inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
+"function! s:check_back_space() abort
+  "let col = col('.') - 1
+  "return !col || getline('.')[col - 1]  =~# '\s'
+"endfunction
 
 " Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-y> coc#refresh()
+"inoremap <silent><expr> <c-y> coc#refresh()
 
 " Make <CR> auto-select the first completion item and notify coc.nvim to
 " format on enter, <cr> could be remapped by other vim plugin
@@ -559,26 +579,26 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 " Show all diagnostics.
 nnoremap <silent><nowait> <space>d  :<C-u>CocList diagnostics<cr>
 " Manage extensions.
-nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
+"nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
 " Show commands.
-nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
+"nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
 " Find symbol of current document.
-nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
+"nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
 " Search workspace symbols.
-nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
+"nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
 " Do default action for next item.
-nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
+"nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 " Do default action for previous item.
-nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
+"nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
-nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+"nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 let g:coc_global_extensions = ['coc-json', 'coc-vimlsp', 'coc-vimtex', 'coc-texlab']
 
 " ================================================================================
 " ============================== EDITOR BEHAVIOR =================================
 " ================================================================================
-
+set mouse=a
 set autochdir
 set syntax
 set exrc
@@ -593,7 +613,11 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set autoindent
+set list
 set scrolloff=10
+set tw=0
+set indentexpr=
+set backspace=indent,eol,start
 set wrap
 set noshowmode
 set showcmd
@@ -629,6 +653,10 @@ let g:vim_markdown_math = 0
 set cursorline
 hi CursorLineNr ctermbg=blue ctermfg=white
 
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_SR = "\<Esc>]50;CursorShape=2\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+
 
 
 " ================================================================================
@@ -641,6 +669,8 @@ noremap <leader>s :source ~/.vimrc<CR>
 noremap <D-s> :w!<CR>
 nnoremap Y y$
 vnoremap Y "+y
+"nnoremap ; /\(\<\w\+\>\)\_s*\l
+"vnoremap ; /\(\<\w\+\>\)\_s*\l
 noremap <silent> k gk
 noremap <silent> j gj
 noremap <silent> H 0
@@ -693,3 +723,4 @@ map <leader>tp :term<CR>python3<CR>
 
 " -------------------------------- Personal Snippits -----------------------------
 source /Users/melaneyzhu/dotfiles/_snippts.vim
+
