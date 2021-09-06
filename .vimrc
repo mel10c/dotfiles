@@ -636,7 +636,8 @@ if has("gui_running")
 endif
 set t_Co=256
 set termguicolors " enable true colors support
-set guifont=Hack_Nerd_Font_Mono:h14
+"set guifont=Hack_Nerd_Font_Mono:h14
+set guifont=MesloLGS_NF:h14
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_math = 0
 "hi LineNr guibg=#61afef
