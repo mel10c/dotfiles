@@ -38,7 +38,7 @@ filetype plugin indent on
 call plug#begin('$HOME/.config/nvim/plugged')
 
     Plug 'itchyny/lightline.vim'    " Apperance - vim status line
-    Plug 'mhinz/vim-startify'	    " Appearance - startpage
+    Plug 'mhinz/vim-startify', 	    " Appearance - startpage
     Plug 'ryanoasis/vim-devicons'   " Appearance - icons
     Plug 'arcticicestudio/nord-vim' " Appearance - nord color theme
     Plug 'joshdick/onedark.vim'	    " Appearance - onedark color theme
@@ -165,12 +165,14 @@ function! LightlineLineinfo() abort
     if has_key(wordcount(),'visual_words')
         let l:word_count=wordcount().visual_words."/".wordcount().words " count selected words
     else
-        let l:word_count=wordcount().cursor_words."/".wordcount().words " or shows words 'so far'
+        "let l:word_count=wordcount().cursor_words."/".wordcount().words " or shows words 'so far'
+        let l:word_count=wordcount().words " or shows words 'so far'
     endif
 
     let l:current_line = printf('%-3s', line('.'))
     let l:max_line = printf('%-3s', line('$'))
-    let l:lineinfo = '⍳:' . l:current_line . '/' . l:max_line . '   ⍵:' . l:word_count
+    "let l:lineinfo = '⍳:' . l:current_line . '/' . l:max_line . '   ⍵:' . l:word_count
+    let l:lineinfo = '⍳:' . l:max_line . '   ⍵:' . l:word_count
     return l:lineinfo
 endfunction
 
@@ -281,22 +283,37 @@ function! StartifyEntryFormat()
     return 'WebDevIconsGetFileTypeSymbol(absolute_path) ." ". entry_path'
 endfunction
 
- 
-"function! s:center(lines) abort
-  "let longest_line   = max(map(copy(a:lines), 'strwidth(v:val)'))
-  "let centered_lines = map(copy(a:lines),
-        "\ 'repeat(" ", (&columns / 2) - (longest_line / 2)) . v:val')
-  "return centered_lines
-"endfunction
+function! s:center(lines) abort
+  let longest_line   = max(map(copy(a:lines), 'strwidth(v:val)'))
+  let centered_lines = map(copy(a:lines),
+        \ 'repeat(" ", (&columns / 2) - (longest_line / 2)) . v:val')
+  return centered_lines
+endfunction
+
+function! s:truncate_filename(fname)
+  let fname = fnamemodify(a:fname, ':~:p')
+  let maxchars = winwidth(0) - (g:startify_padding_left * 2 + 6)
+  if strdisplaywidth(fname) - 1 > maxchars
+    while strdisplaywidth(fname) > maxchars
+      let fname = substitute(fname, '.$', '', '')
+    endwhile
+    let fname = fname . '>'
+  endif
+  return fname
+endfunction
+
+let g:startify_transformations = [
+  \ ['.*', function('s:truncate_filename')],
+  \ ]
 
 let s:header = [
       \ '',
-	  \ "  ",
-  	  \ '                       ╻ ╻   ╻   ┏┳┓',
-  	  \ '                       ┃┏┛   ┃   ┃┃┃',
-  	  \ '                       ┗┛    ╹   ╹ ╹',
-  	  \ '                       ',
-      \ '                        [ MELANEY ]',
+      \ '',
+  	  \ '╻ ╻   ╻   ┏┳┓',
+  	  \ '┃┏┛   ┃   ┃┃┃',
+  	  \ '┗┛    ╹   ╹ ╹',
+  	  \ '',
+      \ ' [ MELANEY ]',
       \ '',
       \ ]
 
@@ -304,15 +321,15 @@ let s:footer = [
       \ '',
       \ ]
 
-"let g:startify_custom_header = s:center(s:header)
-"let g:startify_custom_footer = s:center(s:footer)
-let g:startify_custom_header = s:header
-let g:startify_custom_footer = s:footer
+let g:startify_custom_header = s:center(s:header)
+let g:startify_custom_footer = s:center(s:footer)
+"let g:startify_custom_header = s:header
+"let g:startify_custom_footer = s:footer
 
 let g:startify_lists = [
-          \ { 'type': 'files',     'header': ['   Recent Files']            },
-          \ { 'type': 'dir',       'header': ['   Current Directory '. getcwd()] },
-          \ { 'type': 'sessions',  'header': ['   Sessions']       },
+          \ { 'type': 'files',     'header': s:center(['Recent Files'])            },
+          \ { 'type': 'dir',       'header': s:center([''. getcwd()]) },
+          \ { 'type': 'sessions',  'header': s:center(['Sessions'])       },
           \ ] 
 
 let g:startify_change_to_vcs_root = 1
@@ -320,10 +337,11 @@ let g:startify_change_to_dir = 1
 let g:startify_enable_special = 0
 let g:startify_fortune_use_unicode = 1
 let g:startify_relative_path = 1
-let g:startify_files_number           = 10
-let g:startify_session_persistence    = 1
+let g:startify_files_number           = 20
+let g:startify_session_persistence    = 2
+let g:startify_padding_left = 20
 map gs :Startify<CR>
-map gv :e ~/.vimrc<CR>
+map gv :e ~/.config/nvim/init.vim<CR>
 
 
 " ----------------------------- preservim/nerdtree -------------------------------
@@ -487,8 +505,8 @@ set signcolumn=yes
 
 " Make <CR> auto-select the first completion item and notify coc.nvim to
 " format on enter, <cr> could be remapped by other vim plugin
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+"inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              "\: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
@@ -599,7 +617,12 @@ nnoremap <silent><nowait> <space>d  :<C-u>CocList diagnostics<cr>
 " Resume latest coc list.
 "nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
-let g:coc_global_extensions = ['coc-json', 'coc-vimlsp', 'coc-vimtex', 'coc-texlab']
+let g:coc_global_extensions = [ 
+            \ 'coc-json', 
+            \ 'coc-vimlsp', 
+            \ 'coc-vimtex',
+            \ 'coc-texlab', 
+            \ 'coc-translator']
 
 " ================================================================================
 " ============================== EDITOR BEHAVIOR =================================
@@ -671,7 +694,7 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 let mapleader=" "
 noremap <leader>q :q<CR>
 noremap <leader>w :w<CR>
-noremap <leader>s :source ~/.vimrc<CR>
+noremap <leader>s :source ~/.config/nvim/init.vim<CR>
 noremap <D-s> :w!<CR>
 nnoremap Y y$
 vnoremap Y "+y
@@ -728,5 +751,5 @@ noremap <right> :vertical resize+5<CR>
 map <leader>tp :term<CR>python3<CR>
 
 " -------------------------------- Personal Snippits -----------------------------
-source /Users/melaneyzhu/dotfiles/_snippts.vim
+source /home/melaney/dotfiles/_snippts.vim
 
