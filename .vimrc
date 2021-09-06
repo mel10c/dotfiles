@@ -156,12 +156,12 @@ function! LightlineLineinfo() abort
     if has_key(wordcount(),'visual_words')
         let l:word_count=wordcount().visual_words."/".wordcount().words " count selected words
     else
-        let l:word_count=wordcount().cursor_words."/".wordcount().words " or shows words 'so far'
+        let l:word_count=wordcount().words " or shows words 'so far'
     endif
 
     let l:current_line = printf('%-3s', line('.'))
     let l:max_line = printf('%-3s', line('$'))
-    let l:lineinfo = '⍳:' . l:current_line . '/' . l:max_line . '   ⍵:' . l:word_count
+    let l:lineinfo = '⍳:'  . l:max_line . '   ⍵:' . l:word_count
     return l:lineinfo
 endfunction
 
@@ -273,21 +273,37 @@ function! StartifyEntryFormat()
 endfunction
 
  
-"function! s:center(lines) abort
-  "let longest_line   = max(map(copy(a:lines), 'strwidth(v:val)'))
-  "let centered_lines = map(copy(a:lines),
-        "\ 'repeat(" ", (&columns / 2) - (longest_line / 2)) . v:val')
-  "return centered_lines
-"endfunction
+function! s:center(lines) abort
+  let longest_line   = max(map(copy(a:lines), 'strwidth(v:val)'))
+  let centered_lines = map(copy(a:lines),
+        \ 'repeat(" ", (&columns / 2) - (longest_line / 2)) . v:val')
+  return centered_lines
+endfunction
+
+function! s:truncate_filename(fname)
+  let fname = fnamemodify(a:fname, ':~:p')
+  let maxchars = winwidth(0) - (g:startify_padding_left * 2 + 6)
+  if strdisplaywidth(fname) - 1 > maxchars
+    while strdisplaywidth(fname) > maxchars
+      let fname = substitute(fname, '.$', '', '')
+    endwhile
+    let fname = fname . '>'
+  endif
+  return fname
+endfunction
+
+let g:startify_transformations = [
+  \ ['.*', function('s:truncate_filename')],
+  \ ]
 
 let s:header = [
       \ '',
-	  \ "  ",
-  	  \ '                       ╻ ╻   ╻   ┏┳┓',
-  	  \ '                       ┃┏┛   ┃   ┃┃┃',
-  	  \ '                       ┗┛    ╹   ╹ ╹',
-  	  \ '                       ',
-      \ '                        [ MELANEY ]',
+	  \ "",
+  	  \ '╻ ╻   ╻   ┏┳┓',
+  	  \ '┃┏┛   ┃   ┃┃┃',
+  	  \ '┗┛    ╹   ╹ ╹',
+  	  \ '',
+      \ ' [ MELANEY ]',
       \ '',
       \ ]
 
@@ -295,15 +311,15 @@ let s:footer = [
       \ '',
       \ ]
 
-"let g:startify_custom_header = s:center(s:header)
-"let g:startify_custom_footer = s:center(s:footer)
-let g:startify_custom_header = s:header
-let g:startify_custom_footer = s:footer
+let g:startify_custom_header = s:center(s:header)
+let g:startify_custom_footer = s:center(s:footer)
+"let g:startify_custom_header = s:header
+"let g:startify_custom_footer = s:footer
 
 let g:startify_lists = [
-          \ { 'type': 'files',     'header': ['   Recent Files']            },
-          \ { 'type': 'dir',       'header': ['   Current Directory '. getcwd()] },
-          \ { 'type': 'sessions',  'header': ['   Sessions']       },
+          \ { 'type': 'files',     'header': s:center(['Recent Files'])            },
+          \ { 'type': 'dir',       'header': s:center([getcwd()]) },
+          \ { 'type': 'sessions',  'header': s:center(['   Sessions'])       },
           \ ] 
 
 let g:startify_change_to_vcs_root = 1
@@ -313,6 +329,7 @@ let g:startify_fortune_use_unicode = 1
 let g:startify_relative_path = 1
 let g:startify_files_number           = 10
 let g:startify_session_persistence    = 1
+let g:startify_padding_left = 20
 map gs :Startify<CR>
 map gv :e ~/.vimrc<CR>
 
