@@ -56,7 +56,7 @@
     "diagnostic.checkCurrentLine": true,
     "diagnostic.virtualTextPrefix": " ❯❯❯ ",
     "diagnostic.virtualText": true,
-    "coteLens.enable": true,
+    "diagnostic.messageTarget": "echo",
     "list.previewHighlightGroup": "Statement",
     "importCost.bundleSizeDecoration": "both",
     "importCost.typescriptExtensions": [
@@ -87,7 +87,7 @@
         "latex"
     ],
     "yaml.format.enable": true,
-    "signature.target": "float",
+    //"signature.target": "float",
     "yank.enableCompletion": false,
     "typescript.suggestionActions.enabled": true,
     "typescript.format.enabled": true,
@@ -227,15 +227,22 @@
         "eelixir": "mix_format"
     },
     "languageserver": {
-        "latex": {
-            "command": "/usr/bin/texlab",
-            "filetypes": [
-                "tex",
-                "bib",
-                "plaintex",
-                "context"
-            ]
-        },
+        "R": {
+            "command": "/usr/bin/R",
+            "args": ["--salve", "e", "languageserver::run()"],
+            "filetypes": [ "r"] 
+        }
+    }
+    //"languageserver": {
+        //"latex": {
+            //"command": "/usr/bin/texlab",
+            //"filetypes": [
+                //"tex",
+                //"bib",
+                //"plaintex",
+                //"context"
+            //]
+        //},
         "lua": {
             "command": "lua-lsp",
             "filetypes": [
@@ -294,7 +301,6 @@
             "initializationOptions": {
                 "cache": {
                     "directory": "/tmp/ccls"
-                }
             }
         }
     }

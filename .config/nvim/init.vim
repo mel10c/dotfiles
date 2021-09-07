@@ -1,11 +1,3 @@
-"set runtimepath^=~/.vim runtimepath+=~/.vim/after
-    "let &packpath = &runtimepath
-    "source ~/.vimrc
-
-"call plug#begin('$HOME/.config/nvim/plugged')
-"call plug#end()
-
-
 "
 "                    ██╗   ██╗██╗███╗   ███╗██████╗  ██████╗
 "                    ██║   ██║██║████╗ ████║██╔══██╗██╔════╝
@@ -37,9 +29,14 @@ filetype plugin indent on
 
 call plug#begin('$HOME/.config/nvim/plugged')
 
-    Plug 'itchyny/lightline.vim'    " Apperance - vim status line
+    Plug 'nvim-lua/plenary.nvim'    " System - get luna to work
+
+    Plug 'itchyny/lightline.vim'    " Appearance - vim status line
+    Plug 'josa42/vim-lightline-coc' " Appearance - show coc status in status line
     Plug 'mhinz/vim-startify', 	    " Appearance - startpage
     Plug 'ryanoasis/vim-devicons'   " Appearance - icons
+    Plug 'preservim/nerdtree'	    " Appearance - file tree for vim
+    Plug 'kyazdani42/nvim-tree.lua' " Appearance - file tree for nvim
     Plug 'arcticicestudio/nord-vim' " Appearance - nord color theme
     Plug 'joshdick/onedark.vim'	    " Appearance - onedark color theme
     Plug 'junegunn/goyo.vim'        " Appearance - focus mode
@@ -47,37 +44,31 @@ call plug#begin('$HOME/.config/nvim/plugged')
     Plug 'plasticboy/vim-markdown'  " Appearance - markdown syntax highlight
     Plug 'sheerun/vim-polyglot'	    " Appearance - language pack 
     Plug 'airblade/vim-gitgutter'   " Appearance - git change in sidebar
-    "Plug 'akinsho/bufferline.nvim'  " Appearance - buffer styples
-    Plug 'kyazdani42/nvim-tree.lua' " Appearance - file tree for nvim
-    Plug 'preservim/nerdtree'	    " Appearance - file tree for vim
-    Plug 'nvim-lua/plenary.nvim'    " Appearance - luna plug
-    Plug 'tiagofumo/vim-nerdtree-syntax-highlight'	" Appearance - file color
     Plug 'Xuyuanp/nerdtree-git-plugin'	" Appearance - file git icons
-    Plug 'kyazdani42/nvim-web-devicons'         " Appearance - nvim icons
-    Plug 'lukas-reineke/indent-blankline.nvim'  " Appearance - indent line for nvm
-    "Plug 'norcalli/nvim-colorizer.lua'          " Appearance - color display
     Plug 'nvim-telescope/telescope.nvim'    " Appearance - pop up fzf
+    Plug 'nvim-telescope/telescope-fzy-native.nvim' " Appearance - with telescope
+    Plug 'lukas-reineke/indent-blankline.nvim'  " Appearance - indent line (nvim)
+    Plug 'kyazdani42/nvim-web-devicons'         " Appearance - nvim icons
+    Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }  "Applearnace - inline html color display
 
     Plug 'preservim/tagbar'         " Edit - variables at side
-    Plug 'jiangmiao/auto-pairs'	    " Edit - auto pair
-    "Plug 'dense-analysis/ale'	    " Edit - language server protocol
-    "Plug 'vim-syntastic/syntastic'  " Edit - error detector
+    Plug 'jiangmiao/auto-pairs'     " Edit - auto pair
     Plug 'dkarter/bullets.vim'	    " Edit - makes bullet easier
     Plug 'preservim/nerdcommenter'  " Edit - easier comment
     Plug 'sirver/ultisnips'	        " Edit - text snippit
-    Plug 'tpope/vim-surround'	    " Edit - syntax change
-    Plug 'gcmt/wildfire.vim'	    " Edit - easy seclection tool
+    "Plug 'tpope/vim-surround'	    " Edit - syntax change
     Plug 'tpope/vim-fugitive'	    " Edit - git tool
 	Plug 'vim-pandoc/vim-pandoc'	" Edit - syntax library
-    "Plug 'KKPMW/vim-sendtowindow'   " Edit - send code to terminal
-    Plug 'easymotion/vim-easymotion'              " Edit - motion movements
-    Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}  " Edit - R-environment
+    Plug 'vim-pandoc/vim-rmarkdown' " Edit - Rmarkdown render
+    Plug 'KKPMW/vim-sendtowindow'   " Edit - send code to terminal
+    "Plug 'iamcco/markdown-preview.nvim'		" Edit - markdown preview
+    "Plug 'jalvesaq/Nvim-R'          " Edit - R-environment
 	Plug 'vim-pandoc/vim-pandoc-syntax'			  " Edit - syntax highlight
 	Plug 'lervag/vimtex', {'tag': 'v1.6'}    	  " Edit - latex syntax support
     Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'} " Edit - clean latex
     Plug 'dhruvasagar/vim-table-mode'	" Edit - easier tables
-    "Plug 'iamcco/markdown-preview.nvim'		" Edit - markdown preview
     Plug 'neoclide/coc.nvim', {'branch': 'release'}	" Edit - auto complition
+    
 
 call plug#end()
 
@@ -96,7 +87,7 @@ let g:lightline = {
 \   'active': {
 \    'left' :[[ 'mode', 'paste' ], ['gitbranch', 'smarttabs'], [ 'filetype' ],
 \     [ 'readonly', 'filename', 'modified' ]],
-\    'right':[[ 'percent', 'lineinfo' ], [ 'cocstatus' ]]
+\    'right':[[ 'percent', 'lineinfo' ], [  'coc_info', 'coc_hints', 'coc_errors', 'coc_warnings', 'coc_ok' ], [ 'coc_status'  ]]
 \   },
 \   'tabline': {
 \     'left': [['explorer_pad'], ['buffers']],
@@ -134,19 +125,6 @@ let g:lightline = {
 \     'trailing': 'warning'
 \   }
 \}
-
-function! s:trim(maxlen, str) abort
-    let trimed = len(a:str) > a:maxlen ? a:str[0:a:maxlen] . '..' : a:str
-    return trimed
-endfunction
-
-function! LightlineCoc() abort
-    if winwidth(0) < 60
-        return ''
-    endif
-
-    return coc#status()
-endfunction
 
 function! LightlinePercent() abort
     if winwidth(0) < 60
@@ -256,26 +234,33 @@ function! LightlineReload() abort
     call lightline#colorscheme()
     call lightline#update()
 endfunction
-" }}}
+let s:palette = g:lightline#colorscheme#{g:lightline.colorscheme}#palette
+let s:palette.normal.middle = [ [ 'NONE', 'NONE', 'NONE', 'NONE' ] ]
+let s:palette.inactive.middle = s:palette.normal.middle
+let s:palette.tabline.middle = s:palette.normal.middle
 
-" ---------------------- ryanoasis/vim-devicons/nerdtree -------------------------
-" ================================================================================
-" set encoding=UTF-8
-let NERDTreeIgnore = ['\~$','\.pyc$','\*NTUSER*','\*ntuser*','\NTUSER.DAT','\ntuser.ini']
-let NERDTreeQuitOnOpen=1
+" ------------------------ josa42/vim-lightline-coc ------------------------------
+call lightline#coc#register()
 
-" ---------------------- ryanoasis/vim-devicons/nerdtree -------------------------
-" ================================================================================
-nnoremap TT :NvimTreeToggle<CR>
-nnoremap <leader>r :NvimTreeRefresh<CR>
-nnoremap <leader>n :NvimTreeFindFile<CR>
-set termguicolors " this variable must be enabled for colors to be applied properly
-" a list of groups can be found at `:help nvim_tree_highlight`
-highlight NvimTreeFolderIcon guibg=blue
+function! s:trim(maxlen, str) abort
+    let trimed = len(a:str) > a:maxlen ? a:str[0:a:maxlen] . '..' : a:str
+    return trimed
+endfunction
 
-" ---------------------------- RRethy/vim-illuminate -----------------------------
-" ================================================================================
-let g:Illuminate_highlightUnderCursor = 1
+function! LightlineCoc() abort
+    "if winwidth(0) < 60
+        "return ''
+    "endif
+
+    "return coc#status()
+"endfunction
+"function! LightLineCoc()
+  if empty(get(g:, 'coc_status', '')) && empty(get(b:, 'coc_diagnostic_info', {}))
+    return ''
+  endif
+  return trim(coc#status())
+endfunction
+
 
 " ----------------------------- mhinz/vim-startify  ------------------------------
 " ================================================================================
@@ -337,43 +322,69 @@ let g:startify_change_to_dir = 1
 let g:startify_enable_special = 0
 let g:startify_fortune_use_unicode = 1
 let g:startify_relative_path = 1
-let g:startify_files_number           = 20
+let g:startify_files_number           = 10
 let g:startify_session_persistence    = 2
 let g:startify_padding_left = 20
 map gs :Startify<CR>
-map gv :e ~/.config/nvim/init.vim<CR>
 
-
-" ----------------------------- preservim/nerdtree -------------------------------
+" -------------------------- 'kyazdani42/nvim-tree.lua' --------------------------
 " ================================================================================
-" 
-"nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap te :NERDTree<CR>
-nnoremap tt :NERDTreeToggle<CR>
-nnoremap tf :NERDTreeFind<CR>
-nnoremap tu :NERDTree /Users/melaneyzhu/OneDrive\ -\ University\ of\ Toronto<CR>
-nnoremap td :NERDTree /Users/melaneyzhu/melaneyroot.github.io<CR>
-nnoremap tc :NERDTree /Users/melaneyzhu/<CR>
-let NERDTreeIgnore = ['\.DAT$', '\.LOG1$', '\.LOG1$']
+let g:nvim_tree_width = 30
+let g:nvim_tree_quit_on_open = 1 
+let g:nvim_tree_follow_update_path = 0
+let g:nvim_tree_indent_markers = 1
+let g:nvim_tree_git_hl = 1
+let g:nvim_tree_highlight_opened_files = 1
+nnoremap tt :NvimTreeToggle<CR>
+nnoremap tf :NvimTreeFindFile<CR>
+highlight NvimTreeFolderIcon guibg=blue
+let g:nvim_tree_show_icons = {
+	\ 'git': 1,
+	\ 'folders': 1,
+	\ 'files': 1,
+  \ 'folder_arrows': 1,
+	\}
+let g:nvim_tree_icons = {
+      \ 'default':        '',
+      \ 'symlink':        '',
+      \ 'git': {
+      \   'unstaged':     "✗",
+      \   'staged':       "✓",
+      \   'unmerged':     "",
+      \   'renamed':      "➜",
+      \   'untracked':    "★",
+      \   'deleted':      "",
+      \  },
+      \ 'folder': {
+      \   'arrow_open':   "",
+      \   'arrow_closed': "",
+      \   'default':      "",
+      \   'open':         "",
+      \   'empty':        "",
+      \   'empty_open':   "",
+      \   'symlink':      "",
+      \   'symlink_open': "",
+      \  },
+      \  'lsp': {
+      \    'hint': "",
+      \    'info': "",
+      \    'warning': "",
+      \    'error': "",
+      \  }
+      \ }
 
-" For the sub-plug-in: Xuyuanp/nerdtree-git-plugin
-let g:NERDTreeGitStatusIndicatorMapCustom = {
-                \ 'Modified'  :'✹',
-                \ 'Staged'    :'✚',
-                \ 'Untracked' :'✭',
-                \ 'Renamed'   :'➜',
-                \ 'Unmerged'  :'═',
-                \ 'Deleted'   :'✖',
-                \ 'Dirty'     :'✗',
-                \ 'Ignored'   :'☒',
-                \ 'Clean'     :'✔︎',
-                \ 'Unknown'   :'?',
-                \ }
 
-" --------------------------- kevinhwang91/rnvimr --------------------------------
+" ---------------------------- RRethy/vim-illuminate -----------------------------
 " ================================================================================
-let g:rnvimr_ex_enable = 1
-nmap <leader>f :RnvimrToggle<CR>
+"let g:Illuminate_highlightUnderCursor = 1
+augroup illuminate_augroup
+    autocmd!
+    autocmd VimEnter * hi illuminatedWord cterm=underline gui=underline
+augroup END
+augroup illuminate_augroup
+    autocmd!
+    autocmd VimEnter * hi illuminatedCurWord cterm=italic gui=italic
+augroup END
 
 " ------------ nvim-lua/plenary.nvim & nvim-telescope/telescope.nvim -------------
 " ================================================================================
@@ -384,32 +395,16 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 
 
+
+
+
+
+
 " Edit configs
 " ----------------------------- 'preservim/tagbar' -------------------------------
 " ================================================================================
 nmap tb :TagbarToggle<CR>
 
-" ----------------------------- dense-analysis/ale -------------------------------
-" ================================================================================
-"let g:ale_sign_column_always = 1
-"let g:ale_sign_error = '★'
-"let g:ale_sign_warning = '⚠'
-"highlight clear ALEErrorSign
-"highlight clear ALEWarningSign
-"let g:ale_set_highlights = 1
-"let g:ale_disable_lsp = 1
-"let b:ale_fixers = {'javascript': ['prettier', 'eslint']}
-
-" -------------------------- vim-syntastic/syntastic -----------------------------
-" ================================================================================
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
 
 " ----------------------------- dkarter/bullets.vim ------------------------------
 " ================================================================================
@@ -436,12 +431,17 @@ endif
 let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+let g:UltiSnipsSnippetDirectories=["UltiSnips", "my_snippets"]
 
 " ----------------- lervag/vimtex & KeitaNakamura/tex-conceal.vim ----------------
 " ================================================================================
+let &runtimepath  = '~/.config/nvim/plugged/vimtex,' . &runtimepath
+let &runtimepath .= ',~/.config/nvim/plugged/vimtex/after'
 let g:tex_flavor='latex'
-let g:vimtex_view_method='general'
+let g:vimtex_view_method='zathura'
 let g:vimtex_quickfix_mode=0
+let g:vimtex_compiler_progname='nvr'
+let g:vimtex_quickfix_latexlog = {'fix_paths':0}
 
 set conceallevel=2
 let g:tex_conceal="abdgm"
@@ -465,62 +465,23 @@ inoreabbrev <expr> __
 
 " ------------------------------ neoclide/coc.nvim -------------------------------
 " ================================================================================
-" Set internal encoding of vim, not needed on neovim, since coc.nvim using some
-" unicode characters in the file autoload/float.vim
 set encoding=utf-8
-
-" TextEdit might fail if hidden is not set.
 set hidden
-
-" Give more space for displaying messages.
 set cmdheight=2
-
-" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
-" delays and poor user experience.
 set updatetime=100
-
-" Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
+set signcolumn=number
+"set signcolumn=yes
 
-" Always show the signcolumn, otherwise it would shift the text each time
-" diagnostics appear/become resolved.
-set signcolumn=yes
-
-" Use tab for trigger completion with characters ahead and navigate.
-" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
-" other plugin before putting this into your config.
-"inoremap <silent><expr> <TAB>
-      "\ pumvisible() ? "\<C-n>" :
-      "\ <SID>check_back_space() ? "\<TAB>" :
-      "\ coc#refresh()
-"inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-"function! s:check_back_space() abort
-  "let col = col('.') - 1
-  "return !col || getline('.')[col - 1]  =~# '\s'
-"endfunction
-
-" Use <c-space> to trigger completion.
-"inoremap <silent><expr> <c-y> coc#refresh()
-
-" Make <CR> auto-select the first completion item and notify coc.nvim to
-" format on enter, <cr> could be remapped by other vim plugin
-"inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-                              "\: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
-" Use `[g` and `]g` to navigate diagnostics
-" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
 nmap <silent> <leader>- <Plug>(coc-diagnostic-prev)
 nmap <silent> <leader>+ <Plug>(coc-diagnostic-next)
-
-" GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
-" Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
+nnoremap <silent><nowait> <space>d  :<C-u>CocList diagnostics<cr>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -532,12 +493,7 @@ function! s:show_documentation()
   endif
 endfunction
 
-" Highlight the symbol and its references when holding the cursor.
-"autocmd CursorHold * silent call CocActionAsync('highlight')
-
-" Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
-
 " Formatting selected code.
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
@@ -550,27 +506,6 @@ augroup mygroup
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
-" Applying codeAction to the selected region.
-" Example: `<leader>aap` for current paragraph
-xmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
-
-" Remap keys for applying codeAction to the current buffer.
-nmap <leader>ac  <Plug>(coc-codeaction)
-" Apply AutoFix to problem on the current line.
-nmap <leader>qf  <Plug>(coc-fix-current)
-
-" Map function and class text objects
-" NOTE: Requires 'textDocument.documentSymbol' support from the language server.
-xmap if <Plug>(coc-funcobj-i)
-omap if <Plug>(coc-funcobj-i)
-xmap af <Plug>(coc-funcobj-a)
-omap af <Plug>(coc-funcobj-a)
-xmap ic <Plug>(coc-classobj-i)
-omap ic <Plug>(coc-classobj-i)
-xmap ac <Plug>(coc-classobj-a)
-omap ac <Plug>(coc-classobj-a)
-
 " Remap <C-f> and <C-b> for scroll float windows/popups.
 if has('nvim-0.4.0') || has('patch-8.2.0750')
   nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
@@ -581,48 +516,20 @@ if has('nvim-0.4.0') || has('patch-8.2.0750')
   vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
 endif
 
-" Use CTRL-S for selections ranges.
-" Requires 'textDocument/selectionRange' support of language server.
-nmap <silent> <C-s> <Plug>(coc-range-select)
-xmap <silent> <C-s> <Plug>(coc-range-select)
-
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
-
 " Add `:Fold` command to fold current buffer.
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
-
 " Add `:OR` command for organize imports of the current buffer.
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
-
-" Add (Neo)Vim's native statusline support.
-" NOTE: Please see `:h coc-status` for integrations with external plugins that
-" provide custom statusline: lightline.vim, vim-airline.
-
-" Mappings for CoCList
-" Show all diagnostics.
-nnoremap <silent><nowait> <space>d  :<C-u>CocList diagnostics<cr>
-" Manage extensions.
-"nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
-" Show commands.
-"nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
-" Find symbol of current document.
-"nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
-" Search workspace symbols.
-"nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
-" Do default action for next item.
-"nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
-" Do default action for previous item.
-"nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
-" Resume latest coc list.
-"nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 let g:coc_global_extensions = [ 
             \ 'coc-json', 
             \ 'coc-vimlsp', 
-            \ 'coc-vimtex',
             \ 'coc-texlab', 
-            \ 'coc-translator']
+            \ 'coc-translator',
+            \ 'coc-r-lsp',
+            \ 'coc-snippets', ]
 
 " ================================================================================
 " ============================== EDITOR BEHAVIOR =================================
@@ -638,12 +545,10 @@ set cursorcolumn
 set hidden
 set expandtab
 set smarttab
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=4 shiftwidth=4 softtabstop=4
 set autoindent
 set list
-set scrolloff=10
+set scrolloff=5
 set tw=0
 set indentexpr=
 set backspace=indent,eol,start
@@ -654,7 +559,6 @@ set wildmenu
 set ignorecase
 set smartcase
 set shortmess+=c
-set ttyfast "should make scrolling faster
 set visualbell
 "set colorcolumn=100
 set updatetime=100
@@ -667,26 +571,21 @@ set spelllang=en_us
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
 "Theme
-set background=dark
+"colorscheme onedark
 colorscheme nord
-if has("gui_running")
-    colorscheme onedark
-    hi CursorLineNr guibg=#434c5e guifg=white
-endif
+hi CursorLineNr guibg=#434c5e guifg=white
+hi LineNr guifg=#4c566a
+set background=dark
 set t_Co=256
 set termguicolors " enable true colors support
 set guifont=Hack_Nerd_Font_Mono:h14
-let g:vim_markdown_folding_disabled = 1
-let g:vim_markdown_math = 0
-"hi LineNr guibg=#61afef
 set cursorline
-hi CursorLineNr ctermbg=blue ctermfg=white
+map <leader>0 <Cmd>colorscheme onedark<CR>
+map <leader>9 <Cmd>colorscheme nord<CR>
 
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_SR = "\<Esc>]50;CursorShape=2\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-
-
 
 " ================================================================================
 " -------------------------------- Basic Mappings --------------------------------
@@ -694,12 +593,11 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 let mapleader=" "
 noremap <leader>q :q<CR>
 noremap <leader>w :w<CR>
+map <C-S> :w!<CR>
 noremap <leader>s :source ~/.config/nvim/init.vim<CR>
 noremap <D-s> :w!<CR>
 nnoremap Y y$
 vnoremap Y "+y
-"nnoremap ; /\(\<\w\+\>\)\_s*\l
-"vnoremap ; /\(\<\w\+\>\)\_s*\l
 noremap <silent> k gk
 noremap <silent> j gj
 noremap <silent> H 0
@@ -718,15 +616,17 @@ inoremap <C-n> <Down>
 inoremap <C-b> <Left>
 inoremap <C-f> <Right>
 inoremap <C-d> <ESC>ls
+map ; %
 " ------------------------------------ Nagivation --------------------------------
-noremap W 5w
-noremap B 5b
 nnoremap n nzz
 nnoremap N Nzz
 nnoremap * *zz
+nnoremap G Gzz
+nnoremap { {zz
+nnoremap } }zz
 map <C-u> <C-u>zz
 map <C-d> <C-d>zz
-map <C-o> <C-o>zz
+map <C-o> <C-o>z<CR>
 
 " ----------------------------- Screen Motion Remaps -----------------------------
 " split the screens to up (horizontal), down (horizontal), left (vertical), right (vertical)
@@ -752,4 +652,4 @@ map <leader>tp :term<CR>python3<CR>
 
 " -------------------------------- Personal Snippits -----------------------------
 source /home/melaney/dotfiles/_snippts.vim
-
+map gv :e ~/.config/nvim/init.vim<CR>

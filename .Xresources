@@ -1,4 +1,4 @@
-Xft.dpi:       200
+Xft.dpi:       190
 Xft.antialias: true
 Xft.hinting:   true
 Xft.rgba:      rgb
@@ -43,7 +43,7 @@ URxvt.keysym.Shift-Control-Down:  \033[1;6B
 ! special
 *.foreground:   #d8dee8
 *.background:   #2f343f
-*.cursorColor:  #b48ead
+*.cursorColor:  #61afef
 
 ! black
 *.color0  : #4b5262
@@ -81,10 +81,10 @@ URxvt.keysym.Shift-Control-Down:  \033[1;6B
 ! Font configuration
 ! ------------------------------------------------------------------------------
 
-URxvt*font:				xft:HackNerdFontMono:regular:size=12
-URxvt*boldFont:			xft:HackNerdFontMono:bold:size=12
-URxvt*italicFont:		xft:HackNerdFontMono:italic:size=12
-URxvt*boldItalicFont:	xft:HackNerdFontMono:bold italic:size=12
+URxvt*font:				xft:HackNerdFontMono:regular:size=11
+URxvt*boldFont:			xft:HackNerdFontMono:bold:size=11
+URxvt*italicFont:		xft:HackNerdFontMono:italic:size=11
+URxvt*boldItalicFont:	xft:HackNerdFontMono:bold italic:size=11
 
 ! ------------------------------------------------------------------------------
 ! Xft Font Configuration
@@ -116,7 +116,7 @@ URxvt*depth:			24
 URxvt*scrollBar:		false
 URxvt*scrollBar_right:	false
 URxvt*internalBorder:	30
-URxvt*externalBorder:	10
+URxvt*externalBorder:	0
 URxvt.geometry:			84x22
 
 ! perl extensions
