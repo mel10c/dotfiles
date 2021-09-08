@@ -573,7 +573,6 @@ inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 "Theme
 "colorscheme onedark
 colorscheme nord
-hi CursorLineNr guibg=#434c5e guifg=white
 hi LineNr guifg=#4c566a
 set background=dark
 set t_Co=256
@@ -586,6 +585,7 @@ map <leader>9 <Cmd>colorscheme nord<CR>
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_SR = "\<Esc>]50;CursorShape=2\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+hi CursorLineNr guibg=#4c566a guifg=white
 
 " ================================================================================
 " -------------------------------- Basic Mappings --------------------------------
