@@ -67,7 +67,7 @@ call plug#begin('$HOME/.config/nvim/plugged')
 	Plug 'lervag/vimtex', {'tag': 'v1.6'}    	  " Edit - latex syntax support
     Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'} " Edit - clean latex
     Plug 'dhruvasagar/vim-table-mode'	" Edit - easier tables
-    "Plug 'iamcco/markdown-preview.nvim'		" Edit - markdown preview
+    Plug 'iamcco/markdown-preview.nvim'		" Edit - markdown preview
     Plug 'neoclide/coc.nvim', {'branch': 'release'}	" Edit - auto complition
 
 call plug#end()
@@ -732,3 +732,4 @@ map <leader>tp :term<CR>python3<CR>
 " -------------------------------- Personal Snippits -----------------------------
 source /Users/melaneyzhu/dotfiles/_snippts.vim
 
+nmap mp <Plug>MarkdownPreview
