@@ -50,6 +50,7 @@ call plug#begin('$HOME/.config/nvim/plugged')
     Plug 'lukas-reineke/indent-blankline.nvim'  " Appearance - indent line (nvim)
     Plug 'kyazdani42/nvim-web-devicons'         " Appearance - nvim icons
     Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }  "Applearnace - inline html color display
+    Plug 'nvim-treesitter/nvim-treesitter' " Applearnace - highlighting
 
     Plug 'preservim/tagbar'         " Edit - variables at side
     Plug 'jiangmiao/auto-pairs'     " Edit - auto pair
@@ -81,13 +82,14 @@ call plug#end()
 " ================================================================================
 set laststatus=2
 set noshowmode
+"\    'right':[['lineinfo' ],[ 'percent'],  [ 'coc_status'  ], [ 'coc_info', 'coc_hints', 'coc_errors', 'coc_warnings', 'coc_ok' ],]
 
 let g:lightline = {
 \   'colorscheme': 'wombat',
 \   'active': {
 \    'left' :[[ 'mode', 'paste' ], ['gitbranch', 'smarttabs'], [ 'filetype' ],
 \     [ 'readonly', 'filename', 'modified' ]],
-\    'right':[[ 'percent', 'lineinfo' ], [  'coc_info', 'coc_hints', 'coc_errors', 'coc_warnings', 'coc_ok' ], [ 'coc_status'  ]]
+\    'right':[['lineinfo' ],[ 'percent'], [ 'coc_info', 'coc_hints', 'coc_errors', 'coc_warnings', 'coc_ok' ],]
 \   },
 \   'tabline': {
 \     'left': [['explorer_pad'], ['buffers']],
@@ -107,7 +109,6 @@ let g:lightline = {
 \     'percent': 'LightlinePercent',
 \     'lineinfo': 'LightlineLineinfo',
 \     'filename': 'LightlineFilename',
-\     'fullname': 'LightlineFullname',
 \     'mode': 'LightlineMode',
 \     'gitbranch': 'LightlineGitbranch',
 \     'readonly': 'LightlineReadonly',
@@ -118,25 +119,29 @@ let g:lightline = {
 \   'component_expand': {
 \     'buffers': 'lightline#bufferline#buffers',
 \     'smarttabs': 'SmartTabsIndicator',
-\     'trailing': ''
+\     'trailing': 'lightline#trailing_whitespace#component'
 \   },
 \   'component_type': {
 \     'buffers': 'tabsel',
 \     'trailing': 'warning'
 \   }
 \}
+function! s:trim(maxlen, str) abort
+    let trimed = len(a:str) > a:maxlen ? a:str[0:a:maxlen] . '..' : a:str
+    return trimed
+endfunction
 
 function! LightlinePercent() abort
-    if winwidth(0) < 60
+    if winwidth(0) < 40
         return ''
     endif
 
-    let l:percent = line('.') * 100 / line('$') . '%'
-    return printf('%-4s', l:percent)
+    let l:percent = ' ' . line('.') * 100 / line('$') . '%'
+    return printf('%4s', l:percent)
 endfunction
 
 function! LightlineLineinfo() abort
-    if winwidth(0) < 86
+    if winwidth(0) < 80
         return ''
     endif
     let l:word_count=wordcount().words
@@ -150,33 +155,35 @@ function! LightlineLineinfo() abort
     let l:current_line = printf('%-3s', line('.'))
     let l:max_line = printf('%-3s', line('$'))
     "let l:lineinfo = '⍳:' . l:current_line . '/' . l:max_line . '   ⍵:' . l:word_count
-    let l:lineinfo = '⍳:' . l:max_line . '   ⍵:' . l:word_count
+    let l:lineinfo = '⍳:' . l:max_line . ' ⍵:' . l:word_count
     return l:lineinfo
 endfunction
 
 function! LightlineFilename() abort
+    let root = fnamemodify(get(b:, 'git_dir'), ':h')
+    let path = expand('%:p')
+    if path[:len(root)-1] ==# root
+        let l:path = path[len(root)+1:]
+    endif
+
+    let l:relative = l:path . expand('%')
     let l:prefix = expand('%:p') =~? "fugitive://" ? '(fugitive) ' : ''
     let l:maxlen = winwidth(0) - winwidth(0) / 2
-    let l:relative = expand('%:.')
     let l:tail = expand('%:t')
     let l:noname = 'No Name'
 
-    if winwidth(0) < 50
+    if winwidth(0) < 40
         return ''
     endif
 
-    if winwidth(0) < 86
+    if winwidth(0) < 100
+        "return l:tail ==# '' ? l:noname : l:prefix . s:trim(l:maxlen, l:tail)
         return l:tail ==# '' ? l:noname : l:prefix . s:trim(l:maxlen, l:tail)
     endif
 
     return l:relative ==# '' ? l:noname : l:prefix . s:trim(l:maxlen, l:relative)
 endfunction
 
-function! LightlineFullname() abort
-    let l:relative = expand('%')
-
-    return l:relative
-endfunction
 
 function! LightlineModified() abort
     return &modified ? '⚑' : ''
@@ -205,6 +212,9 @@ function! LightlineGitbranch() abort
     if exists('*fugitive#head')
         let maxlen = 20
         let branch = fugitive#head()
+    if winwidth(0) < 100
+        return branch !=# '' ? '': ''
+    endif
         return branch !=# '' ? ' '. s:trim(maxlen, branch) : ''
     endif
     return fugitive#head()
@@ -212,8 +222,10 @@ endfunction
 
 function! LightlineFiletype() abort
     let l:icon = WebDevIconsGetFileTypeSymbol()
-    ""return winwidth(0) > 86 ? (strlen(&filetype) ? &filetype . ' ' . l:icon : l:icon) : ''
-    return winwidth(0) > 86 ? (l:icon) : ''
+    if winwidth(0) < 100
+    return winwidth(0) > 50 ? (l:icon) : ''
+    endif 
+    return (strlen(&filetype) ? &filetype . ' ' . l:icon : l:icon)
 endfunction
 
 function! String2()
@@ -238,6 +250,7 @@ let s:palette = g:lightline#colorscheme#{g:lightline.colorscheme}#palette
 let s:palette.normal.middle = [ [ 'NONE', 'NONE', 'NONE', 'NONE' ] ]
 let s:palette.inactive.middle = s:palette.normal.middle
 let s:palette.tabline.middle = s:palette.normal.middle
+let g:lightline#trailing_whitespace#indicator = ''
 
 " ------------------------ josa42/vim-lightline-coc ------------------------------
 call lightline#coc#register()
@@ -309,7 +322,7 @@ let s:footer = [
 let g:startify_custom_header = s:center(s:header)
 let g:startify_custom_footer = s:center(s:footer)
 "let g:startify_custom_header = s:header
-"let g:startify_custom_footer = s:footer
+"let g:startify_custom_f0ooter = s:footer
 
 let g:startify_lists = [
           \ { 'type': 'files',     'header': s:center(['Recent Files'])            },
@@ -393,8 +406,14 @@ nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
-
-
+" ---------------------- nvim-treesitter/nvim-treesitter -------------------------
+" ================================================================================
+"require'nvim-treesitter.configs'.setup {
+  "ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  "highlight = {
+    "enable = true,              -- false will disable the whole extension
+  "},
+"}
 
 
 
@@ -482,6 +501,10 @@ nmap <silent> gr <Plug>(coc-references)
 
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 nnoremap <silent><nowait> <space>d  :<C-u>CocList diagnostics<cr>
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -529,7 +552,8 @@ let g:coc_global_extensions = [
             \ 'coc-texlab', 
             \ 'coc-translator',
             \ 'coc-r-lsp',
-            \ 'coc-snippets', ]
+            \ 'coc-snippets',
+            \ 'coc-java']
 
 " ================================================================================
 " ============================== EDITOR BEHAVIOR =================================
@@ -617,6 +641,8 @@ inoremap <C-b> <Left>
 inoremap <C-f> <Right>
 inoremap <C-d> <ESC>ls
 map ; %
+map > ;
+map < ,
 " ------------------------------------ Nagivation --------------------------------
 nnoremap n nzz
 nnoremap N Nzz
