@@ -6,7 +6,7 @@
     "coc.preferences.messageLevel": "error",
     "coc.source.around.firstMatch": false,
     "coc.source.buffer.firstMatch": false,
-    "coc.source.syntax.firstMatch": false,
+    //"coc.source.syntax.firstMatch": false,
     "suggest.detailMaxLength": 60,
     "suggest.noselect": true,
     "suggest.enablePreselect": false,
@@ -46,7 +46,7 @@
         "value": "\uf89f",
         "variable": "\ue71b"
     },
-    "diagnostic.signOffset": 1,
+    //"diagnostic.signOffset": 1,
     "diagnostic.errorSign": "\uf467",
     "diagnostic.warningSign": "\uf071",
     "diagnostic.infoSign": "\uf129",
@@ -58,15 +58,15 @@
     "diagnostic.virtualText": true,
     "diagnostic.messageTarget": "echo",
     "list.previewHighlightGroup": "Statement",
-    "importCost.bundleSizeDecoration": "both",
-    "importCost.typescriptExtensions": [
-        "\\.tsx?$"
-    ],
-    "importCost.javascriptExtensions": [
-        "\\.jsx?$"
-    ],
-    "importCost.showCalculatingDecoration": true,
-    "importCost.debug": false,
+    //"importCost.bundleSizeDecoration": "both",
+    //"importCost.typescriptExtensions": [
+        //"\\.tsx?$"
+    //],
+    //"importCost.javascriptExtensions": [
+        //"\\.jsx?$"
+    //],
+    //"importCost.showCalculatingDecoration": true,
+    //"importCost.debug": false,
     "snippets.ultisnips.directories": [
         "$HOME/.config/nvim/Ultisnips/",
         "$HOME/.config/nvim/plugged/vim-snippets/UltiSnips/"
@@ -231,46 +231,12 @@
             "command": "/usr/bin/R",
             "args": ["--salve", "e", "languageserver::run()"],
             "filetypes": [ "r"] 
-        }
-    }
-    //"languageserver": {
-        //"latex": {
-            //"command": "/usr/bin/texlab",
-            //"filetypes": [
-                //"tex",
-                //"bib",
-                //"plaintex",
-                //"context"
-            //]
-        //},
+        },
         "lua": {
             "command": "lua-lsp",
             "filetypes": [
                 "lua"
             ]
-        },
-        "swift": {
-            "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp",
-            "args": [],
-            "filetypes": [
-                "swift"
-            ],
-            "initializationOptions": {},
-            "settings": {}
-        },
-        "golang": {
-            "command": "gopls",
-            "rootPatterns": [
-                "go.mod"
-            ],
-            "filetypes": [
-                "go"
-            ],
-            "initializationOptions": {
-                "gocodeCompletionEnabled": true,
-                "diagnosticsEnabled": true,
-                "lintTool": "golint"
-            }
         },
         "bash": {
             "command": "bash-language-server",
@@ -304,4 +270,16 @@
             }
         }
     }
+    
 }
+}
+    //"languageserver": {
+        //"latex": {
+            //"command": "/usr/bin/texlab",
+            //"filetypes": [
+                //"tex",
+                //"bib",
+                //"plaintex",
+                //"context"
+            //]
+        //},
