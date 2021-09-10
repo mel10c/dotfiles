@@ -32,7 +32,7 @@ inoremap \lrarr \Leftrightarrow
 inoremap \N \cap
 inoremap \U \cup
 inoremap \O \emptyset
-inoremap \R \mathbb{R}
+inoremap \R \mathbb{R}^{}
 inoremap \Q \mathbb{Q}
 inoremap \Z \mathbb{Z}
 inoremap \map \mapsto
