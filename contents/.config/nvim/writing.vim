@@ -32,7 +32,7 @@ inoremap \lrarr \Leftrightarrow
 inoremap \N \cap
 inoremap \U \cup
 inoremap \O \emptyset
-inoremap \R \mathbb{R}^{}
+inoremap \R \mathbb{R}^{}<Esc>i
 inoremap \Q \mathbb{Q}
 inoremap \Z \mathbb{Z}
 inoremap \map \mapsto
@@ -63,9 +63,9 @@ inoremap \tt \text{}<Esc>F{a
 inoremap \tc \texttt{}<Esc>F{a
 " === math operators ==
 inoremap \dx \frac{\mathrm{d} y}{\mathrm{d} x} \,
-inoremap \lm \lim_{u \to <++>}<Esc>Fus
-inoremap \nt \int_{u}^{<++>}<Esc>Fus
-inoremap \sm \sum_{u}^{<++>}<Esc>Fus
+inoremap \lim \lim_{u \to <++>}<Esc>Fus
+inoremap \int \int_{u}^{<++>}<Esc>Fus
+inoremap \sum \sum_{u}^{<++>}<Esc>Fus
 " === brackets ==
 inoremap \mat \begin{bmatrix}u \\ <++>\end{bmatrix}<++><Esc>Fus
 inoremap \lmat \begin{bmatrix}u \\ <++> \\ <++>\end{bmatrix}<++><Esc>Fus

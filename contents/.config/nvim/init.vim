@@ -15,40 +15,38 @@
 " ============================== EDITOR BEHAVIOR =================================
 " ================================================================================
 set mouse=a
-set autochdir
 set syntax
-set exrc
-set secure
 set number
 set relativenumber
 set cursorcolumn
-set hidden
-set expandtab
-set smarttab
+set scrolloff=5
+set noshowmode
+set showcmd
+set wildmenu
+set guioptions=
+set nofoldenable
+"set colorcolumn=100
+
+set expandtab smarttab
 set tabstop=4 shiftwidth=4 softtabstop=4
 set autoindent
-set list
-set scrolloff=5
 set tw=0
 set indentexpr=
 set backspace=indent,eol,start
 set wrap
-set noshowmode
-set showcmd
-set wildmenu
-set ignorecase
-set smartcase
-set shortmess+=c
-set visualbell
-"set colorcolumn=100
-set updatetime=100
-set nohlsearch
-set incsearch
-set guioptions=
-set nofoldenable
+set ignorecase smartcase
+set nohlsearch incsearch
 setlocal spell
 set spelllang=en_us
-inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
+
+set autochdir
+set exrc
+set secure
+set hidden
+set list
+set shortmess+=c
+set visualbell
+set updatetime=100
 
 set nocompatible
 filetype on
@@ -100,7 +98,6 @@ call plug#begin('$HOME/.config/nvim/plugged')
     Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'} " Edit - clean latex
     Plug 'dhruvasagar/vim-table-mode'	" Edit - easier tables
     Plug 'neoclide/coc.nvim', {'branch': 'release'}	" Edit - auto complition
-    
 
 call plug#end()
 
@@ -117,3 +114,4 @@ source ~/.config/nvim/edit_config.vim
 source ~/.config/nvim/mapping_config.vim
 source ~/.config/nvim/writing.vim
 source ~/.config/nvim/lua_config.lua
+inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u

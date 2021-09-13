@@ -3,12 +3,12 @@ let mapleader=" "
 map <C-S> :w!<CR>
 map <C-Q> :qa<CR>
 map ; %
-map > ;
-map < ,
+noremap > ;
+noremap < ,
 noremap ,q :q<CR>
 noremap ,w :w<CR>
-map gv :e ~/.config/nvim/init.vim<CR>
 noremap ,s :source ~/.config/nvim/init.vim<CR>
+map gv :e ~/.config/nvim/init.vim<CR>
 inoremap , ,<C-g>u
 inoremap . .<C-g>u
 inoremap $ $<C-g>u
@@ -26,6 +26,8 @@ inoremap <C-d> <ESC>ls
 " ------------------------------------ Nagivation --------------------------------
 nnoremap Y y$
 vnoremap Y "+y
+nnoremap ,p "_diwp
+nnoremap ,P "_Dp
 noremap <silent> k gk
 noremap <silent> j gj
 noremap <silent> H 0
@@ -60,5 +62,5 @@ noremap <left> :vertical resize-5<CR>
 noremap <right> :vertical resize+5<CR>
 " Start terminals
 map ,tr :new term://bash<CR>iR<CR><C-\><C-n><C-w>k
-map <leader>tp :term<CR>python3<CR>
+map ,tp :term<CR>python3<CR>
 

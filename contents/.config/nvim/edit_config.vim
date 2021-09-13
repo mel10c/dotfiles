@@ -66,7 +66,6 @@ set encoding=utf-8
 set hidden
 set cmdheight=2
 set updatetime=100
-set shortmess+=c
 set signcolumn=number
 "set signcolumn=yes
 
