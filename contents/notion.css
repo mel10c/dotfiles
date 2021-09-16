@@ -1,0 +1,32 @@
+/* ========== SHRINK PADDING ON CODE BLOCKS ========== */
+.notion-code-block.line-numbers > div {
+  padding-top: 14px !important;
+  padding-bottom: 14px !important;
+}
+.notion-code-block:not(.line-numbers) .line-numbers + div + div, #code-line-numbers {
+  top: 14px !important;
+}
+
+.notion-code-block.line-numbers + div + div {
+  background: var(--theme--code-background);
+  box-shadow: 5px 2px 8px 4px var(--theme--code-background);
+}
+
+
+
+/* ========== SMALLER TABLE COLUMN HEADER ICONS ========== */
+[style^='display: flex; position: absolute; background: rgb(47, 52, 55); z-index: 82; height: 33px; color: rgba(255, 255, 255, 0.6);']
+  div:nth-child(1)
+  svg {
+  height: 10px !important;
+  width: 10px !important;
+  margin-right: -4px;
+}
+
+/* ========== HIDE '+' TABLE COLUMN ========== */
+.notion-table-view-add-column {
+   display: none !important;
+}
+.notion-selectable.notion-page-block.notion-collection-item > div:last-child {
+   display: none !important;
+}

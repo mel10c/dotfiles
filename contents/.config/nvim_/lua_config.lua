@@ -32,13 +32,3 @@ function _G.webDevIcons(path)
   local extension = vim.fn.fnamemodify(path, ':e')
   return require'nvim-web-devicons'.get_icon(filename, extension, { default = true })
 end
-
-require("indent_blankline").setup {
-    show_current_context = true,
-}
-
-
-
-
-
-

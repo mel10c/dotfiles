@@ -29,13 +29,17 @@ floating_modifier $mod
 bindsym $mod+Return exec terminal
 
 # kill focused window
-bindsym Control+w kill
+bindsym Control+q kill
+bindsym $mod+q exec killall notion-app-enhancd
 
 # start program launcher
 #bindsym $mod+d exec --no-startup-id dmenu_recency
 bindsym $mod+d exec --no-startup-id  ~/.config/rofi/bin/launcher_text
 bindsym $mod+u exec --no-startup-id  ~/.config/rofi/bin/menu_quicklinks
 bindsym $mod+0 exec --no-startup-id  ~/.config/rofi/bin/powermenu
+bindsym $mod+m exec --no-startup-id  notion-app-enhanced
+#bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
+
 
 # launch categorized menu
 #bindsym $mod+z exec --no-startup-id morc_menu
