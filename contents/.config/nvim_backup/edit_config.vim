@@ -99,11 +99,11 @@ xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
 "augroup mygroup
-  "autocmd!
+  ""autocmd!
   "" Setup formatexpr specified filetype(s).
-  "autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  ""autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
   "" Update signature help on jump placeholder.
-  "autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+  ""autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 "augroup end
 
 " Remap <C-f> and <C-b> for scroll float windows/popups.
@@ -127,15 +127,22 @@ let g:coc_global_extensions = [
             \ 'coc-json', 
             \ 'coc-vimlsp', 
             \ 'coc-texlab', 
-            \ 'coc-translator',
             \ 'coc-r-lsp',
             \ 'coc-snippets',
             \ 'coc-java',
             \ 'coc-sh',
-            \ 'coc-translator']
+            \ 'coc-calc',
+            \ 'coc-dot-complete']
 
-" Translator
-" popup
-nmap <leader>t <Plug>(coc-translator-p)
-vmap <leader>t <Plug>(coc-translator-pv)
 
+
+
+" LSP config (the mappings used in the default file don't quite work right)
+"nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
+"nnoremap <silent> gD <cmd>lua vim.lsp.buf.declaration()<CR>
+"nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>
+"nnoremap <silent> gi <cmd>lua vim.lsp.buf.implementation()<CR>
+"nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<CR>
+"nnoremap <silent> <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
+"nnoremap <silent> <C-n> <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
+"nnoremap <silent> <C-p> <cmd>lua vim.lsp.diagnostic.goto_next()<CR>

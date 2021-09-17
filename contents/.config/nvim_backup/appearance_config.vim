@@ -343,6 +343,8 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 " -------------------------------- Theme-settings- -------------------------------
 " ================================================================================
 "colorscheme nord
+let g:onedark_transparent_background = 1 
+hi CursorLineNr guibg=#4c566a guifg=white
 colorscheme onedark
 hi LineNr guifg=#4c566a
 set t_Co=256
@@ -356,4 +358,3 @@ hi normal guibg=none
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_SR = "\<Esc>]50;CursorShape=2\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-hi CursorLineNr guibg=#4c566a guifg=white
