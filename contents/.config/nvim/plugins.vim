@@ -7,6 +7,7 @@ call plug#begin('$HOME/.config/nvim/plugged')
     Plug 'nvim-lua/plenary.nvim'    " System - get luna to work
 
 " ------------------------------ Appearance Plugs --------------------------------
+" ================================================================================
     Plug 'mhinz/vim-startify', 	                " startpage
     Plug 'kyazdani42/nvim-tree.lua'             " file tree for nvim
     Plug 'arcticicestudio/nord-vim'             " nord color theme
@@ -28,6 +29,7 @@ call plug#begin('$HOME/.config/nvim/plugged')
 
 
 " ------------------------------ Appearance Plugs --------------------------------
+" ================================================================================
     "maybe
     Plug 'preservim/tagbar'                     " variables at side
     "Plug 'neovim/nvim-lspconfig'               " LSP plugins
