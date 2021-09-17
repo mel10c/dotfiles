@@ -3,30 +3,24 @@ call plug#begin('$HOME/.config/nvim/plugged')
 
     Plug 'nvim-lua/plenary.nvim'    " System - get luna to work
 
-    "maybe
-    Plug 'itchyny/lightline.vim'    " Appearance - vim status line
-    Plug 'josa42/vim-lightline-coc' " Appearance - show coc status in status line
-    Plug 'ryanoasis/vim-devicons'   " Appearance - icons
-
-    Plug 'mhinz/vim-startify', 	    " Appearance - startpage
-    Plug 'kyazdani42/nvim-tree.lua' " Appearance - file tree for nvim
-    Plug 'arcticicestudio/nord-vim' " Appearance - nord color theme
-    "Plug 'joshdick/onedark.vim'	    " Appearance - onedark color theme
-    Plug 'navarasu/onedark.nvim'    " Appearance - onedark for nvim
-    Plug 'junegunn/goyo.vim'        " Appearance - focus mode
-    Plug 'plasticboy/vim-markdown'  " Appearance - markdown syntax highlight
-    Plug 'sheerun/vim-polyglot'	    " Appearance - language pack 
-    "Plug 'airblade/vim-gitgutter'  " Appearance - git change in sidebar
-    Plug 'lewis6991/gitsigns.nvim'  " Appearance - git color in NumLr
-    Plug 'ellisonleao/glow.nvim'    " Appearance - markdown preview window
-    Plug 'yamatsum/nvim-cursorline' " Appearance - highlight under cursor
-    Plug 'Xuyuanp/nerdtree-git-plugin'	" Appearance - file git icons
-    Plug 'nvim-telescope/telescope.nvim'    " Appearance - pop up fzf
-    Plug 'nvim-telescope/telescope-fzy-native.nvim' " Appearance - with telescope
-    Plug 'lukas-reineke/indent-blankline.nvim'  " Appearance - indent line (nvim)
-    Plug 'kyazdani42/nvim-web-devicons'         " Appearance - nvim icons
-    Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }  "Applearnace - inline html color display
-    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " Applearnace - better language support
+" ------------------------------ Appearance Plugs --------------------------------
+    Plug 'mhinz/vim-startify', 	                " startpage
+    Plug 'kyazdani42/nvim-tree.lua'             " file tree for nvim
+    Plug 'arcticicestudio/nord-vim'             " nord color theme
+    Plug 'joshdick/onedark.vim'	                " onedark color theme
+    Plug 'sainnhe/sonokai'                      " treesitter theme
+    Plug 'junegunn/goyo.vim'                    " focus mode
+    Plug 'plasticboy/vim-markdown'              " markdown syntax highlight
+    Plug 'sheerun/vim-polyglot'	                " language pack 
+    Plug 'lewis6991/gitsigns.nvim'              " git color in NumLr
+    Plug 'ellisonleao/glow.nvim'                " markdown preview window
+    Plug 'nvim-telescope/telescope.nvim'        " pop up fzf
+    Plug 'lukas-reineke/indent-blankline.nvim'  " indent line (nvim)
+    Plug 'kyazdani42/nvim-web-devicons'         " nvim icons
+    Plug 'nvim-telescope/telescope-fzy-native.nvim' " with telescope
+    Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'} " nvim status line
+    Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }  " inline html color display
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " better language support
 
 
     Plug 'preservim/tagbar'         " Edit - variables at side

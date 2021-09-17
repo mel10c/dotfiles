@@ -132,7 +132,8 @@ let g:coc_global_extensions = [
             \ 'coc-java',
             \ 'coc-sh',
             \ 'coc-calc',
-            \ 'coc-dot-complete']
+            \ 'coc-dot-complete',
+            \ 'coc-lua']
 
 
 

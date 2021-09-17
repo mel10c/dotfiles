@@ -179,12 +179,12 @@
                 "r"
             ]
         },
-        "lua": {
-            "command": "lua-lsp",
-            "filetypes": [
-                "lua"
-            ]
-        },
+        //"lua": {
+            //"command": "lua-lsp",
+            //"filetypes": [
+                //"lua"
+            //]
+        //},
         "bash": {
             "command": "bash-language-server",
             "args": [
