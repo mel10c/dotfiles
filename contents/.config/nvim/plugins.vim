@@ -13,7 +13,7 @@ call plug#begin('$HOME/.config/nvim/plugged')
     Plug 'joshdick/onedark.vim'	                " onedark color theme
     Plug 'sainnhe/sonokai'                      " treesitter theme
     Plug 'junegunn/goyo.vim'                    " focus mode
-    Plug 'plasticboy/vim-markdown'              " markdown syntax highlight
+    "Plug 'plasticboy/vim-markdown'              " markdown syntax highlight
     Plug 'sheerun/vim-polyglot'	                " language pack 
     Plug 'lewis6991/gitsigns.nvim'              " git color in NumLr
     Plug 'ellisonleao/glow.nvim'                " markdown preview window
@@ -22,24 +22,27 @@ call plug#begin('$HOME/.config/nvim/plugged')
     Plug 'kyazdani42/nvim-web-devicons'         " nvim icons
     Plug 'liuchengxu/vista.vim'                 " tag view of file
     Plug 'SmiteshP/nvim-gps'                    " display function in statusline
+    Plug 'vim-pandoc/vim-pandoc'	            " syntax library
+    Plug 'vim-pandoc/vim-pandoc-syntax'         " markdown syntax
     Plug 'nvim-telescope/telescope-fzy-native.nvim' " with telescope
     Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'} " clean latex
     Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'} " nvim status line
     Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' } " html color display
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " language support
 
-" ------------------------------ Appearance Plugs --------------------------------
+" --------------------------------- Edit Plugs -----------------------------------
     "maybe
     "Plug 'neovim/nvim-lspconfig'               " LSP plugins
     "Plug 'hrsh7th/nvim-compe'                  " LSP complete
     "Plug 'ray-x/lsp_signature.nvim'            " LSP signature
     "Plug 'onsails/lspkind-nvim'
-
+    Plug 'SirVer/ultisnips'
+    Plug 'honza/vim-snippets'
+-
     Plug 'jiangmiao/auto-pairs'                 " auto pair
     Plug 'dkarter/bullets.vim'	                " makes bullet easier
     Plug 'preservim/nerdcommenter'              " easier comment
     Plug 'tpope/vim-fugitive'	                " git tool
-    Plug 'vim-pandoc/vim-pandoc'	            " syntax library
     Plug 'vim-pandoc/vim-rmarkdown'             " Rmarkdown render
     Plug 'KKPMW/vim-sendtowindow'               " send code to terminal
     Plug 'jalvesaq/Nvim-R'                      " R-environment

@@ -9,6 +9,7 @@ set number
 set numberwidth=2
 set relativenumber
 set cursorcolumn
+set cursorline
 set scrolloff=5
 set noshowmode
 set showcmd

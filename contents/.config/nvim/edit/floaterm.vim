@@ -1,4 +1,5 @@
-" Floaterm
+" -------------------------- 'voldikss/vim-floaterm' -----------------------------
+" ================================================================================
 let g:floaterm_gitcommit='floaterm'
 let g:floaterm_autoinsert=1
 let g:floaterm_width=0.8

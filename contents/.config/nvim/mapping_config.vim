@@ -25,7 +25,7 @@ inoremap <C-d> <ESC>ls
 " ------------------------------------ Nagivation --------------------------------
 nnoremap Y y$
 vnoremap Y "+y
-nnoremap ,p "_diwp
+nnoremap ,p "_diwhp
 nnoremap ,P "_Dp
 inoremap <C-u> <C-w>
 noremap <silent> k gk
@@ -61,7 +61,6 @@ noremap <down> :res -5<CR>
 noremap <left> :vertical resize-5<CR>
 noremap <right> :vertical resize+5<CR>
 " Start terminals
-map ,tr :new term://bash<CR>iR<CR><C-\><C-n><C-w>k
-map ,tp :term<CR>python3<CR>
 
 map <leader>v :Vista<CR>
+map <leader>z :Goyo<CR>
