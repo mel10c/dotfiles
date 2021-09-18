@@ -1,7 +1,18 @@
 " ================================================================================
 " =================================== PLUG IN ====================================
 " ================================================================================
+" ----------------------------- Auto Install Plugs -------------------------------
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+endif
 
+" Run PlugInstall if there are missing plugins
+autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \| PlugInstall --sync | source $MYVIMRC
+\| endif
+
+" ================================================================================
 call plug#begin('$HOME/.config/nvim/plugged')
 
     Plug 'nvim-lua/plenary.nvim'    " System - get luna to work
@@ -9,9 +20,9 @@ call plug#begin('$HOME/.config/nvim/plugged')
 " ------------------------------ Appearance Plugs --------------------------------
     Plug 'mhinz/vim-startify', 	                " startpage
     Plug 'kyazdani42/nvim-tree.lua'             " file tree for nvim
-    Plug 'arcticicestudio/nord-vim'             " nord color theme
+    Plug 'maaslalani/nordbuddy'                 " nord color theme
     Plug 'joshdick/onedark.vim'	                " onedark color theme
-    Plug 'sainnhe/sonokai'                      " treesitter theme
+    Plug 'EdenEast/nightfox.nvim'
     Plug 'junegunn/goyo.vim'                    " focus mode
     "Plug 'plasticboy/vim-markdown'              " markdown syntax highlight
     Plug 'sheerun/vim-polyglot'	                " language pack 
@@ -34,12 +45,9 @@ call plug#begin('$HOME/.config/nvim/plugged')
     "maybe
     "Plug 'neovim/nvim-lspconfig'               " LSP plugins
     "Plug 'hrsh7th/nvim-compe'                  " LSP complete
-    "Plug 'ray-x/lsp_signature.nvim'            " LSP signature
-    "Plug 'onsails/lspkind-nvim'
-    "Plug 'mfussenegger/nvim-jdtls'             " Supports java lsp
-
+    "Plug 'kabouzeid/nvim-lspinstall'
+    "Plug 'folke/lsp-colors.nvim'
     Plug 'SirVer/ultisnips'
-    Plug 'honza/vim-snippets'
 -
     Plug 'jiangmiao/auto-pairs'                 " auto pair
     Plug 'dkarter/bullets.vim'	                " makes bullet easier
