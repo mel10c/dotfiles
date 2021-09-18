@@ -42,7 +42,7 @@ source ~/.config/nvim/edit/send_code.vim
 source ~/.config/nvim/edit/coc.vim
 source ~/.config/nvim/edit/whick_key.vim
 
-"source ~/.config/nvim/edit/lsp_config.vim
+luafile ~/.config/nvim/edit/lsp_config.lua
 "luafile ~/.config/nvim/edit/lsp_server.lua
 "luafile ~/.config/nvim/edit/compe_config.lua
 

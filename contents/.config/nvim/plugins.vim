@@ -36,6 +36,8 @@ call plug#begin('$HOME/.config/nvim/plugged')
     "Plug 'hrsh7th/nvim-compe'                  " LSP complete
     "Plug 'ray-x/lsp_signature.nvim'            " LSP signature
     "Plug 'onsails/lspkind-nvim'
+    "Plug 'mfussenegger/nvim-jdtls'             " Supports java lsp
+
     Plug 'SirVer/ultisnips'
     Plug 'honza/vim-snippets'
 -
@@ -45,11 +47,12 @@ call plug#begin('$HOME/.config/nvim/plugged')
     Plug 'tpope/vim-fugitive'	                " git tool
     Plug 'vim-pandoc/vim-rmarkdown'             " Rmarkdown render
     Plug 'KKPMW/vim-sendtowindow'               " send code to terminal
-    Plug 'jalvesaq/Nvim-R'                      " R-environment
+    "Plug 'jalvesaq/Nvim-R'                      " R-environment
     Plug 'dhruvasagar/vim-table-mode'	        " easier tables
 	Plug 'lervag/vimtex', {'tag': 'v1.6'}    	" latex syntax support
     Plug 'liuchengxu/vim-which-key'             " organize key mappings
     Plug 'voldikss/vim-floaterm'                " terminal in vim
+    Plug 'michaelb/sniprun', {'do': 'bash install.sh'}
     Plug 'neoclide/coc.nvim', {'branch': 'release'}	" auto complition
     
 
