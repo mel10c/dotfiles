@@ -48,12 +48,12 @@ noremap Sk :set nosplitbelow<CR>:split<CR>:set splitbelow<CR>
 noremap Sj :set splitbelow<CR>:split<CR>
 noremap Sh :set nosplitright<CR>:vsplit<CR>:set splitright<CR>
 noremap Sl :set splitright<CR>:vsplit<CR>
-map ,k <C-w>k
-map ,j <C-w>j
-map ,h <C-w>h
-map ,l <C-w>l
-map ,tk <C-w>t<C-W>K
-map ,th <C-w>t<C-W>H
+map <leader>k <C-w>k
+map <leader>j <C-w>j
+map <leader>h <C-w>h
+map <leader>l <C-w>l
+map <leader>tk <C-w>t<C-W>K
+map <leader>th <C-w>t<C-W>H
 
 " Resize splits with arrow keys
 noremap <up> :res +5<CR>

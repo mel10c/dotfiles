@@ -1,3 +1,8 @@
+" ================================================================================
+" ================================= MAPPING CONFIGS ==============================
+" ================================================================================
+
+" ---------------------------------- basic configs -------------------------------
 " Map leader to which_key
 let g:mapleader = "\<Space>"
 let g:maplocalleader = ','
@@ -19,6 +24,7 @@ autocmd! FileType which_key
 autocmd  FileType which_key set laststatus=0 noshowmode noruler
   \| autocmd BufLeave <buffer> set laststatus=2 noshowmode ruler
 
+" ------------------------------------- Floaterm ---------------------------------
 let g:which_key_map.t = {
       \ 'name' : '+terminal' ,
       \ ';' : [':FloatermNew --wintype=popup --height=6'        , 'terminal'],
@@ -33,6 +39,35 @@ let g:which_key_map.t = {
       \ 'y' : [':FloatermNew ytop'                              , 'ytop'],
       \ 's' : [':FloatermNew ncdu'                              , 'ncdu'],
       \ }
+
+" ------------------------------------ telescope ---------------------------------
+let g:which_key_map.f = {
+      \ 'name' : '+Telescope' ,
+      \ 'f' : [':Telescope find_files'                          , 'files'],
+      \ 'k' : [':Telescope keymaps'                             , 'keymaps'],
+      \ 'b' : [':Telescope current_buffer_fuzzy_find'           , 'buffer find'],
+      \ 'w' : [':Telescope grep_string'                         , 'words'],
+      \ 'o' : [':Telescope file_browser'                        , 'browse'],
+      \ 'c' : [':Telescope commands'                            , 'available commands'],
+      \ 't' : [':Telescope tags'                                , 'tags'],
+      \ 'h' : [':Telescope help_tags'                           , 'help commands'],
+      \ 'v' : [':Telescope vim_options'                         , 'vim settings'],
+      \ }
+
+" ------------------------------------- coc --------------------------------------
+let g:which_key_map.g = {
+      \ 'name' : '+Coc' ,
+      \ '=' : ['<Plug>(coc-diagnostic-next)'                    , 'next diagn'],
+      \ '-' : ['<Plug>(coc-diagnostic-prev)'                    , 'prev diagn'],
+      \ 'd' : ['<Plug>(coc-definition)'                         , 'go to def'],
+      \ 'n' : ['<Plug>(coc-rename)'                             , 'rename'],
+      \ 'f' : ['<Plug>(coc-format-selected)'                    , 'format'],
+      \ 'a' : ['<Plug>(coc-codeaction)'                         , 'code action'],
+      \ 'u' : ['<Plug>(coc-fix-current)'                        , 'audo fix line'],
+      \ 'c' : [':CocList commands'                              , 'coc commands'],
+      \ }
+
+" -------------------------------- send to terminal  -----------------------------
 
 " Register which key map
 call which_key#register('<Space>', "g:which_key_map")
