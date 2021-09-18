@@ -1,3 +1,20 @@
+-- ---------------------------- Get function domain ------------------------------
+-- ------------------------------- Basic Mappings --------------------------------
+require("nvim-gps").setup({
+	icons = {
+		["class-name"] = '   ',      -- Classes and class-like objects
+		["function-name"] = '   ',   -- Functions
+		["method-name"] = '   '      -- Methods (functions inside class-like objects)
+	},
+	-- Disable any languages individually over here
+	-- Any language not disabled here is enabled by default
+	languages = {
+		-- ["bash"] = false,
+		-- ["go"] = false,
+	},
+	separator = ' >',
+})
+-- ----------------------------- config galaxyline ------------------------------
 local gl = require('galaxyline')
 
 local function is_buffer_empty() return vim.fn.empty(vim.fn.expand('%:t')) == 1 end
@@ -219,12 +236,6 @@ gls.left = {
       highlight = {colors.yellow, colors.section_bg},
       condition = function() return not is_available_gps() end
     }
-  }, {
-    GpsFunc = {
-      provider = function() return require("nvim-gps").get_location() end,
-      highlight = {colors.yellow, colors.section_bg},
-      condition = function() return is_available_gps() end
-    }
   }, {Space = {provider = function() return ' ' end, highlight = {colors.bg, colors.bg}}}, {
     DiagnosticError = {
       provider = 'DiagnosticError',
@@ -248,6 +259,12 @@ gls.left = {
       provider = 'DiagnosticHint',
       icon = '    ',
       highlight = {colors.purple, colors.bg}
+    }
+  }, {
+    GpsFunc = {
+      provider = function() return require("nvim-gps").get_location() end,
+      highlight = {colors.midblue, colors.bg},
+      condition = function() return is_available_gps() end
     }
   }
 }
@@ -489,7 +506,7 @@ gls.short_line_left = {
       condition = buffer_not_empty,
       highlight = {colors.fg, colors.bg}
     }
-  }
+  },   
 }
 
 gls.short_line_right = {

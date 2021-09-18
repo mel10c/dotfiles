@@ -7,7 +7,6 @@ call plug#begin('$HOME/.config/nvim/plugged')
     Plug 'nvim-lua/plenary.nvim'    " System - get luna to work
 
 " ------------------------------ Appearance Plugs --------------------------------
-" ================================================================================
     Plug 'mhinz/vim-startify', 	                " startpage
     Plug 'kyazdani42/nvim-tree.lua'             " file tree for nvim
     Plug 'arcticicestudio/nord-vim'             " nord color theme
@@ -21,6 +20,8 @@ call plug#begin('$HOME/.config/nvim/plugged')
     Plug 'nvim-telescope/telescope.nvim'        " pop up fzf
     Plug 'lukas-reineke/indent-blankline.nvim'  " indent line (nvim)
     Plug 'kyazdani42/nvim-web-devicons'         " nvim icons
+    Plug 'liuchengxu/vista.vim'                 " tag view of file
+    Plug 'SmiteshP/nvim-gps'                    " display function in statusline
     Plug 'nvim-telescope/telescope-fzy-native.nvim' " with telescope
     Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'} " clean latex
     Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'} " nvim status line
@@ -28,9 +29,7 @@ call plug#begin('$HOME/.config/nvim/plugged')
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " language support
 
 " ------------------------------ Appearance Plugs --------------------------------
-" ================================================================================
     "maybe
-    Plug 'preservim/tagbar'                     " variables at side
     "Plug 'neovim/nvim-lspconfig'               " LSP plugins
     "Plug 'hrsh7th/nvim-compe'                  " LSP complete
     "Plug 'ray-x/lsp_signature.nvim'            " LSP signature

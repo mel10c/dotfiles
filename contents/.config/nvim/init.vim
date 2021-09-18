@@ -32,6 +32,11 @@ luafile ~/.config/nvim/appearance/statusline.lua
 source ~/.config/nvim/edit_config.vim
 source ~/.config/nvim/edit/whick_key.vim
 source ~/.config/nvim/edit/floaterm.vim
+source ~/.config/nvim/edit/bullets.vim
+source ~/.config/nvim/edit/commenter.vim
+source ~/.config/nvim/edit/latex.vim
+source ~/.config/nvim/edit/table_mode.vim
+source ~/.config/nvim/edit/coc.vim
 
 " -------------------------------- Basic Mappings --------------------------------
 " ================================================================================

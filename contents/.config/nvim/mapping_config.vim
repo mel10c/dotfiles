@@ -64,3 +64,4 @@ noremap <right> :vertical resize+5<CR>
 map ,tr :new term://bash<CR>iR<CR><C-\><C-n><C-w>k
 map ,tp :term<CR>python3<CR>
 
+map <leader>v :Vista<CR>

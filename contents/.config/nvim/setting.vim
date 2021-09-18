@@ -4,6 +4,7 @@
 
 " ------------------------------ Interface Settings ------------------------------
 set mouse=a             " enable mouse in vim
+set syntax
 set number
 set numberwidth=2
 set relativenumber
