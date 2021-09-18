@@ -27,7 +27,6 @@ call plug#begin('$HOME/.config/nvim/plugged')
     Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' } " html color display
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " language support
 
-
 " ------------------------------ Appearance Plugs --------------------------------
 " ================================================================================
     "maybe
@@ -47,8 +46,9 @@ call plug#begin('$HOME/.config/nvim/plugged')
     Plug 'jalvesaq/Nvim-R'                      " R-environment
     Plug 'dhruvasagar/vim-table-mode'	        " easier tables
 	Plug 'lervag/vimtex', {'tag': 'v1.6'}    	" latex syntax support
+    Plug 'liuchengxu/vim-which-key'             " organize key mappings
+    Plug 'voldikss/vim-floaterm'                " terminal in vim
     Plug 'neoclide/coc.nvim', {'branch': 'release'}	" auto complition
-	"Plug 'vim-pandoc/vim-pandoc-syntax'			" syntax highlight
     
 
 call plug#end()

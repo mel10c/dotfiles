@@ -23,8 +23,15 @@ source ~/.config/nvim/plugins.vim
 
 " =================================== CONFIGS ====================================
 " ================================================================================
-source ~/.config/nvim/appearance_config.vim
+source ~/.config/nvim/appearance/appearance_config.vim
+source ~/.config/nvim/appearance/startify.vim
+source ~/.config/nvim/appearance/nvim_tree.vim
+source ~/.config/nvim/appearance/telescope.vim
+luafile ~/.config/nvim/appearance/statusline.lua
+
 source ~/.config/nvim/edit_config.vim
+source ~/.config/nvim/edit/whick_key.vim
+source ~/.config/nvim/edit/floaterm.vim
 
 " -------------------------------- Basic Mappings --------------------------------
 " ================================================================================

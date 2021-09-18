@@ -52,7 +52,7 @@ let g:startify_custom_header = s:center(s:header)
 
 " Load startify page
 let g:startify_lists = [
-          \ { 'type': 'files',     'header': s:center(['Recent Files'])            },
+          \ { 'type': 'files',     'header': s:center(['Recent Files'])},
           \ { 'type': 'dir',       'header': s:center([''. getcwd()]) },
           \ { 'type': 'sessions',  'header': s:center(['Sessions'])       },
           \ ] 
@@ -65,7 +65,8 @@ let g:startify_fortune_use_unicode = 1
 let g:startify_relative_path = 1
 let g:startify_files_number           = 10
 let g:startify_session_persistence    = 2
-let g:stratify_padding_left = 20
+let g:stratify_padding_left = 50
+let g:startify_padding_left = 15
 
 " ---------------------------------- Mappings ------------------------------------
 map gs :Startify<CR>

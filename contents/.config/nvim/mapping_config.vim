@@ -7,8 +7,8 @@ map ; %
 noremap > ;
 noremap < ,
 noremap ,s :source ~/.config/nvim/init.vim<CR>
-map gv :e ~/.config/nvim/init.vim<CR>
-inoremap , ,<C-g>u
+map gv :e ~/dotfiles/contents/.config/nvim/init.vim<CR>
+inorema , ,<C-g>u
 inoremap . .<C-g>u
 inoremap $ $<C-g>u
 inoremap { }<C-g>u
