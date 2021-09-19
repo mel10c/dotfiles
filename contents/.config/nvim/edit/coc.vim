@@ -54,8 +54,8 @@ function! s:show_documentation()
 endfunction
 
 nnoremap <silent><nowait> <space>d  :<C-u>CocList diagnostics<cr>
-nmap <leader>a  <Plug>(coc-codeaction-selected)
-xmap <leader>a  <Plug>(coc-codeaction-selected)
+"nmap <leader>a  <Plug>(coc-codeaction-selected)
+"xmap <leader>a  <Plug>(coc-codeaction-selected)
 "nmap <leader>rn <Plug>(coc-rename)
 " Formatting selected code.
 "xmap <leader>f  <Plug>(coc-format-selected)

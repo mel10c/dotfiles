@@ -6,7 +6,6 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
-
 " Run PlugInstall if there are missing plugins
 autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
   \| PlugInstall --sync | source $MYVIMRC
@@ -14,7 +13,6 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 
 " ================================================================================
 call plug#begin('$HOME/.config/nvim/plugged')
-
     Plug 'nvim-lua/plenary.nvim'    " System - get luna to work
 
 " ------------------------------ Appearance Plugs --------------------------------
@@ -22,10 +20,9 @@ call plug#begin('$HOME/.config/nvim/plugged')
     Plug 'kyazdani42/nvim-tree.lua'             " file tree for nvim
     Plug 'maaslalani/nordbuddy'                 " nord color theme
     Plug 'joshdick/onedark.vim'	                " onedark color theme
-    Plug 'EdenEast/nightfox.nvim'
     Plug 'junegunn/goyo.vim'                    " focus mode
     "Plug 'plasticboy/vim-markdown'              " markdown syntax highlight
-    Plug 'sheerun/vim-polyglot'	                " language pack 
+    "Plug 'sheerun/vim-polyglot'	                " language pack 
     Plug 'lewis6991/gitsigns.nvim'              " git color in NumLr
     Plug 'ellisonleao/glow.nvim'                " markdown preview window
     Plug 'nvim-telescope/telescope.nvim'        " pop up fzf

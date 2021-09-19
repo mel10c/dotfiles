@@ -62,5 +62,5 @@ noremap <left> :vertical resize-5<CR>
 noremap <right> :vertical resize+5<CR>
 " Start terminals
 
-map <leader>v :Vista<CR>
+map <leader>v :Vista coc<CR>
 map <leader>z :Goyo<CR>

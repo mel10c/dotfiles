@@ -50,7 +50,7 @@ let g:which_key_map.f = {
       \ }
 
 " ------------------------------------- coc --------------------------------------
-let g:which_key_map.g = {
+let g:which_key_map.c = {
       \ 'name' : '+Coc' ,
       \ '=' : ['<Plug>(coc-diagnostic-next)'                    , 'next diagn'],
       \ '-' : ['<Plug>(coc-diagnostic-prev)'                    , 'prev diagn'],
@@ -58,7 +58,7 @@ let g:which_key_map.g = {
       \ 'n' : ['<Plug>(coc-rename)'                             , 'rename'],
       \ 'f' : ['<Plug>(coc-format-selected)'                    , 'format'],
       \ 'a' : ['<Plug>(coc-codeaction)'                         , 'code action'],
-      \ 'u' : ['<Plug>(coc-fix-current)'                        , 'audo fix line'],
+      \ 'q' : ['<Plug>(coc-fix-current)'                        , 'quickfix'],
       \ 'c' : [':CocList commands'                              , 'coc commands'],
       \ }
 

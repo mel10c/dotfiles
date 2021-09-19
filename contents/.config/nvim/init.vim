@@ -36,6 +36,7 @@ source ~/.config/nvim/edit/coc.vim
 source ~/.config/nvim/appearance/appearance_config.vim
 source ~/.config/nvim/appearance/startify.vim
 source ~/.config/nvim/appearance/nvim_tree.vim
+source ~/.config/nvim/appearance/vista.vim
 luafile ~/.config/nvim/appearance/telescope.lua
 luafile ~/.config/nvim/appearance/statusline.lua
 luafile ~/.config/nvim/appearance/devicon.lua
