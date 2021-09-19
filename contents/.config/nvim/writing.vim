@@ -39,7 +39,6 @@ inoremap \map \mapsto
 inoremap \fa \forall
 inoremap \es \exists
 inoremap \q \quad
-autocmd Filetype markdown,tex,latex inoremap == &=
 " === letters ==
 inoremap \mcal \mathcal{}<Esc>F{a
 inoremap \mb \mathbb{}<Esc>F{a
