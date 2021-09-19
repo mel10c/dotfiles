@@ -11,5 +11,5 @@ let g:vimtex_quickfix_latexlog = {'fix_paths':0}
 set conceallevel=3
 let g:tex_conceal="abdgms"
 
-
-let g:UltiSnipsSnippetsDir = "~/.config/nvim/my_snippets"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"

@@ -50,4 +50,3 @@ luafile ~/.config/nvim/appearance/treesitter.lua
 " ================================================================================
 source ~/.config/nvim/mapping_config.vim
 source ~/.config/nvim/writing.vim
-inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u

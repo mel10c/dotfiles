@@ -32,8 +32,8 @@ let g:coc_global_extensions = [
             \ 'coc-prettier']
 
 " -------------------------------- Basic Mappings --------------------------------
-nmap <silent> g- <Plug>(coc-diagnostic-prev)
-nmap <silent> g= <Plug>(coc-diagnostic-next)
+nmap <silent> <leader>n <Plug>(coc-diagnostic-next)
+nmap <silent> <Leader>p <Plug>(coc-diagnostic-prev)
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
@@ -71,3 +71,9 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 
 
 map <leader>r :CocRestart<CR>
+" Use <C-j> for jump to next placeholder, it's default of coc.nvim
+let g:coc_snippet_next = '<c-f>'
+
+" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+let g:coc_snippet_prev = '<c-b>'
+
