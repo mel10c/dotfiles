@@ -1,14 +1,15 @@
 " --------------------------------------- Basics ---------------------------------
 let mapleader=" "
-noremap ,q :q<CR>
-noremap ,w :w<CR>
-map <C-S> :w!<CR>
+noremap <leader>q :q<CR>
+noremap <leader>Q :q!<CR>
+noremap <leader>w :w<CR>
+noremap <leader>W :w!<CR>
 map ; %
-noremap > ;
 noremap < ,
+noremap > ;
 noremap ,s :source ~/.config/nvim/init.vim<CR>
 map gv :e ~/dotfiles/contents/.config/nvim/init.vim<CR>
-inorema , ,<C-g>u
+inoremap , ,<C-g>u
 inoremap . .<C-g>u
 inoremap $ $<C-g>u
 inoremap { }<C-g>u

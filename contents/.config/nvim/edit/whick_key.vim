@@ -31,22 +31,24 @@ let g:which_key_map.t = {
       \ 'f' : [':FloatermNew fzf'                               , 'fzf'],
       \ 'g' : [':FloatermNew lazygit'                           , 'git'],
       \ 'p' : [':FloatermNew python'                            , 'python'],
+      \ 'R' : [':FloatermNew R'                                 , 'R'],
+      \ 'z' : [':FloatermNew zsh'                               , 'zsh'],
       \ 'r' : [':FloatermNew ranger'                            , 'ranger'],
-      \ 't' : [':FloatermToggle'                                , 'toggle'],
       \ }
 
 " ------------------------------------ telescope ---------------------------------
 let g:which_key_map.f = {
       \ 'name' : '+Telescope' ,
-      \ 'f' : [':Telescope find_files'                          , 'files'],
+      \ ';' : [':Telescope find_files'                          , 'files'],
       \ 'k' : [':Telescope keymaps'                             , 'keymaps'],
       \ 'b' : [':Telescope current_buffer_fuzzy_find'           , 'buffer find'],
-      \ 'w' : [':Telescope grep_string'                         , 'words'],
-      \ 'o' : [':Telescope file_browser'                        , 'browse'],
+      \ 'f' : [':Telescope file_browser'                        , 'browse'],
       \ 'c' : [':Telescope commands'                            , 'available commands'],
-      \ 't' : [':Telescope tags'                                , 'tags'],
+      \ 't' : [':Telescope treesitter'                                , 'treesitter'],
       \ 'h' : [':Telescope help_tags'                           , 'help commands'],
       \ 'v' : [':Telescope vim_options'                         , 'vim settings'],
+      \ 'r' : [':Telescope registers'                           , 'registers'],
+      \ 'g' : [':Telescope git_status'                          , 'git status'],
       \ }
 
 " ------------------------------------- coc --------------------------------------
@@ -54,12 +56,13 @@ let g:which_key_map.c = {
       \ 'name' : '+Coc' ,
       \ '=' : ['<Plug>(coc-diagnostic-next)'                    , 'next diagn'],
       \ '-' : ['<Plug>(coc-diagnostic-prev)'                    , 'prev diagn'],
-      \ 'd' : ['<Plug>(coc-definition)'                         , 'go to def'],
+      \ 'g' : ['<Plug>(coc-definition)'                         , 'go to def'],
       \ 'n' : ['<Plug>(coc-rename)'                             , 'rename'],
-      \ 'f' : ['<Plug>(coc-format-selected)'                    , 'format'],
+      \ 'f' : ['<Plug>(coc-format)'                             , 'format'],
       \ 'a' : ['<Plug>(coc-codeaction)'                         , 'code action'],
       \ 'q' : ['<Plug>(coc-fix-current)'                        , 'quickfix'],
       \ 'c' : [':CocList commands'                              , 'coc commands'],
+      \ 'd' : [':CocDiagnostics'                                , 'coc commands'],
       \ }
 
 " -------------------------------- send to terminal  -----------------------------

@@ -29,7 +29,7 @@ source ~/.config/nvim/edit/bullets.vim
 source ~/.config/nvim/edit/commenter.vim
 source ~/.config/nvim/edit/latex.vim
 source ~/.config/nvim/edit/table_mode.vim
-source ~/.config/nvim/edit/send_code.vim
+"source ~/.config/nvim/edit/send_code.vim
 source ~/.config/nvim/edit/whick_key.vim
 source ~/.config/nvim/edit/coc.vim
 
