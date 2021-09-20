@@ -29,8 +29,7 @@ inoremap inn \in
 inoremap \cc \subseteq
 inoremap \rarr \Rightarrow
 inoremap \lrarr \Leftrightarrow
-inoremap \N \cap
-inoremap \U \cup
+inoremap \N \mathbb{N}
 inoremap \O \emptyset
 inoremap \R \mathbb{R}^{}<Esc>i
 inoremap \Q \mathbb{Q}
@@ -73,6 +72,7 @@ inoremap \eq \left\{\begin{matrix}u  & =<++> \\ <++> & =<++>\end{matrix}\right.<
 inoremap \( \left( u \right)<Esc>Fus
 inoremap \[ \left[ u \right]<Esc>Fus
 inoremap \{ \left\{ u \right\}<Esc>Fus
+inoremap \| \| u \\|<Esc>Fus
 inoremap \< \langle u \rangle<Esc>Fus
 
 

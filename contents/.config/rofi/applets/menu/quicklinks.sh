@@ -28,7 +28,7 @@ else
 fi
 
 # Links
-google=""
+google=""
 facebook=""
 twitter=""
 github=""
@@ -43,7 +43,7 @@ chosen="$(echo -e "$options" | $rofi_command -p "Open In  :  $app" -dmenu -selec
 
 case $chosen in
     $google)
-        $app https://www.notion.so &
+        $app https://markus.teach.cs.toronto.edu &
         ;;
     $facebook)
         $app https://office.live.com/start/onedrive.aspx &

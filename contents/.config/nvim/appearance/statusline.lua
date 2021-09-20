@@ -7,7 +7,8 @@ require("nvim-gps").setup({
 	icons = {
 		["class-name"] = '   ',      -- Classes and class-like objects
 		["function-name"] = '   ',   -- Functions
-		["method-name"] = '   '      -- Methods (functions inside class-like objects)
+		["method-name"] = '   ',      -- Methods (functions inside class-like objects)
+		["container-name"] = '  離 '   -- Containers (example: lua tables)
 	},
 	-- Disable any languages individually over here
 	-- Any language not disabled here is enabled by default
@@ -224,7 +225,7 @@ gls.left = {
       provider = {function() return '  ' end, 'FileIcon'},
       condition = buffer_not_empty,
       --highlight = {require('galaxyline.provider_fileinfo').get_file_icon, colors.section_bg}
-      highlight = {colors.midgreen, colors.section_bg}
+      highlight = {colors.midblue, colors.section_bg}
     }
   }, {
     FileName = {

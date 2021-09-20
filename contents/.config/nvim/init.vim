@@ -13,14 +13,19 @@
 
 " =================================== PLUG IN ====================================
 " ================================================================================
-source ~/.config/nvim/plugins.vim
+set syntax=on
+"
+" ----------------------------- Auto Install Plugs -------------------------------
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+endif
+" Run PlugInstall if there are missing plugins
+autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \| PlugInstall --sync | source $MYVIMRC
+\| endif
 
-" ============================== EDITOR BEHAVIOR =================================
-" ================================================================================
-"set signcolumn=number
-set signcolumn=yes
-nnoremap ,ff <cmd>Telescope find_files<cr>
-source ~/.config/nvim/setting.vim
+source ~/.config/nvim/plugins.vim
 
 " =================================== CONFIGS ====================================
 " ================================================================================
@@ -51,3 +56,13 @@ luafile ~/.config/nvim/appearance/treesitter.lua
 " ================================================================================
 source ~/.config/nvim/mapping_config.vim
 source ~/.config/nvim/writing.vim
+
+" ============================== EDITOR BEHAVIOR =================================
+" ================================================================================
+"set signcolumn=number
+set signcolumn=yes
+source ~/.config/nvim/setting.vim
+
+setlocal spell
+"set spelllang=en_gb
+inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u

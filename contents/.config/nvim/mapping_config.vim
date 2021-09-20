@@ -1,6 +1,6 @@
 " --------------------------------------- Basics ---------------------------------
 let mapleader=" "
-noremap <leader>q :q<CR>
+noremap <leader>q :wq<CR>
 noremap <leader>Q :q!<CR>
 noremap <leader>w :w<CR>
 noremap <leader>W :w!<CR>
@@ -65,3 +65,4 @@ noremap <right> :vertical resize+5<CR>
 
 map <leader>v :Vista coc<CR>
 map <leader>z :Goyo<CR>
+nnoremap ,ff <cmd>Telescope find_files<cr>

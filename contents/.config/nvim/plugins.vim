@@ -1,17 +1,10 @@
 " ================================================================================
 " =================================== PLUG IN ====================================
 " ================================================================================
-" ----------------------------- Auto Install Plugs -------------------------------
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-endif
-" Run PlugInstall if there are missing plugins
-autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-  \| PlugInstall --sync | source $MYVIMRC
-\| endif
-
-" ================================================================================
+filetype on
+filetype indent on 
+filetype plugin on
+filetype plugin indent on
 call plug#begin('$HOME/.config/nvim/plugged')
     Plug 'nvim-lua/plenary.nvim'    " System - get luna to work
 
@@ -21,8 +14,7 @@ call plug#begin('$HOME/.config/nvim/plugged')
     Plug 'maaslalani/nordbuddy'                 " nord color theme
     Plug 'joshdick/onedark.vim'	                " onedark color theme
     Plug 'junegunn/goyo.vim'                    " focus mode
-    "Plug 'plasticboy/vim-markdown'              " markdown syntax highlight
-    "Plug 'sheerun/vim-polyglot'	                " language pack 
+    Plug 'plasticboy/vim-markdown'              " markdown syntax highlight
     Plug 'lewis6991/gitsigns.nvim'              " git color in NumLr
     Plug 'ellisonleao/glow.nvim'                " markdown preview window
     Plug 'nvim-telescope/telescope.nvim'        " pop up fzf
@@ -33,7 +25,7 @@ call plug#begin('$HOME/.config/nvim/plugged')
     Plug 'vim-pandoc/vim-pandoc'	            " syntax library
     Plug 'vim-pandoc/vim-pandoc-syntax'         " markdown syntax
     Plug 'nvim-telescope/telescope-fzy-native.nvim' " with telescope
-    Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'} " clean latex
+    "Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'} " clean latex
     Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'} " nvim status line
     Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' } " html color display
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " language support
@@ -52,9 +44,8 @@ call plug#begin('$HOME/.config/nvim/plugged')
     Plug 'tpope/vim-fugitive'	                " git tool
     Plug 'vim-pandoc/vim-rmarkdown'             " Rmarkdown render
     Plug 'KKPMW/vim-sendtowindow'               " send code to terminal
-    "Plug 'jalvesaq/Nvim-R'                      " R-environment
     Plug 'dhruvasagar/vim-table-mode'	        " easier tables
-	Plug 'lervag/vimtex', {'tag': 'v1.6'}    	" latex syntax support
+	Plug 'lervag/vimtex'                    	" latex syntax support
     Plug 'liuchengxu/vim-which-key'             " organize key mappings
     Plug 'voldikss/vim-floaterm'                " terminal in vim
     Plug 'michaelb/sniprun', {'do': 'bash install.sh'}

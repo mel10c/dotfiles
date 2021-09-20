@@ -4,7 +4,7 @@
 
 " ------------------------------ Interface Settings ------------------------------
 set mouse=a             " enable mouse in vim
-set syntax
+set syntax=on
 set number
 set numberwidth=2
 set relativenumber
@@ -40,8 +40,4 @@ set shortmess+=c
 set visualbell
 set updatetime=100
 set nocompatible
-filetype on
-filetype indent on 
-filetype plugin on
-filetype plugin indent on
 set completeopt=menuone,noselect
