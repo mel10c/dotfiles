@@ -16,6 +16,7 @@ set showcmd
 set wildmenu
 set nofoldenable
 "set colorcolumn=100
+set signcolumn=yes
 
 " ------------------------------- Editor Settings --------------------------------
 set expandtab smarttab

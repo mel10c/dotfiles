@@ -25,7 +25,6 @@ call plug#begin('$HOME/.config/nvim/plugged')
     Plug 'vim-pandoc/vim-pandoc'	            " syntax library
     Plug 'vim-pandoc/vim-pandoc-syntax'         " markdown syntax
     Plug 'nvim-telescope/telescope-fzy-native.nvim' " with telescope
-    "Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'} " clean latex
     Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'} " nvim status line
     Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' } " html color display
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " language support
@@ -37,15 +36,17 @@ call plug#begin('$HOME/.config/nvim/plugged')
     "Plug 'kabouzeid/nvim-lspinstall'
     "Plug 'folke/lsp-colors.nvim'
     Plug 'SirVer/ultisnips'
+    Plug 'rhysd/accelerated-jk'                 " faster vertial movement
 -
     Plug 'jiangmiao/auto-pairs'                 " auto pair
     Plug 'dkarter/bullets.vim'	                " makes bullet easier
     Plug 'preservim/nerdcommenter'              " easier comment
     Plug 'tpope/vim-fugitive'	                " git tool
     Plug 'vim-pandoc/vim-rmarkdown'             " Rmarkdown render
-    Plug 'KKPMW/vim-sendtowindow'               " send code to terminal
     Plug 'dhruvasagar/vim-table-mode'	        " easier tables
 	Plug 'lervag/vimtex'                    	" latex syntax support
+    Plug 'hrsh7th/vim-eft'                      " easier horizontal jump
+
     Plug 'liuchengxu/vim-which-key'             " organize key mappings
     Plug 'voldikss/vim-floaterm'                " terminal in vim
     Plug 'michaelb/sniprun', {'do': 'bash install.sh'}

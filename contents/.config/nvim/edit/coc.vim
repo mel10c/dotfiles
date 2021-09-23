@@ -53,7 +53,7 @@ function! s:show_documentation()
   endif
 endfunction
 
-nnoremap <silent><nowait> <space>d  :<C-u>CocList diagnostics<cr>
+"nnoremap <silent><nowait> <space>d  :<C-u>CocList diagnostics<cr>
 "nmap <leader>a  <Plug>(coc-codeaction-selected)
 "xmap <leader>a  <Plug>(coc-codeaction-selected)
 "nmap <leader>rn <Plug>(coc-rename)

@@ -62,7 +62,7 @@ let g:which_key_map.c = {
       \ 'a' : ['<Plug>(coc-codeaction)'                         , 'code action'],
       \ 'q' : ['<Plug>(coc-fix-current)'                        , 'quickfix'],
       \ 'c' : [':CocList commands'                              , 'coc commands'],
-      \ 'd' : [':CocDiagnostics'                                , 'coc commands'],
+      \ 'd' : [':CocDiagnostics'                                , 'diagnostics'],
       \ }
 
 " -------------------------------- send to terminal  -----------------------------

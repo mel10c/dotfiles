@@ -1,9 +1,8 @@
 " --------------------------------------- Basics ---------------------------------
 let mapleader=" "
-noremap <leader>q :wq<CR>
+noremap <leader>q :q<CR>
 noremap <leader>Q :q!<CR>
 noremap <leader>w :w<CR>
-noremap <leader>W :w!<CR>
 map ; %
 noremap < ,
 noremap > ;
@@ -53,16 +52,29 @@ map <leader>k <C-w>k
 map <leader>j <C-w>j
 map <leader>h <C-w>h
 map <leader>l <C-w>l
-map <leader>tk <C-w>t<C-W>K
-map <leader>th <C-w>t<C-W>H
+map <leader>kk <C-w>t<C-W>K
+map <leader>hh <C-w>t<C-W>H
 
 " Resize splits with arrow keys
 noremap <up> :res +5<CR>
 noremap <down> :res -5<CR>
 noremap <left> :vertical resize-5<CR>
 noremap <right> :vertical resize+5<CR>
-" Start terminals
 
 map <leader>v :Vista coc<CR>
-map <leader>z :Goyo<CR>
+map <leader>g :Glow<CR>
+map <leader>v :VimtexCompile<CR>
 nnoremap ,ff <cmd>Telescope find_files<cr>
+
+nmap t <Plug>(eft-t)
+xmap t <Plug>(eft-t)
+omap t <Plug>(eft-t)
+nmap T <Plug>(eft-T)
+xmap T <Plug>(eft-T)
+omap T <Plug>(eft-T)
+
+nmap j <Plug>(accelerated_jk_gj)
+nmap k <Plug>(accelerated_jk_gk)
+
+map <leader>s <Plug>SnipRun
+map <leader>sl <Plug>SnipClose

@@ -3,7 +3,7 @@
 	"coc.preferences.enableFloatHighlight": true,
 	"coc.preferences.snippetStatusText": "Ⓢ ",
 	"coc.preferences.extensionUpdateCheck": "daily",
-	"coc.preferences.messageLevel": "error",
+	"coc.preferences.messageLevel": "more",
 	"coc.source.around.firstMatch": false,
 	"coc.source.buffer.firstMatch": false,
 	"suggest.detailMaxLength": 60,
@@ -83,5 +83,5 @@
 	"prettier.disableLanguages": [],
 	"prettier.formatterPriority": 1,
 	"prettier.useTabs": true,
-	"prettier.trailingComma": "all",
+	"prettier.trailingComma": "all"
 }
