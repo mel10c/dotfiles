@@ -63,7 +63,7 @@ bindsym $mod+b exec --no-startup-id  obsidian
 
 # Start Applications
 bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
-bindsym $mod+c exec chromium
+bindsym $mod+c exec firefox
 bindsym $mod+p exec pcmanfm
 # bindsym $mod+F3 exec ranger
 #bindsym $mod+Shift+F3 exec pcmanfm_pkexec
