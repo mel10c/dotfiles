@@ -10,7 +10,6 @@ let g:nvim_tree_indent_markers = 1
 let g:nvim_tree_git_hl = 1
 let g:nvim_tree_highlight_opened_files = 1
 "let g:nvim_tree_respect_buf_cwd = 1
-let g:nvim_tree_follow = 1
 highlight NvimTreeFolderIcon guibg=blue
 
 " -------------------------------- Icons configs ---------------------------------
