@@ -1,5 +1,9 @@
 scan_timeout = 5
 
+[cmd_duration]
+format = '[ \[$duration\]]($style)'
+style = "yellow"
+
 [[battery.display]]
 threshold = 20
 style = "bold red"
@@ -59,4 +63,3 @@ style_root = "red bold"
 format = "[$user]($style) "
 disabled = false
 show_always = true
-
