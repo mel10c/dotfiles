@@ -32,6 +32,7 @@ call plug#begin('$HOME/.config/nvim/plugged')
 " --------------------------------- Edit Plugs -----------------------------------
     "maybe
     "Plug 'neovim/nvim-lspconfig'               " LSP plugins
+    "Plug 'glepnir/lspsaga.nvim'
     "Plug 'hrsh7th/nvim-compe'                  " LSP complete
     "Plug 'kabouzeid/nvim-lspinstall'
     "Plug 'folke/lsp-colors.nvim'
@@ -41,7 +42,6 @@ call plug#begin('$HOME/.config/nvim/plugged')
     Plug 'jiangmiao/auto-pairs'                 " auto pair
     Plug 'dkarter/bullets.vim'	                " makes bullet easier
     Plug 'preservim/nerdcommenter'              " easier comment
-    Plug 'tpope/vim-fugitive'	                " git tool
     Plug 'vim-pandoc/vim-rmarkdown'             " Rmarkdown render
     Plug 'dhruvasagar/vim-table-mode'	        " easier tables
 	Plug 'lervag/vimtex'                    	" latex syntax support
@@ -49,7 +49,7 @@ call plug#begin('$HOME/.config/nvim/plugged')
 
     Plug 'liuchengxu/vim-which-key'             " organize key mappings
     Plug 'voldikss/vim-floaterm'                " terminal in vim
-    Plug 'michaelb/sniprun', {'do': 'bash install.sh'}
+    Plug 'michaelb/sniprun', {'do': 'bash install.sh'} " quick run code
     Plug 'neoclide/coc.nvim', {'branch': 'release'}	" auto complition
     
 

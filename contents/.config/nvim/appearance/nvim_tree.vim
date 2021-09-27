@@ -5,10 +5,12 @@
 " -------------------------------- Plugin configs --------------------------------
 let g:nvim_tree_width = 30
 let g:nvim_tree_quit_on_open = 1 
-let g:nvim_tree_follow_update_path = 0
+"let g:nvim_tree_follow_update_path = 0
 let g:nvim_tree_indent_markers = 1
 let g:nvim_tree_git_hl = 1
 let g:nvim_tree_highlight_opened_files = 1
+"let g:nvim_tree_respect_buf_cwd = 1
+let g:nvim_tree_follow = 1
 highlight NvimTreeFolderIcon guibg=blue
 
 " -------------------------------- Icons configs ---------------------------------
@@ -50,3 +52,7 @@ let g:nvim_tree_icons = {
 " ---------------------------------- Mappings ------------------------------------
 nnoremap tt :NvimTreeToggle<CR>
 nnoremap tf :NvimTreeFindFile<CR>
+
+lua << EOF
+require'nvim-tree'.setup()
+EOF

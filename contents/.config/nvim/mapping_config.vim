@@ -63,7 +63,7 @@ noremap <right> :vertical resize+5<CR>
 
 map <leader>v :Vista coc<CR>
 map <leader>g :Glow<CR>
-map <leader>v :VimtexCompile<CR>
+map <leader>vt :VimtexCompile<CR>
 nnoremap ,ff <cmd>Telescope find_files<cr>
 
 nmap t <Plug>(eft-t)

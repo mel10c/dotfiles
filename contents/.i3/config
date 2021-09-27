@@ -38,6 +38,7 @@ bindsym $mod+d exec --no-startup-id  ~/.config/rofi/bin/launcher_text
 bindsym $mod+u exec --no-startup-id  ~/.config/rofi/bin/menu_quicklinks
 bindsym $mod+0 exec --no-startup-id  ~/.config/rofi/bin/powermenu
 bindsym $mod+m exec --no-startup-id  notion-app-enhanced
+bindsym $mod+b exec --no-startup-id  obsidian
 #bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
 
 

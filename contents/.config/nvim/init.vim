@@ -61,3 +61,5 @@ luafile ~/.config/nvim/appearance/treesitter.lua
 source ~/.config/nvim/mapping_config.vim
 setlocal spell
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
+
+"let g:vimwiki_list = [{'path': '~/melaneyroot.github.io'}]

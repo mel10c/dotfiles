@@ -16,7 +16,8 @@ inoremap ,$ $<Esc>a
 inoremap $$ $$<Enter>$$<Enter><Esc>2ko
 inoremap ,t \| u \|<Esc>Fus
 inoremap ,pic ![](<++>) <++><Esc>F[a
-inoremap ,lk [](<++>) <++><Esc>F[a
+inoremap ,k [](<++>) <++><Esc>F[a
+inoremap ,l ------------------------------------------------------------
 inoremap ,1 #
 inoremap ,2 ##
 inoremap ,3 ###
