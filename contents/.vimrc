@@ -671,9 +671,9 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 " -------------------------------- Basic Mappings --------------------------------
 " ================================================================================
 let mapleader=" "
-noremap <leader>q :q<CR>
-noremap <leader>w :w<CR>
-noremap <leader>s :source ~/.vimrc<CR>
+noremap ,q :q<CR>
+noremap ,w :w<CR>
+noremap ,s :source ~/.vimrc<CR>
 noremap <D-s> :w!<CR>
 nnoremap Y y$
 vnoremap Y "+y
@@ -713,12 +713,12 @@ noremap Sk :set nosplitbelow<CR>:split<CR>:set splitbelow<CR>
 noremap Sj :set splitbelow<CR>:split<CR>
 noremap Sh :set nosplitright<CR>:vsplit<CR>:set splitright<CR>
 noremap Sl :set splitright<CR>:vsplit<CR>
-map <LEADER>k <C-w>k
-map <LEADER>j <C-w>j
-map <LEADER>h <C-w>h
-map <LEADER>l <C-w>l
-map <LEADER>tk <C-w>t<C-W>K
-map <LEADER>th <C-w>t<C-W>H
+map ,k <C-w>k
+map ,j <C-w>j
+map ,h <C-w>h
+map ,l <C-w>l
+map ,tk <C-w>t<C-W>K
+map ,th <C-w>t<C-W>H
 
 " Resize splits with arrow keys
 noremap <up> :res +5<CR>
@@ -730,6 +730,6 @@ noremap <right> :vertical resize+5<CR>
 map <leader>tp :term<CR>python3<CR>
 
 " -------------------------------- Personal Snippits -----------------------------
-source /Users/melaneyzhu/dotfiles/_snippts.vim
+source /Users/melaneyzhu/dotfiles/contents/.config/nvim/writing.vim
 
 nmap mp <Plug>MarkdownPreview
