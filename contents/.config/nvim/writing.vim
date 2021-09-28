@@ -1,7 +1,7 @@
 " ============================== SYNTAX ======================================
 
-" Vim Bugs
-inoremap .. <!-- _ -->
+" MacVim Bugs
+"inoremap .. <!-- _ -->
 
 " Style shortcut
 inoremap ,, <++>
@@ -9,12 +9,11 @@ inoremap ,f <Esc>/<++><CR>:nohlsearch<CR>c4l
 inoremap ,b ****<Esc>F*i
 inoremap ,u <u></u><Esc>F/hi
 inoremap ,i **<Esc>i
-inoremap ,` ``<Esc>i
 inoremap ,c ```<CR><++><CR>```<CR><Esc>3kA
-inoremap $ $$<Esc>i
-inoremap ,$ $<Esc>a
-inoremap $$ $$<Enter>$$<Enter><Esc>2ko
-inoremap ,t \| u \|<Esc>Fus
+"inoremap $ $$<Esc>i
+"inoremap ,$ $<Esc>a
+"inoremap $$ $$<Enter>$$<Enter><Esc>2ko
+inoremap ,t \| u \|<++><Esc>Fus
 inoremap ,pic ![](<++>) <++><Esc>F[a
 inoremap ,k [](<++>) <++><Esc>F[a
 inoremap ,l ------------------------------------------------------------
@@ -30,11 +29,11 @@ inoremap inn \in
 inoremap \cc \subseteq
 inoremap \rarr \Rightarrow
 inoremap \lrarr \Leftrightarrow
-inoremap \N \mathbb{N}
+inoremap NN \mathbb{N}
 inoremap \O \emptyset
-inoremap \R \mathbb{R}^{}<Esc>i
-inoremap \Q \mathbb{Q}
-inoremap \Z \mathbb{Z}
+inoremap RR \mathbb{R}^{}<Esc>i
+inoremap QQ \mathbb{Q}
+inoremap ZZ \mathbb{Z}
 inoremap \map \mapsto
 inoremap \fa \forall
 inoremap \es \exists
@@ -74,7 +73,7 @@ inoremap \( \left( u \right)<Esc>Fus
 inoremap \[ \left[ u \right]<Esc>Fus
 inoremap \{ \left\{ u \right\}<Esc>Fus
 inoremap \| \| u \\|<Esc>Fus
-inoremap \< \langle u \rangle<Esc>Fus
+inoremap << \langle u \rangle<Esc>Fus
 
 
 

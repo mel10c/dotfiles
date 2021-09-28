@@ -14,6 +14,9 @@ inoremap $ $<C-g>u
 inoremap { }<C-g>u
 inoremap } }<C-g>u
 inoremap \ \<C-g>u
+setlocal spell
+inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
+
 " -------------------------- Insert Mode Emacs-style mapping ---------------------
 inoremap <C-a> <Home>
 inoremap <C-e> <End>
@@ -22,6 +25,7 @@ inoremap <C-n> <Down>
 inoremap <C-b> <Left>
 inoremap <C-f> <Right>
 inoremap <C-d> <ESC>ls
+
 " ------------------------------------ Nagivation --------------------------------
 nnoremap Y y$
 vnoremap Y "+y
@@ -54,13 +58,13 @@ map <leader>h <C-w>h
 map <leader>l <C-w>l
 map <leader>kk <C-w>t<C-W>K
 map <leader>hh <C-w>t<C-W>H
-
 " Resize splits with arrow keys
 noremap <up> :res +5<CR>
 noremap <down> :res -5<CR>
 noremap <left> :vertical resize-5<CR>
 noremap <right> :vertical resize+5<CR>
 
+" --------------------------------- Plugin Remaps --------------------------------
 map <leader>v :Vista coc<CR>
 map <leader>g :Glow<CR>
 map <leader>vt :VimtexCompile<CR>
@@ -78,3 +82,4 @@ nmap k <Plug>(accelerated_jk_gk)
 
 map <leader>s <Plug>SnipRun
 map <leader>sl <Plug>SnipClose
+

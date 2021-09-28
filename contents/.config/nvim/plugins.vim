@@ -1,10 +1,23 @@
 " ================================================================================
 " =================================== PLUG IN ====================================
 " ================================================================================
+"
+" ----------------------------- Auto Install Plugs -------------------------------
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+endif
+" Run PlugInstall if there are missing plugins
+autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \| PlugInstall --sync | source $MYVIMRC
+\| endif
+
 filetype on
 filetype indent on 
 filetype plugin on
 filetype plugin indent on
+
+
 call plug#begin('$HOME/.config/nvim/plugged')
     Plug 'nvim-lua/plenary.nvim'    " System - get luna to work
 
@@ -54,4 +67,3 @@ call plug#begin('$HOME/.config/nvim/plugged')
     
 
 call plug#end()
-

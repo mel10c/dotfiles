@@ -3,8 +3,8 @@
 " ================================================================================
 
 " ------------------------------ Interface Settings ------------------------------
-set mouse=a             " enable mouse in vim
 set syntax=on
+set mouse=a             " enable mouse in vim
 set number
 set numberwidth=2
 set relativenumber
