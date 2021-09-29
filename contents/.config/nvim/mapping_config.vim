@@ -14,6 +14,7 @@ inoremap $ $<C-g>u
 inoremap { }<C-g>u
 inoremap } }<C-g>u
 inoremap \ \<C-g>u
+inoremap _ _<C-g>u
 setlocal spell
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
