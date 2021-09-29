@@ -1,8 +1,9 @@
 local cmd = vim.cmd
 local fn = vim.fn
+local b = vim.b
 local gl = require("galaxyline")
 local section = gl.section
-gl.short_line_list = {"LuaTree", "packager", "Floaterm", "coc-explorer"}
+gl.short_line_list = {"LuaTree", "packager", "Floaterm", "coc-explorer", "vista"}
 
 local one_dark_colors = {
   bg = "#2e3440",
@@ -48,29 +49,33 @@ local buffer_not_empty = function()
   return false
 end
 
-local function get_current_file_name()
-  local file = vim.api.nvim_exec([[
-    if winwidth(0) < 50
-      echo expand('%:t')
-    elseif winwidth(0) > 150
-      echo expand('%')
-    else
-      echo pathshorten(expand('%'))
-    endif
-    ]], true)
-  if vim.fn.empty(file) == 1 then
-    return ''
-  end
-  if string.len(file_readonly()) ~= 0 then
-    return file .. file_readonly()
-  end
-  if vim.bo.modifiable then
-    if vim.bo.modified then
-      return file .. '  '
+local function lsp_status(status)
+  local shorter_stat = ''
+  for match in string.gmatch(status, "[^%s]+") do
+    local err_warn = string.find(match, "^[WE]%d+", 0)
+    if not err_warn then
+      shorter_stat = shorter_stat .. ' ' .. match
     end
   end
-  return file .. ' '
+  return shorter_stat
 end
+
+local function get_coc_lsp()
+  local status = fn['coc#status']()
+  if not status or status == '' then
+    return ''
+  end
+  return lsp_status(status)
+end
+
+local function get_diagnostic_info()
+  if fn.exists('*coc#rpc#start_server') == 1 then
+    return get_coc_lsp()
+  end
+  return ''
+end
+
+CocStatus = get_diagnostic_info
 
 section.left[1] = {
   FirstElement = {
@@ -147,6 +152,32 @@ section.left[4] = {
    }
  }
 
+section.left[7] = {
+  VistaPlugin = {
+    provider = function()
+      if (b.vista_nearest_method_or_function == nil) then
+        return ''
+      elseif (b.vista_nearest_method_or_function == '') then
+        return ''
+      else
+        return '  -> '..b.vista_nearest_method_or_function
+      end
+    end,
+    separator = ' ',
+    condition = buffer_not_empty,
+    highlight = {nord_colors.purple, nord_colors.bg}, 
+  }
+}
+
+
+
+section.right[0] = {
+  CocStatus = {
+    separator = " ",
+    provider = CocStatus, 
+    highlight = {nord_colors.purple, nord_colors.bg}, 
+    icon = '  '}
+}
 
 section.right[1] = {
   DiagnosticError = {
@@ -225,7 +256,7 @@ section.right[8] = {
   DiffModified = {
     provider = "DiffModified",
     condition = checkwidth,
-    icon = "柳",
+    icon = " 柳",
     highlight = {nord_colors.yellow, nord_colors.line_bg}
   }
 }
@@ -233,7 +264,7 @@ section.right[9] = {
   DiffRemove = {
     provider = "DiffRemove",
     condition = checkwidth,
-    icon = " ",
+    icon = "   ",
     highlight = {nord_colors.orange, nord_colors.line_bg}
   }
 }
@@ -279,4 +310,3 @@ section.short_line_right[1] = {
     highlight = {nord_colors.fg, nord_colors.lbg}
   }
 }
-

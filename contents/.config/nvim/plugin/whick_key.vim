@@ -40,15 +40,17 @@ let g:which_key_map.t = {
 let g:which_key_map.f = {
       \ 'name' : '+Telescope' ,
       \ ';' : [':Telescope find_files'                          , 'files'],
-      \ 'k' : [':Telescope keymaps'                             , 'keymaps'],
-      \ 'b' : [':Telescope current_buffer_fuzzy_find'           , 'buffer find'],
-      \ 'f' : [':Telescope file_browser'                        , 'browse'],
-      \ 'c' : [':Telescope commands'                            , 'available commands'],
-      \ 't' : [':Telescope treesitter'                                , 'treesitter'],
-      \ 'h' : [':Telescope help_tags'                           , 'help commands'],
-      \ 'v' : [':Telescope vim_options'                         , 'vim settings'],
-      \ 'r' : [':Telescope registers'                           , 'registers'],
+      \ 'c' : [':Telescope find_files cwd=~/dotfiles/contents/.config/' , 'find config'],
+      \ 'f' : [':Telescope find_files cwd=~/Documents/Temporary/' , 'find Documents'],
+      \ 'z' : [':Telescope current_buffer_fuzzy_find'           , 'buffer find'],
+      \ 'b' : [':Telescope file_browser'                        , 'browse'],
+      \ 'o' : [':Telescope commands'                            , 'available commands'],
+      \ 't' : [':Telescope treesitter'                          , 'treesitter'],
+      \ 'e' : [':Telescope registers'                           , 'registers'],
       \ 'g' : [':Telescope git_status'                          , 'git status'],
+      \ 'w' : [':Telescope live_grep'                           , 'search word'],
+      \ 'd' : [':Telescope coc diagnostics theme=ivy'                     , 'coc diagnostics'],
+      \ 'r' : [':Telescope coc references theme=ivy'                      , 'coc references'],
       \ }
 
 " ------------------------------------- coc --------------------------------------

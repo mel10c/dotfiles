@@ -19,30 +19,31 @@ source ~/.config/nvim/plugins.vim
 " ================================================================================
 source ~/.config/nvim/mapping_config.vim
 source ~/.config/nvim/setting.vim
-source ~/.config/nvim/writing.vim
+"source ~/.config/nvim/plugin/writing.vim
 
 " =============================== EDITING CONFIG =================================
 " ================================================================================
-source ~/.config/nvim/edit/misc.vim
-source ~/.config/nvim/edit/latex.vim
-source ~/.config/nvim/edit/whick_key.vim
-luafile ~/.config/nvim/edit/sniprun.lua
+"source ~/.config/nvim/plugin/misc.vim
+"source ~/.config/nvim/plugin/latex.vim
+"source ~/.config/nvim/plugin/whick_key.vim
+"luafile ~/.config/nvim/plugin/sniprun.lua
 
 " ============================== APPEARANCE CONFIG ===============================
 " ================================================================================
-source ~/.config/nvim/appearance/appearance_config.vim
-source ~/.config/nvim/appearance/startify.vim
-source ~/.config/nvim/appearance/nvim_tree.vim
-source ~/.config/nvim/appearance/vista.vim
-luafile ~/.config/nvim/appearance/telescope.lua
-luafile ~/.config/nvim/appearance/statusline.lua
-luafile ~/.config/nvim/appearance/devicon.lua
-luafile ~/.config/nvim/appearance/gitsigns.lua
-luafile ~/.config/nvim/appearance/treesitter.lua
+"source ~/.config/nvim/plugin/appearance_config.vim
+"source ~/.config/nvim/plugin/startify.vim
+"source ~/.config/nvim/plugin/nvim_tree.vim
+"source ~/.config/nvim/plugin/vista.vim
+"luafile ~/.config/nvim/plugin/telescope.lua
+"luafile ~/.config/nvim/plugin/statusline.lua
+"luafile ~/.config/nvim/plugin/devicon.lua
+"luafile ~/.config/nvim/plugin/gitsigns.lua
+"luafile ~/.config/nvim/plugin/treesitter.lua
 
 " ================================= LSP CONFIG ===================================
 " ================================================================================
-source ~/.config/nvim/edit/coc.vim
-"source ~/.config/nvim/edit/lsp_config.vim
-"luafile ~/.config/nvim/edit/lsp_server.lua
-"luafile ~/.config/nvim/edit/compe_config.lua
+"source ~/.config/nvim/plugin/coc.vim
+
+"source ~/.config/nvim/plugin/lsp_config.vim
+"luafile ~/.config/nvim/plugin/lsp_server.lua
+"luafile ~/.config/nvim/plugin/compe_config.lua

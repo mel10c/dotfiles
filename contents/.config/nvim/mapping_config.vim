@@ -6,7 +6,7 @@ noremap <leader>w :w<CR>
 map ; %
 noremap < ,
 noremap > ;
-noremap ,s :source ~/.config/nvim/init.vim<CR>
+noremap <leader>s :source ~/.config/nvim/init.vim<CR>
 map gv :e ~/dotfiles/contents/.config/nvim/init.vim<CR>
 inoremap , ,<C-g>u
 inoremap . .<C-g>u
@@ -80,6 +80,6 @@ omap T <Plug>(eft-T)
 nmap j <Plug>(accelerated_jk_gj)
 nmap k <Plug>(accelerated_jk_gk)
 
-map <leader>s <Plug>SnipRun
+map <leader>sr <Plug>SnipRun
 map <leader>sl <Plug>SnipClose
 

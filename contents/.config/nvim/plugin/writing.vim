@@ -72,7 +72,6 @@ inoremap \eq \left\{\begin{matrix}u  & =<++> \\ <++> & =<++>\end{matrix}\right.<
 inoremap \( \left( u \right)<Esc>Fus
 inoremap \[ \left[ u \right]<Esc>Fus
 inoremap \{ \left\{ u \right\}<Esc>Fus
-inoremap \| \| u \\|<Esc>Fus
 inoremap << \langle u \rangle<Esc>Fus
 
 

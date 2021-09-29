@@ -37,7 +37,8 @@ call plug#begin('$HOME/.config/nvim/plugged')
     Plug 'SmiteshP/nvim-gps'                    " display function in statusline
     Plug 'vim-pandoc/vim-pandoc'	            " syntax library
     Plug 'vim-pandoc/vim-pandoc-syntax'         " markdown syntax
-    "Plug 'nvim-telescope/telescope-fzy-native.nvim' " with telescope
+    Plug 'nvim-telescope/telescope-fzy-native.nvim' " telescope sort extension
+    Plug 'fannheyward/telescope-coc.nvim'       " telescope coc extension
     Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'} " nvim status line
     Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' } " html color display
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " language support
