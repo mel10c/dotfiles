@@ -10,15 +10,15 @@ local one_dark_colors = {
   fg = "#81a1c1",
   line_bg = "#2e3440",
   fg_green = "#6d96a5",
-  yellow = "#fabd2f",
+  yellow = "#e5c07b",
   cyan = "#008080",
   darkblue = "#081633",
-  green = "#608B4E",
+  green = "#98c379",
   orange = "#FF8800",
   purple = "#5d4d7a",
   magenta = "#d16d9e",
   grey = "#c0c0c0",
-  blue = "#569CD6",
+  blue = "#61afef",
   red = "#D16969"
 }
 
@@ -77,56 +77,87 @@ end
 
 CocStatus = get_diagnostic_info
 
+local checkwidth = function()
+  local squeeze_width = fn.winwidth(0) / 2
+  if squeeze_width > 40 then
+    return true
+  end
+  return false
+end
+
 section.left[1] = {
   FirstElement = {
     -- provider = function() return '▊ ' end,
     provider = function()
       return "  "
     end,
-    highlight = {nord_colors.blue, nord_colors.line_bg}
+    highlight = {one_dark_colors.blue, one_dark_colors.line_bg}
   }
 }
 section.left[2] = {
   ViMode = {
     provider = function()
       -- auto change color according the vim mode
+      --local mode_color = {
+        --n = nord_colors.blue,
+        --i = nord_colors.cyan,
+        --v = nord_colors.yellow,
+        --[""] = nord_colors.orange,
+        --V = nord_colors.blue,
+        --c = nord_colors.red,
+        --no = nord_colors.magenta,
+        --s = nord_colors.orange,
+        --S = nord_colors.orange,
+        --[""] = nord_colors.orange,
+        --ic = nord_colors.yellow,
+        --R = nord_colors.purple,
+        --Rv = nord_colors.purple,
+        --cv = nord_colors.red,
+        --ce = nord_colors.red,
+        --r = nord_colors.green,
+        --rm = nord_colors.green,
+        --["r?"] = nord_colors.green,
+        --["!"] = nord_colors.red,
+        --t = nord_colors.red
+      --}
       local mode_color = {
-        n = nord_colors.blue,
-        i = nord_colors.cyan,
-        v = nord_colors.yellow,
-        [""] = nord_colors.orange,
-        V = nord_colors.blue,
-        c = nord_colors.red,
-        no = nord_colors.magenta,
-        s = nord_colors.orange,
-        S = nord_colors.orange,
-        [""] = nord_colors.orange,
-        ic = nord_colors.yellow,
-        R = nord_colors.purple,
-        Rv = nord_colors.purple,
-        cv = nord_colors.red,
-        ce = nord_colors.red,
-        r = nord_colors.green,
-        rm = nord_colors.green,
-        ["r?"] = nord_colors.green,
-        ["!"] = nord_colors.red,
-        t = nord_colors.red
+        n = one_dark_colors.blue,
+        i = one_dark_colors.green,
+        v = one_dark_colors.yellow,
+        [""] = one_dark_colors.orange,
+        V = one_dark_colors.blue,
+        c = one_dark_colors.cyan,
+        no = one_dark_colors.magenta,
+        s = one_dark_colors.orange,
+        S = one_dark_colors.orange,
+        [""] = one_dark_colors.orange,
+        ic = one_dark_colors.yellow,
+        R = one_dark_colors.purple,
+        Rv = one_dark_colors.purple,
+        cv = one_dark_colors.red,
+        ce = one_dark_colors.red,
+        r = one_dark_colors.green,
+        rm = one_dark_colors.green,
+        ["r?"] = one_dark_colors.green,
+        ["!"] = one_dark_colors.red,
+        t = one_dark_colors.red
       }
 
       --cmd("hi GalaxyViMode guifg=" .. mode_color[fn.mode()])
       --return "   גּ  "
       cmd('hi GalaxyViMode guibg='..mode_color[fn.mode()])
-    return '  |MEL '--..mode_text[vim.fn.mode()]
+    return '  |MEL10 '--..mode_text[vim.fn.mode()]
     end,
     separator = ' ',
-    highlight = {nord_colors.bg, nord_colors.line_bg, "bold"}
+    condition = checkwidth,
+    highlight = {one_dark_colors.bg, one_dark_colors.line_bg, "bold"}
   }
 }
 section.left[3] = {
   FileIcon = {
     provider = "FileIcon",
     condition = buffer_not_empty,
-    highlight = {require("galaxyline.provider_fileinfo").get_file_icon_color, nord_colors.line_bg}
+    highlight = {require("galaxyline.provider_fileinfo").get_file_icon_color, one_dark_colors.line_bg}
   }
 }
 section.left[4] = {
@@ -142,17 +173,8 @@ section.left[4] = {
     highlight = {nord_colors.blue, nord_colors.line_bg,},
   }
 }
- section.left[5] = {
-  FileSize = {
-    provider = "FileSize",
-    separator = " ",
-    condition = buffer_not_empty,
-    separator_highlight = {nord_colors.blue, nord_colors.line_bg},
-    highlight = {nord_colors.fg, nord_colors.line_bg}
-   }
- }
 
-section.left[7] = {
+section.left[5] = {
   VistaPlugin = {
     provider = function()
       if (b.vista_nearest_method_or_function == nil) then
@@ -165,9 +187,19 @@ section.left[7] = {
     end,
     separator = ' ',
     condition = buffer_not_empty,
-    highlight = {nord_colors.purple, nord_colors.bg}, 
+    highlight = {nord_colors.green, nord_colors.bg}, 
   }
 }
+
+ --section.left[5] = {
+  --FileSize = {
+    --provider = "FileSize",
+    --separator = " ",
+    --condition = buffer_not_empty,
+    --separator_highlight = {nord_colors.blue, nord_colors.line_bg},
+    --highlight = {nord_colors.fg, nord_colors.line_bg}
+   --}
+ --}
 
 
 
@@ -175,6 +207,7 @@ section.right[0] = {
   CocStatus = {
     separator = " ",
     provider = CocStatus, 
+    condition = checkwidth,
     highlight = {nord_colors.purple, nord_colors.bg}, 
     icon = '  '}
 }
@@ -224,7 +257,8 @@ section.right[5] = {
     end,
     separator = " [ ",
     separator_highlight = {nord_colors.green, nord_colors.bg},
-    condition = require("galaxyline.provider_vcs").check_git_workspace,
+    --condition = require("galaxyline.provider_vcs").check_git_workspace,
+    condition = checkwidth,
     highlight = {nord_colors.purple, nord_colors.line_bg}
   }
 }
@@ -236,13 +270,6 @@ section.right[6] = {
   }
 }
 
-local checkwidth = function()
-  local squeeze_width = fn.winwidth(0) / 2
-  if squeeze_width > 40 then
-    return true
-  end
-  return false
-end
 
 section.right[7] = {
   DiffAdd = {
@@ -273,6 +300,7 @@ section.right[10] = {
   LineInfo = {
     provider = 'LinePercent',
     separator = "] ",
+    condition = checkwidth,
     separator_highlight = {nord_colors.green, nord_colors.line_bg},
     highlight = {nord_colors.bg, nord_colors.gray}
   }

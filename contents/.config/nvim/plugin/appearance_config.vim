@@ -9,19 +9,20 @@ set guifont=Hack_Nerd_Font_Mono:h14
 hi normal guibg=none
 
 " Colorsheme setting
-let g:nord_underline_option = 'none'
-let g:nord_italic = v:true
-let g:nord_italic_comments = v:false
-let g:nord_minimal_mode = v:false
-colorscheme nord
+"let g:nord_underline_option = 'none'
+"let g:nord_italic = v:true
+"let g:nord_italic_comments = v:false
+"let g:nord_minimal_mode = v:false
+"colorscheme nord
+"
 if (has("autocmd") && !has("gui_running"))
   augroup colorset
     autocmd!
     let s:white = { "gui": "#ABB2BF", "cterm": "145", "cterm16" : "7" }
-    "autocmd ColorScheme * call onedark#set_highlight("Normal", { "fg": s:white }) " `bg` will not be styled since there is no `bg` setting
+    autocmd ColorScheme * call onedark#set_highlight("Normal", { "fg": s:white }) " `bg` will not be styled since there is no `bg` setting
   augroup END
 endif
-"colorscheme onedark
+colorscheme onedark
 
 " Cursor and number line setting
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"

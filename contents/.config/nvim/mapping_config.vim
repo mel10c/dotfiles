@@ -83,3 +83,4 @@ nmap k <Plug>(accelerated_jk_gk)
 map <leader>sr <Plug>SnipRun
 map <leader>sl <Plug>SnipClose
 
+map <leader>0 <cmd>colorscheme onedark<CR>
