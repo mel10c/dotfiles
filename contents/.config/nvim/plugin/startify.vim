@@ -21,11 +21,13 @@ endfunction
 let s:header = [
       \ '',
       \ '',
+      \ '',
   	  \ '╻ ╻   ╻   ┏┳┓',
   	  \ '┃┏┛   ┃   ┃┃┃',
   	  \ '┗┛    ╹   ╹ ╹',
-  	  \ '',
+      \ '',
       \ ' [ MELANEY ]',
+      \ '',
       \ '',
       \ ]
 
@@ -62,11 +64,11 @@ let g:startify_change_to_vcs_root = 1
 let g:startify_change_to_dir = 1
 let g:startify_enable_special = 0
 let g:startify_fortune_use_unicode = 1
-let g:startify_relative_path = 1
 let g:startify_files_number           = 10
 let g:startify_session_persistence    = 2
 let g:stratify_padding_left = 50
 let g:startify_padding_left = 15
+let g:startify_relative_path = 1
 
 " ---------------------------------- Mappings ------------------------------------
 map gs :Startify<CR>

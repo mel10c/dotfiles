@@ -85,3 +85,6 @@ map <leader>sr <Plug>SnipRun
 map <leader>sl <Plug>SnipClose
 
 map <leader>0 <cmd>colorscheme onedark<CR>
+
+nnoremap tt :NvimTreeToggle<CR>
+nnoremap tf :NvimTreeFocus<CR>
