@@ -1,12 +1,9 @@
 " --------------------------------------- Basics ---------------------------------
 let mapleader=" "
-noremap <leader>q :q<CR>
-noremap <leader>Q :q!<CR>
-noremap <leader>w :w<CR>
 map ; %
 noremap < ,
 noremap > ;
-noremap <leader>s :source ~/.config/nvim/init.vim<CR>
+noremap ,s :source ~/.config/nvim/init.vim<CR>
 map gv :e ~/dotfiles/contents/.config/nvim/init.vim<CR>
 inoremap , ,<C-g>u
 inoremap . .<C-g>u
@@ -49,16 +46,6 @@ map <C-o> <C-o>z<CR>
 
 " ----------------------------- Screen Motion Remaps -----------------------------
 " split the screens to up (horizontal), down (horizontal), left (vertical), right (vertical)
-noremap Sk :set nosplitbelow<CR>:split<CR>:set splitbelow<CR>
-noremap Sj :set splitbelow<CR>:split<CR>
-noremap Sh :set nosplitright<CR>:vsplit<CR>:set splitright<CR>
-noremap Sl :set splitright<CR>:vsplit<CR>
-map <leader>k <C-w>k
-map <leader>j <C-w>j
-map <leader>h <C-w>h
-map <leader>l <C-w>l
-map <leader>kk <C-w>t<C-W>K
-map <leader>hh <C-w>t<C-W>H
 " Resize splits with arrow keys
 noremap <up> :res +5<CR>
 noremap <down> :res -5<CR>
@@ -66,10 +53,7 @@ noremap <left> :vertical resize-5<CR>
 noremap <right> :vertical resize+5<CR>
 
 " --------------------------------- Plugin Remaps --------------------------------
-map <leader>v :Vista coc<CR>
-map <leader>g :Glow<CR>
-map <leader>vt :VimtexCompile<CR>
-nnoremap ,ff <cmd>Telescope find_files<cr>
+"nnoremap ,ff <cmd>Telescope find_files<cr>
 
 nmap t <Plug>(eft-t)
 xmap t <Plug>(eft-t)
@@ -81,10 +65,8 @@ omap T <Plug>(eft-T)
 nmap j <Plug>(accelerated_jk_gj)
 nmap k <Plug>(accelerated_jk_gk)
 
-map <leader>sr <Plug>SnipRun
-map <leader>sl <Plug>SnipClose
 
-map <leader>0 <cmd>colorscheme onedark<CR>
+"map <leader>0 :colorscheme onedark<CR>:hi normal guibg=none<cr>
 
 nnoremap tt :NvimTreeToggle<CR>
 nnoremap tf :NvimTreeFocus<CR>
