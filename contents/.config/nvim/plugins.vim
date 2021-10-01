@@ -27,15 +27,14 @@ call plug#begin('$HOME/.config/nvim/plugged')
     Plug 'shaunsingh/nord.nvim'
     Plug 'joshdick/onedark.vim'	                " onedark color theme
     Plug 'junegunn/goyo.vim'                    " focus mode
-    Plug 'plasticboy/vim-markdown'              " markdown syntax highlight
+    "Plug 'plasticboy/vim-markdown'              " markdown syntax highlight
     Plug 'lewis6991/gitsigns.nvim'              " git color in NumLr
     Plug 'ellisonleao/glow.nvim'                " markdown preview window
     Plug 'nvim-telescope/telescope.nvim'        " pop up fzf
     Plug 'lukas-reineke/indent-blankline.nvim'  " indent line (nvim)
     Plug 'kyazdani42/nvim-web-devicons'         " nvim icons
     Plug 'liuchengxu/vista.vim'                 " tag view of file
-    Plug 'SmiteshP/nvim-gps'                    " display function in statusline
-    Plug 'vim-pandoc/vim-pandoc'	            " syntax library
+    Plug 'vim-pandoc/vim-pandoc'	            " file converts
     Plug 'vim-pandoc/vim-pandoc-syntax'         " markdown syntax
     Plug 'nvim-telescope/telescope-fzy-native.nvim' " telescope sort extension
     Plug 'fannheyward/telescope-coc.nvim'       " telescope coc extension
@@ -59,11 +58,9 @@ call plug#begin('$HOME/.config/nvim/plugged')
     Plug 'vim-pandoc/vim-rmarkdown'             " Rmarkdown render
     Plug 'dhruvasagar/vim-table-mode'	        " easier tables
 	Plug 'lervag/vimtex'                    	" latex syntax support
-    Plug 'hrsh7th/vim-eft'                      " easier horizontal jump
 
     Plug 'liuchengxu/vim-which-key'             " organize key mappings
     Plug 'voldikss/vim-floaterm'                " terminal in vim
-    Plug 'michaelb/sniprun', {'do': 'bash install.sh'} " quick run code
     Plug 'neoclide/coc.nvim', {'branch': 'release'}	" auto complition
     
 

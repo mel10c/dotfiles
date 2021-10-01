@@ -284,7 +284,7 @@ section.right[8] = {
   DiffModified = {
     provider = "DiffModified",
     condition = checkwidth,
-    icon = " 柳",
+    icon = "  柳",
     highlight = {nord_colors.yellow, nord_colors.line_bg}
   }
 }

@@ -23,8 +23,8 @@ window {
     background-color:               @background;
     text-color:                     @foreground;
     border-radius:                  0px;
-    height:                         28.5%;
-    width:                          50%;
+    height:                         27%;
+    width:                          45%;
     location:                       center;
     x-offset:                       0;
     y-offset:                       0;

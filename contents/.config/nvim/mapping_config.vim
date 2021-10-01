@@ -1,6 +1,8 @@
 " --------------------------------------- Basics ---------------------------------
 let mapleader=" "
-map ; %
+"inoremap ,, <++>
+inoremap ,f <Esc>/<++><CR>:nohlsearch<CR>c4l
+nmap ; %
 noremap < ,
 noremap > ;
 noremap ,s :source ~/.config/nvim/init.vim<CR>
@@ -11,7 +13,7 @@ inoremap $ $<C-g>u
 inoremap { }<C-g>u
 inoremap } }<C-g>u
 inoremap \ \<C-g>u
-inoremap _ _<C-g>u
+map _ _
 setlocal spell
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
@@ -54,14 +56,6 @@ noremap <right> :vertical resize+5<CR>
 
 " --------------------------------- Plugin Remaps --------------------------------
 "nnoremap ,ff <cmd>Telescope find_files<cr>
-
-nmap t <Plug>(eft-t)
-xmap t <Plug>(eft-t)
-omap t <Plug>(eft-t)
-nmap T <Plug>(eft-T)
-xmap T <Plug>(eft-T)
-omap T <Plug>(eft-T)
-
 nmap j <Plug>(accelerated_jk_gj)
 nmap k <Plug>(accelerated_jk_gk)
 

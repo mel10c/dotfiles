@@ -28,9 +28,9 @@ else
 fi
 
 # Links
-google=""
+google="🖅"
 facebook=""
-twitter=""
+twitter="🅱"
 github=""
 mail=""
 youtube=""

@@ -27,6 +27,8 @@ autocmd  FileType which_key set laststatus=0 noshowmode noruler
 " --------------------------------- Leader Mapping -------------------------------
 noremap <leader>0 :colorscheme onedark<CR>:hi normal guibg=none<cr>
 let g:which_key_map.0 = 'onedark'
+noremap <leader>9 :colorscheme nord<CR>:hi normal guibg=none<cr>
+let g:which_key_map.9 = 'nord'
 
 noremap <leader>q :q<CR>
 let g:which_key_map.q = 'quit'
@@ -34,6 +36,10 @@ noremap <leader>w :w<CR>
 let g:which_key_map.w = 'write'
 noremap <leader>o <C-^>
 let g:which_key_map.o = 'buffer switch'
+noremap <leader>v :Vista coc<cr>
+let g:which_key_map.v = 'vista'
+noremap <leader>x :VimtexCompile<cr>
+let g:which_key_map.x = 'Vimtex'
 "noremap <leader>s :source ~/.config/nvim/init.vim<CR>
 "let g:which_key_map.s = 'source'
 
@@ -92,21 +98,17 @@ noremap <leader>l <C-w>l
 let g:which_key_map.l = 'right'
 
 
-map #k :set nosplitbelow<cr>:split<cr>:set splitbelow<cr>
-map #j :set splitbelow<cr>:split<cr>
-map #h :set nosplitright<cr>:vsplit<cr>:set splitright<cr>
-map #l :set splitright<CR>:vsplit<CR>
+map %k :set nosplitbelow<cr>:split<cr>:set splitbelow<cr>
+map %j :set splitbelow<cr>:split<cr>
+map %h :set nosplitright<cr>:vsplit<cr>:set splitright<cr>
+map %l :set splitright<CR>:vsplit<CR>
 
 let g:which_key_map.s = {
       \ 'name' : '+window' ,
-      \ 'k' : ['#k'                                              , 'split down'],
-      \ 'h' : ['#h'                                              , 'split down'],
-      \ 'j' : ['#j'                                              , 'split down'],
-      \ 'l' : ['#l'                                              , 'split left'],
-      \ 'hh' : ['<C-w>t<C-w>H'                                   , 'move left'],
-      \ 'jj' : ['<C-w>t<C-w>J'                                   , 'move down'],
-      \ 'kk' : ['<C-w>t<C-w>K'                                   , 'move up'],
-      \ 'll' : ['<C-w>t<C-w>L'                                   , 'move right'],
+      \ 'h' : ['%h'                                             , 'left'],
+      \ 'j' : ['%j'                                             , 'down'],
+      \ 'k' : ['%k'                                             , 'up'],
+      \ 'l' : ['%l'                                             , 'right'],
       \ }
 
 " Register which key map

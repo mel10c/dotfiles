@@ -19,6 +19,7 @@ source ~/.config/nvim/plugins.vim
 " ================================================================================
 source ~/.config/nvim/mapping_config.vim
 source ~/.config/nvim/setting.vim
+source ~/.config/nvim/appearance_config.vim
 "source ~/.config/nvim/plugin/writing.vim
 
 " =============================== EDITING CONFIG =================================
@@ -30,7 +31,6 @@ source ~/.config/nvim/setting.vim
 
 " ============================== APPEARANCE CONFIG ===============================
 " ================================================================================
-"source ~/.config/nvim/plugin/appearance_config.vim
 "source ~/.config/nvim/plugin/startify.vim
 "source ~/.config/nvim/plugin/nvim_tree.vim
 "source ~/.config/nvim/plugin/vista.vim
