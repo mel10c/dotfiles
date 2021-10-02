@@ -7,7 +7,7 @@
 
 ![3-showcase](https://tva1.sinaimg.cn/large/008i3skNgy1gv1s3dd8qhj61c00u0n2802.jpg)
 
-![4-colors](https://tva1.sinaimg.cn/large/008i3skNgy1gv1s3fowh0j61c00u0q7w02.jpg)
+![4-firefox](https://tva1.sinaimg.cn/large/008i3skNgy1gv1s6ftrzdj61c00u0qdc02.jpg)
 
 ## Detail
 
