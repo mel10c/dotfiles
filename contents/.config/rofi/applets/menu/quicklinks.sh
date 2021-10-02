@@ -29,7 +29,7 @@ fi
 
 # Links
 google="🖅"
-facebook=""
+facebook="𝓔"
 twitter="🅱"
 github=""
 mail=""
@@ -46,7 +46,7 @@ case $chosen in
         $app https://markus.teach.cs.toronto.edu &
         ;;
     $facebook)
-        $app https://office.live.com/start/onedrive.aspx &
+        $app https://app.crowdmark.com/student/courses &
         ;;
     $twitter)
         $app https://www.bilibili.com &

@@ -22,10 +22,12 @@ call plug#begin('$HOME/.config/nvim/plugged')
     Plug 'nvim-lua/plenary.nvim'    " System - get luna to work
 
 " ------------------------------ Appearance Plugs --------------------------------
-    Plug 'mhinz/vim-startify', 	                " startpage
-    Plug 'kyazdani42/nvim-tree.lua'             " file tree for nvim
     Plug 'shaunsingh/nord.nvim'
     Plug 'joshdick/onedark.vim'	                " onedark color theme
+    Plug 'EdenEast/nightfox.nvim'
+
+    Plug 'mhinz/vim-startify', 	                " startpage
+    Plug 'kyazdani42/nvim-tree.lua'             " file tree for nvim
     Plug 'junegunn/goyo.vim'                    " focus mode
     "Plug 'plasticboy/vim-markdown'              " markdown syntax highlight
     Plug 'lewis6991/gitsigns.nvim'              " git color in NumLr
@@ -46,9 +48,11 @@ call plug#begin('$HOME/.config/nvim/plugged')
     "maybe
     "Plug 'neovim/nvim-lspconfig'               " LSP plugins
     "Plug 'glepnir/lspsaga.nvim'
+    "Plug 'nvim-lua/completion-nvim'
     "Plug 'hrsh7th/nvim-compe'                  " LSP complete
     "Plug 'kabouzeid/nvim-lspinstall'
     "Plug 'folke/lsp-colors.nvim'
+
     Plug 'SirVer/ultisnips'
     Plug 'rhysd/accelerated-jk'                 " faster vertial movement
 -

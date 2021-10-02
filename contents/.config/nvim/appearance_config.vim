@@ -2,11 +2,13 @@
 " =============================== APPEARANCE CONFIGS =============================
 " ================================================================================
 
-let g:nord_contrast = v:true
-let g:nord_borders = v:false
-let g:nord_disable_background = v:true
-let g:nord_italic = v:false
-colorscheme nord
+"colorscheme nord
+colorscheme nordfox
+
+hi Pmenu guibg=#434C5E guifg=#d8dee9
+hi PmenuSel guibg=#81a1c1 guifg=#d8dee9
+hi PmenuThumb guibg=#434C5E guifg=#d8dee9
+
 
 " Color and Gui setting
 set t_Co=256

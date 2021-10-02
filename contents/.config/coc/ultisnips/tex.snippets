@@ -28,8 +28,8 @@ snippet template "Basic template" b
 \pagestyle{fancyplain}
 \headheight 35pt
 \lhead{Melaney (Yuanyuan) Zhu \\\\ 1006879255}
-\chead{\textbf{\Large FileType (x)}}
-\rhead{COURSE \\\\ \today}
+\chead{\textbf{\Large ${1:Title} (${2:1})}}
+\rhead{${3:Course} \\\\ \today}
 \rfoot{\small\thepage}
 \headsep 1.5em
 
@@ -37,11 +37,8 @@ snippet template "Basic template" b
 
 \section*{Problem 1}
 
-Answer to the problem goes here.
+${0:Answers ges here}
 
-% Rest of the work...
-
-	$0
 \end{document}
 endsnippet
 
@@ -141,8 +138,8 @@ endsnippet
 snippet cross "cross product" b
 \begin{vmatrix} 
 	i&j&k\\\\
-	${1:a}_1&${1:a}_2&${1:a}_3\\\\ 
-	${2:b}_1&${2:b}_2&${2:b}_3\\\\ 
+	${1:a_1}&${2:a_2}&${3:a_3}\\\\ 
+	${4:B_1}&${5:b_2}&${6:b_3}\\\\ 
 \end{vmatrix}
 endsnippet
 
@@ -262,8 +259,7 @@ endsnippet
 
 priority 200
 context "math()"
-snippet '(?<!\\)(arccot|arcsin|arcsec||exp|star|perp)' "ln" rwA
-snippet '(?<!\\)(arcsin|arccos|arctan|arccot|arccsc|arcsec|pi|zeta|int)' "ln" rwA
+snippet '(?<!\\)(arccot|arcsin|arctan|theta|Omega)' "ln" rwA
 \\$0`!p snip.rv = match.group(1)`$1
 endsnippet
 
@@ -303,7 +299,7 @@ snippet iff "iff" Ai
 endsnippet
 
 context "math()"
-snippet im "impies" b
+snippet im "impies" Ai
 \Rightarrow
 endsnippet
 

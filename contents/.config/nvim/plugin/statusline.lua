@@ -158,7 +158,8 @@ section.left[3] = {
   FileIcon = {
     provider = "FileIcon",
     condition = buffer_not_empty,
-    highlight = {require("galaxyline.provider_fileinfo").get_file_icon_color, one_dark_colors.line_bg}
+    --highlight = {require("galaxyline.provider_fileinfo").get_file_icon_color, one_dark_colors.line_bg}
+    highlight = {one_dark_colors.fg_green, one_dark_colors.line_bg}
   }
 }
 section.left[4] = {
