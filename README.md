@@ -1,4 +1,4 @@
-# My Custom Linux Config
+# Nord Config
 
 ## Show case
 ![1-java](https://tva1.sinaimg.cn/large/008i3skNgy1gv1s3627cbj61c00u00z802.jpg)
@@ -8,6 +8,8 @@
 ![3-showcase](https://tva1.sinaimg.cn/large/008i3skNgy1gv1s3dd8qhj61c00u0n2802.jpg)
 
 ![4-firefox](https://tva1.sinaimg.cn/large/008i3skNgy1gv1s6ftrzdj61c00u0qdc02.jpg)
+
+![5-app launcher](https://tva1.sinaimg.cn/large/008i3skNgy1gv1s9kbupxj61c00u0dhu02.jpg)
 
 ## Detail
 
