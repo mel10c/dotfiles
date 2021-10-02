@@ -1,5 +1,16 @@
 scan_timeout = 5
 
+[username]
+style_user = "blue bold"
+style_root = "red bold"
+format = "[  $user]($style) "
+#format = "[  ]($style) "
+disabled = false
+show_always = true
+
+[line_break]
+disabled = false
+
 [cmd_duration]
 format = '[ \[$duration\]]($style)'
 style = "yellow"
@@ -9,7 +20,8 @@ threshold = 20
 style = "bold red"
 
 [character]
-success_symbol = "[ ➜](bold green) "
+#success_symbol = "[➜](bold green) "
+success_symbol = "[ ❯](bold green) "
 error_symbol = "[ ✗](bold red) "
 
 [directory]
@@ -57,9 +69,3 @@ style = "yellow"
 symbol = " "
 format = '[ \[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))\]]($style)'
 
-[username]
-style_user = "blue bold"
-style_root = "red bold"
-format = "[ $user]($style) "
-disabled = false
-show_always = true

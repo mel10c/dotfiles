@@ -104,9 +104,9 @@ URxvt.keysym.Shift-Control-Down:  \033[1;6B
 
 *.foreground:   nord4
 *.background:   nord0
-*.cursorColor:  nord4
-*fading: 35
-*fadeColor: nord3
+*.cursorColor:  nord9
+*fading: 20
+*fadeColor: nord0
 
 *.color0: nord1
 *.color1: nord11
@@ -128,11 +128,6 @@ URxvt.keysym.Shift-Control-Down:  \033[1;6B
 ! ------------------------------------------------------------------------------
 ! Font configuration
 ! ------------------------------------------------------------------------------
-
-!URxvt*font:				xft:HackNerdFontMono:regular:size=11
-!URxvt*boldFont:			xft:HackNerdFontMono:bold:size=11
-!URxvt*italicFont:		xft:HackNerdFontMono:italic:size=11
-!URxvt*boldItalicFont:	xft:HackNerdFontMono:bold italic:size=11
 
 !URxvt*font:				xft:HackNerdFontMono:regular:size=12
 URxvt*font:				xft:HackNerdFontMono:regular:size=11

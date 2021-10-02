@@ -15,7 +15,7 @@
 # full_circle     full_square     full_rounded     full_alt
 # row_circle      row_square      row_rounded      row_alt
 
-theme="card_rounded"
+theme="card_square"
 dir="$HOME/.config/rofi/powermenu"
 
 # random colors
@@ -29,9 +29,12 @@ color="${styles[$(( $RANDOM % 8 ))]}"
 #themes=($(ls -p --hide="powermenu.sh" --hide="styles" --hide="confirm.rasi" --hide="message.rasi" $dir))
 #theme="${themes[$(( $RANDOM % 24 ))]}"
 
-uptime=$(uptime -p | sed -e 's/up //g')
 
 rofi_command="rofi -theme $dir/$theme"
+uptime=$(uptime -p | sed -e 's/up //g')
+cpu=$($HOME/.config/rofi/bin/usedcpu)
+memory=$($HOME/.config/rofi/bin/usedram)
+
 
 # Options
 shutdown=""
@@ -57,7 +60,9 @@ msg() {
 # Variable passed to rofi
 options="$shutdown\n$reboot\n$lock\n$suspend\n$logout"
 
-chosen="$(echo -e "$options" | $rofi_command -p "Uptime: $uptime" -dmenu -selected-row 2)"
+#chosen="$(echo -e "$options" | $rofi_command -p "Uptime: $uptime" -dmenu -selected-row 2)"
+chosen="$(echo -e "$options" | $rofi_command -p "祥  $uptime  |    $cpu  |  ﬙  $memory " -dmenu -selected-row 0)"
+
 case $chosen in
     $shutdown)
 		ans=$(confirm_exit &)

@@ -39,7 +39,7 @@ youtube=""
 options="$google\n$facebook\n$twitter\n$github\n$mail\n$youtube"
 options="$github\n$mail\n$google\n$facebook\n$twitter\n$youtube"
 
-chosen="$(echo -e "$options" | $rofi_command -p "Open In  :  $app" -dmenu -selected-row 0)"
+chosen="$(echo -e "$options" | $rofi_command -p "Open In : $app" -dmenu -selected-row 0)"
 
 case $chosen in
     $google)

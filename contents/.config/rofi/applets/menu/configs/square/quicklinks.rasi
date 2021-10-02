@@ -33,7 +33,7 @@ window {
 
 prompt {
     enabled: 						true;
-    padding:                        10px;
+    padding:                        15px 30px 15px 20px;
 	background-color: 				@background-light;
 	text-color: 					@accent;
     border:                  		4px 4px 4px 4px;
@@ -46,7 +46,7 @@ textbox-prompt-colon {
 	str: 							" Quick Links ";
 	background-color: 				@accent;
 	text-color: 					@background;
-    padding:                        12px 10px 0px 10px;
+    padding:                        18px 10px 0px 10px;
 }
 
 inputbar {
