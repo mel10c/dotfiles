@@ -36,7 +36,7 @@ noremap <leader>w :w<CR>
 let g:which_key_map.w = 'write'
 noremap <leader>o <C-^>
 let g:which_key_map.o = 'buffer switch'
-noremap <leader>v :Vista nvim_lsp<cr>
+noremap <leader>v :Vista coc<cr>
 let g:which_key_map.v = 'vista'
 noremap <leader>x :VimtexCompile<cr>
 let g:which_key_map.x = 'Vimtex'
@@ -74,18 +74,18 @@ let g:which_key_map.f = {
       \ }
 
 " ------------------------------------- Coc --------------------------------------
-" let g:which_key_map.c = {
-"       \ 'name' : '+Coc' ,
-"       \ 'g' : ['<Plug>(coc-definition)'                         , 'go to def'],
-"       \ 'n' : ['<Plug>(coc-rename)'                             , 'rename'],
-"       \ 'f' : ['<Plug>(coc-format)'                             , 'format'],
-"       \ 'a' : ['<Plug>(coc-codeaction)'                         , 'action'],
-"       \ 'q' : ['<Plug>(coc-fix-current)'                        , 'quickfix'],
-"       \ 'c' : [':CocList commands'                              , 'commands'],
-"       \ 'd' : [':CocDiagnostics'                                , 'diagnostics'],
-"       \ }
-      "\ '=' : ['<Plug>(coc-diagnostic-next)'                    , 'next diagn'],
-      "\ '-' : ['<Plug>(coc-diagnostic-prev)'                    , 'prev diagn'],
+let g:which_key_map.c = {
+      \ 'name' : '+Coc' ,
+      \ 'g' : ['<Plug>(coc-definition)'                         , 'go to def'],
+      \ 'n' : ['<Plug>(coc-rename)'                             , 'rename'],
+      \ 'f' : ['<Plug>(coc-format)'                             , 'format'],
+      \ 'a' : ['<Plug>(coc-codeaction)'                         , 'action'],
+      \ 'q' : ['<Plug>(coc-fix-current)'                        , 'quickfix'],
+      \ 'c' : [':CocList commands'                              , 'commands'],
+      \ 'd' : [':CocDiagnostics'                                , 'diagnostics'],
+      \ }
+      " \ '=' : ['<Plug>(coc-diagnostic-next)'                    , 'next diagn'],
+      " \ '-' : ['<Plug>(coc-diagnostic-prev)'                    , 'prev diagn'],
 
 " ------------------------------- Window Navigation  -----------------------------
 noremap <leader>k <C-w>k

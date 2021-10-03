@@ -46,11 +46,11 @@ call plug#begin('$HOME/.config/nvim/plugged')
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " language support
 
 " --------------------------------- Edit Plugs -----------------------------------
-    "maybe
-    Plug 'neovim/nvim-lspconfig'               " LSP plugins
+    " "maybe
+    " Plug 'neovim/nvim-lspconfig'               " LSP plugins
     " Plug 'glepnir/lspsaga.nvim'
     " Plug 'hrsh7th/nvim-compe'                  " LSP complete
-    Plug 'kabouzeid/nvim-lspinstall'
+    " Plug 'kabouzeid/nvim-lspinstall'
     " Plug 'folke/lsp-colors.nvim'
 
     Plug 'SirVer/ultisnips'                     " snips
@@ -66,6 +66,7 @@ call plug#begin('$HOME/.config/nvim/plugged')
 	Plug 'lervag/vimtex'                    	" latex syntax support
 
     Plug 'liuchengxu/vim-which-key'             " organize key mappings
+
     Plug 'voldikss/vim-floaterm'                " terminal in vim
     Plug 'neoclide/coc.nvim', {'branch': 'release'}	" auto complition
     

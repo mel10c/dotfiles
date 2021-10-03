@@ -20,6 +20,11 @@ source ~/.config/nvim/plugins.vim
 source ~/.config/nvim/mapping_config.vim
 source ~/.config/nvim/setting.vim
 source ~/.config/nvim/appearance_config.vim
+" luafile ~/.config/nvim/lua/inita.lua
+" luafile ~/.config/nvim/lua/compe_config.lua
+" luafile ~/.config/nvim/lua/lsp_saga.lua
+" luafile ~/.config/nvim/lua/lsp_server.lua
+" luafile ~/.config/nvim/lua/lsp_keymap.vim
 "source ~/.config/nvim/plugin/writing.vim
 
 " =============================== EDITING CONFIG =================================

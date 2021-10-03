@@ -70,8 +70,14 @@ xmap ,m S$
 nmap ,m yssm
 xmap , S
 
-nnoremap <silent> <C-j> <Cmd>Lspsaga diagnostic_jump_next<CR>
-nnoremap <silent>K <Cmd>Lspsaga hover_doc<CR>
-inoremap <silent> <C-k> <Cmd>Lspsaga signature_help<CR>
-nnoremap <silent> gh <Cmd>Lspsaga lsp_finder<CR>
+" nnoremap <silent> <C-j> <Cmd>Lspsaga diagnostic_jump_next<CR>
+" nnoremap <silent>K <Cmd>Lspsaga hover_doc<CR>
+" inoremap <silent> <C-k> <Cmd>Lspsaga signature_help<CR>
+" nnoremap <silent> gh <Cmd>Lspsaga lsp_finder<CR>
 
+" inoremap <silent> <C-k> :Lspsaga signature_help<CR>
+" nnoremap <silent><leader>ca :Lspsaga code_action<CR>
+" nnoremap <silent> gr <cmd>lua require('lspsaga.signaturehelp').signature_help()<CR>
+" nnoremap <silent> gn :Lspsaga rename<CR>
+" nnoremap <silent> gd :Lspsaga preview_definition<CR>
+" nnoremap <silent> <leader>cd :Lspsaga show_line_diagnostics<CR>
