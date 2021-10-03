@@ -53,7 +53,7 @@
 	"diagnostic.refreshOnInsertMode": true,
 	"diagnostic.checkCurrentLine": true,
 	"diagnostic.virtualTextPrefix": " ❯❯❯ ",
-	"diagnostic.virtualText": true,
+	"diagnostic.virtualText": false,
     "diagnostic.messageTarget": "echo",
 	"codeLens.enable": true,
 	"list.previewHighlightGroup": "Statement",

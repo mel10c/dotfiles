@@ -14,4 +14,4 @@ nightfox.setup({
 })
 
 -- Load the configuration set above and apply the colorscheme
-nightfox.load()
+--nightfox.load()

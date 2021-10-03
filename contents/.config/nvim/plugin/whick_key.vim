@@ -27,7 +27,7 @@ autocmd  FileType which_key set laststatus=0 noshowmode noruler
 " --------------------------------- Leader Mapping -------------------------------
 noremap <leader>0 :colorscheme onedark<CR>:hi normal guibg=none<cr>
 let g:which_key_map.0 = 'onedark'
-noremap <leader>9 :colorscheme nord<CR>:hi normal guibg=none<cr>
+noremap <leader>9 :colorscheme nordfox<CR>:hi normal guibg=none<cr>
 let g:which_key_map.9 = 'nord'
 
 noremap <leader>q :q<CR>
@@ -36,7 +36,7 @@ noremap <leader>w :w<CR>
 let g:which_key_map.w = 'write'
 noremap <leader>o <C-^>
 let g:which_key_map.o = 'buffer switch'
-noremap <leader>v :Vista coc<cr>
+noremap <leader>v :Vista nvim_lsp<cr>
 let g:which_key_map.v = 'vista'
 noremap <leader>x :VimtexCompile<cr>
 let g:which_key_map.x = 'Vimtex'
@@ -74,16 +74,16 @@ let g:which_key_map.f = {
       \ }
 
 " ------------------------------------- Coc --------------------------------------
-let g:which_key_map.c = {
-      \ 'name' : '+Coc' ,
-      \ 'g' : ['<Plug>(coc-definition)'                         , 'go to def'],
-      \ 'n' : ['<Plug>(coc-rename)'                             , 'rename'],
-      \ 'f' : ['<Plug>(coc-format)'                             , 'format'],
-      \ 'a' : ['<Plug>(coc-codeaction)'                         , 'action'],
-      \ 'q' : ['<Plug>(coc-fix-current)'                        , 'quickfix'],
-      \ 'c' : [':CocList commands'                              , 'commands'],
-      \ 'd' : [':CocDiagnostics'                                , 'diagnostics'],
-      \ }
+" let g:which_key_map.c = {
+"       \ 'name' : '+Coc' ,
+"       \ 'g' : ['<Plug>(coc-definition)'                         , 'go to def'],
+"       \ 'n' : ['<Plug>(coc-rename)'                             , 'rename'],
+"       \ 'f' : ['<Plug>(coc-format)'                             , 'format'],
+"       \ 'a' : ['<Plug>(coc-codeaction)'                         , 'action'],
+"       \ 'q' : ['<Plug>(coc-fix-current)'                        , 'quickfix'],
+"       \ 'c' : [':CocList commands'                              , 'commands'],
+"       \ 'd' : [':CocDiagnostics'                                , 'diagnostics'],
+"       \ }
       "\ '=' : ['<Plug>(coc-diagnostic-next)'                    , 'next diagn'],
       "\ '-' : ['<Plug>(coc-diagnostic-prev)'                    , 'prev diagn'],
 

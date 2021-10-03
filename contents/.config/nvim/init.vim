@@ -42,8 +42,9 @@ source ~/.config/nvim/appearance_config.vim
 
 " ================================= LSP CONFIG ===================================
 " ================================================================================
-"source ~/.config/nvim/plugin/coc.vim
+"source ~/.config/nvim/coc.vim
 
-"source ~/.config/nvim/lsp/lsp_config.vim
-"luafile ~/.config/nvim/lsp/lsp_server.lua
-"luafile ~/.config/nvim/lsp/compe_config.lua
+" source ~/.config/nvim/lsp/lsp_config.vim
+" luafile ~/.config/nvim/plugin/lsp_server.lua
+" luafile ~/.config/nvim/plugin/compe_config.lua
+" source ~/.config/nvim/lsp/lsp_config.vim

@@ -34,7 +34,7 @@ nnoremap ,P "_Dp
 inoremap <C-u> <C-w>
 noremap <silent> k gk
 noremap <silent> j gj
-noremap <silent> H 0
+noremap <silent> H ^
 noremap <silent> L $
 nnoremap n nzz
 nnoremap N Nzz
@@ -64,3 +64,14 @@ nmap k <Plug>(accelerated_jk_gk)
 
 nnoremap tt :NvimTreeToggle<CR>
 nnoremap tf :NvimTreeFocus<CR>
+
+nmap ,b ysW*ysW*
+xmap ,m S$
+nmap ,m yssm
+xmap , S
+
+nnoremap <silent> <C-j> <Cmd>Lspsaga diagnostic_jump_next<CR>
+nnoremap <silent>K <Cmd>Lspsaga hover_doc<CR>
+inoremap <silent> <C-k> <Cmd>Lspsaga signature_help<CR>
+nnoremap <silent> gh <Cmd>Lspsaga lsp_finder<CR>
+
