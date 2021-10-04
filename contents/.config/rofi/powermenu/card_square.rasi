@@ -106,7 +106,7 @@ element alternate.active {
 
 element selected {
     background-color:               @selected;
-    text-color:                     @foreground;
+    text-color:                     @background;
     border:                  		0% 0% 0% 0%;
     border-radius:                  0%;
     border-color:                  	@border;
