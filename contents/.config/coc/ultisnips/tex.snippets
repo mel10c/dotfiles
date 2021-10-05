@@ -271,18 +271,22 @@ snippet cb "^3" iA
 ^3
 endsnippet
 
+context "math()"
 snippet // "Fraction" iA
 \\frac{$1}{$2}
 endsnippet
 
+context "math()"
 snippet '((\d+)|(\d*)(\\)?([A-Za-z]+)((\^|_)(\{\d+\}|\d))*)/' "Fraction" wrA
 \\frac{`!p snip.rv = match.group(1)`}{$1}
 endsnippet
 
+context "math()"
 snippet "(\\?\w+)(;\;|\;;)" "Vector postfix" riA
 \vec{`!p snip.rv=match.group(1)`}
 endsnippet
 
+context "math()"
 snippet ttt "code" iA
 \textttt
 endsnippet
@@ -300,7 +304,7 @@ endsnippet
 
 context "math()"
 snippet im "impies" Ai
-\Rightarrow
+\quad\quad \Rightarrow \quad\quad
 endsnippet
 
 context "math()"

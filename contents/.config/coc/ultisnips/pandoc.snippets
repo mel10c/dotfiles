@@ -8,14 +8,30 @@ snippet un "underline" b
 <u>$1</u>$0
 endsnippet
 
-snippet itl "bold" bbiA
+snippet itl "italic" iA
 *$1*$0
 endsnippet
 
-snippet code "bold" b
-```${1:language}
+snippet code "code" b
+\`\`\`${1:language}
+$2
+\`\`\`
+endsnippet
 
-```
+snippet def "definition" b
+##### ${1:definition}
+> ------------------------------------------------------------
+> ${2:content}
+> ------------------------------------------------------------
+endsnippet
+
+snippet ex "example" b
+> ------------------------------------------------------------
+> ##### ${1:Example}
+> ${2:Question}
+> *Proof.*
+> $3
+> ------------------------------------------------------------
 endsnippet
 
 snippet ;1 "h1" iA
@@ -53,6 +69,7 @@ endsnippet
 
 # ----------------------------- Math Shortcuts -------------------------------
 
+context "math()"
 snippet cross "cross product" b
 \begin{vmatrix} 
 	i&j&k\\\\
@@ -61,6 +78,7 @@ snippet cross "cross product" b
 \end{vmatrix}
 endsnippet
 
+context "math()"
 snippet vmat "vmatrix" b
 \begin{vmatrix} 
 	${1:a}&${2:b}\\\\ 
@@ -167,12 +185,11 @@ snippet '(?<!\\)(sin|cos|tan|cot|csc|sec|ln|log|mu|pi)' "ln" rwA
 \\$0`!p snip.rv = match.group(1)`$1
 endsnippet
 
-priority 200
-context "math()"
-snippet '(?<!\\)(arccot|arcsin|arcsec||exp|star|perp)' "ln" rwA
-snippet '(?<!\\)(arcsin|arccos|arctan|arccot|arccsc|arcsec|pi|zeta|int)' "ln" rwA
-\\$0`!p snip.rv = match.group(1)`$1
-endsnippet
+# priority 200
+# context "math()"
+# snippet '(?<!\\)(arccot|arcsin|arcsec||exp|star|perp)' "ln" rwA
+# \\$0`!p snip.rv = match.group(1)`$1
+# endsnippet
 
 snippet sr "^2" iA
 ^2
@@ -182,18 +199,22 @@ snippet cb "^3" iA
 ^3
 endsnippet
 
+context "math()"
 snippet // "Fraction" iA
 \\frac{$1}{$2}
 endsnippet
 
+context "math()"
 snippet '((\d+)|(\d*)(\\)?([A-Za-z]+)((\^|_)(\{\d+\}|\d))*)/' "Fraction" wrA
 \\frac{`!p snip.rv = match.group(1)`}{$1}
 endsnippet
 
+context "math()"
 snippet "(\\?\w+)(;\;|\;;)" "Vector postfix" riA
 \vec{`!p snip.rv=match.group(1)`}
 endsnippet
 
+context "math()"
 snippet ttt "code" iA
 \textttt
 endsnippet
@@ -210,8 +231,8 @@ snippet iff "iff" Ai
 endsnippet
 
 context "math()"
-snippet im "impies" b
-\Rightarrow
+snippet im "impies" Ai
+\quad\quad \Rightarrow \quad\quad
 endsnippet
 
 context "math()"
@@ -220,7 +241,7 @@ snippet inn "in" Ai
 endsnippet
 
 context "math()"
-snippet cc "subseteq" b
+snippet cc "subseteq" Ai
 \subseteq
 endsnippet
 
@@ -246,7 +267,7 @@ endsnippet
 
 context "math()"
 snippet OO "empty set" iA
-emptyset
+\emptyset
 endsnippet
 
 context "math()"
@@ -275,8 +296,8 @@ snippet qq "quad" iA
 endsnippet
 
 context "math()"
-snippet ,, "space" iA
-\,
+snippet sp "space" iA
+\, 
 endsnippet
 
 context "math()"

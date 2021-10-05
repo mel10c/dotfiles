@@ -40,8 +40,10 @@ noremap <leader>v :Vista coc<cr>
 let g:which_key_map.v = 'vista'
 noremap <leader>x :VimtexCompile<cr>
 let g:which_key_map.x = 'Vimtex'
-"noremap <leader>s :source ~/.config/nvim/init.vim<CR>
-"let g:which_key_map.s = 'source'
+noremap <leader>n <Plug>(coc-diagnostic-next)
+let g:which_key_map.n = 'Next Dia'
+noremap <leader>p <Plug>(coc-diagnostic-prev)
+let g:which_key_map.p = 'Prev Dia'
 
 " ------------------------------------- Floaterm ---------------------------------
 let g:which_key_map.t = {

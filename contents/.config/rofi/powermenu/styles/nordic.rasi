@@ -3,8 +3,8 @@
     background-alt:                 #4C566A;
     foreground:                     #ffffffcc;
     /*border:               			#FDBB6Dff;*/
-    border:                 		#5E81AC;
-    border-alt:               		#5E81AC;
-    selected:               		#5E81AC;
+    border:                 		#81A1C1;
+    border-alt:               		#81A1C1;
+    selected:               		#81A1C1;
     urgent:                         #DA4453FF;
 }
