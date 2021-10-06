@@ -22,6 +22,7 @@ set signcolumn=yes
 set expandtab smarttab
 set tabstop=4 shiftwidth=4 softtabstop=4
 set autoindent
+set ttyfast
 "set tw=0
 set indentexpr=
 set backspace=indent,eol,start

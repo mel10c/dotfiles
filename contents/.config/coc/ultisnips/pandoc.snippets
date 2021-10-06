@@ -179,11 +179,11 @@ snippet '([A-Za-z])_(\d\d)' "auto subscript2" wrA
 `!p snip.rv = match.group(1)`_{`!p snip.rv = match.group(2)`}
 endsnippet
 
-priority 100
-context "math()"
-snippet '(?<!\\)(sin|cos|tan|cot|csc|sec|ln|log|mu|pi)' "ln" rwA
-\\$0`!p snip.rv = match.group(1)`$1
-endsnippet
+# priority 100
+# context "math()"
+# snippet '(?<!\\)(sin|cos|tan|cot|csc|sec|ln|log|mu|pi|theta)' "ln" rwA
+# \\$0`!p snip.rv = match.group(1)`$1
+# endsnippet
 
 # priority 200
 # context "math()"
@@ -217,6 +217,36 @@ endsnippet
 context "math()"
 snippet ttt "code" iA
 \textttt
+endsnippet
+
+context "math()"
+snippet sin "sin" iA
+\sin 
+endsnippet
+
+context "math()"
+snippet cos "cos" iA
+\cos 
+endsnippet
+
+context "math()"
+snippet tan "tan" iA
+\tan 
+endsnippet
+
+context "math()"
+snippet pi "pi" iA
+\pi 
+endsnippet
+
+context "math()"
+snippet theta "theta" iA
+\theta 
+endsnippet
+
+context "math()"
+snippet mu "mu" iA
+\mu 
 endsnippet
 
 # ================================= Math =====================================

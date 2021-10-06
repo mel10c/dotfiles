@@ -42,6 +42,20 @@ ${0:Answers ges here}
 \end{document}
 endsnippet
 
+snippet draft "draft page" b
+\documentclass[11pt]{article}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd}
+ 
+\setlength{\parindent}{0.0in}
+\setlength{\parskip}{0.05in}
+
+\begin{document}
+
+$1
+
+\end{document}
+endsnippet
+
 snippet beg "begin{} / end{}" bA
 \\begin{$1}
 	$0
@@ -240,7 +254,7 @@ $$0$
 endsnippet
 
 snippet dm "Math" wA
-\[ $0 .\]
+\[ $0 \]
 endsnippet	
 
 snippet '([A-Za-z])(\d)' "auto subscript" wrA
@@ -251,17 +265,53 @@ snippet '([A-Za-z])_(\d\d)' "auto subscript2" wrA
 `!p snip.rv = match.group(1)`_{`!p snip.rv = match.group(2)`}
 endsnippet
 
-priority 100
+# priority 100
+# context "math()"
+# snippet '(?<!\\)(sin|cos|tan|cot|csc|sec|ln|log|mu|pi)' "ln" rwA
+# \\$0`!p snip.rv = match.group(1)`$1
+# endsnippet
+
+# priority 200
+# context "math()"
+# snippet '(?<!\\)(arccot|arcsin|arctan|theta|Omega)' "ln" rwA
+# \\$0`!p snip.rv = match.group(1)`$1
+# endsnippet
+
 context "math()"
-snippet '(?<!\\)(sin|cos|tan|cot|csc|sec|ln|log|mu|pi)' "ln" rwA
-\\$0`!p snip.rv = match.group(1)`$1
+snippet sin "sin" iA
+\sin 
 endsnippet
 
-priority 200
 context "math()"
-snippet '(?<!\\)(arccot|arcsin|arctan|theta|Omega)' "ln" rwA
-\\$0`!p snip.rv = match.group(1)`$1
+snippet cos "cos" iA
+\cos 
 endsnippet
+
+context "math()"
+snippet tan "tan" iA
+\tan 
+endsnippet
+
+context "math()"
+snippet pi "pi" iA
+\pi 
+endsnippet
+
+context "math()"
+snippet theta "theta" iA
+\theta 
+endsnippet
+
+context "math()"
+snippet mu "mu" iA
+\mu 
+endsnippet
+
+context "math()"
+snippet omega "omega" iA
+\Omega 
+endsnippet
+
 
 snippet sr "^2" iA
 ^2
@@ -379,7 +429,7 @@ endsnippet
 
 context "math()"
 snippet sum "sum" w
-\sum_{n=${1:1}}^{${2:\infty}} ${3:a_n z^n}
+\sum_{i=${1:1}}^{${1:1}} ${2:a_n z^n}
 endsnippet
 
 context "math()"
@@ -389,7 +439,7 @@ endsnippet
 
 context "math()"
 snippet sq "\sqrt{}" iA
-\sqrt{${1:${VISUAL}}} 
+\sqrt{${1:${VISUAL}}}
 endsnippet
 
 context "math()"
