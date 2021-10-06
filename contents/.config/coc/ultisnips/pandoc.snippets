@@ -69,7 +69,6 @@ endsnippet
 
 # ----------------------------- Math Shortcuts -------------------------------
 
-context "math()"
 snippet cross "cross product" b
 \begin{vmatrix} 
 	i&j&k\\\\
@@ -78,7 +77,6 @@ snippet cross "cross product" b
 \end{vmatrix}
 endsnippet
 
-context "math()"
 snippet vmat "vmatrix" b
 \begin{vmatrix} 
 	${1:a}&${2:b}\\\\ 
@@ -86,22 +84,18 @@ snippet vmat "vmatrix" b
 \end{vmatrix}
 endsnippet
 
-context "math()"
-snippet pmat "pmat" iA
+snippet pmat "pmat" b
 \begin{pmatrix} $1 \end{pmatrix} $0
 endsnippet
 
-context "math()"
 snippet bmat "bmat" b
 \begin{bmatrix} $1 \\ $2 \end{bmatrix} $0
 endsnippet
 
-context "math()"
 snippet bmatl "long bmat" b
 \begin{bmatrix} $1 \\ $2 \\ $3 \end{bmatrix} $0
 endsnippet
 
-context "math()"
 snippet bmat2 "square bmat" b
 \begin{bmatrix}
 $1 & $2 \\ 
@@ -110,7 +104,6 @@ $3 & $4
 $0
 endsnippet
 
-context "math()"
 snippet eq "equation" b
 \left\{\begin{matrix}
 ${1:y_1} & =${2:x} \\ 
