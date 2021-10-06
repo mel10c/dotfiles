@@ -1,4 +1,4 @@
-"
+
 "                    ██╗   ██╗██╗███╗   ███╗██████╗  ██████╗
 "                    ██║   ██║██║████╗ ████║██╔══██╗██╔════╝
 "                    ██║   ██║██║██╔████╔██║██████╔╝██║     
@@ -30,7 +30,7 @@ call plug#begin('$HOME/.config/nvim/plugged')
     Plug 'joshdick/onedark.vim'	    " Appearance - onedark color theme
     Plug 'junegunn/goyo.vim'        " Appearance - focus mode
     "Plug 'RRethy/vim-illuminate'    " Appearance - highlight term under cursor
-    Plug 'airblade/vim-gitgutter'   " Appearance - git change in sidebar
+    Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
     Plug 'preservim/nerdtree'	    " Appearance - file tree for vim
     Plug 'tiagofumo/vim-nerdtree-syntax-highlight'	" Appearance - file color
     Plug 'Xuyuanp/nerdtree-git-plugin'	" Appearance - file git icons
@@ -44,7 +44,7 @@ call plug#begin('$HOME/.config/nvim/plugged')
     Plug 'tpope/vim-fugitive'	    " Edit - git tool
     Plug 'vim-pandoc/vim-pandoc'	" Edit - syntax library
     Plug 'vim-pandoc/vim-pandoc-syntax'			  " Edit - syntax highlight
-    "Plug 'lervag/vimtex', {'tag': 'v1.6'}    	  " Edit - latex syntax support
+    Plug 'lervag/vimtex', {'tag': 'v1.6'}    	  " Edit - latex syntax support
     Plug 'dhruvasagar/vim-table-mode'	" Edit - easier tables
     Plug 'neoclide/coc.nvim', {'branch': 'release'}	" Edit - auto complition
 
@@ -53,38 +53,22 @@ call plug#end()
 " ================================================================================
 " ============================== EDITOR BEHAVIOR =================================
 " ================================================================================
-set mouse=a
-set autochdir
-set syntax
-set exrc
-set secure
-set number relativenumber cursorcolumn signcolumn=yes
-set hidden
-set expandtab smarttab tabstop=4 shiftwidth=4 softtabstop=4
-set autoindent
-set nolist
-set scrolloff=10
-set tw=0
-set indentexpr=
-set backspace=indent,eol,start
-set wrap
-set noshowmode
-set showcmd
-set wildmenu
-set ignorecase
-set smartcase
-set shortmess+=c
-set ttyfast "should make scrolling faster
-set visualbell
-"set colorcolumn=100
-set updatetime=100
-set nohlsearch
-set incsearch
-set guioptions=
-set nofoldenable
-setlocal spell
-set spelllang=en_us
-inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
+"Theme
+set background=dark
+hi CursorLineNr guibg=#434c5e guifg=white
+set t_Co=256
+set termguicolors " enable true colors support
+set guifont=Hack_Nerd_Font_Mono:h14
+"set guifont=MesloLGS_NF:h14
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_math = 1
+"hi LineNr guibg=#61afef
+set cursorline
+colorscheme nord
+
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_SR = "\<Esc>]50;CursorShape=2\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
 set nocompatible
 filetype on
@@ -92,22 +76,41 @@ filetype indent on
 filetype plugin on
 filetype plugin indent on
 
-"Theme
-set background=dark
-colorscheme nord
-hi CursorLineNr guibg=#434c5e guifg=white
-set t_Co=256
-set termguicolors " enable true colors support
-"set guifont=Hack_Nerd_Font_Mono:h14
-set guifont=MesloLGS_NF:h14
-let g:vim_markdown_folding_disabled = 1
-let g:vim_markdown_math = 1
-"hi LineNr guibg=#61afef
-set cursorline
+set autochdir
+set hidden
+set syntax
+set exrc
+set secure
 
-let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-let &t_SR = "\<Esc>]50;CursorShape=2\x7"
-let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+set mouse=a
+set number relativenumber cursorcolumn
+set signcolumn=number
+set expandtab smarttab tabstop=4 shiftwidth=4 softtabstop=4
+set autoindent
+set nolist
+set scrolloff=10
+" set tw=0
+" set indentexpr=
+" set backspace=indent,eol,start
+set wrap
+set noshowmode
+set laststatus=2
+set showcmd
+set wildmenu
+set ignorecase smartcase
+set shortmess+=c
+set ttyfast "should make scrolling faster
+set visualbell
+" set colorcolumn=100
+set updatetime=100
+set nohlsearch
+set incsearch
+set guioptions=
+set nofoldenable
+
+setlocal spell
+set spelllang=en_us
+inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
 " ================================================================================
 " -------------------------------- Basic Mappings --------------------------------
@@ -115,7 +118,7 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 let mapleader=" "
 noremap <leader>q :q<CR>
 noremap <leader>w :w<CR>
-noremap ,s :source ~/.vimrc<CR>
+noremap ,s :source ~/dotfiles/contents/.vimrc<CR>
 noremap <D-s> :w!<CR>
 nnoremap Y y$
 vnoremap Y "+y
@@ -171,10 +174,6 @@ noremap <right> :vertical resize+5<CR>
 "map <leader>tr :new term://bash<CR>iR<CR><C-\><C-n><C-w>k
 map <leader>tp :term<CR>python3<CR>
 
-" -------------------------------- Personal Snippits -----------------------------
-let g:UltiSnipsSnippetDirectories=[$HOME.'/dotfiles/contents/.config/coc/ultisnips']
-
-
 " ================================================================================
 " =================================== CONFIGS ====================================
 " ================================================================================
@@ -182,8 +181,6 @@ let g:UltiSnipsSnippetDirectories=[$HOME.'/dotfiles/contents/.config/coc/ultisni
 " Appearance Config
 " --------------------------- itchyny/lightline.vim ------------------------------
 " ================================================================================
-set laststatus=2
-set noshowmode
 
 let g:lightline = {
 \   'colorscheme': 'nord',
@@ -248,9 +245,9 @@ function! LightlineLineinfo() abort
     endif
     let l:word_count=wordcount().words
     if has_key(wordcount(),'visual_words')
-        let l:word_count=wordcount().visual_words."/".wordcount().words " count selected words
+        "let l:word_count=wordcount().visual_words."/".wordcount().words " count selected words
     else
-        let l:word_count=wordcount().words " or shows words 'so far'
+        "let l:word_count=wordcount().words " or shows words 'so far'
     endif
 
     let l:current_line = printf('%-3s', line('.'))
@@ -342,21 +339,8 @@ endfunction
 " ---------------------- ryanoasis/vim-devicons/nerdtree -------------------------
 " ================================================================================
 " set encoding=UTF-8
-let NERDTreeIgnore = ['\~$','\.pyc$','\*NTUSER*','\*ntuser*','\NTUSER.DAT','\ntuser.ini']
+"let NERDTreeIgnore = ['\~$','\.pyc$','\*NTUSER*','\*ntuser*','\NTUSER.DAT','\ntuser.ini']
 let NERDTreeQuitOnOpen=1
-
-" ---------------------- ryanoasis/vim-devicons/nerdtree -------------------------
-" ================================================================================
-nnoremap TT :NvimTreeToggle<CR>
-nnoremap <leader>r :NvimTreeRefresh<CR>
-nnoremap <leader>n :NvimTreeFindFile<CR>
-set termguicolors " this variable must be enabled for colors to be applied properly
-" a list of groups can be found at `:help nvim_tree_highlight`
-highlight NvimTreeFolderIcon guibg=blue
-
-" ---------------------------- RRethy/vim-illuminate -----------------------------
-" ================================================================================
-let g:Illuminate_highlightUnderCursor = 1
 
 " ----------------------------- mhinz/vim-startify  ------------------------------
 " ================================================================================
@@ -423,7 +407,7 @@ let g:startify_files_number           = 10
 let g:startify_session_persistence    = 1
 let g:startify_padding_left = 20
 map gs :Startify<CR>
-map gv :e ~/.vimrc<CR>
+map gv :e ~/dotfiles/contents/.vimrc<CR>
 
 
 " ----------------------------- preservim/nerdtree -------------------------------
@@ -435,7 +419,7 @@ nnoremap tt :NERDTreeToggle<CR>
 nnoremap tf :NERDTreeFind<CR>
 nnoremap tu :NERDTree /Users/melaneyzhu/OneDrive\ -\ University\ of\ Toronto<CR>
 nnoremap td :NERDTree /Users/melaneyzhu/melaneyroot.github.io<CR>
-nnoremap tc :NERDTree /Users/melaneyzhu/<CR>
+nnoremap th :NERDTree /Users/melaneyzhu/<CR>
 let NERDTreeIgnore = ['\.DAT$', '\.LOG1$', '\.LOG1$']
 
 " For the sub-plug-in: Xuyuanp/nerdtree-git-plugin
@@ -464,12 +448,11 @@ let g:bullets_enabled_file_types = [
     \]
 "let g:bullets_set_mappings = 0 " default = 1
 let g:bullets_outline_levels = [ 'ROM', 'rom', 'ABC', 'abc', 'num', 'std-', 'std*', 'std+' ]
-inoremap <C-r> <C-o>:BulletPromote<cr>
 "inoremap <C-t> <C-o>:BulletPromote<cr> default
 
 " -------------------------- preservim/nerdcommenter -----------------------------
 " ================================================================================
-map ++ <plug>NERDCommenterToggle
+map gc <plug>NERDCommenterToggle
 if has("gui_running")
     map <D-/> <plug>NERDCommenterToggle
 endif
@@ -486,7 +469,7 @@ let g:tex_flavor='latex'
 let g:vimtex_view_method='general'
 let g:vimtex_quickfix_mode=0
 
-set conceallevel=2
+set conceallevel=3
 let g:tex_conceal="abdgm"
 
 " --------------------------- dhruvasagar/vim-table-mode -------------------------
@@ -504,4 +487,8 @@ inoreabbrev <expr> <bar><bar>
 inoreabbrev <expr> __
           \ <SID>isAtStartOfLine('__') ?
           \ '<c-o>:silent! TableModeDisable<cr>' : '__'
+
+" -------------------------------- Personal Snippits -----------------------------
+let g:UltiSnipsSnippetDirectories=[$HOME.'/dotfiles/contents/.config/coc/ultisnips']
+
 
