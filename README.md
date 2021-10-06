@@ -11,7 +11,7 @@
 
 ![5-app launcher](https://tva1.sinaimg.cn/large/008i3skNgy1gv5aqp3x51j61c00u0tc502.jpg)
 
-![6-notion](https://tva1.sinaimg.cn/large/008i3skNgy1gv5b2s7qtxj61c00u0aev02.jpg)
+![6-notion](https://tva1.sinaimg.cn/large/008i3skNgy1gv5b4rhpqtj61c00u0aev02.jpg)
 
 ## Detail
 
