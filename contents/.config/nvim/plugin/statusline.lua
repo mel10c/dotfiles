@@ -146,7 +146,8 @@ section.left[1] = {
       --cmd("hi GalaxyViMode guifg=" .. mode_color[fn.mode()])
       --return "   גּ  "
       cmd('hi GalaxyViMode guibg='..mode_color[fn.mode()])
-      return '  |MEL10 '--..mode_text[vim.fn.mode()]
+      -- return '   MEL10 '--..mode_text[vim.fn.mode()]
+      return '  גּ MEL10 '--..mode_text[vim.fn.mode()]
     end,
     condition = checkwidth,
     separator = " ",

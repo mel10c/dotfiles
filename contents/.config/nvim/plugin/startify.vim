@@ -70,5 +70,8 @@ let g:stratify_padding_left = 50
 let g:startify_padding_left = 15
 let g:startify_relative_path = 1
 
+let g:indent_blankline_filetype_exclude = ['startify']
+
 " ---------------------------------- Mappings ------------------------------------
 map gs :Startify<CR>
+

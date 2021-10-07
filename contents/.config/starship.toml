@@ -3,13 +3,13 @@ scan_timeout = 5
 [username]
 style_user = "blue bold"
 style_root = "red bold"
-format = "[  $user]($style) "
-#format = "[  ]($style) "
+# format = "[   $user]($style) "
+format = "[ גּ ]($style) "
 disabled = false
 show_always = true
 
 [line_break]
-disabled = false
+disabled = true
 
 [cmd_duration]
 format = '[ \[$duration\]]($style)'
