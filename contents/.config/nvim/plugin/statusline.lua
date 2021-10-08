@@ -138,6 +138,16 @@ local mode_color = {
   --t = one_dark_colors.red
 --}
 
+--[[ section.left[0] = {
+  Sep = {
+    provider = function()
+      return " "
+    end,
+    condition = checkwidth_small,
+    highlight = {nord_colors.bg, nord_colors.line_bg,},
+  }
+} ]]
+
 section.left[1] = {
   ViMode = {
     provider = function()
@@ -147,12 +157,13 @@ section.left[1] = {
       --return "   גּ  "
       cmd('hi GalaxyViMode guibg='..mode_color[fn.mode()])
       -- return '   MEL10 '--..mode_text[vim.fn.mode()]
-      return '  גּ MEL10 '--..mode_text[vim.fn.mode()]
+      -- return '  גּ '--..mode_text[vim.fn.mode()]
+      return ' '--..mode_text[vim.fn.mode()]
     end,
     condition = checkwidth,
     separator = " ",
     --highlight = {one_dark_colors.bg, one_dark_colors.line_bg, "bold"}
-    highlight = {nord_colors.bg, nord_colors.line_bg, "bold"}
+    highlight = {nord_colors.line_bg, nord_colors.bg, "bold"}
   }
 }
 
@@ -271,10 +282,9 @@ section.right[5] = {
     provider = function()
       return " "
     end,
-    separator = " [ ",
-    separator_highlight = {nord_colors.green, nord_colors.bg},
+    separator = " | ",
+    separator_highlight = {nord_colors.gray, nord_colors.bg},
     condition = require("galaxyline.provider_vcs").check_git_workspace,
-    --condition = require("galaxyline.provider_vcs").check_git_workspace,
     highlight = {nord_colors.purple, nord_colors.line_bg}
   }
 }
@@ -327,8 +337,8 @@ section.right[10] = {
 section.right[11] = {
   LineInfo = {
     provider = 'LinePercent',
-    separator = "] ",
-    separator_highlight = {nord_colors.green, nord_colors.line_bg},
+    separator = " ",
+    separator_highlight = {nord_colors.gray, nord_colors.bg},
     condition = checkwidth,
     highlight = {nord_colors.bg, nord_colors.gray}
   }
