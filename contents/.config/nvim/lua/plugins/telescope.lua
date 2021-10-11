@@ -21,6 +21,8 @@ telescope.setup {
          "--smart-case",
       },
       prompt_prefix = "  | ",
+      results_title = false,
+      preview_title = false,
       selection_caret = " ",
       entry_prefix = "  ",
       initial_mode = "insert",
@@ -32,12 +34,13 @@ telescope.setup {
             prompt_position = "top",
             preview_width = 0.55,
             results_width = 0.8,
+            -- results_height=20,
          },
          vertical = {
             mirror = false,
          },
-         width = 0.87,
-         height = 0.80,
+         width = 0.80,
+         height = 0.75,
          preview_cutoff = 120,
       },
       file_sorter = require("telescope.sorters").get_fuzzy_file,
@@ -46,7 +49,8 @@ telescope.setup {
       path_display = { "absolute" },
       winblend = 0,
       border = {},
-      borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+      borderchars = { '─', '│', '─', '│', '┌', '┐', '┘', '└'},
+      -- previewer = false,
       color_devicons = true,
       use_less = true,
       set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
@@ -65,6 +69,16 @@ telescope.setup {
    treesitter = {
      theme = "ivy",
    },
+   oldfiles = {
+      layout_config = {
+         horizontal = {
+            prompt_position = "top",
+            preview_width = 0.4,
+            results_width = 0.8,
+            -- results_height=20,
+         },
+        }
+   }
    },
    extensions = {
       fzf = {
@@ -81,7 +95,8 @@ telescope.setup {
    },
 }
 
-local extensions = { "themes", "terms", "fzf", "coc" }
+-- local extensions = { "themes", "terms", "fzf", "coc", "ultisnips" }
+local extensions = { "ultisnips" }
 local packer_repos = [["extensions", "telescope-fzf-native.nvim"]]
 
 if vim.fn.executable "ueberzug" == 1 then

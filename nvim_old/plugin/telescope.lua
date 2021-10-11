@@ -64,6 +64,12 @@ telescope.setup {
    },
    treesitter = {
      theme = "ivy",
+     borderchars = {
+      { '─', '│', '─', '│', '┌', '┐', '┘', '└'},
+      prompt = {"─", "│", " ", "│", '┌', '┐', "│", "│"},
+      results = {"─", "│", "─", "│", "├", "┤", "┘", "└"},
+      preview = { '─', '│', '─', '│', '┌', '┐', '┘', '└'},
+    },
    },
    },
    extensions = {
@@ -83,6 +89,23 @@ telescope.setup {
 
 local extensions = { "themes", "terms", "fzf", "coc" }
 local packer_repos = [["extensions", "telescope-fzf-native.nvim"]]
+
+local no_preview = function()
+  return require('telescope.themes').get_dropdown({
+    borderchars = {
+      { '─', '│', '─', '│', '┌', '┐', '┘', '└'},
+      prompt = {"─", "│", " ", "│", '┌', '┐', "│", "│"},
+      results = {"─", "│", "─", "│", "├", "┤", "┘", "└"},
+      preview = { '─', '│', '─', '│', '┌', '┐', '┘', '└'},
+    },
+    width = 0.8,
+    previewer = false,
+    prompt_title = false
+  })
+end
+
+require"telescope.builtin".buffers(no_preview())
+
 
 if vim.fn.executable "ueberzug" == 1 then
    table.insert(extensions, "media_files")

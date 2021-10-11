@@ -340,7 +340,7 @@ section.right[11] = {
     separator = " ",
     separator_highlight = {nord_colors.gray, nord_colors.bg},
     condition = checkwidth,
-    highlight = {nord_colors.bg, nord_colors.gray}
+    highlight = {nord_colors.line_bg, nord_colors.gray}
   }
 }
 
@@ -350,7 +350,7 @@ section.right[12] = {
       return ' ω:' ..fn.wordcount().words ..' '
     end,
     condition = checkwidth_small,
-    highlight = {nord_colors.bg, nord_colors.gray}
+    highlight = {nord_colors.line_bg, nord_colors.gray}
   }
 }
 

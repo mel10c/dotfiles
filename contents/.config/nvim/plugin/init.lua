@@ -28,19 +28,40 @@ return require('packer').startup(function()
         config = function() require('plugins.which-key') end,
     }
 
--- ------------------------------- Appearance ------------------------------------
-    -- nerd icons
-    use {
-        "kyazdani42/nvim-web-devicons",
-        config = function() require('plugins.icons') end,
-    }
-
     -- better code color
     use {
         "nvim-treesitter/nvim-treesitter",
         branch = "0.5-compat",
         event = "BufRead",
         config = function() require('plugins.treesitter') end,
+    }
+
+-- ------------------------------- Appearance ------------------------------------
+    -- Good COLOR SCHEME!
+    use {
+        "EdenEast/nightfox.nvim",
+        config = function() require('plugins.nightfox') end,
+        -- after = "packer",
+    }
+
+    use {
+        'RRethy/nvim-base16',
+        disable = true
+    }
+
+    -- nerd icons
+    use {
+        "kyazdani42/nvim-web-devicons",
+        -- after = "nightfox",
+        config = function() require('plugins.icons') end,
+    }
+
+    -- status line
+    use {
+        'glepnir/galaxyline.nvim',
+        branch = 'main',
+        config = function() require('plugins.statusline') end,
+        requires = {'kyazdani42/nvim-web-devicons', opt = true}
     }
 
    -- git stuff
@@ -51,21 +72,6 @@ return require('packer').startup(function()
             require("util").packer_lazy_load "gitsigns.nvim"
         end,
     }
-
-    -- Good COLOR SCHEME!
-    use {
-        "EdenEast/nightfox.nvim",
-        config = function() require('plugins.nightfox') end,
-    }
-
-    -- status line
-    use {
-        'glepnir/galaxyline.nvim',
-        branch = 'main',
-        config = function() require('plugins.statusline') end,
-        requires = {'kyazdani42/nvim-web-devicons', opt = true}
-}
-
 
     -- file tree
     use {
@@ -87,6 +93,9 @@ return require('packer').startup(function()
             {
                 "nvim-telescope/telescope-media-files.nvim",
             },
+            {
+                "fhill2/telescope-ultisnips.nvim",
+            }
             },
         config = function() require('plugins.telescope') end,
     }
@@ -146,8 +155,8 @@ return require('packer').startup(function()
     -- auto pair
    use {
         "windwp/nvim-autopairs",
-        -- after = "nvim-cmp",
-        event = "InsertEnter",
+        after = "nvim-cmp",
+        -- event = "InsertEnter",
         config = function() require('plugins.misc').autopairs() end,
     }
 
@@ -176,7 +185,7 @@ return require('packer').startup(function()
     -- easy comment
     use {
         'numToStr/Comment.nvim',
-        config = function() require('plugins.misc').comment() end
+        config = function() require('plugins.misc').comment() end,
     }
 
     -- document genenrator
@@ -233,8 +242,9 @@ return require('packer').startup(function()
     -- completion engine
     use {
         "hrsh7th/nvim-cmp",
-        module = "cmp",
-        after = "friendly-snippets",
+        event = "InsertEnter",
+        -- module = "cmp",
+        -- after = "friendly-snippets",
         -- requires = {'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-nvim-lua',
         --             'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path',
         --             'hrsh7th/cmp-calc',
@@ -252,12 +262,11 @@ return require('packer').startup(function()
 
     use {
         'SirVer/ultisnips',
-        -- wants = "friendly-snippets",
         config = function ()
             vim.g.UltiSnipsRemoveSelectModeMappings = 0
         end,
         -- wants = "friendly-snippets",
-        cmd = {'tex', 'java', 'pandoc', 'markdown'}
+        ft = {'tex', 'java', 'pandoc', 'markdown'}
     }
 
     use {
@@ -276,35 +285,36 @@ return require('packer').startup(function()
         "hrsh7th/cmp-nvim-lsp",
         -- disable = not status.cmp,
         module = "cmp_nvim_lsp",
-        after = "friendly-snippets",
+        after = "nvim-cmp",
     }
     
     -- source for lua api
     use {
         "hrsh7th/cmp-nvim-lua",
-        after = "friendly-snippets",
+        after = "nvim-cmp",
+        ft = "lua"
     }
 
     -- source for buffer words
     use {
          "hrsh7th/cmp-buffer",
-        after = "friendly-snippets",
+        after = "nvim-cmp",
     }
     
     -- source for path
     use {
         "hrsh7th/cmp-path",
-        after = "friendly-snippets",
+        after = "nvim-cmp",
     }
     -- complete calculation
     use {
         "hrsh7th/cmp-calc",
-        after = "friendly-snippets",
+        after = "nvim-cmp",
     }
     
     use {
         'kristijanhusak/vim-dadbod-completion',
-        after = "friendly-snippets",
+        after = "nvim-cmp",
     }
 
     use {

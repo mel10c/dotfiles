@@ -55,18 +55,18 @@ end
 -- ------------------------------- Autopair Setup --------------------------------
 M.autopairs = function()
    local present1, autopairs = pcall(require, "nvim-autopairs")
-   -- local present2, autopairs_completion = pcall(require, "nvim-autopairs.completion.cmp")
+   local present2, autopairs_completion = pcall(require, "nvim-autopairs.completion.cmp")
 
-   -- if not (present1 or present2) then
-   if not (present1) then
+   if not (present1 or present2) then
+   -- if not (present1) then
       return
    end
 
    autopairs.setup()
-   -- autopairs_completion.setup {
-   --    map_complete = true, -- insert () func completion
-   --    map_cr = true,
-   -- }
+   autopairs_completion.setup {
+      map_complete = true, -- insert () func completion
+      map_cr = true,
+   }
 end
 
 -- --------------------------- LSP Signature Setup -------------------------------

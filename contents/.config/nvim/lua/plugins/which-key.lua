@@ -58,22 +58,29 @@ key.setup {
 
 
 -- ---------------------------- Telescope window ---------------------------------
+local conf = " cwd=~/dotfiles/contents/.config/"
+local setting = " previewer=false layout_config={width=0.5} prompt_title=false results_title=false prompt_prefix=|"
+local config = "<cmd>Telescope find_files" .. conf .. setting .. " <cr>"
+
 key.register({
     f = {
         name = "telescope",
-        f = { "<cmd>Telescope find_files<cr>"         , "Find File" }, -- create a binding with label
-        b = { "<cmd>Telescope buffers<cr>"            , 'buffers'},
+        f = { "<cmd>Telescope find_files<cr>"                , "Find File" },
+        i = { "<cmd>Telescope file_browser<cr>"              , "Find File" },
+        b = { "<cmd>Telescope buffers<cr>"                  , 'buffers'},
         --  d = { "<cmd>Telescope coc diagnostics theme=ivy" , 'diagnostics'},
         e = { "<cmd>Telescope registers<cr>"                 , 'registers'},
-        g = { "<cmdTelescope git_status<cr>"                 , 'git status'},
+        g = { "<cmd>Telescope git_status<cr>"                 , 'git status'},
         k = { "<cmd>Telescope keymaps<cr>"                   , 'keymaps'},
-        -- u = {':Telescope find_files cwd=~/Documents/Temporary/' , 'uni'},
         z = { "<cmd>Telescope current_buffer_fuzzy_find<cr>" , 'buffer find'},
         o = { "<cmd>Telescope oldfiles<cr>"                  , 'recents'},
         -- r = {':Telescope coc references theme=ivy'   , 'coc references'],
-        t = { "<cmd>Telescope treesitter<cr>"                , 'treesitter'},
+        t = { "<cmd>Telescope treesitter theme=ivy<cr>"      , 'treesitter'},
         w = { "<cmd>Telescope live_grep<cr>"                 , 'search word'},
-        c = { "<cmd>Telescope find_files cwd=~/dotfiles/contents/.config/<cr>" , 'dotfile'},
+        a = { "<cmd>Telescope colorscheme<cr>"               , 'colorscheme'},
+        s = { "<cmd>Telescope ultisnips<cr>"                 , 'ultisnips'},
+        c = { config                                         , 'dotfile'},
+        -- u = { "<cmd>Telescope file_browser cwd=~/OneDrive - University of Toronto/2021-2022/<cr>" , 'dotfile'},
     },
 }, { prefix = "<leader>" })
 

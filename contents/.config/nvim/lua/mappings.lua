@@ -13,8 +13,8 @@ end
 local g = vim.g
 
 g.mapleader = " "
-g.UltiSnipsJumpForwardTrigger="<c-b>"
-g.UltiSnipsJumpBackwardTrigger="<c-z>"
+g.UltiSnipsJumpForwardTrigger="<c-f>"
+g.UltiSnipsJumpBackwardTrigger="<c-b>"
 -- g.UltiSnipsSnippetDirectories=["UltiSnips"]
 
 -- ------------------------------ Navigation -------------------------------------
