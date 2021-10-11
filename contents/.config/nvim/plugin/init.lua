@@ -138,7 +138,7 @@ return require('packer').startup(function()
     -- dashboard
     use {
         "glepnir/dashboard-nvim",
-        disable = true,
+        disable = false,
         config = function() require('plugins.dashboard') end,
     }
 

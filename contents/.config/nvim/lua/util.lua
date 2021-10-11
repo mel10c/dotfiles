@@ -13,4 +13,6 @@ M.packer_lazy_load = function(plugin, timer)
    end
 end
 
+-- TODO: add a function to autocmd hide status line for tree and outlines
+
 return M

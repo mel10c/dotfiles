@@ -90,7 +90,7 @@ map('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>')
 
 -- map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
 map('n', 'K', "<cmd>lua require('lspsaga.hover').render_hover_doc()<CR>")
--- map('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
+map('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
 -- map('n', '<C-k>', '<cmd>Lspsaga signature_help<cr>')
 map('n', '<c-f>', "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>")
 map('n', '<c-b>', "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>")
