@@ -3,6 +3,7 @@
 
 local M = {}
 
+-- ----------------------------- Indentline Setup --------------------------------
 M.indent = function()
     require("indent_blankline").setup {
         indentLine_enabled = 1,
@@ -22,6 +23,7 @@ M.indent = function()
     }
 end
 
+-- ------------------------------ Commentor Setup --------------------------------
 M.comment = function()
    local present, comment = pcall(require, "Comment")
    if present then
@@ -29,6 +31,7 @@ M.comment = function()
    end
 end
 
+-- ------------------------------ Colorizer Setup --------------------------------
 M.colorizer = function()
    local present, colorizer = pcall(require, "colorizer")
    if present then
@@ -49,22 +52,24 @@ M.colorizer = function()
    end
 end
 
+-- ------------------------------- Autopair Setup --------------------------------
 M.autopairs = function()
    local present1, autopairs = pcall(require, "nvim-autopairs")
-   local present2, autopairs_completion = pcall(require, "nvim-autopairs.completion.cmp")
+   -- local present2, autopairs_completion = pcall(require, "nvim-autopairs.completion.cmp")
 
-   if not (present1 or present2) then
-   -- if not (present1) then
+   -- if not (present1 or present2) then
+   if not (present1) then
       return
    end
 
    autopairs.setup()
-   autopairs_completion.setup {
-      map_complete = true, -- insert () func completion
-      map_cr = true,
-   }
+   -- autopairs_completion.setup {
+   --    map_complete = true, -- insert () func completion
+   --    map_cr = true,
+   -- }
 end
 
+-- --------------------------- LSP Signature Setup -------------------------------
 M.signature = function()
    local present, lspsignature = pcall(require, "lsp_signature")
    if present then
@@ -88,6 +93,7 @@ M.signature = function()
    end
 end
 
+-- -------------------------- LuaSnip Setup (unused) -----------------------------
 M.luasnip = function()
    local present, luasnip = pcall(require, "luasnip")
    if not present then
@@ -102,6 +108,7 @@ M.luasnip = function()
    require("luasnip/loaders/from_vscode").load { path = { {} } }
 end
 
+-- ------------------------------- Packer Setup ----------------------------------
 M.packer = function()
    local present, packer = pcall(require, "packer")
    if not present then
@@ -125,6 +132,7 @@ M.packer = function()
 
 end
 
+-- ------------------------------- Lspsaga Setup ---------------------------------
 M.saga = function()
    local present, saga  = pcall(require, "lspsaga")
    if present then

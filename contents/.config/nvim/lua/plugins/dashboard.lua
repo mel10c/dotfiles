@@ -1,3 +1,6 @@
+-- ----------------------------- Dashboard Config --------------------------------
+-- ===============================================================================
+
 local g = vim.g
 
 vim.cmd [[autocmd FileType dashboard set showtabline=0 | autocmd WinLeave <buffer> set showtabline=2 ]]
@@ -32,6 +35,7 @@ g.dashboard_custom_section = {
    g = { description = { "  Change Color Scheme         ...  " }, command = "Telescope colorscheme" },
 }
 
+-- TODO: view number of plugins
 -- g.dashboard_custom_footer = {
 --    "   ",
 -- }

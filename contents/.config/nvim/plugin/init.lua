@@ -62,7 +62,6 @@ return require('packer').startup(function()
     use {
         'glepnir/galaxyline.nvim',
         branch = 'main',
-        -- your statusline
         config = function() require('plugins.statusline') end,
         requires = {'kyazdani42/nvim-web-devicons', opt = true}
 }
@@ -139,6 +138,7 @@ return require('packer').startup(function()
     -- dashboard
     use {
         "glepnir/dashboard-nvim",
+        disable = true,
         config = function() require('plugins.dashboard') end,
     }
 
@@ -159,6 +159,11 @@ return require('packer').startup(function()
         config = function()
             require"surround".setup {mappings_style = "surround"}
         end
+    }
+
+    use {
+        "Pocco81/TrueZen.nvim",
+        cmd = {'TZMinimalist', 'TZFocus', 'TZAtaraxis' }
     }
 
     -- markdown bullets
@@ -203,7 +208,7 @@ return require('packer').startup(function()
         requires = {'kabouzeid/nvim-lspinstall'},
         -- opt = true,
         setup = function()
-            -- require("util").packer_lazy_load "nvim-lspconfig"
+            require("util").packer_lazy_load "nvim-lspconfig"
             -- reload the current file so lsp actually starts for it
             vim.defer_fn(function()
                 vim.cmd 'if &ft == "packer" | echo "" | else | silent! e %'
@@ -230,6 +235,10 @@ return require('packer').startup(function()
         "hrsh7th/nvim-cmp",
         module = "cmp",
         after = "friendly-snippets",
+        -- requires = {'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-nvim-lua',
+        --             'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path',
+        --             'hrsh7th/cmp-calc',
+        --             'kristijanhusak/vim-dadbod-completion',},
         config = function() require('plugins.cmp') end,
     }
 
@@ -240,13 +249,15 @@ return require('packer').startup(function()
     --     after = "nvim-cmp",
     --     config = function() require('plugins.misc').luasnip() end,
     -- }
+
     use {
         'SirVer/ultisnips',
         -- wants = "friendly-snippets",
         config = function ()
             vim.g.UltiSnipsRemoveSelectModeMappings = 0
         end,
-        after = 'nvim-cmp'
+        -- wants = "friendly-snippets",
+        cmd = {'tex', 'java', 'pandoc', 'markdown'}
     }
 
     use {
@@ -265,35 +276,35 @@ return require('packer').startup(function()
         "hrsh7th/cmp-nvim-lsp",
         -- disable = not status.cmp,
         module = "cmp_nvim_lsp",
-        after = "nvim-lspconfig",
+        after = "friendly-snippets",
     }
-
+    
     -- source for lua api
     use {
         "hrsh7th/cmp-nvim-lua",
-        after = "nvim-lspconfig",
+        after = "friendly-snippets",
     }
 
     -- source for buffer words
     use {
          "hrsh7th/cmp-buffer",
-        after = "cmp-nvim-lsp",
+        after = "friendly-snippets",
     }
-
+    
     -- source for path
     use {
         "hrsh7th/cmp-path",
-        after = "cmp-buffer",
+        after = "friendly-snippets",
     }
     -- complete calculation
     use {
         "hrsh7th/cmp-calc",
-        after = "cmp-buffer",
+        after = "friendly-snippets",
     }
-
+    
     use {
         'kristijanhusak/vim-dadbod-completion',
-        after = "cmp-nvim-lsp",
+        after = "friendly-snippets",
     }
 
     use {

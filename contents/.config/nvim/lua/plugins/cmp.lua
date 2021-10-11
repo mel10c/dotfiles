@@ -1,3 +1,6 @@
+-- ---------------------------- Completion Config --------------------------------
+-- ===============================================================================
+
 local present, cmp = pcall(require, "cmp")
 
 if not present then
@@ -46,8 +49,8 @@ cmp.setup {
       ["<Tab>"] = function(fallback)
          if vim.fn.pumvisible() == 1 then
             vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<C-n>", true, true, true), "n")
-         elseif require("luasnip").expand_or_jumpable() then
-            vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-expand-or-jump", true, true, true), "")
+         -- elseif require("luasnip").expand_or_jumpable() then
+         --    vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-expand-or-jump", true, true, true), "")
          else
             fallback()
          end
