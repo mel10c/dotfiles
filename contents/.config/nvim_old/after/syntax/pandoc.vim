@@ -7,8 +7,8 @@ endif
 " more reasonably sized symbols that were already defined
 syn match mdMathSymbol '\\Rightarrow\>' contained conceal cchar=⇒
 syn match mdMathSymbol '\\Leftarrow\>' contained conceal cchar=⇐
-" syn match mdMathSymbol '\\rightarrow\>' contained conceal cchar=→
-" syn match mdMathSymbol '\\leftarrow\>' contained conceal cchar=←
+syn match mdMathSymbol '\\rightarrow\>' contained conceal cchar=→
+syn match mdMathSymbol '\\leftarrow\>' contained conceal cchar=←
 syn match mdMathSymbol '\\emptyset\>' contained conceal cchar=Ø
 syn match mdMathSymbol '\\varphi\>' contained conceal cchar=φ
 syn match mdMathSymbol '\\phi\>' contained conceal cchar=Φ
@@ -23,31 +23,31 @@ syn match mdMathSymbol '\\lnot\>' contained conceal cchar=¬
 syn match mdMathSymbol '\\implies\>' contained conceal cchar=⇒
 
 " \mathbb characters
-" syn match mdMathSymbol '\\mathbb{\s*A\s*}' contained conceal cchar=𝔸
-" syn match mdMathSymbol '\\mathbb{\s*B\s*}' contained conceal cchar=𝔹
-" syn match mdMathSymbol '\\mathbb{\s*C\s*}' contained conceal cchar=ℂ
-" syn match mdMathSymbol '\\mathbb{\s*D\s*}' contained conceal cchar=𝔻
-" syn match mdMathSymbol '\\mathbb{\s*E\s*}' contained conceal cchar=𝔼
-" syn match mdMathSymbol '\\mathbb{\s*F\s*}' contained conceal cchar=𝔽
-" syn match mdMathSymbol '\\mathbb{\s*G\s*}' contained conceal cchar=𝔾
-" syn match mdMathSymbol '\\mathbb{\s*H\s*}' contained conceal cchar=ℍ
-" syn match mdMathSymbol '\\mathbb{\s*I\s*}' contained conceal cchar=𝕀
-" syn match mdMathSymbol '\\mathbb{\s*J\s*}' contained conceal cchar=𝕁
-" syn match mdMathSymbol '\\mathbb{\s*K\s*}' contained conceal cchar=𝕂
-" syn match mdMathSymbol '\\mathbb{\s*L\s*}' contained conceal cchar=𝕃
+syn match mdMathSymbol '\\mathbb{\s*A\s*}' contained conceal cchar=𝔸
+syn match mdMathSymbol '\\mathbb{\s*B\s*}' contained conceal cchar=𝔹
+syn match mdMathSymbol '\\mathbb{\s*C\s*}' contained conceal cchar=ℂ
+syn match mdMathSymbol '\\mathbb{\s*D\s*}' contained conceal cchar=𝔻
+syn match mdMathSymbol '\\mathbb{\s*E\s*}' contained conceal cchar=𝔼
+syn match mdMathSymbol '\\mathbb{\s*F\s*}' contained conceal cchar=𝔽
+syn match mdMathSymbol '\\mathbb{\s*G\s*}' contained conceal cchar=𝔾
+syn match mdMathSymbol '\\mathbb{\s*H\s*}' contained conceal cchar=ℍ
+syn match mdMathSymbol '\\mathbb{\s*I\s*}' contained conceal cchar=𝕀
+syn match mdMathSymbol '\\mathbb{\s*J\s*}' contained conceal cchar=𝕁
+syn match mdMathSymbol '\\mathbb{\s*K\s*}' contained conceal cchar=𝕂
+syn match mdMathSymbol '\\mathbb{\s*L\s*}' contained conceal cchar=𝕃
 " syn match mdMathSymbol '\\mathbb{\s*M\s*}' contained conceal cchar=M
 syn match mdMathSymbol '\\mathbb{\s*N\s*}' contained conceal cchar=ℕ
-" syn match mdMathSymbol '\\mathbb{\s*O\s*}' contained conceal cchar=𝕆
+syn match mdMathSymbol '\\mathbb{\s*O\s*}' contained conceal cchar=𝕆
 syn match mdMathSymbol '\\mathbb{\s*P\s*}' contained conceal cchar=ℙ
 syn match mdMathSymbol '\\mathbb{\s*Q\s*}' contained conceal cchar=ℚ
 syn match mdMathSymbol '\\mathbb{\s*R\s*}' contained conceal cchar=ℝ
-" syn match mdMathSymbol '\\mathbb{\s*S\s*}' contained conceal cchar=𝕊
-" syn match mdMathSymbol '\\mathbb{\s*T\s*}' contained conceal cchar=𝕋
+syn match mdMathSymbol '\\mathbb{\s*S\s*}' contained conceal cchar=𝕊
+syn match mdMathSymbol '\\mathbb{\s*T\s*}' contained conceal cchar=𝕋
 " syn match mdMathSymbol '\\mathbb{\s*U\s*}' contained conceal cchar=U
-" syn match mdMathSymbol '\\mathbb{\s*V\s*}' contained conceal cchar=𝕍
-syn match mdMathSymbol '\\mathbb{\s*W\s*}' contained conceal cchar=W
-" syn match mdMathSymbol '\\mathbb{\s*X\s*}' contained conceal cchar=𝕏
-" syn match mdMathSymbol '\\mathbb{\s*Y\s*}' contained conceal cchar=𝕐
+syn match mdMathSymbol '\\mathbb{\s*V\s*}' contained conceal cchar=𝕍
+" syn match mdMathSymbol '\\mathbb{\s*W\s*}' contained conceal cchar=W
+syn match mdMathSymbol '\\mathbb{\s*X\s*}' contained conceal cchar=𝕏
+syn match mdMathSymbol '\\mathbb{\s*Y\s*}' contained conceal cchar=𝕐
 syn match mdMathSymbol '\\mathbb{\s*Z\s*}' contained conceal cchar=ℤ
 
 " \mathsf characters
@@ -80,11 +80,11 @@ syn match mdMathSymbol '\\vec{\s*z\s*}' contained conceal cchar=𝕫
 
 
 " \mathfrak characters
-" syn match mdMathSymbol '\\mathfrak{\s*C\s*}' contained conceal cchar=ℭ
-" syn match mdMathSymbol '\\mathfrak{\s*H\s*}' contained conceal cchar=ℌ
-" syn match mdMathSymbol '\\mathfrak{\s*I\s*}' contained conceal cchar=ℑ
-" syn match mdMathSymbol '\\mathfrak{\s*R\s*}' contained conceal cchar=ℜ
-" syn match mdMathSymbol '\\mathfrak{\s*Z\s*}' contained conceal cchar=ℨ
+syn match mdMathSymbol '\\mathfrak{\s*C\s*}' contained conceal cchar=ℭ
+syn match mdMathSymbol '\\mathfrak{\s*H\s*}' contained conceal cchar=ℌ
+syn match mdMathSymbol '\\mathfrak{\s*I\s*}' contained conceal cchar=ℑ
+syn match mdMathSymbol '\\mathfrak{\s*R\s*}' contained conceal cchar=ℜ
+syn match mdMathSymbol '\\mathfrak{\s*Z\s*}' contained conceal cchar=ℨ
 
 syn match mdMathSymbol '\\coloneqq\>' contained conceal cchar=≔
 syn match mdMathSymbol '\\colon\>' contained conceal cchar=:
