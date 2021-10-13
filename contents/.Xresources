@@ -130,10 +130,10 @@ URxvt.keysym.Shift-Control-Down:  \033[1;6B
 ! ------------------------------------------------------------------------------
 
 !URxvt*font:				xft:HackNerdFontMono:regular:size=12
-URxvt*font:				xft:HackNerdFontMono:regular:size=11
-URxvt*boldFont:			xft:HackNerdFontMono:bold:size=12
-URxvt*italicFont:		xft:HackNerdFontMono:italic:size=11
-URxvt*boldItalicFont:	xft:HackNerdFontMono:bold italic:size=11
+URxvt*font:				xft:FiraCode Nerd Font Mono:regular:size=12
+URxvt*boldFont:			xft:FiraCode Nerd Font Mono:bold:size=12
+URxvt*italicFont:		xft:FiraCode Nerd Font Mono:italic:size=11
+URxvt*boldItalicFont:	xft:FiraCode Nerd Font Mono:bold italic:size=11
 ! ------------------------------------------------------------------------------
 ! Xft Font Configuration
 ! ------------------------------------------------------------------------------

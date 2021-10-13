@@ -174,7 +174,7 @@ section.left[2] = {
       return "".. " " .. dir_name .. " "
     end,
     condition = checkwidth_small,
-    highlight = {nord_colors.fg, nord_colors.line_bg,},
+    highlight = {nord_colors.cyan, nord_colors.line_bg,},
   }
 }
 
@@ -183,7 +183,7 @@ section.left[3] = {
     provider = "FileIcon",
     condition = buffer_not_empty,
     --highlight = {require("galaxyline.provider_fileinfo").get_file_icon_color, one_dark_colors.line_bg}
-    highlight = {nord_colors.blue, nord_colors.line_bg}
+    highlight = {nord_colors.fg, nord_colors.line_bg}
   }
 }
 section.left[4] = {
@@ -196,7 +196,7 @@ section.left[4] = {
     separator = " ",
     separator_highlight = {nord_colors.blue, nord_colors.bg},
     --highlight = {nord_colors.blue, nord_colors.line_bg, "bold"}
-    highlight = {nord_colors.blue, nord_colors.line_bg,},
+    highlight = {nord_colors.fg, nord_colors.line_bg,},
   }
 }
 
@@ -213,7 +213,7 @@ section.left[5] = {
     end,
     separator = ' ',
     condition = buffer_not_empty,
-    highlight = {nord_colors.gray, nord_colors.bg}, 
+    highlight = {nord_colors.gray, nord_colors.bg},
   }
 }
 
@@ -232,9 +232,9 @@ section.left[5] = {
 section.right[0] = {
   CocStatus = {
     separator = " ",
-    provider = CocStatus, 
+    provider = CocStatus,
     condition = checkwidth_small,
-    highlight = {nord_colors.purple, nord_colors.bg}, 
+    highlight = {nord_colors.purple, nord_colors.bg},
     icon = '  '}
 }
 
@@ -354,14 +354,14 @@ section.right[12] = {
   }
 }
 
-section.right[13] = {
+--[[ section.right[13] = {
   ScrollBar = {
     provider = 'ScrollBar',
     condition = checkwidth_small,
     highlight = {nord_colors.gray, nord_colors.bg}
     }
 }
-
+ ]]
 section.short_line_left[1] = {
   BufferType = {
     provider = "FileIcon",
