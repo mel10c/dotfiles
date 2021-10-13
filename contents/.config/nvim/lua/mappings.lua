@@ -15,6 +15,7 @@ local g = vim.g
 g.mapleader = " "
 g.UltiSnipsJumpForwardTrigger="<c-f>"
 g.UltiSnipsJumpBackwardTrigger="<c-b>"
+-- g.UltiSnipsExpandTrigger="<Enter>"
 -- g.UltiSnipsSnippetDirectories=["UltiSnips"]
 
 -- ------------------------------ Navigation -------------------------------------
@@ -74,6 +75,7 @@ map('n', ',1', '<cmd>BufferLineGoToBuffer 1 <cr>')
 map('n', ',2', '<cmd>BufferLineGoToBuffer 2 <cr>')
 map('n', ',3', '<cmd>BufferLineGoToBuffer 3 <cr>')
 map('n', ',4', '<cmd>BufferLineGoToBuffer 4 <cr>')
+map('n', ',x', '<cmd>BufferLinePickClose <cr>')
 
 map('n', '<leader>T', "<cmd>lua require('lspsaga.floaterm').open_float_terminal()<CR>")
 

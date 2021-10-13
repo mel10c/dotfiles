@@ -14,6 +14,8 @@ syn match mdMathSymbol '\\varphi\>' contained conceal cchar=φ
 syn match mdMathSymbol '\\phi\>' contained conceal cchar=Φ
 syn match mdMathSymbol '\\langle\>\s*' contained conceal cchar=⟨
 syn match mdMathSymbol '\s*\\rangle\>' contained conceal cchar=⟩
+syn match mdMathSymbol '\\{\>' contained conceal cchar={
+syn match mdMathSymbol '\\}\>' contained conceal cchar=}
 syn match mdMathSymbol '\\\\' contained conceal cchar=⏎
 
 " logical symbols
