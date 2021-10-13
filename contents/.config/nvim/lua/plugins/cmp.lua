@@ -66,7 +66,20 @@ cmp.setup {
             fallback()
          end
       end,
-   },
+      -- ["<Enter>"] = cmp.mapping(function(fallback)
+      --     if cmp.visible() then
+      --       if vim.fn["UltiSnips#CanExpandSnippet"]() == 1 then
+      --         return press("<C-R>=UltiSnips#ExpandSnippet()<CR>")
+      --       end
+      --       cmp.select_next_item()
+      --     else
+      --       fallback()
+      --     end
+      --   end, {
+      --     "i",
+      --     "s",
+      --   }),
+    },
    sources = {
       { name = "nvim_lsp" },
       { name = "luasnip" },

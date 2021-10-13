@@ -242,7 +242,6 @@ return require('packer').startup(function()
     -- completion engine
     use {
         "hrsh7th/nvim-cmp",
-        event = "InsertEnter",
         -- module = "cmp",
         -- after = "friendly-snippets",
         -- requires = {'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-nvim-lua',

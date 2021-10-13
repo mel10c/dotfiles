@@ -1,5 +1,9 @@
 # --------------------------- Markdown Shortcuts -----------------------------
 
+snippet sss "star" iA
+★
+endsnippet
+
 snippet bff "bold" iA
 **$1**$0
 endsnippet
@@ -26,12 +30,20 @@ snippet def "definition" b
 endsnippet
 
 snippet ex "example" b
-> ------------------------------------------------------------
 > ##### ${1:Example}
 > ${2:Question}
-> *Proof.*
-> $3
-> ------------------------------------------------------------
+> ${3:*Proof.*}
+> $4
+endsnippet
+
+snippet template "template" b
+${1:#tag}
+
+---
+endsnippet
+
+snippet knowledge "math" b
+#Knowledge/${1:Math/Psy/Stats/CS}
 endsnippet
 
 snippet ;1 "h1" iA
@@ -96,7 +108,7 @@ snippet bmatl "long bmat" b
 \begin{bmatrix} $1 \\ $2 \\ $3 \end{bmatrix} $0
 endsnippet
 
-snippet bmat2 "square bmat" b
+snippet bmatb "square bmat" w
 \begin{bmatrix}
 $1 & $2 \\ 
 $3 & $4 
@@ -130,16 +142,20 @@ endsnippet
 
 # =============================== Shortcuts ==================================
 
-snippet br1 "left( \right)" iA
+snippet brs "left( \right)" b
 \left( $1 \right)<++>
 endsnippet
 
-snippet br2 "left[ \right]" iA
+snippet brm "left[ \right]" b
 \left[ $1 \right]<++>
 endsnippet
 
-snippet br3 "left{ \right}" iA
+snippet brl "left{ \right}" b
 \left{ $1 \right}<++>
+endsnippet
+
+snippet crly "curly brackt" iA
+\\{ $1 \\}
 endsnippet
 
 snippet << "langle" iA
@@ -192,203 +208,144 @@ snippet cb "^3" iA
 ^3
 endsnippet
 
-# context "math()"
-snippet // "Fraction" b
+snippet frr "Fraction" iA
 \\frac{$1}{$2}
 endsnippet
 
-# context "math()"
 snippet '((\d+)|(\d*)(\\)?([A-Za-z]+)((\^|_)(\{\d+\}|\d))*)/' "Fraction" wrA
 \\frac{`!p snip.rv = match.group(1)`}{$1}
 endsnippet
 
-# context "math()"
 snippet "(\\?\w+)(;\;|\;;)" "Vector postfix" riA
 \vec{`!p snip.rv=match.group(1)`}
 endsnippet
 
-# context "math()"
 snippet ttt "code" iA
 \textttt
 endsnippet
 
-context "math()"
-snippet sin "sin" iA
-\sin 
+snippet \si "sin" iA
+\sin
 endsnippet
 
-context "math()"
-snippet cos "cos" iA
+snippet \co "cos" iA
 \cos 
 endsnippet
 
-context "math()"
-snippet tan "tan" iA
-\tan 
-endsnippet
-
-context "math()"
-snippet pi "pi" iA
-\pi 
-endsnippet
-
-context "math()"
 snippet theta "theta" iA
 \theta 
 endsnippet
 
-context "math()"
-snippet mu "mu" iA
-\mu 
+snippet Omega "Omega" iA
+\Omega
 endsnippet
 
 # ================================= Math =====================================
-context "math()"
-snippet tag "Tags" iA
-\tag{$1}
-endsnippet
 
-context "math()"
 snippet iff "iff" Ai
 \iff
 endsnippet
 
-context "math()"
-snippet im "impies" Ai
+snippet im "impies" b
 \quad\quad \Rightarrow \quad\quad
 endsnippet
 
-context "math()"
 snippet inn "in" Ai
 \in
 endsnippet
 
-context "math()"
-snippet cc "subseteq" Ai
+snippet cc "subseteq" b
 \subseteq
 endsnippet
 
-context "math()"
 snippet NN "natural" iA
 \mathbb{N}
 endsnippet
 
-context "math()"
 snippet RR "reals" iA
 \mathbb{R}^{$1}$0
 endsnippet
 
-context "math()"
 snippet QQ "rational" iA
 \mathbb{Q}
 endsnippet
 
-context "math()"
 snippet ZZ "integers" iA
 \mathbb{Z}
 endsnippet
 
-context "math()"
 snippet OO "empty set" iA
 \emptyset
 endsnippet
 
-context "math()"
-snippet == "equals" iA
-&= $0 \\\\
-endsnippet
-
-context "math()"
-snippet fa "for all" iA
+snippet fa "for all" b
 \forall
 endsnippet
 
-context "math()"
-snippet es "exist" iA
+snippet es "exist" b
 \exists
 endsnippet
 
-context "math()"
-snippet ceil "ceil" iA
+snippet ceil "ceil" b
 \left\lceil $1 \right\rceil <++>
 endsnippet
 
-context "math()"
 snippet qq "quad" iA
 \quad
 endsnippet
 
-context "math()"
-snippet sp "space" iA
+snippet ,, "space" iA
 \, 
 endsnippet
 
-context "math()"
-snippet floor "floor" iA
+snippet floor "floor" b
 \left\lfloor $1 \right\rfloor <++>
 endsnippet
 
-context "math()"
 snippet sum "sum" w
 \sum_{n=${1:1}}^{${2:\infty}} ${3:a_n z^n}
 endsnippet
 
-context "math()"
 snippet taylor "taylor" w
 \sum_{${1:k}=${2:0}}^{${3:\infty}} ${4:c_$1} (x-a)^$1 $0
 endsnippet
 
-context "math()"
-snippet sq "\sqrt{}" iA
+snippet sq "\sqrt{}" b
 \sqrt{${1:${VISUAL}}} 
 endsnippet
 
-context "math()"
-snippet tt "text" iA
-\text
-endsnippet
-
-context "math()"
 snippet sr "^2" iA
 ^2
 endsnippet
 
-context "math()"
 snippet cb "^3" iA
 ^3
 endsnippet
 
-context "math()"
 snippet td "to the ... power" iA
 ^{$1}
 endsnippet
 
-context "math()"
-snippet al "alpha" iA
+snippet al "alpha" b
 \alpha
 endsnippet
 
-context "math()"
-snippet ep "epsilon" iA
+snippet ep "epsilon" b
 \varepsilon
 endsnippet
 
-context "math()"
-snippet conj "conjungate" iA
+snippet conj "conjungate" b
 \overline{$0}
 endsnippet
 
-context "math()"
-snippet mcal "mathcal" iA
+snippet mcal "mathcal" b
 \mathcal{$1}
 endsnippet 
 
-context "math()"
-snippet mbb "mathbb" iA
+snippet mbb "mathbb" b
 \mathbb{$1}
 endsnippet 
 
-context "math()"
 snippet func "function" b
 ${1:f}: \R^{${2:2}} \to \R^{${3:2}}
 endsnippet
@@ -398,23 +355,19 @@ snippet ** "cdot" iA
 \cdot 
 endsnippet
 
-context "math()"
-snippet norm "norm" iA
+snippet norm "norm" b
 \| $1 \|<++>
 endsnippet
 
-context "math()"
 snippet dx "d/dx" w
 \frac{\mathrm{d}$1}{\mathrm{d} ${2:x}} \,
 endsnippet
 
-context "math()"
 snippet lim "limit" w
 \lim_{${1:n} \to ${2:\infty}} 
 endsnippet
 
 priority 300
-context "math()"
 snippet int "integral" wA
 \int_{${1:-\infty}}^{${2:\infty}} ${3:${VISUAL}} 
 endsnippet
