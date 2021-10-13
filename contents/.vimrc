@@ -39,7 +39,7 @@ call plug#begin('$HOME/.config/nvim/plugged')
     Plug 'jiangmiao/auto-pairs'	    " Edit - auto pair
     Plug 'dkarter/bullets.vim'	    " Edit - makes bullet easier
     Plug 'preservim/nerdcommenter'  " Edit - easier comment
-    Plug 'sirver/ultisnips'	        " Edit - text snippit
+    "Plug 'sirver/ultisnips'	        " Edit - text snippit
     Plug 'tpope/vim-surround'	    " Edit - syntax change
     Plug 'tpope/vim-fugitive'	    " Edit - git tool
     Plug 'vim-pandoc/vim-pandoc'	" Edit - syntax library
