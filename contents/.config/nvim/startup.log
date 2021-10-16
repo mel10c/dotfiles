@@ -1,0 +1,206 @@
+
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.010  000.010: --- NVIM STARTING ---
+001.096  001.086: locale set
+009.967  008.870: inits 1
+010.005  000.038: window checked
+010.012  000.008: parsing arguments
+010.407  000.395: expanding arguments
+010.499  000.092: inits 2
+010.989  000.490: init highlight
+010.991  000.002: waiting for UI
+014.760  003.770: done waiting for UI
+014.801  000.040: init screen for UI
+029.523  008.717  008.717: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/start/nightfox.nvim/colors/nordfox.vim
+064.270  048.780  040.064: sourcing /Users/melaneyzhu/.config/nvim/init.lua
+064.318  000.737: sourcing vimrc file(s)
+073.363  008.827  008.827: sourcing /usr/local/Cellar/neovim/0.5.1/share/nvim/runtime/filetype.vim
+074.212  000.080  000.080: sourcing /usr/local/Cellar/neovim/0.5.1/share/nvim/runtime/ftplugin.vim
+074.903  000.062  000.062: sourcing /usr/local/Cellar/neovim/0.5.1/share/nvim/runtime/indent.vim
+076.342  000.241  000.241: sourcing /usr/local/Cellar/neovim/0.5.1/share/nvim/runtime/syntax/syncolor.vim
+076.982  001.089  000.847: sourcing /usr/local/Cellar/neovim/0.5.1/share/nvim/runtime/syntax/synload.vim
+077.126  001.442  000.354: sourcing /usr/local/Cellar/neovim/0.5.1/share/nvim/runtime/syntax/syntax.vim
+082.321  000.644  000.644: sourcing /usr/local/Cellar/neovim/0.5.1/share/nvim/runtime/plugin/gzip.vim
+082.515  000.034  000.034: sourcing /usr/local/Cellar/neovim/0.5.1/share/nvim/runtime/plugin/health.vim
+082.950  000.325  000.325: sourcing /usr/local/Cellar/neovim/0.5.1/share/nvim/runtime/plugin/man.vim
+085.239  000.292  000.292: sourcing /usr/local/Cellar/neovim/0.5.1/share/nvim/runtime/pack/dist/opt/matchit/plugin/matchit.vim
+085.561  002.492  002.200: sourcing /usr/local/Cellar/neovim/0.5.1/share/nvim/runtime/plugin/matchit.vim
+085.886  000.220  000.220: sourcing /usr/local/Cellar/neovim/0.5.1/share/nvim/runtime/plugin/matchparen.vim
+086.664  000.673  000.673: sourcing /usr/local/Cellar/neovim/0.5.1/share/nvim/runtime/plugin/netrwPlugin.vim
+087.116  000.023  000.023: sourcing /Users/melaneyzhu/.local/share/nvim/rplugin.vim
+087.129  000.336  000.313: sourcing /usr/local/Cellar/neovim/0.5.1/share/nvim/runtime/plugin/rplugin.vim
+087.379  000.140  000.140: sourcing /usr/local/Cellar/neovim/0.5.1/share/nvim/runtime/plugin/shada.vim
+087.535  000.045  000.045: sourcing /usr/local/Cellar/neovim/0.5.1/share/nvim/runtime/plugin/spellfile.vim
+087.935  000.191  000.191: sourcing /usr/local/Cellar/neovim/0.5.1/share/nvim/runtime/plugin/tarPlugin.vim
+088.194  000.133  000.133: sourcing /usr/local/Cellar/neovim/0.5.1/share/nvim/runtime/plugin/tohtml.vim
+088.339  000.039  000.039: sourcing /usr/local/Cellar/neovim/0.5.1/share/nvim/runtime/plugin/tutor.vim
+088.699  000.245  000.245: sourcing /usr/local/Cellar/neovim/0.5.1/share/nvim/runtime/plugin/zipPlugin.vim
+092.606  003.432  003.432: sourcing /Users/melaneyzhu/.config/nvim/plugin/init.lua
+103.899  009.198  009.198: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/nvim-lspconfig/plugin/lspconfig.vim
+127.542  000.299  000.299: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/lspsaga.nvim/plugin/lspsaga.vim
+134.075  000.591  000.591: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/galaxyline.nvim/plugin/galaxyline.vim
+135.176  000.031  000.031: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/ultisnips/ftdetect/snippets.vim
+135.303  000.035  000.035: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/cls.vim
+135.421  000.031  000.031: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/tex.vim
+135.534  000.029  000.029: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/tikz.vim
+135.685  000.065  000.065: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/vim-pandoc/ftdetect/pandoc.vim
+135.693  042.943  032.663: sourcing /Users/melaneyzhu/.config/nvim/plugin/packer_compiled.lua
+136.454  009.833: loading plugins
+137.204  000.035  000.035: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/start/nightfox.nvim/plugin/nightfox.vim
+137.743  000.060  000.060: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/start/nvim-lspinstall/plugin/lspinstall.vim
+138.222  000.044  000.044: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/start/nvim-web-devicons/plugin/nvim-web-devicons.vim
+139.303  002.709: loading packages
+140.206  000.234  000.234: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp/after/plugin/cmp_nvim_lsp.lua
+140.477  000.940: loading after plugins
+140.494  000.016: inits 3
+145.813  005.319: reading ShaDa
+146.918  000.033  000.033: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/which-key.nvim/plugin/which-key.vim
+151.407  000.037  000.037: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/indent-blankline.nvim/autoload/indent_blankline.vim
+151.994  002.345  002.308: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/indent-blankline.nvim/plugin/indent_blankline.vim
+153.757  005.566: opening buffers
+154.626  000.073  000.073: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/vim-matchup/autoload/matchup/unmatchit.vim
+154.946  000.029  000.029: sourcing /usr/local/Cellar/neovim/0.5.1/share/nvim/runtime/plugin/matchparen.vim
+155.471  000.299  000.299: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/vim-matchup/autoload/matchup.vim
+155.768  000.141  000.141: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/vim-matchup/autoload/matchup/perf.vim
+156.598  000.438  000.438: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/vim-matchup/autoload/matchup/loader.vim
+157.576  000.728  000.728: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/vim-matchup/autoload/matchup/matchparen.vim
+160.840  006.470  004.763: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/vim-matchup/plugin/matchup.vim
+161.322  000.021  000.021: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/vim-matchup/after/plugin/matchit.vim
+161.892  000.052  000.052: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/plenary.nvim/plugin/plenary.vim
+162.945  000.277  000.277: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/dashboard-nvim/plugin/dashboard.vim
+164.239  000.511  000.511: sourcing /usr/local/Cellar/neovim/0.5.1/share/nvim/runtime/scripts.vim
+167.411  000.422  000.422: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/vim-surround/plugin/surround.vim
+172.667  004.509  004.509: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/plugin/nvim-treesitter.vim
+173.470  000.044  000.044: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/elixir.vim
+173.574  000.032  000.032: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/fish.vim
+173.675  000.029  000.029: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/gdresource.vim
+173.768  000.027  000.027: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/gdscript.vim
+173.865  000.026  000.026: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/gomod.vim
+174.052  000.070  000.070: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/graphql.vim
+174.260  000.071  000.071: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/hcl.vim
+174.464  000.057  000.057: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/heex.vim
+174.668  000.063  000.063: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/json5.vim
+174.860  000.055  000.055: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/julia.vim
+175.072  000.070  000.070: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/ledger.vim
+175.343  000.065  000.065: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/nix.vim
+175.551  000.065  000.065: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/ql.vim
+175.678  000.051  000.051: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/query.vim
+175.792  000.034  000.034: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/surface.vim
+175.904  000.036  000.036: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/teal.vim
+176.015  000.035  000.035: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/tlaplus.vim
+176.148  000.037  000.037: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/yang.vim
+176.278  000.042  000.042: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/zig.vim
+179.674  000.078  000.078: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/wildfire.vim/autoload/wildfire/triggers.vim
+180.143  000.931  000.854: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/wildfire.vim/plugin/wildfire.vim
+181.703  000.607  000.607: sourcing /usr/local/Cellar/neovim/0.5.1/share/nvim/runtime/scripts.vim
+182.649  000.204  000.204: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/dashboard-nvim/autoload/dashboard.vim
+184.164  000.577  000.577: sourcing /usr/local/Cellar/neovim/0.5.1/share/nvim/runtime/scripts.vim
+185.069  015.822: BufEnter autocommands
+185.074  000.004: editing files in windows
+
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.009  000.009: --- NVIM STARTING ---
+001.102  001.093: locale set
+010.227  009.124: inits 1
+010.262  000.036: window checked
+010.270  000.007: parsing arguments
+010.639  000.369: expanding arguments
+010.721  000.082: inits 2
+011.200  000.478: init highlight
+011.201  000.002: waiting for UI
+014.473  003.271: done waiting for UI
+014.513  000.040: init screen for UI
+029.333  008.822  008.822: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/start/nightfox.nvim/colors/nordfox.vim
+063.432  048.310  039.488: sourcing /Users/melaneyzhu/.config/nvim/init.lua
+063.474  000.651: sourcing vimrc file(s)
+073.082  009.419  009.419: sourcing /usr/local/Cellar/neovim/0.5.1/share/nvim/runtime/filetype.vim
+073.845  000.088  000.088: sourcing /usr/local/Cellar/neovim/0.5.1/share/nvim/runtime/ftplugin.vim
+074.720  000.079  000.079: sourcing /usr/local/Cellar/neovim/0.5.1/share/nvim/runtime/indent.vim
+075.915  000.226  000.226: sourcing /usr/local/Cellar/neovim/0.5.1/share/nvim/runtime/syntax/syncolor.vim
+076.510  001.005  000.779: sourcing /usr/local/Cellar/neovim/0.5.1/share/nvim/runtime/syntax/synload.vim
+076.629  001.303  000.298: sourcing /usr/local/Cellar/neovim/0.5.1/share/nvim/runtime/syntax/syntax.vim
+080.719  000.397  000.397: sourcing /usr/local/Cellar/neovim/0.5.1/share/nvim/runtime/plugin/gzip.vim
+080.852  000.029  000.029: sourcing /usr/local/Cellar/neovim/0.5.1/share/nvim/runtime/plugin/health.vim
+081.127  000.180  000.180: sourcing /usr/local/Cellar/neovim/0.5.1/share/nvim/runtime/plugin/man.vim
+082.969  000.265  000.265: sourcing /usr/local/Cellar/neovim/0.5.1/share/nvim/runtime/pack/dist/opt/matchit/plugin/matchit.vim
+083.316  002.092  001.828: sourcing /usr/local/Cellar/neovim/0.5.1/share/nvim/runtime/plugin/matchit.vim
+083.663  000.243  000.243: sourcing /usr/local/Cellar/neovim/0.5.1/share/nvim/runtime/plugin/matchparen.vim
+085.103  001.322  001.322: sourcing /usr/local/Cellar/neovim/0.5.1/share/nvim/runtime/plugin/netrwPlugin.vim
+085.704  000.022  000.022: sourcing /Users/melaneyzhu/.local/share/nvim/rplugin.vim
+085.718  000.386  000.364: sourcing /usr/local/Cellar/neovim/0.5.1/share/nvim/runtime/plugin/rplugin.vim
+086.256  000.419  000.419: sourcing /usr/local/Cellar/neovim/0.5.1/share/nvim/runtime/plugin/shada.vim
+086.462  000.063  000.063: sourcing /usr/local/Cellar/neovim/0.5.1/share/nvim/runtime/plugin/spellfile.vim
+087.152  000.462  000.462: sourcing /usr/local/Cellar/neovim/0.5.1/share/nvim/runtime/plugin/tarPlugin.vim
+087.459  000.141  000.141: sourcing /usr/local/Cellar/neovim/0.5.1/share/nvim/runtime/plugin/tohtml.vim
+087.615  000.040  000.040: sourcing /usr/local/Cellar/neovim/0.5.1/share/nvim/runtime/plugin/tutor.vim
+088.100  000.368  000.368: sourcing /usr/local/Cellar/neovim/0.5.1/share/nvim/runtime/plugin/zipPlugin.vim
+091.735  003.123  003.123: sourcing /Users/melaneyzhu/.config/nvim/plugin/init.lua
+105.968  011.947  011.947: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/nvim-lspconfig/plugin/lspconfig.vim
+129.546  000.305  000.305: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/lspsaga.nvim/plugin/lspsaga.vim
+136.695  000.596  000.596: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/galaxyline.nvim/plugin/galaxyline.vim
+137.955  000.037  000.037: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/ultisnips/ftdetect/snippets.vim
+138.096  000.038  000.038: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/cls.vim
+138.229  000.034  000.034: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/tex.vim
+138.363  000.036  000.036: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/tikz.vim
+138.547  000.084  000.084: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/vim-pandoc/ftdetect/pandoc.vim
+138.558  046.700  033.623: sourcing /Users/melaneyzhu/.config/nvim/plugin/packer_compiled.lua
+139.373  009.048: loading plugins
+140.178  000.038  000.038: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/start/nightfox.nvim/plugin/nightfox.vim
+140.698  000.066  000.066: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/start/nvim-lspinstall/plugin/lspinstall.vim
+141.206  000.049  000.049: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/start/nvim-web-devicons/plugin/nvim-web-devicons.vim
+142.144  002.618: loading packages
+142.892  000.117  000.117: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp/after/plugin/cmp_nvim_lsp.lua
+143.270  001.008: loading after plugins
+143.283  000.013: inits 3
+149.044  005.761: reading ShaDa
+150.151  000.034  000.034: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/which-key.nvim/plugin/which-key.vim
+154.916  000.035  000.035: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/indent-blankline.nvim/autoload/indent_blankline.vim
+155.531  002.478  002.443: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/indent-blankline.nvim/plugin/indent_blankline.vim
+157.785  006.229: opening buffers
+159.150  000.117  000.117: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/vim-matchup/autoload/matchup/unmatchit.vim
+159.638  000.039  000.039: sourcing /usr/local/Cellar/neovim/0.5.1/share/nvim/runtime/plugin/matchparen.vim
+160.648  000.385  000.385: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/vim-matchup/autoload/matchup.vim
+161.066  000.194  000.194: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/vim-matchup/autoload/matchup/perf.vim
+162.148  000.570  000.570: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/vim-matchup/autoload/matchup/loader.vim
+163.692  000.885  000.885: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/vim-matchup/autoload/matchup/matchparen.vim
+167.603  008.896  006.707: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/vim-matchup/plugin/matchup.vim
+168.222  000.038  000.038: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/vim-matchup/after/plugin/matchit.vim
+168.989  000.085  000.085: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/plenary.nvim/plugin/plenary.vim
+170.630  000.537  000.537: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/dashboard-nvim/plugin/dashboard.vim
+172.288  000.639  000.639: sourcing /usr/local/Cellar/neovim/0.5.1/share/nvim/runtime/scripts.vim
+176.467  000.587  000.587: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/vim-surround/plugin/surround.vim
+184.491  006.971  006.971: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/plugin/nvim-treesitter.vim
+185.364  000.063  000.063: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/elixir.vim
+185.502  000.042  000.042: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/fish.vim
+185.633  000.039  000.039: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/gdresource.vim
+185.759  000.035  000.035: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/gdscript.vim
+185.884  000.036  000.036: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/gomod.vim
+186.015  000.043  000.043: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/graphql.vim
+186.156  000.053  000.053: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/hcl.vim
+186.288  000.038  000.038: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/heex.vim
+186.420  000.043  000.043: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/json5.vim
+186.547  000.038  000.038: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/julia.vim
+186.681  000.046  000.046: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/ledger.vim
+186.935  000.051  000.051: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/nix.vim
+187.085  000.047  000.047: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/ql.vim
+187.231  000.054  000.054: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/query.vim
+187.405  000.081  000.081: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/surface.vim
+187.584  000.045  000.045: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/teal.vim
+187.732  000.043  000.043: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/tlaplus.vim
+187.873  000.046  000.046: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/yang.vim
+188.008  000.043  000.043: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/nvim-treesitter/ftdetect/zig.vim
+190.675  000.062  000.062: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/wildfire.vim/autoload/wildfire/triggers.vim
+191.088  000.784  000.722: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/wildfire.vim/plugin/wildfire.vim
+192.537  000.623  000.623: sourcing /usr/local/Cellar/neovim/0.5.1/share/nvim/runtime/scripts.vim
+193.486  000.210  000.210: sourcing /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/dashboard-nvim/autoload/dashboard.vim
+194.975  000.603  000.603: sourcing /usr/local/Cellar/neovim/0.5.1/share/nvim/runtime/scripts.vim
+195.907  017.263: BufEnter autocommands
+195.912  000.005: editing files in windows

@@ -17,7 +17,6 @@ return require('packer').startup(function(use)
     -- lua plugin
     use {
         'nvim-lua/plenary.nvim',
-        event = 'BufEnter'
     }
 
     -- packer can manage itself
