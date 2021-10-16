@@ -1,4 +1,5 @@
 local nvim_lsp = require('lspconfig')
+local jdtls = require 'jdtls'
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -119,3 +120,10 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     }
   }
 )
+config.on_attach = function(client)
+  on_attach_java(client)
+end
+
+require('jdtls').start_or_attach(config)
+
+

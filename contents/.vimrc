@@ -21,7 +21,7 @@
 " =================================== PLUG IN ====================================
 " ================================================================================
 " Some settings to make sure plug in work
-call plug#begin('$HOME/.config/nvim/plugged')
+call plug#begin('~/.vim/plugged')
 
     Plug 'itchyny/lightline.vim'    " Apperance - vim status line
     Plug 'mhinz/vim-startify'	    " Appearance - startpage
@@ -58,7 +58,8 @@ set background=dark
 hi CursorLineNr guibg=#434c5e guifg=white
 set t_Co=256
 set termguicolors " enable true colors support
-set guifont=Hack_Nerd_Font_Mono:h14
+"set guifont=Hack_Nerd_Font_Mono:h16
+set guifont=FiraCode_Nerd_Font_Mono:h18
 "set guifont=MesloLGS_NF:h14
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_math = 1
