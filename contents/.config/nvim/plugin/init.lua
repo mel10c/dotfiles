@@ -81,9 +81,10 @@ return require('packer').startup(function(use)
     use {
         "lewis6991/gitsigns.nvim",
         config = function() require('plugins.gitsigns') end,
-        -- setup = function()
-        --     require("util").packer_lazy_load "gitsigns.nvim"
-        -- end,
+        disable = false,
+        setup = function()
+            require("util").packer_lazy_load "gitsigns.nvim"
+        end,
     }
 
     -- file tree

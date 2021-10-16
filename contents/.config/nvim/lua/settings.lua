@@ -7,7 +7,7 @@ local opt = vim.opt
 local cmd = vim.cmd
 -- local g = vim.g
 
-cmd "colorscheme nightfox"
+cmd "colorscheme nordfox"
 -- ------------------------------ Interface Settings -----------------------------
 opt.syntax = 'enable'
 opt.mouse = 'a'
