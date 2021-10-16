@@ -8,7 +8,7 @@ snippet bff "bold" iA
 **$1**$0
 endsnippet
 
-snippet un "underline" b
+snippet un "underline" i
 <u>$1</u>$0
 endsnippet
 
@@ -25,25 +25,21 @@ endsnippet
 snippet def "definition" b
 ##### ${1:definition}
 > ------------------------------------------------------------
-> ${2:content}
+> $0
 > ------------------------------------------------------------
 endsnippet
 
 snippet ex "example" b
-> ##### ${1:Example}
-> ${2:Question}
-> ${3:*Proof.*}
-> $4
+```ad-example
+$0
+```
 endsnippet
 
 snippet template "template" b
-${1:#tag}
+#${1:Knowledge/${2:Stats, MAT, CS, Psy}}
 
 ---
-endsnippet
-
-snippet knowledge "math" b
-#Knowledge/${1:Math/Psy/Stats/CS}
+$0
 endsnippet
 
 snippet ;1 "h1" iA
@@ -96,15 +92,15 @@ snippet vmat "vmatrix" b
 \end{vmatrix}
 endsnippet
 
-snippet pmat "pmat" b
+snippet pmat "pmat" i
 \begin{pmatrix} $1 \end{pmatrix} $0
 endsnippet
 
-snippet bmat "bmat" b
+snippet bmat "bmat" i
 \begin{bmatrix} $1 \\ $2 \end{bmatrix} $0
 endsnippet
 
-snippet bmatl "long bmat" b
+snippet bmatl "long bmat" i
 \begin{bmatrix} $1 \\ $2 \\ $3 \end{bmatrix} $0
 endsnippet
 
@@ -142,34 +138,33 @@ endsnippet
 
 # =============================== Shortcuts ==================================
 
-snippet brs "left( \right)" b
-\left( $1 \right)<++>
+snippet brs "left( \right)" i
+\left( $0 \right)<++>
 endsnippet
 
-snippet brm "left[ \right]" b
-\left[ $1 \right]<++>
+snippet brm "left[ \right]" i
+\left[ $0 \right]<++>
 endsnippet
 
-snippet brl "left{ \right}" b
-\left{ $1 \right}<++>
+snippet brl "left{ \right}" i
+\left{ $0 \right}<++>
 endsnippet
 
-snippet crly "curly brackt" iA
-\\{ $1 \\}
+snippet brll "curly brackt" iA
+\\{ $0 \\}
 endsnippet
 
 snippet << "langle" iA
-\langle $1 \rangle
+\langle $0 \rangle
 endsnippet
 
 priority 100
-snippet ... "ldots" iA
+snippet ... "ldots" i
 \ldots
 endsnippet
 
 snippet vvs "space" iA
 \vspace{10px}
-$0
 endsnippet
 
 snippet mk "Math" wA
@@ -187,18 +182,6 @@ endsnippet
 snippet '([A-Za-z])_(\d\d)' "auto subscript2" wrA
 `!p snip.rv = match.group(1)`_{`!p snip.rv = match.group(2)`}
 endsnippet
-
-# priority 100
-# context "math()"
-# snippet '(?<!\\)(sin|cos|tan|cot|csc|sec|ln|log|mu|pi|theta)' "ln" rwA
-# \\$0`!p snip.rv = match.group(1)`$1
-# endsnippet
-
-# priority 200
-# context "math()"
-# snippet '(?<!\\)(arccot|arcsin|arcsec||exp|star|perp)' "ln" rwA
-# \\$0`!p snip.rv = match.group(1)`$1
-# endsnippet
 
 snippet sr "^2" iA
 ^2
@@ -220,41 +203,56 @@ snippet "(\\?\w+)(;\;|\;;)" "Vector postfix" riA
 \vec{`!p snip.rv=match.group(1)`}
 endsnippet
 
+snippet tt "code" i
+\text{$0}
+endsnippet
+
 snippet ttt "code" iA
-\textttt
+\textttt{$0}
 endsnippet
 
-snippet \si "sin" iA
-\sin
+snippet sin\ "sin" iA
+\sin 
 endsnippet
 
-snippet \co "cos" iA
+snippet cos\ "cos" iA
 \cos 
 endsnippet
 
-snippet theta "theta" iA
+snippet tan\ "tan" iA
+\tan 
+endsnippet
+
+snippet theta\ "theta" iA
 \theta 
 endsnippet
 
-snippet Omega "Omega" iA
-\Omega
+snippet Omega\ "Omega" iA
+\Omega 
 endsnippet
 
+snippet mu\ "mu" iA
+\mu 
+endsnippet
+
+snippet pi\ "pi" iA
+\pi 
+endsnippet
 # ================================= Math =====================================
 
 snippet iff "iff" Ai
 \iff
 endsnippet
 
-snippet im "impies" b
-\quad\quad \Rightarrow \quad\quad
+snippet im "impies" i
+\quad \Rightarrow \quad
 endsnippet
 
-snippet inn "in" Ai
+snippet inn "in" iA
 \in
 endsnippet
 
-snippet cc "subseteq" b
+snippet cc "subseteq" i
 \subseteq
 endsnippet
 
@@ -263,7 +261,7 @@ snippet NN "natural" iA
 endsnippet
 
 snippet RR "reals" iA
-\mathbb{R}^{$1}$0
+\mathbb{R}${1:^\{$0\}}
 endsnippet
 
 snippet QQ "rational" iA
@@ -278,15 +276,15 @@ snippet OO "empty set" iA
 \emptyset
 endsnippet
 
-snippet fa "for all" b
+snippet faa "for all" iA
 \forall
 endsnippet
 
-snippet es "exist" b
+snippet esx "exist" iA
 \exists
 endsnippet
 
-snippet ceil "ceil" b
+snippet ceil "ceil" i
 \left\lceil $1 \right\rceil <++>
 endsnippet
 
@@ -298,64 +296,55 @@ snippet ,, "space" iA
 \, 
 endsnippet
 
-snippet floor "floor" b
+snippet floor "floor" i
 \left\lfloor $1 \right\rfloor <++>
 endsnippet
 
 snippet sum "sum" w
-\sum_{n=${1:1}}^{${2:\infty}} ${3:a_n z^n}
+\sum_{${1:n=1}}${2:^\{${3:\infty\}}} $0
 endsnippet
 
 snippet taylor "taylor" w
 \sum_{${1:k}=${2:0}}^{${3:\infty}} ${4:c_$1} (x-a)^$1 $0
 endsnippet
 
-snippet sq "\sqrt{}" b
+snippet sqr "\sqrt{}" iA
 \sqrt{${1:${VISUAL}}} 
-endsnippet
-
-snippet sr "^2" iA
-^2
-endsnippet
-
-snippet cb "^3" iA
-^3
 endsnippet
 
 snippet td "to the ... power" iA
 ^{$1}
 endsnippet
 
-snippet al "alpha" b
+snippet al "alpha" i
 \alpha
 endsnippet
 
-snippet ep "epsilon" b
+snippet ep "epsilon" i
 \varepsilon
 endsnippet
 
-snippet conj "conjungate" b
+snippet conj "conjungate" i
 \overline{$0}
 endsnippet
 
-snippet mcal "mathcal" b
+snippet mcal "mathcal" i
 \mathcal{$1}
 endsnippet 
 
-snippet mbb "mathbb" b
+snippet mbb "mathbb" i
 \mathbb{$1}
 endsnippet 
 
-snippet func "function" b
-${1:f}: \R^{${2:2}} \to \R^{${3:2}}
+snippet func "function" i
+${1:f}: \\${2:R^${3:2}} \to \\${4:R^${0:2}}
 endsnippet
 
-priority 100
-snippet ** "cdot" iA
+snippet *** "cdot" iA
 \cdot 
 endsnippet
 
-snippet norm "norm" b
+snippet norm "norm" i
 \| $1 \|<++>
 endsnippet
 
@@ -366,9 +355,3 @@ endsnippet
 snippet lim "limit" w
 \lim_{${1:n} \to ${2:\infty}} 
 endsnippet
-
-priority 300
-snippet int "integral" wA
-\int_{${1:-\infty}}^{${2:\infty}} ${3:${VISUAL}} 
-endsnippet
-

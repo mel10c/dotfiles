@@ -1,69 +1,52 @@
-snippet sleep "try sleep catch" b
-try {
-	Thread.sleep(${1:1000});
-} catch (InterruptedException e){
-	e.printStackTrace();
-}
-endsnippet
-
-snippet /i|n/ "new primitive or int" br
+snippet int "new primitive" b
 ${1:int} ${2:i} = ${3:1};
 $0
 endsnippet
 
-snippet /o|v/ "new Object or variable" br
+snippet var "new Object or variable" b
 ${1:Object} ${2:var} = new $1($3);
 endsnippet
 
-snippet f "field" b
+snippet field "field" b
 ${1:private} ${2:String} ${3:`!p snip.rv = t[2].lower()`};
 endsnippet
 
-snippet ab "abstract" b
-abstract $0
-endsnippet
-
-snippet as "assert" b
+snippet assert "assert" b
 assert ${1:test}${2/(.+)/(?1: \: ")/}${2:Failure message}${2/(.+)/(?1:")/};
 endsnippet
 
-snippet at "assert true" b
+snippet assertT "assert true" b
 assertTrue(${1:actual});
 endsnippet
 
-snippet af "assert false" b
+snippet assertF "assert false" b
 assertFalse(${1:actual});
 endsnippet
 
-snippet ae "assert equals" b
+snippet assertE "assert equals" b
 assertEquals(${1:expected}, ${2:actual});
 endsnippet
 
-snippet br "break"
-break;
-
-endsnippet
-
-snippet cs "case" b
+snippet case "case" b
 case $1:
 	$2
 $0
 endsnippet
 
-snippet ca "catch" b
+snippet catch "catch" b
 catch (${1:Exception} ${2:e})`!p nl(snip)`{
 	$0
 }
 endsnippet
 
-snippet cle "class extends" b
+snippet "class extend" "class extends" b
 public class ${1:`!p
 snip.rv = snip.basename or "untitled"`} ${2:extends ${3:Parent} }${4:implements ${5:Interface} }{
 	$0
 }
 endsnippet
 
-snippet clc "class with constructor, fields, setter and getters" b
+snippet "class full" "class with constructor, fields, setter and getters" b
 public class `!p
 snip.rv = snip.basename or "untitled"` {
 `!p
@@ -93,7 +76,7 @@ for i in args:
 }
 endsnippet
 
-snippet clc "class with constructor, with field names" b
+snippet "class half" "class with constructor, with field names" b
 public class `!p
 snip.rv = snip.basename or "untitled"` {
 `!p
@@ -112,7 +95,7 @@ if len(args) == 0:
 }
 endsnippet
 
-snippet clc "class and constructor" b
+snippet "class constructor" "class and constructor" b
 public class `!p
 snip.rv = snip.basename or "untitled"` {
 
@@ -122,24 +105,19 @@ snip.rv = snip.basename or "untitled"` {
 }
 endsnippet
 
-snippet cl "class" b
+snippet class "class" b
 public class ${1:`!p
 snip.rv = snip.basename or "untitled"`} {
 	$0
 }
 endsnippet
 
-snippet cos "constant string" b
+snippet "string constant" "constant string" b
 public static final String ${1:var} = "$2";$0
 endsnippet
 
-snippet co "constant" b
+snippet constant "constant" b
 public static final ${1:String} ${2:var} = $3;$0
-endsnippet
-
-snippet de "default" b
-default:
-	$0
 endsnippet
 
 snippet elif "else if"
@@ -148,56 +126,52 @@ else if ($1)`!p nl(snip)`{
 }
 endsnippet
 
-snippet el "else" w
+snippet else "else" w
 else`!p nl(snip)`{
 	$0${VISUAL}
 }
 endsnippet
 
-snippet fi "final" b
-final $0
-endsnippet
-
-snippet fore "for (each)" b
+snippet "for each" "for (each)" b
 for ($1 : $2)`!p nl(snip)`{
 	$0
 }
 endsnippet
 
-snippet fori "for" b
+snippet for "for" b
 for (int ${1:i} = 0; $1 < ${2:10}; $1++)`!p nl(snip)`{
 	$0
 }
 endsnippet
 
-snippet for "for" b
+snippet "for " "for" bA
 for ($1; $2; $3)`!p nl(snip)`{
 	$0
 }
 endsnippet
 
-snippet if "if" b
+snippet if "if" bA
 if ($1)`!p nl(snip)`{
 	$0${VISUAL}
 }
 endsnippet
 
-snippet imt "import junit_framework_TestCase;"  b
+snippet junit "import junit_framework_TestCase;"  b
 import junit.framework.TestCase;
 $0
 endsnippet
 
-snippet im "import"  b
+snippet import "import"  bA
 import ${1:java}.${2:util}.$0;
 endsnippet
 
-snippet in "interface" b
+snippet interface "interface" b
 interface ${1:`!p snip.rv = snip.basename or "untitled"`} ${2:extends ${3:Parent} }{
 	$0
 }
 endsnippet
 
-snippet cc "constructor call or setter body"
+snippet call "constructor call or setter body"
 this.${1:var} = $1;
 endsnippet
 
@@ -213,17 +187,13 @@ snippet set "Collections Set" b
 Set<${1:String}> ${2:set} = new ${3:Hash}Set<$1>();
 endsnippet
 
-snippet /Str?|str/ "String" br
-String $0
-endsnippet
-
-snippet cn "Constructor" b
+snippet constructor "Constructor" b
 public `!p snip.rv = snip.basename or "untitled"`(${1:}) {
 	$0
 }
 endsnippet
 
-snippet cn "constructor, \w fields + assigments" b
+snippet "constructor + full" "constructor, \w fields + assigments" b
 	`!p
 args = getArgs(t[1])
 for i in args:
@@ -273,19 +243,19 @@ try {
 }
 endsnippet
 
-snippet mt "method throws" b
+snippet "method throw" "method throws" b
 ${1:private} ${2:void} ${3:method}($4) ${5:throws $6 }{
 	$0
 }
 endsnippet
 
-snippet m  "method" b
+snippet method  "method" b
 ${1:private} ${2:void} ${3:method}($4) {
 	$0
 }
 endsnippet
 
-snippet md "Method With javadoc" b
+snippet "method full" "Method With javadoc" b
 /**
  * ${7:Short Description}`!p
 for i in getArgs(t[4]):
@@ -326,71 +296,43 @@ public $2 get$1() {
 }
 endsnippet
 
-snippet pa "package" b
-package $0
-endsnippet
-
-snippet p "print" b
+snippet print "print" b
 System.out.print($1);$0
 endsnippet
 
-snippet pl "println"  b
+snippet sysout "println"  b
 System.out.println($1);$0
 endsnippet
 
-snippet pr "private" b
-private $0
-endsnippet
-
-snippet po "protected" b
-protected $0
-endsnippet
-
-snippet pu "public" b
-public $0
-endsnippet
-
-snippet re "return" b
-return $0
-endsnippet
-
-snippet st "static"
-static $0
-endsnippet
-
-snippet sw "switch" b
+snippet switch "switch" b
 switch ($1)`!p nl(snip)`{
 	case $2: $0
 }
 endsnippet
 
-snippet sy "synchronized"
-synchronized $0
-endsnippet
-
-snippet tc "test case"
+snippet "test calse" "test case"
 public class ${1:`!p snip.rv = snip.basename or "untitled"`} extends ${2:TestCase}`!p nl(snip)`{
 	$0
 }
 endsnippet
 
-snippet t "test" b
+snippet test "test" b
 `!p junit(snip)`public void test${1:Name}() {
 	$0
 }
 endsnippet
 
-snippet tt "test throws" b
+snippet "test throws" "test throws" b
 `!p junit(snip)`public void test${1:Name}() ${2:throws Exception }{
 	$0
 }
 endsnippet
 
-snippet th "throw" b
+snippet "throw" "throw" b
 throw new $0
 endsnippet
 
-snippet wh "while" b
+snippet while "while" b
 while ($1)`!p nl(snip)`{
 	$0
 }
