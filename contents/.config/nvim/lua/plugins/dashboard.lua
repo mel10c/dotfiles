@@ -39,3 +39,5 @@ g.dashboard_custom_section = {
 -- g.dashboard_custom_footer = {
 --    "   ",
 -- }
+-- g.total_plugins = trim(system("fd -d 2 . $HOME'/.local/share/nvim/site/pack/packer' | head -n -2 | wc -l"))
+-- g.dashboard_custom_footer = {'                               loaded '.. g.total_plugins ..' plugins     '}

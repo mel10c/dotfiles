@@ -44,8 +44,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/home/melaney/.cache/nvim/packer_hererocks/2.0.5/share/lua/5.1/?.lua;/home/melaney/.cache/nvim/packer_hererocks/2.0.5/share/lua/5.1/?/init.lua;/home/melaney/.cache/nvim/packer_hererocks/2.0.5/lib/luarocks/rocks-5.1/?.lua;/home/melaney/.cache/nvim/packer_hererocks/2.0.5/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/home/melaney/.cache/nvim/packer_hererocks/2.0.5/lib/lua/5.1/?.so"
+local package_path_str = "/Users/melaneyzhu/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/Users/melaneyzhu/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/Users/melaneyzhu/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/Users/melaneyzhu/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/Users/melaneyzhu/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -70,43 +70,61 @@ time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
   ["Comment.nvim"] = {
-    config = { "\27LJ\1\2<\0\0\2\0\3\0\0064\0\0\0%\1\1\0>\0\2\0027\0\2\0>\0\1\1G\0\1\0\fcomment\17plugins.misc\frequire\0" },
-    loaded = true,
-    path = "/home/melaney/.local/share/nvim/site/pack/packer/start/Comment.nvim"
+    config = { "\27LJ\2\n<\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\fcomment\17plugins.misc\frequire\0" },
+    loaded = false,
+    needs_bufread = false,
+    path = "/Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/Comment.nvim"
   },
   ["TrueZen.nvim"] = {
     commands = { "TZMinimalist", "TZFocus", "TZAtaraxis" },
     loaded = false,
     needs_bufread = false,
-    path = "/home/melaney/.local/share/nvim/site/pack/packer/opt/TrueZen.nvim"
+    path = "/Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/TrueZen.nvim"
   },
   ["bufferline.nvim"] = {
-    config = { "\27LJ\1\0022\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\23plugins.bufferline\frequire\0" },
+    config = { "\27LJ\2\n2\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\23plugins.bufferline\frequire\0" },
     load_after = {},
     loaded = true,
     needs_bufread = false,
-    path = "/home/melaney/.local/share/nvim/site/pack/packer/opt/bufferline.nvim"
+    path = "/Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/bufferline.nvim"
   },
   ["bullets.vim"] = {
     loaded = false,
     needs_bufread = false,
-    path = "/home/melaney/.local/share/nvim/site/pack/packer/opt/bullets.vim"
+    path = "/Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/bullets.vim"
   },
   ["cmp-buffer"] = {
+<<<<<<< HEAD
     after_files = { "/home/melaney/.local/share/nvim/site/pack/packer/opt/cmp-buffer/after/plugin/cmp_buffer.lua" },
     load_after = {},
     loaded = true,
+=======
+    after_files = { "/Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/cmp-buffer/after/plugin/cmp_buffer.lua" },
+    load_after = {
+      ["nvim-cmp"] = true
+    },
+    loaded = false,
+>>>>>>> 29c8c6998f980850652998d044b1eb32a1aeff3b
     needs_bufread = false,
-    path = "/home/melaney/.local/share/nvim/site/pack/packer/opt/cmp-buffer"
+    path = "/Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/cmp-buffer"
   },
   ["cmp-calc"] = {
+<<<<<<< HEAD
     after_files = { "/home/melaney/.local/share/nvim/site/pack/packer/opt/cmp-calc/after/plugin/cmp_calc.lua" },
     load_after = {},
     loaded = true,
+=======
+    after_files = { "/Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/cmp-calc/after/plugin/cmp_calc.lua" },
+    load_after = {
+      ["nvim-cmp"] = true
+    },
+    loaded = false,
+>>>>>>> 29c8c6998f980850652998d044b1eb32a1aeff3b
     needs_bufread = false,
-    path = "/home/melaney/.local/share/nvim/site/pack/packer/opt/cmp-calc"
+    path = "/Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/cmp-calc"
   },
   ["cmp-nvim-lsp"] = {
+<<<<<<< HEAD
     after_files = { "/home/melaney/.local/share/nvim/site/pack/packer/opt/cmp-nvim-lsp/after/plugin/cmp_nvim_lsp.lua" },
     load_after = {},
     loaded = false,
@@ -116,251 +134,284 @@ _G.packer_plugins = {
   ["cmp-nvim-lua"] = {
     after_files = { "/home/melaney/.local/share/nvim/site/pack/packer/opt/cmp-nvim-lua/after/plugin/cmp_nvim_lua.lua" },
     load_after = {},
+=======
+    loaded = true,
+    path = "/Users/melaneyzhu/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp"
+  },
+  ["cmp-nvim-lua"] = {
+    after_files = { "/Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/cmp-nvim-lua/after/plugin/cmp_nvim_lua.lua" },
+    load_after = {
+      ["nvim-cmp"] = true
+    },
+>>>>>>> 29c8c6998f980850652998d044b1eb32a1aeff3b
     loaded = false,
     needs_bufread = false,
-    path = "/home/melaney/.local/share/nvim/site/pack/packer/opt/cmp-nvim-lua"
+    path = "/Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/cmp-nvim-lua"
   },
   ["cmp-nvim-ultisnips"] = {
-    after_files = { "/home/melaney/.local/share/nvim/site/pack/packer/opt/cmp-nvim-ultisnips/after/plugin/cmp_nvim_ultisnips.lua" },
+    after_files = { "/Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/cmp-nvim-ultisnips/after/plugin/cmp_nvim_ultisnips.lua" },
     load_after = {
       ultisnips = true
     },
     loaded = false,
     needs_bufread = false,
-    path = "/home/melaney/.local/share/nvim/site/pack/packer/opt/cmp-nvim-ultisnips"
+    path = "/Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/cmp-nvim-ultisnips"
   },
   ["cmp-path"] = {
+<<<<<<< HEAD
     after_files = { "/home/melaney/.local/share/nvim/site/pack/packer/opt/cmp-path/after/plugin/cmp_path.lua" },
     load_after = {},
     loaded = true,
+=======
+    after_files = { "/Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/cmp-path/after/plugin/cmp_path.lua" },
+    load_after = {
+      ["nvim-cmp"] = true
+    },
+    loaded = false,
+>>>>>>> 29c8c6998f980850652998d044b1eb32a1aeff3b
     needs_bufread = false,
-    path = "/home/melaney/.local/share/nvim/site/pack/packer/opt/cmp-path"
+    path = "/Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/cmp-path"
   },
   ["dashboard-nvim"] = {
-    config = { "\27LJ\1\0021\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\22plugins.dashboard\frequire\0" },
-    loaded = true,
-    path = "/home/melaney/.local/share/nvim/site/pack/packer/start/dashboard-nvim"
-  },
-  ["friendly-snippets"] = {
+    config = { "\27LJ\2\n1\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\22plugins.dashboard\frequire\0" },
     loaded = false,
     needs_bufread = false,
-    path = "/home/melaney/.local/share/nvim/site/pack/packer/opt/friendly-snippets"
+    path = "/Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/dashboard-nvim"
   },
   ["galaxyline.nvim"] = {
-    config = { "\27LJ\1\0022\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\23plugins.statusline\frequire\0" },
+    config = { "\27LJ\2\n2\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\23plugins.statusline\frequire\0" },
+    load_after = {},
     loaded = true,
-    path = "/home/melaney/.local/share/nvim/site/pack/packer/start/galaxyline.nvim"
+    needs_bufread = false,
+    path = "/Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/galaxyline.nvim"
   },
   ["gitsigns.nvim"] = {
-    config = { "\27LJ\1\0020\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\21plugins.gitsigns\frequire\0" },
+    config = { "\27LJ\2\n0\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\21plugins.gitsigns\frequire\0" },
     loaded = true,
     needs_bufread = false,
-    path = "/home/melaney/.local/share/nvim/site/pack/packer/opt/gitsigns.nvim"
+    path = "/Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/gitsigns.nvim"
   },
   ["indent-blankline.nvim"] = {
-    config = { "\27LJ\1\2;\0\0\2\0\3\0\0064\0\0\0%\1\1\0>\0\2\0027\0\2\0>\0\1\1G\0\1\0\vindent\17plugins.misc\frequire\0" },
+    config = { "\27LJ\2\n;\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\vindent\17plugins.misc\frequire\0" },
     loaded = false,
     needs_bufread = false,
-    path = "/home/melaney/.local/share/nvim/site/pack/packer/opt/indent-blankline.nvim"
+    path = "/Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/indent-blankline.nvim"
   },
   ["lsp_signature.nvim"] = {
-    config = { "\27LJ\1\2>\0\0\2\0\3\0\0064\0\0\0%\1\1\0>\0\2\0027\0\2\0>\0\1\1G\0\1\0\14signature\17plugins.misc\frequire\0" },
+    config = { "\27LJ\2\n>\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\14signature\17plugins.misc\frequire\0" },
     load_after = {},
     loaded = true,
     needs_bufread = false,
-    path = "/home/melaney/.local/share/nvim/site/pack/packer/opt/lsp_signature.nvim"
+    path = "/Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/lsp_signature.nvim"
   },
   ["lspsaga.nvim"] = {
-    config = { "\27LJ\1\2/\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\20plugins.lspsaga\frequire\0" },
+    config = { "\27LJ\2\n/\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\20plugins.lspsaga\frequire\0" },
     load_after = {},
     loaded = true,
     needs_bufread = false,
-    path = "/home/melaney/.local/share/nvim/site/pack/packer/opt/lspsaga.nvim"
+    path = "/Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/lspsaga.nvim"
   },
   ["nightfox.nvim"] = {
-    config = { "\27LJ\1\0020\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\21plugins.nightfox\frequire\0" },
+    config = { "\27LJ\2\n0\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\21plugins.nightfox\frequire\0" },
     loaded = true,
-    path = "/home/melaney/.local/share/nvim/site/pack/packer/start/nightfox.nvim"
+    path = "/Users/melaneyzhu/.local/share/nvim/site/pack/packer/start/nightfox.nvim"
   },
   ["nvim-autopairs"] = {
+<<<<<<< HEAD
     config = { "\27LJ\1\2>\0\0\2\0\3\0\0064\0\0\0%\1\1\0>\0\2\0027\0\2\0>\0\1\1G\0\1\0\14autopairs\17plugins.misc\frequire\0" },
     load_after = {},
     loaded = true,
+=======
+    config = { "\27LJ\2\n>\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\14autopairs\17plugins.misc\frequire\0" },
+    load_after = {
+      ["nvim-cmp"] = true
+    },
+    loaded = false,
+>>>>>>> 29c8c6998f980850652998d044b1eb32a1aeff3b
     needs_bufread = false,
-    path = "/home/melaney/.local/share/nvim/site/pack/packer/opt/nvim-autopairs"
+    path = "/Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/nvim-autopairs"
   },
   ["nvim-cmp"] = {
+<<<<<<< HEAD
     after = { "cmp-nvim-lsp", "cmp-nvim-lua", "nvim-autopairs", "vim-dadbod-completion", "cmp-path", "cmp-buffer", "cmp-calc" },
     loaded = true,
     only_config = true
-  },
-  ["nvim-colorizer.lua"] = {
-    commands = { "Colorizer" },
-    config = { "\27LJ\1\2>\0\0\2\0\3\0\0064\0\0\0%\1\1\0>\0\2\0027\0\2\0>\0\1\1G\0\1\0\14colorizer\17plugins.misc\frequire\0" },
+=======
+    after = { "vim-dadbod-completion", "nvim-autopairs", "cmp-buffer", "cmp-path", "cmp-calc", "cmp-nvim-lua" },
+    config = { "\27LJ\2\n+\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\16plugins.cmp\frequire\0" },
     loaded = false,
     needs_bufread = false,
-    path = "/home/melaney/.local/share/nvim/site/pack/packer/opt/nvim-colorizer.lua"
+    path = "/Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/nvim-cmp"
+  },
+  ["nvim-code-action-menu"] = {
+    commands = { "CodeActionMenu" },
+    loaded = false,
+    needs_bufread = true,
+    path = "/Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/nvim-code-action-menu"
+>>>>>>> 29c8c6998f980850652998d044b1eb32a1aeff3b
+  },
+  ["nvim-colorizer.lua"] = {
+    commands = { "ColorizerToggle" },
+    config = { "\27LJ\2\n>\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\14colorizer\17plugins.misc\frequire\0" },
+    loaded = false,
+    needs_bufread = false,
+    path = "/Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/nvim-colorizer.lua"
   },
   ["nvim-lspconfig"] = {
-    after = { "lsp_signature.nvim", "lspsaga.nvim" },
-    config = { "\27LJ\1\0021\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\22plugins.lspconfig\frequire\0" },
+    after = { "lspsaga.nvim", "lsp_signature.nvim" },
+    config = { "\27LJ\2\n1\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\22plugins.lspconfig\frequire\0" },
     loaded = true,
     needs_bufread = false,
-    path = "/home/melaney/.local/share/nvim/site/pack/packer/opt/nvim-lspconfig"
+    path = "/Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/nvim-lspconfig"
   },
   ["nvim-lspinstall"] = {
     loaded = true,
-    path = "/home/melaney/.local/share/nvim/site/pack/packer/start/nvim-lspinstall"
+    path = "/Users/melaneyzhu/.local/share/nvim/site/pack/packer/start/nvim-lspinstall"
   },
   ["nvim-tree.lua"] = {
     commands = { "NvimTreeToggle", "NvimTreeFocus" },
-    config = { "\27LJ\1\0020\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\21plugins.NvimTree\frequire\0" },
+    config = { "\27LJ\2\n0\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\21plugins.NvimTree\frequire\0" },
     loaded = false,
     needs_bufread = false,
-    path = "/home/melaney/.local/share/nvim/site/pack/packer/opt/nvim-tree.lua"
+    path = "/Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/nvim-tree.lua"
   },
   ["nvim-treesitter"] = {
-    config = { "\27LJ\1\0022\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\23plugins.treesitter\frequire\0" },
+    config = { "\27LJ\2\n2\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\23plugins.treesitter\frequire\0" },
     loaded = false,
     needs_bufread = true,
-    path = "/home/melaney/.local/share/nvim/site/pack/packer/opt/nvim-treesitter"
+    path = "/Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/nvim-treesitter"
   },
   ["nvim-web-devicons"] = {
-    after = { "bufferline.nvim" },
+    after = { "galaxyline.nvim", "bufferline.nvim" },
     loaded = true,
     only_config = true
   },
   ["packer.nvim"] = {
     loaded = true,
-    path = "/home/melaney/.local/share/nvim/site/pack/packer/start/packer.nvim"
+    path = "/Users/melaneyzhu/.local/share/nvim/site/pack/packer/start/packer.nvim"
   },
   ["plenary.nvim"] = {
     loaded = true,
-    path = "/home/melaney/.local/share/nvim/site/pack/packer/start/plenary.nvim"
-  },
-  ["prodoc.nvim"] = {
-    commands = { "ProDoc", "ProComment" },
-    loaded = false,
-    needs_bufread = false,
-    path = "/home/melaney/.local/share/nvim/site/pack/packer/opt/prodoc.nvim"
-  },
-  ["surround.nvim"] = {
-    config = { "\27LJ\1\2U\0\0\2\0\4\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\3\0>\0\2\1G\0\1\0\1\0\1\19mappings_style\rsurround\nsetup\rsurround\frequire\0" },
-    loaded = true,
-    path = "/home/melaney/.local/share/nvim/site/pack/packer/start/surround.nvim"
+    path = "/Users/melaneyzhu/.local/share/nvim/site/pack/packer/start/plenary.nvim"
   },
   ["symbols-outline.nvim"] = {
     commands = { "SymbolsOutline" },
     loaded = false,
     needs_bufread = false,
-    path = "/home/melaney/.local/share/nvim/site/pack/packer/opt/symbols-outline.nvim"
+    path = "/Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/symbols-outline.nvim"
   },
   ["telescope-fzf-native.nvim"] = {
     loaded = true,
-    path = "/home/melaney/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim"
+    path = "/Users/melaneyzhu/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim"
   },
   ["telescope-media-files.nvim"] = {
     loaded = true,
-    path = "/home/melaney/.local/share/nvim/site/pack/packer/start/telescope-media-files.nvim"
+    path = "/Users/melaneyzhu/.local/share/nvim/site/pack/packer/start/telescope-media-files.nvim"
   },
   ["telescope-ultisnips.nvim"] = {
     loaded = true,
-    path = "/home/melaney/.local/share/nvim/site/pack/packer/start/telescope-ultisnips.nvim"
+    path = "/Users/melaneyzhu/.local/share/nvim/site/pack/packer/start/telescope-ultisnips.nvim"
   },
   ["telescope.nvim"] = {
     commands = { "Telescope" },
-    config = { "\27LJ\1\0021\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\22plugins.telescope\frequire\0" },
+    config = { "\27LJ\2\n1\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\22plugins.telescope\frequire\0" },
     loaded = false,
     needs_bufread = true,
-    path = "/home/melaney/.local/share/nvim/site/pack/packer/opt/telescope.nvim"
+    path = "/Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/telescope.nvim"
+  },
+  ["trouble.nvim"] = {
+    commands = { "TroubleToggle" },
+    config = { "\27LJ\2\n<\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\ftrouble\17plugins.misc\frequire\0" },
+    loaded = false,
+    needs_bufread = false,
+    path = "/Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/trouble.nvim"
   },
   ultisnips = {
     after = { "cmp-nvim-ultisnips" },
-    after_files = { "/home/melaney/.local/share/nvim/site/pack/packer/opt/ultisnips/after/plugin/UltiSnips_after.vim" },
-    config = { "\27LJ\1\2C\0\0\2\0\3\0\0054\0\0\0007\0\1\0'\1\0\0:\1\2\0G\0\1\0&UltiSnipsRemoveSelectModeMappings\6g\bvim\0" },
+    after_files = { "/Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/ultisnips/after/plugin/UltiSnips_after.vim" },
+    config = { "\27LJ\2\nC\0\0\2\0\3\0\0056\0\0\0009\0\1\0)\1\0\0=\1\2\0K\0\1\0&UltiSnipsRemoveSelectModeMappings\6g\bvim\0" },
     loaded = false,
     needs_bufread = true,
-    path = "/home/melaney/.local/share/nvim/site/pack/packer/opt/ultisnips"
+    path = "/Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/ultisnips"
   },
   ["vim-dadbod-completion"] = {
+<<<<<<< HEAD
     after_files = { "/home/melaney/.local/share/nvim/site/pack/packer/opt/vim-dadbod-completion/after/plugin/vim_dadbod_completion.lua", "/home/melaney/.local/share/nvim/site/pack/packer/opt/vim-dadbod-completion/after/plugin/vim_dadbod_completion.vim" },
     load_after = {},
     loaded = true,
+=======
+    after_files = { "/Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/vim-dadbod-completion/after/plugin/vim_dadbod_completion.lua", "/Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/vim-dadbod-completion/after/plugin/vim_dadbod_completion.vim" },
+    load_after = {
+      ["nvim-cmp"] = true
+    },
+    loaded = false,
+>>>>>>> 29c8c6998f980850652998d044b1eb32a1aeff3b
     needs_bufread = false,
-    path = "/home/melaney/.local/share/nvim/site/pack/packer/opt/vim-dadbod-completion"
+    path = "/Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/vim-dadbod-completion"
   },
   ["vim-matchup"] = {
-    after_files = { "/home/melaney/.local/share/nvim/site/pack/packer/opt/vim-matchup/after/plugin/matchit.vim" },
+    after_files = { "/Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/vim-matchup/after/plugin/matchit.vim" },
     loaded = false,
     needs_bufread = true,
-    path = "/home/melaney/.local/share/nvim/site/pack/packer/opt/vim-matchup"
+    path = "/Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/vim-matchup"
   },
   ["vim-pandoc"] = {
     loaded = false,
     needs_bufread = true,
-    path = "/home/melaney/.local/share/nvim/site/pack/packer/opt/vim-pandoc"
+    path = "/Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/vim-pandoc"
   },
   ["vim-pandoc-syntax"] = {
     loaded = false,
     needs_bufread = false,
-    path = "/home/melaney/.local/share/nvim/site/pack/packer/opt/vim-pandoc-syntax"
+    path = "/Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/vim-pandoc-syntax"
+  },
+  ["vim-surround"] = {
+    loaded = false,
+    needs_bufread = false,
+    path = "/Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/vim-surround"
   },
   vimtex = {
     loaded = false,
     needs_bufread = true,
-    path = "/home/melaney/.local/share/nvim/site/pack/packer/opt/vimtex"
+    path = "/Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/vimtex"
   },
   ["which-key.nvim"] = {
-    config = { "\27LJ\1\0021\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\22plugins.which-key\frequire\0" },
+    config = { "\27LJ\2\n1\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\22plugins.which-key\frequire\0" },
     loaded = false,
     needs_bufread = false,
-    path = "/home/melaney/.local/share/nvim/site/pack/packer/opt/which-key.nvim"
+    path = "/Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/which-key.nvim"
+  },
+  ["wildfire.vim"] = {
+    loaded = false,
+    needs_bufread = false,
+    path = "/Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/wildfire.vim"
   }
 }
 
 time([[Defining packer_plugins]], false)
-local module_lazy_loads = {
-  ["^cmp_nvim_lsp"] = "cmp-nvim-lsp"
-}
-local lazy_load_called = {['packer.load'] = true}
-local function lazy_load_module(module_name)
-  local to_load = {}
-  if lazy_load_called[module_name] then return nil end
-  lazy_load_called[module_name] = true
-  for module_pat, plugin_name in pairs(module_lazy_loads) do
-    if not _G.packer_plugins[plugin_name].loaded and string.match(module_name, module_pat) then
-      to_load[#to_load + 1] = plugin_name
-    end
-  end
-
-  if #to_load > 0 then
-    require('packer.load')(to_load, {module = module_name}, _G.packer_plugins)
-    local loaded_mod = package.loaded[module_name]
-    if loaded_mod then
-      return function(modname) return loaded_mod end
-    end
-  end
-end
-
-if not vim.g.packer_custom_loader_enabled then
-  table.insert(package.loaders, 1, lazy_load_module)
-  vim.g.packer_custom_loader_enabled = true
-end
-
 -- Setup for: nvim-lspconfig
 time([[Setup for nvim-lspconfig]], true)
-try_loadstring("\27LJ\1\2U\0\0\2\0\3\0\0054\0\0\0007\0\1\0%\1\2\0>\0\2\1G\0\1\0006if &ft == \"packer\" | echo \"\" | else | silent! e %\bcmd\bvimr\1\0\3\0\a\0\f4\0\0\0%\1\1\0>\0\2\0027\0\2\0%\1\3\0>\0\2\0014\0\4\0007\0\5\0001\1\6\0'\2\0\0>\0\3\1G\0\1\0\0\rdefer_fn\bvim\19nvim-lspconfig\21packer_lazy_load\tutil\frequire\0", "setup", "nvim-lspconfig")
+try_loadstring("\27LJ\2\nU\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0006if &ft == \"packer\" | echo \"\" | else | silent! e %\bcmd\bvimr\1\0\4\0\a\0\f6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\0016\0\4\0009\0\5\0003\2\6\0)\3\0\0B\0\3\1K\0\1\0\0\rdefer_fn\bvim\19nvim-lspconfig\21packer_lazy_load\tutil\frequire\0", "setup", "nvim-lspconfig")
 time([[Setup for nvim-lspconfig]], false)
 time([[packadd for nvim-lspconfig]], true)
 vim.cmd [[packadd nvim-lspconfig]]
 time([[packadd for nvim-lspconfig]], false)
+-- Setup for: vim-matchup
+time([[Setup for vim-matchup]], true)
+try_loadstring("\27LJ\2\nM\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\1K\0\1\0\16vim-matchup\21packer_lazy_load\tutil\frequire\0", "setup", "vim-matchup")
+time([[Setup for vim-matchup]], false)
 -- Setup for: gitsigns.nvim
 time([[Setup for gitsigns.nvim]], true)
+<<<<<<< HEAD
 try_loadstring("\27LJ\1\2O\0\0\2\0\4\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0%\1\3\0>\0\2\1G\0\1\0\18gitsigns.nvim\21packer_lazy_load\tutil\frequire\0", "setup", "gitsigns.nvim")
+=======
+try_loadstring("\27LJ\2\nO\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\1K\0\1\0\18gitsigns.nvim\21packer_lazy_load\tutil\frequire\0", "setup", "gitsigns.nvim")
+>>>>>>> 29c8c6998f980850652998d044b1eb32a1aeff3b
 time([[Setup for gitsigns.nvim]], false)
 time([[packadd for gitsigns.nvim]], true)
 vim.cmd [[packadd gitsigns.nvim]]
 time([[packadd for gitsigns.nvim]], false)
+<<<<<<< HEAD
 -- Setup for: vim-matchup
 time([[Setup for vim-matchup]], true)
 try_loadstring("\27LJ\1\2M\0\0\2\0\4\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0%\1\3\0>\0\2\1G\0\1\0\16vim-matchup\21packer_lazy_load\tutil\frequire\0", "setup", "vim-matchup")
@@ -377,10 +428,17 @@ time([[Config for nvim-lspconfig]], false)
 time([[Config for nvim-cmp]], true)
 try_loadstring("\27LJ\1\2+\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\16plugins.cmp\frequire\0", "config", "nvim-cmp")
 time([[Config for nvim-cmp]], false)
+=======
+-- Config for: gitsigns.nvim
+time([[Config for gitsigns.nvim]], true)
+try_loadstring("\27LJ\2\n0\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\21plugins.gitsigns\frequire\0", "config", "gitsigns.nvim")
+time([[Config for gitsigns.nvim]], false)
+>>>>>>> 29c8c6998f980850652998d044b1eb32a1aeff3b
 -- Config for: nvim-web-devicons
 time([[Config for nvim-web-devicons]], true)
-try_loadstring("\27LJ\1\2-\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\18plugins.icons\frequire\0", "config", "nvim-web-devicons")
+try_loadstring("\27LJ\2\n-\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\18plugins.icons\frequire\0", "config", "nvim-web-devicons")
 time([[Config for nvim-web-devicons]], false)
+<<<<<<< HEAD
 -- Config for: gitsigns.nvim
 time([[Config for gitsigns.nvim]], true)
 try_loadstring("\27LJ\1\0020\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\21plugins.gitsigns\frequire\0", "config", "gitsigns.nvim")
@@ -393,10 +451,13 @@ time([[Config for galaxyline.nvim]], false)
 time([[Config for Comment.nvim]], true)
 try_loadstring("\27LJ\1\2<\0\0\2\0\3\0\0064\0\0\0%\1\1\0>\0\2\0027\0\2\0>\0\1\1G\0\1\0\fcomment\17plugins.misc\frequire\0", "config", "Comment.nvim")
 time([[Config for Comment.nvim]], false)
+=======
+>>>>>>> 29c8c6998f980850652998d044b1eb32a1aeff3b
 -- Config for: nightfox.nvim
 time([[Config for nightfox.nvim]], true)
-try_loadstring("\27LJ\1\0020\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\21plugins.nightfox\frequire\0", "config", "nightfox.nvim")
+try_loadstring("\27LJ\2\n0\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\21plugins.nightfox\frequire\0", "config", "nightfox.nvim")
 time([[Config for nightfox.nvim]], false)
+<<<<<<< HEAD
 -- Config for: dashboard-nvim
 time([[Config for dashboard-nvim]], true)
 try_loadstring("\27LJ\1\0021\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\22plugins.dashboard\frequire\0", "config", "dashboard-nvim")
@@ -416,37 +477,69 @@ vim.cmd [[ packadd bufferline.nvim ]]
 
 -- Config for: bufferline.nvim
 try_loadstring("\27LJ\1\0022\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\23plugins.bufferline\frequire\0", "config", "bufferline.nvim")
+=======
+-- Config for: nvim-lspconfig
+time([[Config for nvim-lspconfig]], true)
+try_loadstring("\27LJ\2\n1\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\22plugins.lspconfig\frequire\0", "config", "nvim-lspconfig")
+time([[Config for nvim-lspconfig]], false)
+-- Load plugins in order defined by `after`
+time([[Sequenced loading]], true)
+vim.cmd [[ packadd bufferline.nvim ]]
 
-vim.cmd [[ packadd lspsaga.nvim ]]
+-- Config for: bufferline.nvim
+try_loadstring("\27LJ\2\n2\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\23plugins.bufferline\frequire\0", "config", "bufferline.nvim")
+>>>>>>> 29c8c6998f980850652998d044b1eb32a1aeff3b
 
--- Config for: lspsaga.nvim
-try_loadstring("\27LJ\1\2/\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\20plugins.lspsaga\frequire\0", "config", "lspsaga.nvim")
+vim.cmd [[ packadd galaxyline.nvim ]]
+
+-- Config for: galaxyline.nvim
+try_loadstring("\27LJ\2\n2\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\23plugins.statusline\frequire\0", "config", "galaxyline.nvim")
 
 vim.cmd [[ packadd lsp_signature.nvim ]]
 
 -- Config for: lsp_signature.nvim
+<<<<<<< HEAD
 try_loadstring("\27LJ\1\2>\0\0\2\0\3\0\0064\0\0\0%\1\1\0>\0\2\0027\0\2\0>\0\1\1G\0\1\0\14signature\17plugins.misc\frequire\0", "config", "lsp_signature.nvim")
+=======
+try_loadstring("\27LJ\2\n>\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\14signature\17plugins.misc\frequire\0", "config", "lsp_signature.nvim")
+
+vim.cmd [[ packadd lspsaga.nvim ]]
+
+-- Config for: lspsaga.nvim
+try_loadstring("\27LJ\2\n/\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\20plugins.lspsaga\frequire\0", "config", "lspsaga.nvim")
+>>>>>>> 29c8c6998f980850652998d044b1eb32a1aeff3b
 
 time([[Sequenced loading]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
+<<<<<<< HEAD
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file TZMinimalist lua require("packer.load")({'TrueZen.nvim'}, { cmd = "TZMinimalist", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file TZAtaraxis lua require("packer.load")({'TrueZen.nvim'}, { cmd = "TZAtaraxis", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+=======
+>>>>>>> 29c8c6998f980850652998d044b1eb32a1aeff3b
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Telescope lua require("packer.load")({'telescope.nvim'}, { cmd = "Telescope", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file ProComment lua require("packer.load")({'prodoc.nvim'}, { cmd = "ProComment", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file NvimTreeToggle lua require("packer.load")({'nvim-tree.lua'}, { cmd = "NvimTreeToggle", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file SymbolsOutline lua require("packer.load")({'symbols-outline.nvim'}, { cmd = "SymbolsOutline", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Colorizer lua require("packer.load")({'nvim-colorizer.lua'}, { cmd = "Colorizer", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file CodeActionMenu lua require("packer.load")({'nvim-code-action-menu'}, { cmd = "CodeActionMenu", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file TZFocus lua require("packer.load")({'TrueZen.nvim'}, { cmd = "TZFocus", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+<<<<<<< HEAD
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file ProDoc lua require("packer.load")({'prodoc.nvim'}, { cmd = "ProDoc", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file NvimTreeFocus lua require("packer.load")({'nvim-tree.lua'}, { cmd = "NvimTreeFocus", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+=======
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file NvimTreeToggle lua require("packer.load")({'nvim-tree.lua'}, { cmd = "NvimTreeToggle", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file NvimTreeFocus lua require("packer.load")({'nvim-tree.lua'}, { cmd = "NvimTreeFocus", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file TZAtaraxis lua require("packer.load")({'TrueZen.nvim'}, { cmd = "TZAtaraxis", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file ColorizerToggle lua require("packer.load")({'nvim-colorizer.lua'}, { cmd = "ColorizerToggle", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file TroubleToggle lua require("packer.load")({'trouble.nvim'}, { cmd = "TroubleToggle", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file TZMinimalist lua require("packer.load")({'TrueZen.nvim'}, { cmd = "TZMinimalist", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+>>>>>>> 29c8c6998f980850652998d044b1eb32a1aeff3b
 time([[Defining lazy-load commands]], false)
 
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
+<<<<<<< HEAD
 vim.cmd [[au FileType lua ++once lua require("packer.load")({'cmp-nvim-lua'}, { ft = "lua" }, _G.packer_plugins)]]
 vim.cmd [[au FileType pandoc ++once lua require("packer.load")({'vim-pandoc-syntax', 'ultisnips', 'vim-pandoc', 'bullets.vim'}, { ft = "pandoc" }, _G.packer_plugins)]]
 vim.cmd [[au FileType markdown ++once lua require("packer.load")({'vim-pandoc-syntax', 'ultisnips', 'vim-pandoc', 'bullets.vim'}, { ft = "markdown" }, _G.packer_plugins)]]
@@ -476,6 +569,37 @@ time([[Sourcing ftdetect script at: /home/melaney/.local/share/nvim/site/pack/pa
 time([[Sourcing ftdetect script at: /home/melaney/.local/share/nvim/site/pack/packer/opt/vim-pandoc/ftdetect/pandoc.vim]], true)
 vim.cmd [[source /home/melaney/.local/share/nvim/site/pack/packer/opt/vim-pandoc/ftdetect/pandoc.vim]]
 time([[Sourcing ftdetect script at: /home/melaney/.local/share/nvim/site/pack/packer/opt/vim-pandoc/ftdetect/pandoc.vim]], false)
+=======
+vim.cmd [[au FileType java ++once lua require("packer.load")({'ultisnips'}, { ft = "java" }, _G.packer_plugins)]]
+vim.cmd [[au FileType tex ++once lua require("packer.load")({'ultisnips', 'vimtex'}, { ft = "tex" }, _G.packer_plugins)]]
+vim.cmd [[au FileType markdown ++once lua require("packer.load")({'ultisnips', 'bullets.vim', 'vim-pandoc-syntax', 'vim-pandoc'}, { ft = "markdown" }, _G.packer_plugins)]]
+vim.cmd [[au FileType pandoc ++once lua require("packer.load")({'ultisnips', 'bullets.vim', 'vim-pandoc-syntax', 'vim-pandoc'}, { ft = "pandoc" }, _G.packer_plugins)]]
+time([[Defining lazy-load filetype autocommands]], false)
+  -- Event lazy-loads
+time([[Defining lazy-load event autocommands]], true)
+vim.cmd [[au BufRead * ++once lua require("packer.load")({'nvim-treesitter', 'vim-surround', 'wildfire.vim', 'Comment.nvim'}, { event = "BufRead *" }, _G.packer_plugins)]]
+vim.cmd [[au BufEnter * ++once lua require("packer.load")({'dashboard-nvim', 'vim-matchup'}, { event = "BufEnter *" }, _G.packer_plugins)]]
+vim.cmd [[au InsertEnter * ++once lua require("packer.load")({'nvim-cmp'}, { event = "InsertEnter *" }, _G.packer_plugins)]]
+vim.cmd [[au BufWinEnter * ++once lua require("packer.load")({'which-key.nvim', 'indent-blankline.nvim'}, { event = "BufWinEnter *" }, _G.packer_plugins)]]
+time([[Defining lazy-load event autocommands]], false)
+vim.cmd("augroup END")
+vim.cmd [[augroup filetypedetect]]
+time([[Sourcing ftdetect script at: /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/ultisnips/ftdetect/snippets.vim]], true)
+vim.cmd [[source /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/ultisnips/ftdetect/snippets.vim]]
+time([[Sourcing ftdetect script at: /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/ultisnips/ftdetect/snippets.vim]], false)
+time([[Sourcing ftdetect script at: /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/cls.vim]], true)
+vim.cmd [[source /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/cls.vim]]
+time([[Sourcing ftdetect script at: /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/cls.vim]], false)
+time([[Sourcing ftdetect script at: /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/tex.vim]], true)
+vim.cmd [[source /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/tex.vim]]
+time([[Sourcing ftdetect script at: /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/tex.vim]], false)
+time([[Sourcing ftdetect script at: /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/tikz.vim]], true)
+vim.cmd [[source /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/tikz.vim]]
+time([[Sourcing ftdetect script at: /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/tikz.vim]], false)
+time([[Sourcing ftdetect script at: /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/vim-pandoc/ftdetect/pandoc.vim]], true)
+vim.cmd [[source /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/vim-pandoc/ftdetect/pandoc.vim]]
+time([[Sourcing ftdetect script at: /Users/melaneyzhu/.local/share/nvim/site/pack/packer/opt/vim-pandoc/ftdetect/pandoc.vim]], false)
+>>>>>>> 29c8c6998f980850652998d044b1eb32a1aeff3b
 vim.cmd("augroup END")
 if should_profile then save_profiles() end
 

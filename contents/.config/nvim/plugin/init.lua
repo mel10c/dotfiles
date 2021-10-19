@@ -1,7 +1,8 @@
--- ===============================================================================
+-- ===============================================================================pc:me
 -- ================================= PLUGINS =====================================
 -- ===============================================================================
 require("plugins.misc").packer()
+require('util').disable()
 
 -- -------------------------------- Auto Load ------------------------------------
 local fn = vim.fn
@@ -10,11 +11,13 @@ if fn.empty(fn.glob(install_path)) > 0 then
   packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
 end
 
-return require('packer').startup(function()
+return require('packer').startup(function(use)
 
 -- --------------------------- Basic System Plugs---------------------------------
     -- lua plugin
-    use 'nvim-lua/plenary.nvim'
+    use {
+        'nvim-lua/plenary.nvim',
+    }
 
     -- packer can manage itself
     use {
@@ -24,29 +27,37 @@ return require('packer').startup(function()
     -- key map reminder
     use {
         "folke/which-key.nvim",
-        event = "BufWinEnter",
         config = function() require('plugins.which-key') end,
+        event = "BufWinEnter",
     }
 
     -- better code color
     use {
         "nvim-treesitter/nvim-treesitter",
+        run = ':TSUpdate',
         branch = "0.5-compat",
-        event = "BufRead",
         config = function() require('plugins.treesitter') end,
+        event = "BufRead",
     }
 
 -- ------------------------------- Appearance ------------------------------------
     -- Good COLOR SCHEME!
     use {
         "EdenEast/nightfox.nvim",
+        disable = false,
         config = function() require('plugins.nightfox') end,
-        -- after = "packer",
     }
 
+    -- alternative colors
+    use {
+        'sainnhe/everforest',
+        disable = true
+    }
+
+    -- alternative colors
     use {
         'RRethy/nvim-base16',
-        disable = true
+        disable = true,
     }
 
     -- nerd icons
@@ -60,14 +71,16 @@ return require('packer').startup(function()
     use {
         'glepnir/galaxyline.nvim',
         branch = 'main',
+        requires = {'kyazdani42/nvim-web-devicons',},
         config = function() require('plugins.statusline') end,
-        requires = {'kyazdani42/nvim-web-devicons', opt = true}
+        after = "nvim-web-devicons"
     }
 
    -- git stuff
     use {
         "lewis6991/gitsigns.nvim",
         config = function() require('plugins.gitsigns') end,
+        disable = false,
         setup = function()
             require("util").packer_lazy_load "gitsigns.nvim"
         end,
@@ -76,35 +89,38 @@ return require('packer').startup(function()
     -- file tree
     use {
         'kyazdani42/nvim-tree.lua',
-        cmd = { "NvimTreeToggle", "NvimTreeFocus" },
         requires = {'kyazdani42/nvim-web-devicons'},
         config = function() require('plugins.NvimTree') end,
+        cmd = { "NvimTreeToggle", "NvimTreeFocus" },
     }
 
     -- file finder
     use {
         "nvim-telescope/telescope.nvim",
-        cmd = "Telescope",
         requires = {
             {
+                -- telescope order
                 "nvim-telescope/telescope-fzf-native.nvim",
                 run = "make",
             },
             {
+                -- pictures (?)
                 "nvim-telescope/telescope-media-files.nvim",
             },
             {
+                -- view ultisnips
                 "fhill2/telescope-ultisnips.nvim",
             }
             },
         config = function() require('plugins.telescope') end,
+        cmd = "Telescope",
     }
 
     -- indent line
     use {
         'lukas-reineke/indent-blankline.nvim',
-        event = "BufRead",
         config = function() require('plugins.misc').indent() end,
+        event = "BufWinEnter",
     }
 
     -- code outline
@@ -113,63 +129,67 @@ return require('packer').startup(function()
         cmd = "SymbolsOutline",
     }
 
-   -- markdown
+   -- markdown rewquirement
     use {
         'vim-pandoc/vim-pandoc',
         ft = {"markdown", "pandoc"},
     }
+    -- mardown highlight
    use {
         'vim-pandoc/vim-pandoc-syntax',
         requires = { 'vim-pandoc/vim-pandoc' },
         ft = {"markdown", "pandoc"}
     }
 
-    -- preview 
+    -- preview colors
     use {
         "norcalli/nvim-colorizer.lua",
-        cmd = "Colorizer",
         config = function() require('plugins.misc').colorizer() end,
+        cmd = "ColorizerToggle",
     }
 
     -- latex preview
     use {
         'lervag/vimtex',
         ft = 'tex',
+        -- config = function () require('plugins.misc').vimtex() end
     }
 
     -- tabline
     use {
         "akinsho/bufferline.nvim",
-        after = "nvim-web-devicons",
         config = function() require('plugins.bufferline') end,
+        after = "nvim-web-devicons",
    }
 
     -- dashboard
     use {
         "glepnir/dashboard-nvim",
-        disable = false,
         config = function() require('plugins.dashboard') end,
+        disable = false,
+        -- event = "BufWinEnter",
+        event = "BufEnter",
     }
 
 -- ---------------------------- Editing Tools ------------------------------------
     -- auto pair
    use {
         "windwp/nvim-autopairs",
-        after = "nvim-cmp",
-        -- event = "InsertEnter",
         config = function() require('plugins.misc').autopairs() end,
+        after = "nvim-cmp"
     }
 
     -- change surrand types
-    -- TODO: add config to misc to check if plugin exist
-    -- TODO: find a way to lazy load this
     use {
-        "blackCauldron7/surround.nvim",
-        config = function()
-            require"surround".setup {mappings_style = "surround"}
-        end
+        -- "blackCauldron7/surround.nvim",
+        -- config = function()
+        --     require"surround".setup {mappings_style = "surround"}
+        -- end
+        "tpope/vim-surround",
+        event = "BufRead",
     }
 
+    -- zen mode
     use {
         "Pocco81/TrueZen.nvim",
         cmd = {'TZMinimalist', 'TZFocus', 'TZAtaraxis' }
@@ -179,23 +199,17 @@ return require('packer').startup(function()
     use {
         'dkarter/bullets.vim',
         ft = {"markdown", "pandoc"},
-        event = "InsertEnter",
+        -- event = "InsertEnter",
     }
 
     -- easy comment
     use {
         'numToStr/Comment.nvim',
         config = function() require('plugins.misc').comment() end,
+        event = "BufRead",
     }
 
-    -- document genenrator
-    use {
-        "glepnir/prodoc.nvim",
-        cmd = {"ProDoc", "ProComment"},
-        -- config = function() require('plugins.misc').comment() end,
-    }
-
-    -- terminal(lspaga has it)
+    -- terminal
     -- use {
     --     "akinsho/toggleterm.nvim",
     --     cmd = "ToggleTerm"
@@ -204,18 +218,24 @@ return require('packer').startup(function()
     -- match under cursor
     use {
         "andymass/vim-matchup",
-        opt = true,
         setup = function()
             require("util").packer_lazy_load "vim-matchup"
         end,
+        -- event = "BufRead",
+        event = "BufEnter",
+    }
+
+    -- easy selection
+    use {
+        'gcmt/wildfire.vim',
+        event = "BufRead",
     }
 -- ------------------------------ Lsp configs ------------------------------------
     -- lsp config
     use {
         "neovim/nvim-lspconfig",
-        config = function() require('plugins.lspconfig') end,
         requires = {'kabouzeid/nvim-lspinstall'},
-        -- opt = true,
+        config = function() require('plugins.lspconfig') end,
         setup = function()
             require("util").packer_lazy_load "nvim-lspconfig"
             -- reload the current file so lsp actually starts for it
@@ -228,27 +248,26 @@ return require('packer').startup(function()
     -- lsp hints
     use {
         "ray-x/lsp_signature.nvim",
-        after = "nvim-lspconfig",
         config = function() require('plugins.misc').signature() end,
+        after = "nvim-lspconfig",
     }
 
     -- preset sinppeets
-    use {
-        "rafamadriz/friendly-snippets",
-        event = "InsertEnter",
-    }
-
+    -- use {
+    --     "rafamadriz/friendly-snippets",
+    --     event = "InsertEnter",
+    -- }
 
     -- completion engine
     use {
         "hrsh7th/nvim-cmp",
         -- module = "cmp",
-        -- after = "friendly-snippets",
         -- requires = {'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-nvim-lua',
         --             'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path',
         --             'hrsh7th/cmp-calc',
         --             'kristijanhusak/vim-dadbod-completion',},
         config = function() require('plugins.cmp') end,
+        event = "InsertEnter",
     }
 
     -- snips
@@ -259,18 +278,21 @@ return require('packer').startup(function()
     --     config = function() require('plugins.misc').luasnip() end,
     -- }
 
+    -- snippets
     use {
         'SirVer/ultisnips',
         config = function ()
             vim.g.UltiSnipsRemoveSelectModeMappings = 0
         end,
         -- wants = "friendly-snippets",
-        ft = {'tex', 'java', 'pandoc', 'markdown'}
+        ft = {'tex', 'java', 'pandoc', 'markdown'},
+        -- event = "InsertEnter",
     }
 
+    -- completion for snippets
     use {
         'quangnguyen30192/cmp-nvim-ultisnips',
-        after = 'ultisnips'
+        after = 'ultisnips',
     }
 
     -- luasnip completetion
@@ -283,15 +305,14 @@ return require('packer').startup(function()
     use {
         "hrsh7th/cmp-nvim-lsp",
         -- disable = not status.cmp,
-        module = "cmp_nvim_lsp",
-        after = "nvim-cmp",
+        -- after = "nvim-lspinstall",
     }
     
     -- source for lua api
     use {
         "hrsh7th/cmp-nvim-lua",
+        -- ft = "lua",
         after = "nvim-cmp",
-        ft = "lua"
     }
 
     -- source for buffer words
@@ -310,17 +331,37 @@ return require('packer').startup(function()
         "hrsh7th/cmp-calc",
         after = "nvim-cmp",
     }
-    
+
+    -- dot completion
     use {
         'kristijanhusak/vim-dadbod-completion',
         after = "nvim-cmp",
     }
 
+    -- pretty rename and other lsp functions
+    -- TODO: may get define own function to replace this
     use {
         'glepnir/lspsaga.nvim',
-        after = "nvim-lspconfig",
         config = function() require('plugins.lspsaga') end,
+        after = "nvim-lspconfig",
     }
 
+    -- good code action menu
+    use {
+        'weilbith/nvim-code-action-menu',
+        cmd = 'CodeActionMenu',
+    }
+
+    -- good bug display
+    use {
+        "folke/trouble.nvim",
+        requires = "kyazdani42/nvim-web-devicons",
+        config = function() require('plugins.misc').trouble() end,
+        cmd = "TroubleToggle"
+    }
+
+    -- use {
+    --     'mfussenegger/nvim-jdtls',
+    -- }
 
 end)

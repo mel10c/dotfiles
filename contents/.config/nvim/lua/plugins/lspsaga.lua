@@ -23,10 +23,10 @@ code_action_prompt = {
 },
 finder_definition_icon = '  ',
 finder_reference_icon = '  ',
--- max_preview_lines = 10, -- preview lines of lsp_finder and definition preview
--- finder_action_keys = {
---   open = 'o', vsplit = 's',split = 'i',quit = 'q',scroll_down = '<C-f>', scroll_up = '<C-b>' -- quit can be a table
--- },
+max_preview_lines = 50, -- preview lines of lsp_finder and definition preview
+finder_action_keys = {
+  open = 'o', vsplit = 's',split = 'i',quit = 'q',scroll_down = '<C-f>', scroll_up = '<C-b>' -- quit can be a table
+},
 -- code_action_keys = {
 --   quit = 'q',exec = '<CR>'
 -- },
@@ -35,7 +35,7 @@ finder_reference_icon = '  ',
 -- },
 definition_preview_icon = '  ',
 -- "single" "double" "round" "plus"
--- border_style = "single"
+border_style = "plus",
 rename_prompt_prefix = '凜',
 -- if you don't use nvim-lspconfig you must pass your server name and
 -- the related filetypes into this table

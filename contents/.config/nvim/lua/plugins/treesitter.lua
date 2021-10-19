@@ -9,6 +9,11 @@ end
 ts_config.setup {
    ensure_installed = {
       "lua",
+      "java",
+      "python",
+      "r",
+      "latex",
+      "css"
    },
    highlight = {
       enable = true,

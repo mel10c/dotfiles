@@ -216,7 +216,7 @@ section.left[5] = {
     end,
     separator = ' ',
     condition = buffer_not_empty,
-    highlight = {nord_colors.gray, nord_colors.bg}, 
+    highlight = {nord_colors.gray, nord_colors.bg},
   }
 }
 
@@ -235,9 +235,9 @@ section.left[5] = {
 section.right[0] = {
   CocStatus = {
     separator = " ",
-    provider = CocStatus, 
+    provider = CocStatus,
     condition = checkwidth_small,
-    highlight = {nord_colors.purple, nord_colors.line_bg}, 
+    highlight = {nord_colors.purple, nord_colors.line_bg},
     icon = '  '}
 }
 
