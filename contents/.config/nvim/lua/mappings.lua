@@ -6,7 +6,7 @@
 
 -- shortcuts
 local function map(mode, lhs, rhs, opts)
-local options = {noremap = true}
+    local options = {noremap = true}
     if opts then options = vim.tbl_extend('force', options, opts) end
     vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
@@ -64,9 +64,9 @@ map('n', '<leader>q', ':q<cr>')
 map('n', '<leader>w', ':w<cr>')
 map('i', ',f', '<Esc>/<++><CR>:nohlsearch<CR>c4l')
 -- map('i', ',p', '')
-map('n', ';', '%')
-map('n', '<', ',')
-map('n', '>', ';')
+map('n', ';;', '%')
+-- map('n', '<', ',')
+-- map('n', '>', ';')
 map('i', ',', ',<C-g>u')
 map('i', '.', '.<C-g>u')
 map('i', '$', '$<C-g>u')

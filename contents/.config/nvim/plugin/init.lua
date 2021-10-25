@@ -8,10 +8,10 @@ require('util').disable()
 local fn = vim.fn
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+    packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
 end
-
 return require('packer').startup(function(use)
+
 
 -- --------------------------- Basic System Plugs---------------------------------
     -- lua plugin
@@ -57,7 +57,6 @@ return require('packer').startup(function(use)
     -- nerd icons
     use {
         "kyazdani42/nvim-web-devicons",
-        -- after = "nightfox",
         config = function() require('plugins.icons') end,
     }
 
@@ -70,7 +69,23 @@ return require('packer').startup(function(use)
         after = "nvim-web-devicons"
     }
 
-   -- git stuff
+    -- tabline
+    use {
+        "akinsho/bufferline.nvim",
+        config = function() require('plugins.bufferline') end,
+        after = "nvim-web-devicons",
+    }
+
+    -- dashboard
+    use {
+        "glepnir/dashboard-nvim",
+        config = function() require('plugins.dashboard') end,
+        disable = false,
+        -- event = "BufWinEnter",
+        event = "BufEnter",
+    }
+
+    -- git stuff
     use {
         "lewis6991/gitsigns.nvim",
         config = function() require('plugins.gitsigns') end,
@@ -105,7 +120,7 @@ return require('packer').startup(function(use)
                 -- view ultisnips
                 "fhill2/telescope-ultisnips.nvim",
             }
-            },
+        },
         config = function() require('plugins.telescope') end,
         cmd = "Telescope",
     }
@@ -123,14 +138,13 @@ return require('packer').startup(function(use)
         cmd = "SymbolsOutline",
     }
 
-   -- markdown rewquirement
+    -- markdown requirement + highlight
     use {
         'vim-pandoc/vim-pandoc',
         ft = {"markdown", "pandoc"},
         disable = false
     }
-    -- mardown highlight
-   use {
+    use {
         'vim-pandoc/vim-pandoc-syntax',
         requires = { 'vim-pandoc/vim-pandoc' },
         ft = {"markdown", "pandoc"},
@@ -140,8 +154,8 @@ return require('packer').startup(function(use)
     -- easy table vim
     use {
         'dhruvasagar/vim-table-mode',
-        cmd = "TableModeEnable",
         ft = {"markdown", "pandoc"},
+        cmd = "TableModeEnable",
     }
 
     -- preview colors
@@ -159,25 +173,9 @@ return require('packer').startup(function(use)
         config = function () require('plugins.misc').vimtex() end,
     }
 
-    -- tabline
-    use {
-        "akinsho/bufferline.nvim",
-        config = function() require('plugins.bufferline') end,
-        after = "nvim-web-devicons",
-   }
-
-    -- dashboard
-    use {
-        "glepnir/dashboard-nvim",
-        config = function() require('plugins.dashboard') end,
-        disable = false,
-        -- event = "BufWinEnter",
-        event = "BufEnter",
-    }
-
--- ---------------------------- Editing Tools ------------------------------------
+    -- ---------------------------- Editing Tools ------------------------------------
     -- auto pair
-   use {
+    use {
         "windwp/nvim-autopairs",
         config = function() require('plugins.misc').autopairs() end,
         after = "nvim-cmp"
@@ -185,10 +183,6 @@ return require('packer').startup(function(use)
 
     -- change surrand types
     use {
-        -- "blackCauldron7/surround.nvim",
-        -- config = function()
-        --     require"surround".setup {mappings_style = "surround"}
-        -- end
         "tpope/vim-surround",
         event = "BufRead",
     }
@@ -232,6 +226,7 @@ return require('packer').startup(function(use)
     use {
         'gcmt/wildfire.vim',
         event = "BufRead",
+        disable=true,
     }
 
     -- easier alignment
@@ -240,7 +235,7 @@ return require('packer').startup(function(use)
         cmd = 'EasyAlign'
     }
 
--- ------------------------------ Lsp configs ------------------------------------
+    -- ------------------------------ Lsp configs ------------------------------------
     -- lsp config
     use {
         "neovim/nvim-lspconfig",
@@ -277,6 +272,7 @@ return require('packer').startup(function(use)
         --             'hrsh7th/cmp-calc',
         --             'kristijanhusak/vim-dadbod-completion',},
         config = function() require('plugins.cmp') end,
+        event = "InsertEnter",
     }
 
     -- snips
@@ -285,6 +281,12 @@ return require('packer').startup(function(use)
     --     wants = "friendly-snippets",
     --     after = "nvim-cmp",
     --     config = function() require('plugins.misc').luasnip() end,
+    -- }
+
+    -- luasnip completetion
+    -- use {
+    --     "saadparwaiz1/cmp_luasnip",
+    --     after = "LuaSnip",
     -- }
 
     -- snippets
@@ -304,19 +306,13 @@ return require('packer').startup(function(use)
         after = 'ultisnips',
     }
 
-    -- luasnip completetion
-    -- use {
-    --     "saadparwaiz1/cmp_luasnip",
-    --     after = "LuaSnip",
-    -- }
-
     -- soruce for build-in lsp clients
     use {
         "hrsh7th/cmp-nvim-lsp",
         -- disable = not status.cmp,
         -- after = "nvim-lspinstall",
     }
-    
+
     -- source for lua api
     use {
         "hrsh7th/cmp-nvim-lua",
@@ -326,10 +322,10 @@ return require('packer').startup(function(use)
 
     -- source for buffer words
     use {
-         "hrsh7th/cmp-buffer",
+        "hrsh7th/cmp-buffer",
         after = "nvim-cmp",
     }
-    
+
     -- source for path
     use {
         "hrsh7th/cmp-path",
@@ -353,7 +349,7 @@ return require('packer').startup(function(use)
             { name = "latex_symbols" },
         },
         ft = 'tex',
-}
+    }
 
     -- pretty rename and other lsp functions
     -- TODO: may get define own function to replace this
@@ -378,7 +374,7 @@ return require('packer').startup(function(use)
     }
 
     -- use {
-    --     'mfussenegger/nvim-jdtls',
-    -- }
+        --     'mfussenegger/nvim-jdtls',
+        -- }
 
 end)

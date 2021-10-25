@@ -3,20 +3,20 @@
 
 local present, theme = pcall(require, "nightfox")
 if not present then
-   return
+    return
 end
 
 local theme = require('nightfox')
 
 theme.setup({
-  fox = "nordfox",
-  transparent = true,
-  terminal_colors = true, -- Configure the colors used when opening :terminal
-  styles = {
-    --comments = "italic",
-    functions = "italic",
-    keywords = "bold",
-    --strings = "NONE",
-    variables = "italic",
-  },
+    fox = "nordfox",
+    transparent = true,
+    terminal_colors = true, -- Configure the colors used when opening :terminal
+    styles = {
+        --comments = "italic",
+        functions = "italic",
+        keywords = "bold",
+        --strings = "NONE",
+        variables = "italic",
+    },
 })

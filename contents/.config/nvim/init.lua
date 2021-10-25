@@ -11,6 +11,5 @@
 --                          github.com/mel10c
 --
 
--- require('plugins')
 require('settings')
 require('mappings')
