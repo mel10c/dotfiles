@@ -25,6 +25,15 @@ snippet template "Basic template" b
 \usepackage{enumerate}
 \usepackage{fancyhdr}
 
+% Graphis options
+%\usepackage{graphicx}
+%\graphicspath{ {./images/} }
+% Code options
+%\usepackage[T1]{fontenc}
+%\usepackage[scaled=0.9]{FiraMono}
+%\usepackage{listings}
+%\lstset{basicstyle=\ttfamily}
+
  
 \setlength{\parindent}{0.0in}
 \setlength{\parskip}{0.05in}
@@ -32,7 +41,7 @@ snippet template "Basic template" b
 \pagestyle{fancyplain}
 \headheight 35pt
 \lhead{Melaney (Yuanyuan) Zhu \\\\ 1006879255}
-\chead{\textbf{\Large ${1:Title} (${2:1})}}
+\chead{\textbf{\Large ${1:Title} ${2:1}}}
 \rhead{${3:Course} \\\\ \today}
 \rfoot{\small\thepage}
 \headsep 1.5em
@@ -41,7 +50,7 @@ snippet template "Basic template" b
 
 \section*{Problem 1}
 
-${0:Answers ges here}
+$0
 
 \end{document}
 endsnippet
@@ -151,6 +160,16 @@ snippet plot "Plot" w
 \end{figure}
 endsnippet
 
+snippet impage "image" b
+\includegraphics{${1:name}}
+endsnippet
+
+snippet code "code" b
+\begin{lstlisting}[language=R]
+$0
+\end{lstlisting}
+endsnippet
+
 # ----------------------------- Math Shortcuts -------------------------------
 
 snippet cross "cross product" b
@@ -219,23 +238,23 @@ snippet bff "bold" iA
 endsnippet
 
 snippet brs "left( \right)" iA
-\left( $1 \right)<++>
+\left( $0 \right)
 endsnippet
 
 snippet brm "left[ \right]" iA
-\left[ $1 \right]<++>
+\left[ $0 \right]
 endsnippet
 
 snippet brl "left{ \right}" iA
-\left{ $1 \right}<++>
+\left{ $0 \right}
 endsnippet
 
 snippet brt "| |" iA
-\| $1 \|<++>
+\| $0 \|
 endsnippet
 
 snippet << "langle" iA
-\langle $1 \rangle
+\langle $0 \rangle
 endsnippet
 
 priority 100
@@ -245,7 +264,6 @@ endsnippet
 
 snippet vvs "space" iA
 \vspace{10px}
-$0
 endsnippet
 
 snippet mk "Math" wA
@@ -276,36 +294,32 @@ endsnippet
 # \\$0`!p snip.rv = match.group(1)`$1
 # endsnippet
 
-snippet "(\\?\w+)(;\;|\;;)" "Vector postfix" riA
-\vec{`!p snip.rv=match.group(1)`}
+snippet sin; "sin" iA
+\sin
 endsnippet
 
-snippet sin\ "sin" iA
-\sin 
+snippet cos; "cos" iA
+\cos
 endsnippet
 
-snippet cos\ "cos" iA
-\cos 
+snippet tan; "tan" iA
+\tan
 endsnippet
 
-snippet tan\ "tan" iA
-\tan 
+snippet pi "pi" iA
+\pi
 endsnippet
 
-snippet pi\ "pi" iA
-\pi 
+snippet the; "theta" iA
+\theta
 endsnippet
 
-snippet theta\ "theta" iA
-\theta 
+snippet lam\ "lambda" iA
+\lambda
 endsnippet
 
-snippet mu\ "mu" iA
-\mu 
-endsnippet
-
-snippet omega\ "omega" iA
-\Omega 
+snippet omega "omega" iA
+\Omega
 endsnippet
 
 snippet sr "^2" iA
@@ -337,10 +351,10 @@ snippet tt "code" i
 endsnippet
 # ================================= Math =====================================
 snippet tag "Tags" iA
-\tag{$1}
+\tag{$0}
 endsnippet
 
-snippet iff "iff" Ai
+snippet iff "iff" iA
 \iff
 endsnippet
 
@@ -389,7 +403,7 @@ snippet es "exist" i
 endsnippet
 
 snippet ceil "ceil" i
-\left\lceil $1 \right\rceil <++>
+\left\lceil $1 \right\rceil
 endsnippet
 
 snippet qq "quad" iA
@@ -412,12 +426,12 @@ snippet taylor "taylor" w
 \sum_{${1:k}=${2:0}}^{${3:\infty}} ${4:c_$1} (x-a)^$1 $0
 endsnippet
 
-snippet sqr "\sqrt{}" iA
+snippet sqq "\sqrt{}" iA
 \sqrt{${1:${VISUAL}}}
 endsnippet
 
 snippet tt "text" i
-\text{$0}
+\text{${1:${VISUAL}}}
 endsnippet
 
 snippet td "to the ... power" iA
@@ -454,13 +468,18 @@ snippet ** "cdot" iA
 endsnippet
 
 snippet norm "norm" i
-\| $1 \|<++>
+\| $1 \|
 endsnippet
 
 snippet dx "d/dx" w
-\frac{\mathrm{d}$1}{\mathrm{d} ${2:x}} \,
+\frac{\mathrm{d}$1}{\mathrm{d} ${2:x}} \,$0
 endsnippet
 
 snippet lim "limit" w
 \lim_{${1:n} \to ${2:\infty}} 
 endsnippet
+
+snippet intS "intergral" w
+\int${1:_{$2}^{$3}} \,$0
+endsnippet
+

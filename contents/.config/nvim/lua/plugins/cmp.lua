@@ -1,4 +1,5 @@
 -- ---------------------------- Completion Config --------------------------------
+-- 
 -- ===============================================================================
 
 local present, cmp = pcall(require, "cmp")
@@ -28,8 +29,15 @@ cmp.setup {
 
          vim_item.menu = ({
             nvim_lsp = "[LSP]",
-            nvim_lua = "[Lua]",
+            nvim_lua = "[API]",
             buffer = "[BUF]",
+            path = "[PAT]",
+            ultisnips = "[SNI]",
+            calc = "[CAL]",
+            latex_symbols = "[TEX]",
+            eclim = "[JAVA]",
+            cmdline = "[CMD]",
+            spell = "[SPL]"
          })[entry.source.name]
 
          return vim_item
@@ -38,8 +46,8 @@ cmp.setup {
    mapping = {
       ["<C-p>"] = cmp.mapping.select_prev_item(),
       ["<C-n>"] = cmp.mapping.select_next_item(),
-      ["<C-j>"] = cmp.mapping.scroll_docs(-4),
-      ["<C-k>"] = cmp.mapping.scroll_docs(4),
+      ["<C-k>"] = cmp.mapping.scroll_docs(-4),
+      ["<C-j>"] = cmp.mapping.scroll_docs(4),
       ["<C-Space>"] = cmp.mapping.complete(),
       ["<C-e>"] = cmp.mapping.close(),
       ["<CR>"] = cmp.mapping.confirm {
@@ -81,13 +89,19 @@ cmp.setup {
       --   }),
     },
    sources = {
-      { name = "nvim_lsp" },
+      { name = 'calc' },
+      { name = "ultisnips" },
+      { name = "nvim_lsp", max_item_count = 10 },
       { name = "luasnip" },
-      { name = "buffer" },
       { name = "nvim_lua" },
       { name = "path" },
-      { name = "ultisnips" },
+      { name = "buffer", keyword_length = 4 },
+      { name = "latex_symbols", max_item_count = 5},
    },
+   experimental = {
+       native_menu = false,
+       ghost_text = true,
+   }
 }
 
 -- Database completion

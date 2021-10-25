@@ -50,12 +50,6 @@ return require('packer').startup(function(use)
 
     -- alternative colors
     use {
-        'sainnhe/everforest',
-        disable = true
-    }
-
-    -- alternative colors
-    use {
         'RRethy/nvim-base16',
         disable = true,
     }
@@ -133,12 +127,21 @@ return require('packer').startup(function(use)
     use {
         'vim-pandoc/vim-pandoc',
         ft = {"markdown", "pandoc"},
+        disable = false
     }
     -- mardown highlight
    use {
         'vim-pandoc/vim-pandoc-syntax',
         requires = { 'vim-pandoc/vim-pandoc' },
-        ft = {"markdown", "pandoc"}
+        ft = {"markdown", "pandoc"},
+        disable = false
+    }
+
+    -- easy table vim
+    use {
+        'dhruvasagar/vim-table-mode',
+        cmd = "TableModeEnable",
+        ft = {"markdown", "pandoc"},
     }
 
     -- preview colors
@@ -151,8 +154,9 @@ return require('packer').startup(function(use)
     -- latex preview
     use {
         'lervag/vimtex',
+        disable = false,
         ft = 'tex',
-        -- config = function () require('plugins.misc').vimtex() end
+        config = function () require('plugins.misc').vimtex() end,
     }
 
     -- tabline
@@ -199,7 +203,6 @@ return require('packer').startup(function(use)
     use {
         'dkarter/bullets.vim',
         ft = {"markdown", "pandoc"},
-        -- event = "InsertEnter",
     }
 
     -- easy comment
@@ -230,6 +233,13 @@ return require('packer').startup(function(use)
         'gcmt/wildfire.vim',
         event = "BufRead",
     }
+
+    -- easier alignment
+    use {
+        'junegunn/vim-easy-align',
+        cmd = 'EasyAlign'
+    }
+
 -- ------------------------------ Lsp configs ------------------------------------
     -- lsp config
     use {
@@ -267,7 +277,6 @@ return require('packer').startup(function(use)
         --             'hrsh7th/cmp-calc',
         --             'kristijanhusak/vim-dadbod-completion',},
         config = function() require('plugins.cmp') end,
-        event = "InsertEnter",
     }
 
     -- snips
@@ -285,7 +294,7 @@ return require('packer').startup(function(use)
             vim.g.UltiSnipsRemoveSelectModeMappings = 0
         end,
         -- wants = "friendly-snippets",
-        ft = {'tex', 'java', 'pandoc', 'markdown'},
+        ft = {'tex', 'java', 'pandoc', 'markdown', 'snippets'},
         -- event = "InsertEnter",
     }
 
@@ -338,12 +347,20 @@ return require('packer').startup(function(use)
         after = "nvim-cmp",
     }
 
+    use{
+        "kdheepak/cmp-latex-symbols",
+        sources = {
+            { name = "latex_symbols" },
+        },
+        ft = 'tex',
+}
+
     -- pretty rename and other lsp functions
     -- TODO: may get define own function to replace this
     use {
         'glepnir/lspsaga.nvim',
         config = function() require('plugins.lspsaga') end,
-        after = "nvim-lspconfig",
+        after = "nvim-cmp",
     }
 
     -- good code action menu

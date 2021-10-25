@@ -45,3 +45,6 @@ set render-loading-bg           "#f8f8f2" # Foreground
 set recolor-lightcolor          "#2e3440" # Background
 set recolor-darkcolor           "#f8f8f2" # Foreground
 set recolor true
+
+set window-height 1250
+set window-width 1020

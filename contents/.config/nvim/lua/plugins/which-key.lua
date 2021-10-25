@@ -59,7 +59,7 @@ key.setup {
 
 -- ---------------------------- Telescope window ---------------------------------
 local conf = " cwd=~/dotfiles/contents/.config/"
-local setting = " previewer=false layout_config={width=0.5} prompt_title=false results_title=false prompt_prefix=|"
+local setting = " previewer=false prompt_title=false results_title=false prompt_prefix=|"
 local config = "<cmd>Telescope find_files" .. conf .. setting .. " <cr>"
 
 key.register({
