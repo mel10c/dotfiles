@@ -1,8 +1,8 @@
 -- ---------------------------- Buffer Line Config -------------------------------
 -- ===============================================================================
 
-local nord_colors = {
-  --bg = "NONE",
+-- colors
+  local nord_colors = {
   bg = "#2E3440",
   fg = "#81A1C1",
   line_bg = "NONE",
@@ -68,11 +68,9 @@ bufferline.setup {
    },
    highlights = {
       fill = {
-        -- guifg = {attribute='fg',highlight='TabLine'},
         guibg = nord_colors.bg
         },
       background = {
-        -- guifg = {attribute='fg',highlight='TabLine'},
         guibg = nord_colors.bg
         },
 
@@ -124,15 +122,15 @@ bufferline.setup {
       pick_selected = {
         guifg = nord_colors.red,
         guibg = nord_colors.darkblue,
-        gui = "bold,italic"
+        gui = "bold"
       },
       pick_visible = {
-        guifg = nord_colors.purple,
+        guifg = nord_colors.red,
         guibg = nord_colors.bg,
         gui = "bold,italic"
       },
       pick = {
-        guifg = nord_colors.purple,
+        guifg = nord_colors.red,
         guibg = nord_colors.bg,
         gui = "bold,italic"
       }
