@@ -7,11 +7,20 @@ if not present then
 end
 
 key.setup {
-    marks = true,
-    registers = true,
+    marks = false,
+    registers = false,
     spelling = {
         enabled = false,
         suggestions = 20,
+    },
+    presets = {
+        operators = false, -- adds help for operators like d, y, ... and registers them for motion / text object completion
+        motions = false, -- adds help for motions
+        text_objects = false, -- help for text objects triggered after entering an operator
+        windows = false, -- default bindings on <c-w>
+        nav = false, -- misc bindings to work with windows
+        z = false, -- bindings for folds, spelling and others prefixed with z
+        g = false, -- bindings for prefixed with g
     },
     key_labels = {},
     icons = {
@@ -34,7 +43,8 @@ key.setup {
     ignore_missing = false,
     hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ ", "<C-W>"}, -- hide mapping boilerplate
     show_help = false,
-    triggers = {"<leader>"},
+    triggers = "auto",
+    -- triggers = {"<leader>"},
     triggers_blacklist = {
         i = { "j", "k" },
         v = { "j", "k" },
@@ -43,10 +53,12 @@ key.setup {
 
 
 -- ---------------------------- Telescope window ---------------------------------
+-- shortcuts
 local conf = " cwd=~/dotfiles/contents/.config/"
 local setting = " previewer=false prompt_title=false results_title=false prompt_prefix=~|"
 local config = "<cmd>Telescope find_files" .. conf .. setting .. " <cr>"
 
+-- telescope
 key.register({
     f = {
         name = "telescope",
@@ -70,10 +82,39 @@ key.register({
     },
 }, { prefix = "<leader>" })
 
+-- lsp mappings
+key.register({
+    g = {
+        name = "lsp",
+        a = { "<cmd>CodeActionMenu<CR>",                             'code action'},
+        d = { "<cmd>lua vim.lsp.buf.definition()<CR>",               'definition'},
+        D = { "<cmd>lua vim.lsp.buf.declaration()<CR>",              'declaration'},
+        e = { "<cmd>Lspsaga show_line_diagnostics<cr>",              'line diagn'},
+        h = { "<cmd>lua require'lspsaga.provider'.lsp_finder()<cr>", 'lsp finder'},
+        i = { "<cmd>lua vim.lsp.buf.implementation()<CR>",           'implementation'},
+        k = { "<cmd>lua vim.lsp.buf.hover()<CR>",                    'hover doc'},
+        n = { "<cmd>Lspsaga rename<cr>",                             'rename'},
+        r = { "<cmd>lua vim.lsp.buf.references()<CR>",               'reference'},
+        s = { "<cmd>lua vim.lsp.buf.signature_help()<CR>",           'signature help'},
+        t = { "<cmd>lua vim.lsp.buf.type_definition()<CR>",          'type definition'},
+    },
+},{ prefix = "<leader>" }
+)
+
 key.register({ s = {
     name = "session",
     s = { "<cmd><C-u>SessionSave<CR>"               , "save session"},
     l = { "<cmd><C-u>SessionLoad<CR>"               , "load session"},
 },
 }, { prefix = "<leader>" })
+
+-- ignore keys
+key.register({
+    ["<space>j"] = "which_key_ignore",
+    ["<space>k"] = "which_key_ignore",
+    ["<space>l"] = "which_key_ignore",
+    ["<space>h"] = "which_key_ignore",
+    ["<space>q"] = "which_key_ignore",
+    ["<space>w"] = "which_key_ignore",
+})
 

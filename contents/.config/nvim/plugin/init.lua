@@ -29,6 +29,7 @@ return require('packer').startup(function(use)
         "folke/which-key.nvim",
         config = function() require('plugins.which-key') end,
         event = "BufWinEnter",
+        disable = false,
     }
 
     -- better code color
@@ -81,7 +82,6 @@ return require('packer').startup(function(use)
         "glepnir/dashboard-nvim",
         config = function() require('plugins.dashboard') end,
         disable = false,
-        -- event = "BufWinEnter",
         event = "BufEnter",
     }
 
@@ -113,12 +113,9 @@ return require('packer').startup(function(use)
                 run = "make",
             },
             {
-                -- pictures (?)
-                "nvim-telescope/telescope-media-files.nvim",
-            },
-            {
                 -- view ultisnips
                 "fhill2/telescope-ultisnips.nvim",
+                disable = false,
             }
         },
         config = function() require('plugins.telescope') end,
@@ -226,7 +223,7 @@ return require('packer').startup(function(use)
     use {
         'gcmt/wildfire.vim',
         event = "BufRead",
-        disable=true,
+        disable = true,
     }
 
     -- easier alignment
@@ -272,7 +269,6 @@ return require('packer').startup(function(use)
         --             'hrsh7th/cmp-calc',
         --             'kristijanhusak/vim-dadbod-completion',},
         config = function() require('plugins.cmp') end,
-        event = "InsertEnter",
     }
 
     -- snips
@@ -341,14 +337,6 @@ return require('packer').startup(function(use)
     use {
         'kristijanhusak/vim-dadbod-completion',
         after = "nvim-cmp",
-    }
-
-    use{
-        "kdheepak/cmp-latex-symbols",
-        sources = {
-            { name = "latex_symbols" },
-        },
-        ft = 'tex',
     }
 
     -- pretty rename and other lsp functions

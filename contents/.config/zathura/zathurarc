@@ -1,4 +1,4 @@
-set adjust-window width
+# set adjust-window width
 set adjust-open width
 
 # Dracula color theme

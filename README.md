@@ -15,7 +15,7 @@
 
 ## Detail
 
-- **System** - Manjaro i3 edition
+- **System** - MacOs + Manjaro i3 edition
 - **Window System** - xorg
 - **Window manager** - i3
 - **Keyboard Hardware Remap** - karabiner,
