@@ -20,7 +20,7 @@ telescope.setup {
             "--column",
             "--smart-case",
         },
-        prompt_prefix = "  | ",
+        prompt_prefix = "   ",
         results_title = false,
         preview_title = false,
         selection_caret = " ",
