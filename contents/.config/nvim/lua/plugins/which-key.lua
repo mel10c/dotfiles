@@ -74,7 +74,7 @@ key.register({
         z = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", 'buffer find'},
         o = { "<cmd>Telescope oldfiles<cr>",                  'recents'},
         -- r = {':Telescope coc references theme=ivy',        'coc references'],
-        r = { "<cmd>Telescope lsp_references<cr>",            'ultisnips'},
+        r = { "<cmd>Telescope lsp_references<cr>",            'reference'},
         t = { "<cmd>Telescope treesitter theme=ivy<cr>",      'treesitter'},
         w = { "<cmd>Telescope live_grep<cr>",                 'search word'},
         s = { "<cmd>Telescope ultisnips<cr>",                 'ultisnips'},
@@ -98,7 +98,8 @@ key.register({
         s = { "<cmd>lua vim.lsp.buf.signature_help()<CR>",           'signature help'},
         t = { "<cmd>lua vim.lsp.buf.type_definition()<CR>",          'type definition'},
     },
-},{ prefix = "<leader>" }
+}
+-- ,{ prefix = "<leader>" }
 )
 
 key.register({ s = {

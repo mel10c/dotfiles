@@ -9,14 +9,14 @@ end
 local theme = require('nightfox')
 
 theme.setup({
-    fox = "nordfox",
-    transparent = true,
+    -- fox = "nightfox",
+    transparent = false,
     terminal_colors = true, -- Configure the colors used when opening :terminal
-    styles = {
-        --comments = "italic",
-        functions = "italic",
-        keywords = "bold",
-        --strings = "NONE",
-        variables = "italic",
-    },
+    -- styles = {
+    --     --comments = "italic",
+    --     functions = "italic",
+    --     keywords = "bold",
+    --     --strings = "NONE",
+    --     variables = "italic",
+    -- },
 })

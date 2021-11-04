@@ -48,27 +48,19 @@ $0
 endsnippet
 
 snippet ;1 "h1" iA
-# $1
-
-$0
+# 
 endsnippet
 
 snippet ;2 "h2" iA
-## $1
-
-$0
+## 
 endsnippet
 
 snippet ;3 "h3" iA
-### $1
-
-$0
+### 
 endsnippet
 
 snippet ;4 "h4" iA
-#### $1
-
-$0
+#### 
 endsnippet
 
 snippet pic "picture" b
@@ -143,16 +135,16 @@ endsnippet
 
 # =============================== Shortcuts ==================================
 
-snippet brs "left( \right)" i
-\left( $0 \right)<++>
+snippet brs "left( \right)" iA
+\left( $0 \right)
 endsnippet
 
-snippet brm "left[ \right]" i
-\left[ $0 \right]<++>
+snippet brm "left[ \right]" iA
+\left[ $0 \right]
 endsnippet
 
-snippet brl "left{ \right}" i
-\left{ $0 \right}<++>
+snippet brl "left{ \right}" iA
+\left{ $0 \right}
 endsnippet
 
 snippet brll "curly brackt" iA
@@ -166,10 +158,6 @@ endsnippet
 priority 100
 snippet ... "ldots" i
 \ldots
-endsnippet
-
-snippet vvs "space" iA
-\vspace{10px}
 endsnippet
 
 snippet mk "Math" wA
@@ -217,31 +205,35 @@ snippet ttt "code" iA
 endsnippet
 
 snippet sin\ "sin" iA
-\sin 
+\sin
 endsnippet
 
 snippet cos\ "cos" iA
-\cos 
+\cos
 endsnippet
 
 snippet tan\ "tan" iA
-\tan 
+\tan
 endsnippet
 
-snippet theta\ "theta" iA
-\theta 
+snippet the\ "theta" iA
+\theta
 endsnippet
 
 snippet Omega\ "Omega" iA
-\Omega 
+\Omega
 endsnippet
 
 snippet mu\ "mu" iA
-\mu 
+\mu
 endsnippet
 
 snippet pi\ "pi" iA
-\pi 
+\pi
+endsnippet
+
+snippet lam\ "lambda" iA
+\lambad
 endsnippet
 # ================================= Math =====================================
 
@@ -313,8 +305,8 @@ snippet taylor "taylor" w
 \sum_{${1:k}=${2:0}}^{${3:\infty}} ${4:c_$1} (x-a)^$1 $0
 endsnippet
 
-snippet sqr "\sqrt{}" iA
-\sqrt{${1:${VISUAL}}} 
+snippet sqq "\sqrt{}" iA
+\sqrt{${1:${VISUAL}}}
 endsnippet
 
 snippet td "to the ... power" iA
@@ -350,7 +342,7 @@ snippet *** "cdot" iA
 endsnippet
 
 snippet norm "norm" i
-\| $1 \|<++>
+\| $1 \|
 endsnippet
 
 snippet dx "d/dx" w
@@ -359,4 +351,8 @@ endsnippet
 
 snippet lim "limit" w
 \lim_{${1:n} \to ${2:\infty}} 
+endsnippet
+
+snippet intS "intergral" w
+\int${1:_{$2}^{$3}} \,$0
 endsnippet

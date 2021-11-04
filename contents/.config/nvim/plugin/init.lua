@@ -41,18 +41,18 @@ return require('packer').startup(function(use)
         event = "BufRead",
     }
 
+    -- faster start up time
+    use({
+        'lewis6991/impatient.nvim',
+        config = function() require('impatient') end,
+    })
+
 -- ------------------------------- Appearance ------------------------------------
     -- Good COLOR SCHEME!
     use {
         "EdenEast/nightfox.nvim",
         disable = false,
         config = function() require('plugins.nightfox') end,
-    }
-
-    -- alternative colors
-    use {
-        'RRethy/nvim-base16',
-        disable = true,
     }
 
     -- nerd icons
@@ -115,7 +115,6 @@ return require('packer').startup(function(use)
             {
                 -- view ultisnips
                 "fhill2/telescope-ultisnips.nvim",
-                disable = false,
             }
         },
         config = function() require('plugins.telescope') end,
@@ -133,6 +132,13 @@ return require('packer').startup(function(use)
     use {
         'simrat39/symbols-outline.nvim',
         cmd = "SymbolsOutline",
+    }
+
+    -- preview colors
+    use {
+        "norcalli/nvim-colorizer.lua",
+        config = function() require('plugins.misc').colorizer() end,
+        cmd = "ColorizerToggle",
     }
 
     -- markdown requirement + highlight
@@ -153,13 +159,6 @@ return require('packer').startup(function(use)
         'dhruvasagar/vim-table-mode',
         ft = {"markdown", "pandoc"},
         cmd = "TableModeEnable",
-    }
-
-    -- preview colors
-    use {
-        "norcalli/nvim-colorizer.lua",
-        config = function() require('plugins.misc').colorizer() end,
-        cmd = "ColorizerToggle",
     }
 
     -- latex preview
@@ -204,10 +203,11 @@ return require('packer').startup(function(use)
     }
 
     -- terminal
-    -- use {
-    --     "akinsho/toggleterm.nvim",
-    --     cmd = "ToggleTerm"
-    -- }
+    use {
+        "akinsho/toggleterm.nvim",
+        cmd = "ToggleTerm",
+        disable = true
+    }
 
     -- match under cursor
     use {
@@ -217,13 +217,6 @@ return require('packer').startup(function(use)
         end,
         -- event = "BufRead",
         event = "BufEnter",
-    }
-
-    -- easy selection
-    use {
-        'gcmt/wildfire.vim',
-        event = "BufRead",
-        disable = true,
     }
 
     -- easier alignment
@@ -254,20 +247,9 @@ return require('packer').startup(function(use)
         after = "nvim-lspconfig",
     }
 
-    -- preset sinppeets
-    -- use {
-    --     "rafamadriz/friendly-snippets",
-    --     event = "InsertEnter",
-    -- }
-
     -- completion engine
     use {
         "hrsh7th/nvim-cmp",
-        -- module = "cmp",
-        -- requires = {'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-nvim-lua',
-        --             'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path',
-        --             'hrsh7th/cmp-calc',
-        --             'kristijanhusak/vim-dadbod-completion',},
         config = function() require('plugins.cmp') end,
     }
 
@@ -291,9 +273,7 @@ return require('packer').startup(function(use)
         config = function ()
             vim.g.UltiSnipsRemoveSelectModeMappings = 0
         end,
-        -- wants = "friendly-snippets",
-        ft = {'tex', 'java', 'pandoc', 'markdown', 'snippets'},
-        -- event = "InsertEnter",
+        ft = {'tex', 'java', 'pandoc', 'markdown', 'snippets', 'lua'},
     }
 
     -- completion for snippets
@@ -305,46 +285,47 @@ return require('packer').startup(function(use)
     -- soruce for build-in lsp clients
     use {
         "hrsh7th/cmp-nvim-lsp",
-        -- disable = not status.cmp,
-        -- after = "nvim-lspinstall",
     }
 
     -- source for lua api
     use {
         "hrsh7th/cmp-nvim-lua",
-        -- ft = "lua",
+        ft = "lua",
         after = "nvim-cmp",
     }
 
     -- source for buffer words
     use {
         "hrsh7th/cmp-buffer",
+        event = "InsertEnter",
         after = "nvim-cmp",
     }
 
     -- source for path
     use {
         "hrsh7th/cmp-path",
-        after = "nvim-cmp",
+        after = "cmp-buffer",
     }
     -- complete calculation
     use {
         "hrsh7th/cmp-calc",
-        after = "nvim-cmp",
+        after = "cmp-buffer",
     }
 
     -- dot completion
     use {
         'kristijanhusak/vim-dadbod-completion',
-        after = "nvim-cmp",
+        after = "cmp-buffer",
+        disable = true,
     }
 
     -- pretty rename and other lsp functions
-    -- TODO: may get define own function to replace this
     use {
         'glepnir/lspsaga.nvim',
         config = function() require('plugins.lspsaga') end,
+        cmd = "Lspsaga",
         after = "nvim-cmp",
+        disable = false,
     }
 
     -- good code action menu
@@ -360,9 +341,5 @@ return require('packer').startup(function(use)
         config = function() require('plugins.misc').trouble() end,
         cmd = "TroubleToggle"
     }
-
-    -- use {
-        --     'mfussenegger/nvim-jdtls',
-        -- }
 
 end)
