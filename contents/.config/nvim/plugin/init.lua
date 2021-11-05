@@ -1,4 +1,4 @@
--- ===============================================================================pc:me
+-- ===============================================================================
 -- ================================= PLUGINS =====================================
 -- ===============================================================================
 require("plugins.misc").packer()
@@ -10,9 +10,8 @@ local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
     packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
 end
+
 return require('packer').startup(function(use)
-
-
 -- --------------------------- Basic System Plugs---------------------------------
     -- lua plugin
     use {
@@ -24,13 +23,11 @@ return require('packer').startup(function(use)
         'wbthomason/packer.nvim',
     }
 
-    -- key map reminder
-    use {
-        "folke/which-key.nvim",
-        config = function() require('plugins.which-key') end,
-        event = "BufWinEnter",
-        disable = false,
-    }
+    -- faster start up time
+    use({
+        'lewis6991/impatient.nvim',
+        config = function() require('impatient') end,
+    })
 
     -- better code color
     use {
@@ -41,13 +38,15 @@ return require('packer').startup(function(use)
         event = "BufRead",
     }
 
-    -- faster start up time
-    use({
-        'lewis6991/impatient.nvim',
-        config = function() require('impatient') end,
-    })
-
 -- ------------------------------- Appearance ------------------------------------
+    -- key map reminder
+    use {
+        "folke/which-key.nvim",
+        config = function() require('plugins.which-key') end,
+        event = "BufWinEnter",
+        disable = false,
+    }
+
     -- Good COLOR SCHEME!
     use {
         "EdenEast/nightfox.nvim",

@@ -10,7 +10,6 @@ local cmd = vim.cmd
 cmd "colorscheme nordfox"
 -- ------------------------------ Interface Settings -----------------------------
 opt.syntax = 'on'
-opt.syntax = "on"
 opt.mouse = 'a'
 opt.number = true
 opt.relativenumber = true

@@ -15,11 +15,12 @@
 
 ## Detail
 
+The configuration for `Nvim` is here: [CONFIG](https://github.com/mel10c/dotfiles/NVIM.md)
+
 - **System** - MacOs + Manjaro i3 edition
 - **Window System** - xorg
 - **Window manager** - i3
 - **Keyboard Hardware Remap** - karabiner,
-- **Editor** - nvim5.0
 - **Dock** - polybar
 - **Application launcher** - rofi (also with Quicklinks and power menu)
 - **PDF viewer** - zathur

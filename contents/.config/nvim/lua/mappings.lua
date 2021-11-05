@@ -15,18 +15,8 @@ local g = vim.g
 g.mapleader = " "
 g.UltiSnipsJumpForwardTrigger="<c-f>"
 g.UltiSnipsJumpBackwardTrigger="<c-b>"
--- g.UltiSnipsExpandTrigger="<Enter>"
--- g.UltiSnipsSnippetDirectories=["UltiSnips"]
 
 -- ------------------------------ Navigation -------------------------------------
-map('v', 'y', "y`]")
-map('n', 'Y', 'y$')
-map('v', 'Y', '"+y')
-map('v', 'p', '"_dP')
-map('n', '<leader>d', '"_d')
-map('v', '<leader>d', '"_d')
-map('n', ',p', '"_diwP')
-map('n', '<leader>p', '"0p')
 map('n', '<C-j>', ':m .+1<cr>==')
 map('i', '<C-j>', '<esc>:m .+1<cr>==')
 map('n', '<C-k>', ':m .-2<cr>==')
@@ -61,8 +51,14 @@ map("n", "<left>", "<cmd>vertical resize-5<cr>")
 map("n", "<right>", "<cmd>vertical resize+5<cr>")
 
 -- -------------------------------- Edititng -------------------------------------
-map('n', '<leader>q', ':q<cr>')
-map('n', '<leader>w', ':w<cr>')
+map('v', 'y', "y`]")
+map('n', 'Y', 'y$')
+map('v', 'Y', '"+y')
+map('v', 'p', '"_dP')
+map('n', ',p', '"_diwP')
+map('n', '<leader>p', '"0p')
+map('n', '<leader>d', '"_d')
+map('v', '<leader>d', '"_d')
 map('i', ',f', '<Esc>/<++><CR>:nohlsearch<CR>c4l')
 map('n', ';;', '%')
 map('i', ',', ',<C-g>u')
@@ -70,6 +66,8 @@ map('i', '.', '.<C-g>u')
 map('i', '$', '$<C-g>u')
 map('i', '{', '{<C-g>u')
 map('i', '}', '}<C-g>u')
+map('n', '<leader>q', ':q<cr>')
+map('n', '<leader>w', ':w<cr>')
 map('i', '<C-l>', '<c-g>u<Esc>[s1z=`]a<c-g>u')
 
 -- ------------------------ Insert Mode Emacs-style mapping ----------------------

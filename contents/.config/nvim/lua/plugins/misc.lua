@@ -81,7 +81,7 @@ M.autopairs = function()
         -- }
     end
 
-    -- --------------------------- LSP Signature Setup -------------------------------
+-- --------------------------- LSP Signature Setup -------------------------------
     M.signature = function()
         local present, lspsignature = pcall(require, "lsp_signature")
         if present then
@@ -105,7 +105,7 @@ M.autopairs = function()
         end
     end
 
-    -- -------------------------- LuaSnip Setup (unused) -----------------------------
+-- -------------------------- LuaSnip Setup (unused) -----------------------------
     M.luasnip = function()
         local present, luasnip = pcall(require, "luasnip")
         if not present then
@@ -120,7 +120,7 @@ M.autopairs = function()
         require("luasnip/loaders/from_vscode").load { path = { {} } }
     end
 
-    -- ------------------------------- Packer Setup ----------------------------------
+-- ------------------------------- Packer Setup ----------------------------------
     M.packer = function()
         local present, packer = pcall(require, "packer")
         if not present then
@@ -144,7 +144,7 @@ M.autopairs = function()
 
     end
 
-    -- ------------------------------- Lspsaga Setup ---------------------------------
+-- ------------------------------- Lspsaga Setup ---------------------------------
     M.saga = function()
         local present, saga  = pcall(require, "lspsaga")
         if present then
