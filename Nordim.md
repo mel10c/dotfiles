@@ -4,11 +4,13 @@
 
 A fast, clean, and figure full nvim configuration with nord colorscheme, written in lua
 
+Code Location: https://github.com/mel10c/dotfiles/tree/master/macOS/.config/nvim
+
 ![showcase]()
 
 <details>
 <summary>More showcase pictures</summary>
-![...]()
+![showcase_1]()
 </details>
 
 ## Folder structure
