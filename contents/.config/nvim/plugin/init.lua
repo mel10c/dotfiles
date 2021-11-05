@@ -85,6 +85,16 @@ return require('packer').startup(function(use)
         event = "BufEnter",
     }
 
+    use {
+        'goolord/alpha-nvim',
+        requires = { 'kyazdani42/nvim-web-devicons' },
+        config = function ()
+            -- require'alpha'.setup(require'alpha.themes.startify'.opts)
+            require('plugins.alpha')
+        end,
+        disable = true
+    }
+
     -- git stuff
     use {
         "lewis6991/gitsigns.nvim",

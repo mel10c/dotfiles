@@ -21,10 +21,8 @@ telescope.setup {
             "--smart-case",
         },
         prompt_prefix = "   ",
-        results_title = false,
-        preview_title = false,
         selection_caret = " ",
-        entry_prefix = "  ",
+        -- entry_prefix = "  ",
         initial_mode = "insert",
         selection_strategy = "reset",
         sorting_strategy = "ascending",
@@ -34,7 +32,6 @@ telescope.setup {
                 prompt_position = "top",
                 preview_width = 0.55,
                 results_width = 0.8,
-                -- results_height=20,
             },
             vertical = {
                 mirror = false,
@@ -46,13 +43,20 @@ telescope.setup {
         file_sorter = require("telescope.sorters").get_fuzzy_file,
         file_ignore_patterns = { "node_modules" },
         generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
-        path_display = { "absolute" },
+        path_display = { "smart" },
         winblend = 0,
-        border = {},
-        borderchars = { '─', '│', '─', '│', '┌', '┐', '┘', '└'},
+        -- borderchars = { '─', '│', '─', '│', '┌', '┐', '┘', '└'},
+        borderchars = {
+            { '─', '│', '─', '│', '┌', '┐', '┘', '└'},
+            prompt = {"─", "│", " ", "│", '┌', '┐', "│", "│"},
+            results = {"─", "│", "─", "│", "├", "┤", "┘", "└"},
+            preview = { '─', '│', '─', '│', '┌', '┐', '┘', '└'},
+        },
+        prompt_title = false,
+        results_title = false,
+        preview_title = false,
         -- previewer = false,
         color_devicons = true,
-        use_less = true,
         set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
         file_previewer = require("telescope.previewers").vim_buffer_cat.new,
         grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
@@ -64,20 +68,44 @@ telescope.setup {
         current_buffer_fuzzy_find = {
             previewer = false,
             layout_strategy = "horizontal",
-            --theme = "dropdown",
+            prompt_prefix = "   ",
+            prompt_title = false,
+            results_title = false,
+            preview_title = false,
+            borderchars = {
+                { '─', '│', '─', '│', '┌', '┐', '┘', '└'},
+                prompt = {"─", "│", " ", "│", '┌', '┐', "│", "│"},
+                results = {"─", "│", "─", "│", "├", "┤", "┘", "└"},
+                preview = { '─', '│', '─', '│', '┌', '┐', '┘', '└'},
+        },
         },
         treesitter = {
             theme = "ivy",
+            prompt_prefix = "   ",
+            prompt_title = false,
+            results_title = false,
+            preview_title = false,
+            borderchars = {
+                { '─', '│', '─', '│', '┌', '┐', '┘', '└'},
+                preview = { '─', '│', '─', '│', '┌', '┐', '┘', '└'},
+            }
         },
         oldfiles = {
-            layout_config = {
-                horizontal = {
-                    prompt_position = "top",
-                    preview_width = 0.4,
-                    results_width = 0.8,
-                    -- results_height=20,
-                },
-            }
+            prompt_prefix = " 羽  ",
+            prompt_title = false,
+            results_title = false,
+            preview_title = false,
+            borderchars = {
+                { '─', '│', '─', '│', '┌', '┐', '┘', '└'},
+                prompt = {"─", "│", " ", "│", '┌', '┐', "│", "│"},
+                results = {"─", "│", "─", "│", "├", "┤", "┘", "└"},
+                preview = { '─', '│', '─', '│', '┌', '┐', '┘', '└'},
+        },
+        },
+        find_files = {
+            prompt_title = false,
+            results_title = false,
+            preview_title = false,
         }
     },
     extensions = {

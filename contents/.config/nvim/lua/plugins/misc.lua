@@ -23,6 +23,7 @@ M.indent = function()
             "help",
             "terminal",
             "dashboard",
+            "alpha",
             "packer",
             "lspinfo",
             "TelescopePrompt",
