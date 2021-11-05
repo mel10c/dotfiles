@@ -1,0 +1,122 @@
+font:
+  normal:
+    family: FiraCode Nerd Font
+    style: Regular
+
+  bold:
+    family: FiraCode Nerd Font
+    style: Bold
+
+  italic:
+    family: FiraCode Nerd Font
+    style: Italic
+
+  bold_italic:
+    family: FiraCode Nerd Font
+    style: Bold Italic
+
+  size: 16
+
+###################### (Nord)
+
+# colors:
+#    # Default colors
+#    primary:
+#      background: '#2E3440'
+#      foreground: '#D8DEE9'
+#
+#    # Normal colors
+#    normal:
+#      black:   '#3B4252'
+#      red:     '#BF616A'
+#      green:   '#A3BE8C'
+#      yellow:  '#EBCB8B'
+#      blue:    '#81A1C1'
+#      magenta: '#B48EAD'
+#      cyan:    '#88C0D0'
+#      white:   '#E5E9F0'
+#
+#    # Bright colors
+#    bright:
+#      black:   '#4C566A'
+#      red:     '#BF616A'
+#      green:   '#A3BE8C'
+#      yellow:  '#EBCB8B'
+#      blue:    '#81A1C1'
+#      magenta: '#B48EAD'
+#      cyan:    '#8FBCBB'
+#      white:   '#ECEFF4'
+
+
+###################### (NordFox)
+
+colors:
+      # Default colors
+  primary:
+    background: '#2e3440'
+    foreground: '#b9bfca'
+      # Normal colors
+  normal:
+    black:   '#3b4252'
+    red:     '#bf616a'
+    green:   '#a3be8c'
+    yellow:  '#ebcb8b'
+    blue:    '#81a1c1'
+    magenta: '#b48ead'
+    cyan:    '#88c0d0'
+    white:   '#e5e9f0'
+    # Bright colors
+  bright:
+    black:   '#465780'
+    red:     '#d06f79'
+    green:   '#b1d196'
+    yellow:  '#f0d399'
+    blue:    '#8cafd2'
+    magenta: '#c895bf'
+    # cyan:    '#93ccdc'
+    cyan:    '#8FBCBB'
+    white:   '#e7ecf4'
+  indexed_colors:
+    - { index: 16, color: '#c9826b' }
+    - { index: 17, color: '#bf88bc' }
+
+###################### (NightFox)
+
+# colors:
+#   # Default colors
+#   primary:
+#     background: '#192330'
+#     foreground: '#cdcecf'
+#   # Normal colors
+#   normal:
+#     black:   '#393b44'
+#     red:     '#c94f6d'
+#     green:   '#81b29a'
+#     yellow:  '#dbc074'
+#     blue:    '#719cd6'
+#     magenta: '#9d79d6'
+#     cyan:    '#63cdcf'
+#     white:   '#dfdfe0'
+#   # Bright colors
+#   bright:
+#     black:   '#475072'
+#     red:     '#d6616b'
+#     green:   '#58cd8b'
+#     yellow:  '#ffe37e'
+#     blue:    '#84cee4'
+#     magenta: '#b8a1e3'
+#     cyan:    '#59f0ff'
+#     white:   '#f2f2f2'
+#   indexed_colors:
+#     - { index: 16, color: '#f4a261' }
+#     - { index: 17, color: '#d67ad2' }
+
+window:
+  dimensions:
+     columns: 140
+     lines: 50
+  padding:
+   x: 10
+   y: 10
+  dynamic_padding: false
+  decorations: buttonless
