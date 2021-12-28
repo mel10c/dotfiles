@@ -15,7 +15,7 @@
 
 ## Detail
 
-The configuration for `Nvim` is here: [CONFIG](https://github.com/mel10c/dotfiles/NVIM.md)
+The configuration for `Nvim` is here: [CONFIG](https://github.com/mel10c/nvim)
 
 - **System** - MacOs + Manjaro i3 edition
 - **Window System** - xorg
