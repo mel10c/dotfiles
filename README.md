@@ -3,7 +3,7 @@
 ## Show case
 ![1-java](https://tva1.sinaimg.cn/large/008i3skNgy1gv1s3627cbj61c00u00z802.jpg)
 
- ![1-java](https://tva1.sinaimg.cn/large/008i3skNgy1gv5apzwetkj61c00u0gqk02.jpg)
+![1-java](https://tva1.sinaimg.cn/large/008i3skNgy1gv5apzwetkj61c00u0gqk02.jpg)
 
 ![3-showcase](https://tva1.sinaimg.cn/large/008i3skNgy1gv1s3dd8qhj61c00u0n2802.jpg)
 
@@ -15,7 +15,7 @@
 
 ## Detail
 
-The configuration for `Nvim` is here: [CONFIG](https://github.com/mel10c/dotfiles/NVIM.md)
+The configuration for `Nvim` is here: [CONFIG](https://github.com/mel10c/Nordim)
 
 - **System** - MacOs + Manjaro i3 edition
 - **Window System** - xorg

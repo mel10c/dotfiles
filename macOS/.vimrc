@@ -408,7 +408,7 @@ let g:startify_files_number           = 10
 let g:startify_session_persistence    = 1
 let g:startify_padding_left = 20
 map gs :Startify<CR>
-map gv :e ~/dotfiles/contents/.vimrc<CR>
+map gv :e ~/dotfiles/macOS/.vimrc<CR>
 
 
 " ----------------------------- preservim/nerdtree -------------------------------
@@ -488,8 +488,3 @@ inoreabbrev <expr> <bar><bar>
 inoreabbrev <expr> __
           \ <SID>isAtStartOfLine('__') ?
           \ '<c-o>:silent! TableModeDisable<cr>' : '__'
-
-" -------------------------------- Personal Snippits -----------------------------
-let g:UltiSnipsSnippetDirectories=[$HOME.'/dotfiles/contents/.config/coc/ultisnips']
-
-
